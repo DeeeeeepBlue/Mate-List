@@ -24,6 +24,9 @@
 		F731B77827D4D56A009670A4 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = F731B77727D4D56A009670A4 /* FirebaseFirestore */; };
 		F731B77B27D4D581009670A4 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = F731B77A27D4D581009670A4 /* GoogleSignIn */; };
 		F731B77E27D4D5A5009670A4 /* DropDown in Frameworks */ = {isa = PBXBuildFile; productRef = F731B77D27D4D5A5009670A4 /* DropDown */; };
+		F731B79027D4F79E009670A4 /* home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F731B78F27D4F79E009670A4 /* home.storyboard */; };
+		F731B79227D4F7A4009670A4 /* myPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F731B79127D4F7A4009670A4 /* myPage.storyboard */; };
+		F731B79427D4F7AC009670A4 /* scrap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F731B79327D4F7AC009670A4 /* scrap.storyboard */; };
 		F7379F2A27AD4EFE00D99CD4 /* FilterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7379F2927AD4EFE00D99CD4 /* FilterTableViewCell.swift */; };
 		F742168627CBF029003CCE2F /* LifePatternViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F742168527CBF029003CCE2F /* LifePatternViewController.swift */; };
 		F743792227ABDA8E0053947A /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = F743792127ABDA8E0053947A /* Data.swift */; };
@@ -55,6 +58,9 @@
 		04BB243627ACED960003DA33 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
 		A623E33527B7C40E00172F38 /* DropDownViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownViewController.swift; sourceTree = "<group>"; };
 		F72A3B0327B1437200358165 /* MyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTableViewCell.swift; sourceTree = "<group>"; };
+		F731B78F27D4F79E009670A4 /* home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = home.storyboard; sourceTree = "<group>"; };
+		F731B79127D4F7A4009670A4 /* myPage.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = myPage.storyboard; sourceTree = "<group>"; };
+		F731B79327D4F7AC009670A4 /* scrap.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = scrap.storyboard; sourceTree = "<group>"; };
 		F7379F2927AD4EFE00D99CD4 /* FilterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterTableViewCell.swift; sourceTree = "<group>"; };
 		F742168527CBF029003CCE2F /* LifePatternViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LifePatternViewController.swift; sourceTree = "<group>"; };
 		F743792127ABDA8E0053947A /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
@@ -167,6 +173,9 @@
 				F75B3B9327B16ED100368BC8 /* TableViewCell */,
 				F743792127ABDA8E0053947A /* Data.swift */,
 				F757547727A4DF1A00BFDF9B /* LaunchScreen.storyboard */,
+				F731B79327D4F7AC009670A4 /* scrap.storyboard */,
+				F731B79127D4F7A4009670A4 /* myPage.storyboard */,
+				F731B78F27D4F79E009670A4 /* home.storyboard */,
 				F7EEBACC27CF43B9009728AF /* Main.storyboard */,
 				F757547527A4DF1A00BFDF9B /* Assets.xcassets */,
 				0468B98D27CAD48500B2D31A /* GoogleService-Info.plist */,
@@ -258,11 +267,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F731B79427D4F7AC009670A4 /* scrap.storyboard in Resources */,
 				A600678027C7E4AA007C6EF1 /* (null) in Resources */,
+				F731B79027D4F79E009670A4 /* home.storyboard in Resources */,
 				F7EEBACD27CF43B9009728AF /* Main.storyboard in Resources */,
 				0468B98E27CAD48500B2D31A /* GoogleService-Info.plist in Resources */,
 				F757547927A4DF1A00BFDF9B /* LaunchScreen.storyboard in Resources */,
 				F757547627A4DF1A00BFDF9B /* Assets.xcassets in Resources */,
+				F731B79227D4F7A4009670A4 /* myPage.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
