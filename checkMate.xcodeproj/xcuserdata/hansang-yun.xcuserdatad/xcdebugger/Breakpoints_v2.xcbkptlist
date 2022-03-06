@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "8A745811-43E3-40C1-9047-03488F50B119"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "CD8685B4-9EE9-40CC-8512-445A735342BE"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "checkMate/ViewController/ContentsDetailViewController.swift"
+            startingColumnNumber = "57"
+            endingColumnNumber = "57"
+            startingLineNumber = "244"
+            endingLineNumber = "244"
+            landmarkName = "saveButton(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F47648C3-2B26-401A-AB0B-3E6145C697B9"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "checkMate/ViewController/LifePatternViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
+            landmarkName = "LifePatternViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "F47648C3-2B26-401A-AB0B-3E6145C697B9 - c26f8c323bc13920"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "checkMate.LifePatternViewController.contentsDetailData.getter : Swift.Optional&lt;checkMate.Post&gt;"
+                  moduleName = "checkMate"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hansang-yun/Desktop/checkMate/master/checkMate/ViewController/LifePatternViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "264">
+               </Location>
+               <Location
+                  uuid = "F47648C3-2B26-401A-AB0B-3E6145C697B9 - afca756caad76114"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "checkMate.LifePatternViewController.contentsDetailData.setter : Swift.Optional&lt;checkMate.Post&gt;"
+                  moduleName = "checkMate"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hansang-yun/Desktop/checkMate/master/checkMate/ViewController/LifePatternViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "284">
+               </Location>
+               <Location
+                  uuid = "F47648C3-2B26-401A-AB0B-3E6145C697B9 - 80bfb12cb49f95cb"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "checkMate.LifePatternViewController.contentsDetailData.modify : Swift.Optional&lt;checkMate.Post&gt;"
+                  moduleName = "checkMate"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hansang-yun/Desktop/checkMate/master/checkMate/ViewController/LifePatternViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "20">
+               </Location>
+               <Location
+                  uuid = "F47648C3-2B26-401A-AB0B-3E6145C697B9 - 51cb9e97f6a7cf3a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "checkMate.LifePatternViewController.contentsDetailData.modify : Swift.Optional&lt;checkMate.Post&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "checkMate"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hansang-yun/Desktop/checkMate/master/checkMate/ViewController/LifePatternViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  uuid = "F47648C3-2B26-401A-AB0B-3E6145C697B9 - e8fca67e52e04c23"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "checkMate.LifePatternViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; checkMate.LifePatternViewController"
+                  moduleName = "checkMate"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hansang-yun/Desktop/checkMate/master/checkMate/ViewController/LifePatternViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "248">
+               </Location>
+               <Location
+                  uuid = "F47648C3-2B26-401A-AB0B-3E6145C697B9 - 27d860d68d1820df"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "checkMate.LifePatternViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;checkMate.LifePatternViewController&gt;"
+                  moduleName = "checkMate"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hansang-yun/Desktop/checkMate/master/checkMate/ViewController/LifePatternViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "224">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "055D4E3F-74DA-421B-B8BF-F6400F3C6B2F"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "checkMate/ViewController/LifePatternViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "16"
+            endingLineNumber = "16"
+            landmarkName = "LifePatternViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "055D4E3F-74DA-421B-B8BF-F6400F3C6B2F - 1076218f54946ffd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "checkMate.LifePatternViewController.okButton.getter : Swift.Optional&lt;__C.UIButton&gt;"
+                  moduleName = "checkMate"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hansang-yun/Desktop/checkMate/master/checkMate/ViewController/LifePatternViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "88">
+               </Location>
+               <Location
+                  uuid = "055D4E3F-74DA-421B-B8BF-F6400F3C6B2F - f5a4a1cec2debfc9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "checkMate.LifePatternViewController.okButton.setter : Swift.Optional&lt;__C.UIButton&gt;"
+                  moduleName = "checkMate"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hansang-yun/Desktop/checkMate/master/checkMate/ViewController/LifePatternViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "108">
+               </Location>
+               <Location
+                  uuid = "055D4E3F-74DA-421B-B8BF-F6400F3C6B2F - 5071740eeaf3b1ca"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "checkMate.LifePatternViewController.okButton.modify : Swift.Optional&lt;__C.UIButton&gt;"
+                  moduleName = "checkMate"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hansang-yun/Desktop/checkMate/master/checkMate/ViewController/LifePatternViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "48">
+               </Location>
+               <Location
+                  uuid = "055D4E3F-74DA-421B-B8BF-F6400F3C6B2F - 8d9882c0b098fe45"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "checkMate.LifePatternViewController.okButton.modify : Swift.Optional&lt;__C.UIButton&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "checkMate"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hansang-yun/Desktop/checkMate/master/checkMate/ViewController/LifePatternViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "28">
+               </Location>
+               <Location
+                  uuid = "055D4E3F-74DA-421B-B8BF-F6400F3C6B2F - e8fca67e52e04cfd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "checkMate.LifePatternViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; checkMate.LifePatternViewController"
+                  moduleName = "checkMate"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hansang-yun/Desktop/checkMate/master/checkMate/ViewController/LifePatternViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "212">
+               </Location>
+               <Location
+                  uuid = "055D4E3F-74DA-421B-B8BF-F6400F3C6B2F - 27d860d68d182001"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "checkMate.LifePatternViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;checkMate.LifePatternViewController&gt;"
+                  moduleName = "checkMate"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hansang-yun/Desktop/checkMate/master/checkMate/ViewController/LifePatternViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "188">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D42F4979-5C2A-4AF9-8654-63030D51D9C6"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "checkMate/TableViewCell/ReplyTableViewCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "11"
+            endingLineNumber = "11"
+            landmarkName = "ReplyTableViewCell"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
