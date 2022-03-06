@@ -101,6 +101,7 @@ class FindMateViewController: UIViewController, UITableViewDataSource, UITableVi
         return 1
     }
     
+    
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 15 // cell.indexPath.section*(numbert)
     }
