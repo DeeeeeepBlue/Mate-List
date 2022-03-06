@@ -16,12 +16,14 @@
 		04BB243727ACED960003DA33 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BB243627ACED960003DA33 /* MyPageViewController.swift */; };
 		A600678027C7E4AA007C6EF1 /* (null) in Resources */ = {isa = PBXBuildFile; };
 		A623E33627B7C40E00172F38 /* DropDownViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A623E33527B7C40E00172F38 /* DropDownViewController.swift */; };
-		A69A0AB927D0F2DD0022CDDA /* DropDown in Frameworks */ = {isa = PBXBuildFile; productRef = A69A0AB827D0F2DD0022CDDA /* DropDown */; };
-		A69A0ABC27D0F2E70022CDDA /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = A69A0ABB27D0F2E70022CDDA /* GoogleSignIn */; };
-		A69A0ABF27D0F3160022CDDA /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = A69A0ABE27D0F3160022CDDA /* FirebaseAuth */; };
-		A69A0AC127D0F3160022CDDA /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = A69A0AC027D0F3160022CDDA /* FirebaseDatabase */; };
-		A69A0AC327D0F3160022CDDA /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = A69A0AC227D0F3160022CDDA /* FirebaseFirestore */; };
 		F72A3B0427B1437200358165 /* MyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72A3B0327B1437200358165 /* MyTableViewCell.swift */; };
+		F731B77027D4D56A009670A4 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = F731B76F27D4D56A009670A4 /* FirebaseAnalytics */; };
+		F731B77227D4D56A009670A4 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = F731B77127D4D56A009670A4 /* FirebaseAuth */; };
+		F731B77427D4D56A009670A4 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = F731B77327D4D56A009670A4 /* FirebaseCrashlytics */; };
+		F731B77627D4D56A009670A4 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = F731B77527D4D56A009670A4 /* FirebaseDatabase */; };
+		F731B77827D4D56A009670A4 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = F731B77727D4D56A009670A4 /* FirebaseFirestore */; };
+		F731B77B27D4D581009670A4 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = F731B77A27D4D581009670A4 /* GoogleSignIn */; };
+		F731B77E27D4D5A5009670A4 /* DropDown in Frameworks */ = {isa = PBXBuildFile; productRef = F731B77D27D4D5A5009670A4 /* DropDown */; };
 		F7379F2A27AD4EFE00D99CD4 /* FilterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7379F2927AD4EFE00D99CD4 /* FilterTableViewCell.swift */; };
 		F742168627CBF029003CCE2F /* LifePatternViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F742168527CBF029003CCE2F /* LifePatternViewController.swift */; };
 		F743792227ABDA8E0053947A /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = F743792127ABDA8E0053947A /* Data.swift */; };
@@ -80,11 +82,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A69A0AB927D0F2DD0022CDDA /* DropDown in Frameworks */,
-				A69A0ABF27D0F3160022CDDA /* FirebaseAuth in Frameworks */,
-				A69A0AC127D0F3160022CDDA /* FirebaseDatabase in Frameworks */,
-				A69A0AC327D0F3160022CDDA /* FirebaseFirestore in Frameworks */,
-				A69A0ABC27D0F2E70022CDDA /* GoogleSignIn in Frameworks */,
+				F731B77427D4D56A009670A4 /* FirebaseCrashlytics in Frameworks */,
+				F731B77027D4D56A009670A4 /* FirebaseAnalytics in Frameworks */,
+				F731B77627D4D56A009670A4 /* FirebaseDatabase in Frameworks */,
+				F731B77827D4D56A009670A4 /* FirebaseFirestore in Frameworks */,
+				F731B77E27D4D5A5009670A4 /* DropDown in Frameworks */,
+				F731B77227D4D56A009670A4 /* FirebaseAuth in Frameworks */,
+				F731B77B27D4D581009670A4 /* GoogleSignIn in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -199,11 +203,13 @@
 			);
 			name = checkMate;
 			packageProductDependencies = (
-				A69A0AB827D0F2DD0022CDDA /* DropDown */,
-				A69A0ABB27D0F2E70022CDDA /* GoogleSignIn */,
-				A69A0ABE27D0F3160022CDDA /* FirebaseAuth */,
-				A69A0AC027D0F3160022CDDA /* FirebaseDatabase */,
-				A69A0AC227D0F3160022CDDA /* FirebaseFirestore */,
+				F731B76F27D4D56A009670A4 /* FirebaseAnalytics */,
+				F731B77127D4D56A009670A4 /* FirebaseAuth */,
+				F731B77327D4D56A009670A4 /* FirebaseCrashlytics */,
+				F731B77527D4D56A009670A4 /* FirebaseDatabase */,
+				F731B77727D4D56A009670A4 /* FirebaseFirestore */,
+				F731B77A27D4D581009670A4 /* GoogleSignIn */,
+				F731B77D27D4D5A5009670A4 /* DropDown */,
 			);
 			productName = checkMate;
 			productReference = F757546927A4DF1800BFDF9B /* checkMate.app */;
@@ -234,9 +240,9 @@
 			);
 			mainGroup = F757546027A4DF1800BFDF9B;
 			packageReferences = (
-				A69A0AB727D0F2DD0022CDDA /* XCRemoteSwiftPackageReference "DropDown" */,
-				A69A0ABA27D0F2E70022CDDA /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
-				A69A0ABD27D0F3160022CDDA /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				F731B76E27D4D56A009670A4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				F731B77927D4D581009670A4 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
+				F731B77C27D4D5A5009670A4 /* XCRemoteSwiftPackageReference "DropDown" */,
 			);
 			productRefGroup = F757546A27A4DF1800BFDF9B /* Products */;
 			projectDirPath = "";
@@ -507,15 +513,15 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		A69A0AB727D0F2DD0022CDDA /* XCRemoteSwiftPackageReference "DropDown" */ = {
+		F731B76E27D4D56A009670A4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/AssistoLab/DropDown.git";
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
 			requirement = {
 				branch = master;
 				kind = branch;
 			};
 		};
-		A69A0ABA27D0F2E70022CDDA /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
+		F731B77927D4D581009670A4 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/google/GoogleSignIn-iOS";
 			requirement = {
@@ -523,9 +529,9 @@
 				kind = branch;
 			};
 		};
-		A69A0ABD27D0F3160022CDDA /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+		F731B77C27D4D5A5009670A4 /* XCRemoteSwiftPackageReference "DropDown" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			repositoryURL = "https://github.com/AssistoLab/DropDown.git";
 			requirement = {
 				branch = master;
 				kind = branch;
@@ -534,30 +540,40 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		A69A0AB827D0F2DD0022CDDA /* DropDown */ = {
+		F731B76F27D4D56A009670A4 /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = A69A0AB727D0F2DD0022CDDA /* XCRemoteSwiftPackageReference "DropDown" */;
-			productName = DropDown;
+			package = F731B76E27D4D56A009670A4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
 		};
-		A69A0ABB27D0F2E70022CDDA /* GoogleSignIn */ = {
+		F731B77127D4D56A009670A4 /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = A69A0ABA27D0F2E70022CDDA /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
-			productName = GoogleSignIn;
-		};
-		A69A0ABE27D0F3160022CDDA /* FirebaseAuth */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = A69A0ABD27D0F3160022CDDA /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			package = F731B76E27D4D56A009670A4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseAuth;
 		};
-		A69A0AC027D0F3160022CDDA /* FirebaseDatabase */ = {
+		F731B77327D4D56A009670A4 /* FirebaseCrashlytics */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = A69A0ABD27D0F3160022CDDA /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			package = F731B76E27D4D56A009670A4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
+		};
+		F731B77527D4D56A009670A4 /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F731B76E27D4D56A009670A4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseDatabase;
 		};
-		A69A0AC227D0F3160022CDDA /* FirebaseFirestore */ = {
+		F731B77727D4D56A009670A4 /* FirebaseFirestore */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = A69A0ABD27D0F3160022CDDA /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			package = F731B76E27D4D56A009670A4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseFirestore;
+		};
+		F731B77A27D4D581009670A4 /* GoogleSignIn */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F731B77927D4D581009670A4 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignIn;
+		};
+		F731B77D27D4D5A5009670A4 /* DropDown */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F731B77C27D4D5A5009670A4 /* XCRemoteSwiftPackageReference "DropDown" */;
+			productName = DropDown;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
