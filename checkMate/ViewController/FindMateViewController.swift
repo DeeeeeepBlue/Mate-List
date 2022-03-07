@@ -103,24 +103,28 @@ class FindMateViewController: UIViewController, UITableViewDataSource, UITableVi
     
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 15 // cell.indexPath.section*(numbert)
+        return 5 // cell.indexPath.section*(numbert)
     }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+            return 120
+        }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let cell: UITableViewCell = self.findMateTableView.dequeueReusableCell(withIdentifier: "mateCell", for: indexPath)
         if self.List.count > 0 {
                 // List가 0보다 클때만 데이터 불러오기
-                let cellTittle = cell.viewWithTag(1) as! UILabel
-                let cellUser = cell.viewWithTag(2) as! UILabel
-                let cellContents = cell.viewWithTag(3) as! UILabel
-                let cellDate = cell.viewWithTag(4) as! UILabel
+                let cellTittle = cell.viewWithTag(3) as! UILabel
+                let cellContents = cell.viewWithTag(4) as! UILabel
+                let cellDate = cell.viewWithTag(5) as! UILabel
+                let cellUser = cell.viewWithTag(6) as! UILabel
                 print(self.List.count)
 
                 cellTittle.text = "\(self.List[indexPath.section].title)"
-                cellUser.text = "\(self.List[indexPath.section].author)"
                 cellContents.text = "\(self.List[indexPath.section].contents)"
                 cellDate.text = "\(self.List[indexPath.section].date)"
+                cellUser.text = "\(self.List[indexPath.section].author)"
             
             
         } else {}
@@ -129,11 +133,15 @@ class FindMateViewController: UIViewController, UITableViewDataSource, UITableVi
 //        cell.textLabel?.text = jinjuCastle[indexPath.row].name
         
 //         둥근 테두리 만들기
-        cell.backgroundColor = UIColor.white
-        cell.layer.borderColor = UIColor.black.cgColor
-        cell.layer.borderWidth = 1
-        cell.layer.cornerRadius = 8
-        cell.clipsToBounds = true
+//        cell.backgroundColor = UIColor.white
+//        cell.layer.borderColor = UIColor.black.cgColor
+//        cell.layer.borderWidth = 1
+//        cell.layer.cornerRadius = 8
+//        cell.clipsToBounds = true
+        
+        
+        //적합도 그라데이션
+        setSuitableLabelGradient(view: cell.viewWithTag(1)!, label: cell.viewWithTag(2)! as! UILabel);
         
         // 필터
 //        let found = findMateData.filter { info in
@@ -158,6 +166,26 @@ class FindMateViewController: UIViewController, UITableViewDataSource, UITableVi
 //            데이터 리스트.remove(at: found.first!.offset)
 //        }
         tableView.reloadData()
+    }
+    
+    func setSuitableLabelGradient(view:UIView, label:UILabel){
+
+        // Create a gradient layer
+        let gradient = CAGradientLayer()
+
+        // gradient colors in order which they will visually appear
+        gradient.colors = [UIColor(rgb: 0x6795CF).cgColor, UIColor(rgb: 0x6764EE).cgColor]
+
+        // Gradient from left to right
+        gradient.startPoint = CGPoint(x: 0.0, y: 0.0)
+        gradient.endPoint = CGPoint(x: 1.0, y: 1.0)
+
+        // set the gradient layer to the same size as the view
+        gradient.frame = view.bounds
+        // add the gradient layer to the views layer for rendering
+        view.layer.addSublayer(gradient)
+        
+        view.mask = label
     }
     
     

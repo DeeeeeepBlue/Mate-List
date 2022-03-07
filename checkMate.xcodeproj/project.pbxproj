@@ -14,6 +14,7 @@
 		0468B98E27CAD48500B2D31A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0468B98D27CAD48500B2D31A /* GoogleService-Info.plist */; };
 		04A6963E27C2955600B02390 /* ResistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A6963D27C2955600B02390 /* ResistViewController.swift */; };
 		04BB243727ACED960003DA33 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BB243627ACED960003DA33 /* MyPageViewController.swift */; };
+		3F2245BE27D62763002F29FE /* HexUIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2245BD27D62763002F29FE /* HexUIColor.swift */; };
 		A600678027C7E4AA007C6EF1 /* (null) in Resources */ = {isa = PBXBuildFile; };
 		A623E33627B7C40E00172F38 /* DropDownViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A623E33527B7C40E00172F38 /* DropDownViewController.swift */; };
 		F72A3B0427B1437200358165 /* MyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72A3B0327B1437200358165 /* MyTableViewCell.swift */; };
@@ -60,6 +61,7 @@
 		0468B98D27CAD48500B2D31A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		04A6963D27C2955600B02390 /* ResistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResistViewController.swift; sourceTree = "<group>"; };
 		04BB243627ACED960003DA33 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
+		3F2245BD27D62763002F29FE /* HexUIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexUIColor.swift; sourceTree = "<group>"; };
 		A623E33527B7C40E00172F38 /* DropDownViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownViewController.swift; sourceTree = "<group>"; };
 		F72A3B0327B1437200358165 /* MyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTableViewCell.swift; sourceTree = "<group>"; };
 		F731B79D27D4FF09009670A4 /* Detail.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Detail.storyboard; sourceTree = "<group>"; };
@@ -191,6 +193,7 @@
 				F731B79F27D4FF09009670A4 /* Write.storyboard */,
 				F757547527A4DF1A00BFDF9B /* Assets.xcassets */,
 				0468B98D27CAD48500B2D31A /* GoogleService-Info.plist */,
+				3F2245BD27D62763002F29FE /* HexUIColor.swift */,
 			);
 			path = checkMate;
 			sourceTree = "<group>";
@@ -309,6 +312,7 @@
 				F743792227ABDA8E0053947A /* Data.swift in Sources */,
 				F76B581627C5378100B6626D /* NewFilterTableViewCell.swift in Sources */,
 				F76B582427C5380600B6626D /* WriteViewController.swift in Sources */,
+				3F2245BE27D62763002F29FE /* HexUIColor.swift in Sources */,
 				04A6963E27C2955600B02390 /* ResistViewController.swift in Sources */,
 				A623E33627B7C40E00172F38 /* DropDownViewController.swift in Sources */,
 				F75452E727C7C59900E2DB41 /* Post.swift in Sources */,
