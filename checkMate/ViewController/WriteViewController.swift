@@ -12,8 +12,9 @@ import FirebaseAuth
 class WriteViewController: UIViewController, UITextViewDelegate {
 
     @IBOutlet weak var tittleTextField: UITextField!
-    
     @IBOutlet weak var contentTextView: UITextView!
+    @IBOutlet weak var write_button: UIButton!
+    
     var db: Firestore!
     
     override func viewWillAppear(_ animated: Bool) {
@@ -29,6 +30,13 @@ class WriteViewController: UIViewController, UITextViewDelegate {
         db = Firestore.firestore()
         
         // Do any additional setup after loading the view.
+        self.navigationController?.navigationBar.tintColor = .black
+        self.navigationController?.navigationBar.topItem?.title = ""
+        self.navigationController?.navigationBar.shadowImage = nil
+        write_button.layer.cornerRadius = 20
+        write_button.layer.borderWidth = 1
+        write_button.layer.borderColor = UIColor.black.cgColor
+        
     }
     
     // 글쓰기 저장 버튼
