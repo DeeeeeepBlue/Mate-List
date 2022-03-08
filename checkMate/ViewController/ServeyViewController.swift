@@ -15,10 +15,10 @@ import FirebaseDatabase
 class ServeyViewController: UIViewController,UITableViewDelegate,UITableViewDataSource{
 
     var selectedCountry: String?
-    var countryList = ["알제리", "안도라", "앙골라", "인도", "태국"]
-   
+
 
     
+    @IBOutlet weak var regbutton: UILabel!
     let db = Firestore.firestore()
     var lef: DatabaseReference!
     
@@ -27,6 +27,8 @@ class ServeyViewController: UIViewController,UITableViewDelegate,UITableViewData
     
     @IBOutlet weak var surveytable: UITableView!
  
+
+    
     var habitCheck: [String] = [
         "청소주기",
         "흡연",
@@ -47,6 +49,10 @@ class ServeyViewController: UIViewController,UITableViewDelegate,UITableViewData
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        regbutton.layer.cornerRadius=10
+        regbutton.layer.borderWidth=1
+        regbutton.layer.borderColor=UIColor.lightGray.cgColor
+//        (displayP3Red: 229, green: 229, blue: 229, alpha: 1.0)
         surveytable.dataSource=self
         surveytable.delegate=self
         lef = Database.database().reference(withPath: "servey")
@@ -120,20 +126,6 @@ class ServeyViewController: UIViewController,UITableViewDelegate,UITableViewData
         }
         self.navigationController?.popViewController(animated: true)
 
-        //데이터 불러오기
-//        db.collection("HabitCheck").getDocuments() { (querySnapshot, err) in
-//            if let erㄴr = err {
-//                print("Error getting documents: \(err)")
-//            } else {
-//                //querySnapshot!.documents : Array -> 딕셔너리 타입임 data() 함수 사용시 내용 확인 가능
-//                //ex) let value = querySnapshot!.documents[0].data()
-//                //    value["callSelect", default: 0]
-//                for document in querySnapshot!.documents {
-//                    print("\(document.documentID) => \(document.data())")
-//
-//                }
-//            }
-//        }
     
         
         

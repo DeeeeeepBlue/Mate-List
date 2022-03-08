@@ -16,6 +16,7 @@
 		04BB243727ACED960003DA33 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BB243627ACED960003DA33 /* MyPageViewController.swift */; };
 		A600678027C7E4AA007C6EF1 /* (null) in Resources */ = {isa = PBXBuildFile; };
 		A623E33627B7C40E00172F38 /* DropDownViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A623E33527B7C40E00172F38 /* DropDownViewController.swift */; };
+		A63052CD27D739A00003D6A8 /* Survey.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A63052CC27D739A00003D6A8 /* Survey.storyboard */; };
 		F72A3B0427B1437200358165 /* MyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72A3B0327B1437200358165 /* MyTableViewCell.swift */; };
 		F731B77027D4D56A009670A4 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = F731B76F27D4D56A009670A4 /* FirebaseAnalytics */; };
 		F731B77227D4D56A009670A4 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = F731B77127D4D56A009670A4 /* FirebaseAuth */; };
@@ -62,6 +63,7 @@
 		04A6963D27C2955600B02390 /* ResistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResistViewController.swift; sourceTree = "<group>"; };
 		04BB243627ACED960003DA33 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
 		A623E33527B7C40E00172F38 /* DropDownViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownViewController.swift; sourceTree = "<group>"; };
+		A63052CC27D739A00003D6A8 /* Survey.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Survey.storyboard; sourceTree = "<group>"; };
 		F72A3B0327B1437200358165 /* MyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTableViewCell.swift; sourceTree = "<group>"; };
 		F731B79D27D4FF09009670A4 /* Detail.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Detail.storyboard; sourceTree = "<group>"; };
 		F731B79E27D4FF09009670A4 /* Surveyview.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Surveyview.storyboard; sourceTree = "<group>"; };
@@ -189,6 +191,7 @@
 				F731B79D27D4FF09009670A4 /* Detail.storyboard */,
 				F731B7A127D4FF09009670A4 /* Home.storyboard */,
 				F731B7A027D4FF09009670A4 /* Info.storyboard */,
+				A63052CC27D739A00003D6A8 /* Survey.storyboard */,
 				F731B7A727D4FF53009670A4 /* Scrap.storyboard */,
 				F731B79E27D4FF09009670A4 /* Surveyview.storyboard */,
 				F731B79F27D4FF09009670A4 /* Write.storyboard */,
@@ -294,6 +297,7 @@
 				F757547627A4DF1A00BFDF9B /* Assets.xcassets in Resources */,
 				F731B7A227D4FF09009670A4 /* Detail.storyboard in Resources */,
 				F731B7A827D4FF53009670A4 /* Scrap.storyboard in Resources */,
+				A63052CD27D739A00003D6A8 /* Survey.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

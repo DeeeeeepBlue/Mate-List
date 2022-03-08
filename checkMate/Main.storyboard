@@ -132,10 +132,10 @@
             </objects>
             <point key="canvasLocation" x="-949" y="816"/>
         </scene>
-        <!--Info-->
+        <!--Survey-->
         <scene sceneID="RcN-Gd-Jn3">
             <objects>
-                <viewControllerPlaceholder storyboardName="Info" id="WP6-ba-JnN" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Survey" id="WP6-ba-JnN" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="Y3P-Fm-NQU"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g88-OG-Cbb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

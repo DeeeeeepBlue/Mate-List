@@ -8,10 +8,11 @@
 import UIKit
 
 class FilterTableViewController: UITableViewController {
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    @IBOutlet var regbutton: UIButton!
 
+  override func viewDidLoad() {
+        super.viewDidLoad()
+//      regbutton.layer.borderColor = UIColor(red:229,green:229,blue:229,alpha:1.0)
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
