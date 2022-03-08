@@ -180,9 +180,6 @@ class FindMateViewController: UIViewController, UITableViewDataSource, UITableVi
 //        cell.clipsToBounds = true
         
         
-        //적합도 그라데이션
-        setSuitableLabelGradient(view: cell.viewWithTag(1)!, label: cell.viewWithTag(2)! as! UILabel);
-        
         // 필터
 //        let found = findMateData.filter { info in
 //            입력.name == 출력.name
@@ -207,28 +204,6 @@ class FindMateViewController: UIViewController, UITableViewDataSource, UITableVi
 //        }
         tableView.reloadData()
     }
-    
-    func setSuitableLabelGradient(view:UIView, label:UILabel){
-
-        // Create a gradient layer
-        let gradient = CAGradientLayer()
-
-        // gradient colors in order which they will visually appear
-        gradient.colors = [UIColor(rgb: 0x6795CF).cgColor, UIColor(rgb: 0x6764EE).cgColor]
-
-        // Gradient from left to right
-        gradient.startPoint = CGPoint(x: 0.0, y: 0.0)
-        gradient.endPoint = CGPoint(x: 1.0, y: 1.0)
-
-        // set the gradient layer to the same size as the view
-        gradient.frame = view.bounds
-        // add the gradient layer to the views layer for rendering
-        view.layer.addSublayer(gradient)
-        
-        view.mask = label
-    }
-
-    
 
     
     
