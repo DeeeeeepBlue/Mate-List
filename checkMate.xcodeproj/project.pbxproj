@@ -27,7 +27,6 @@
 		F731B77B27D4D581009670A4 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = F731B77A27D4D581009670A4 /* GoogleSignIn */; };
 		F731B77E27D4D5A5009670A4 /* DropDown in Frameworks */ = {isa = PBXBuildFile; productRef = F731B77D27D4D5A5009670A4 /* DropDown */; };
 		F731B7A627D4FF09009670A4 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F731B7A127D4FF09009670A4 /* Home.storyboard */; };
-		F731B7A827D4FF53009670A4 /* Scrap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F731B7A727D4FF53009670A4 /* Scrap.storyboard */; };
 		F731B7AA27D500B3009670A4 /* testTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F731B7A927D500B3009670A4 /* testTableViewController.swift */; };
 		F7379F2A27AD4EFE00D99CD4 /* FilterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7379F2927AD4EFE00D99CD4 /* FilterTableViewCell.swift */; };
 		F742168627CBF029003CCE2F /* LifePatternViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F742168527CBF029003CCE2F /* LifePatternViewController.swift */; };
@@ -47,6 +46,8 @@
 		F76B582127C5380600B6626D /* FilterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76B581A27C5380600B6626D /* FilterTableViewController.swift */; };
 		F76B582327C5380600B6626D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76B581C27C5380600B6626D /* ViewController.swift */; };
 		F76B582427C5380600B6626D /* WriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76B581D27C5380600B6626D /* WriteViewController.swift */; };
+		F7B4F41327D7A55A0045580F /* Info.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7B4F41027D7A55A0045580F /* Info.storyboard */; };
+		F7B4F41427D7A55A0045580F /* Write.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7B4F41127D7A55A0045580F /* Write.storyboard */; };
 		F7CDDF0F27D6E96300DB6A30 /* ContentsDetailView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7CDDF0E27D6E96300DB6A30 /* ContentsDetailView.storyboard */; };
 		F7EEBACD27CF43B9009728AF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7EEBACC27CF43B9009728AF /* Main.storyboard */; };
 /* End PBXBuildFile section */
@@ -64,7 +65,6 @@
 		A623E33527B7C40E00172F38 /* DropDownViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownViewController.swift; sourceTree = "<group>"; };
 		F72A3B0327B1437200358165 /* MyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTableViewCell.swift; sourceTree = "<group>"; };
 		F731B7A127D4FF09009670A4 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
-		F731B7A727D4FF53009670A4 /* Scrap.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Scrap.storyboard; sourceTree = "<group>"; };
 		F731B7A927D500B3009670A4 /* testTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testTableViewController.swift; sourceTree = "<group>"; };
 		F7379F2927AD4EFE00D99CD4 /* FilterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterTableViewCell.swift; sourceTree = "<group>"; };
 		F742168527CBF029003CCE2F /* LifePatternViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LifePatternViewController.swift; sourceTree = "<group>"; };
@@ -85,6 +85,8 @@
 		F76B581A27C5380600B6626D /* FilterTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterTableViewController.swift; sourceTree = "<group>"; };
 		F76B581C27C5380600B6626D /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F76B581D27C5380600B6626D /* WriteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WriteViewController.swift; sourceTree = "<group>"; };
+		F7B4F41027D7A55A0045580F /* Info.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Info.storyboard; sourceTree = "<group>"; };
+		F7B4F41127D7A55A0045580F /* Write.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Write.storyboard; sourceTree = "<group>"; };
 		F7CDDF0E27D6E96300DB6A30 /* ContentsDetailView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ContentsDetailView.storyboard; sourceTree = "<group>"; };
 		F7EEBACC27CF43B9009728AF /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -181,9 +183,10 @@
 				F743792127ABDA8E0053947A /* Data.swift */,
 				F757547727A4DF1A00BFDF9B /* LaunchScreen.storyboard */,
 				F7CDDF0E27D6E96300DB6A30 /* ContentsDetailView.storyboard */,
+				F7B4F41027D7A55A0045580F /* Info.storyboard */,
+				F7B4F41127D7A55A0045580F /* Write.storyboard */,
 				F7EEBACC27CF43B9009728AF /* Main.storyboard */,
 				F731B7A127D4FF09009670A4 /* Home.storyboard */,
-				F731B7A727D4FF53009670A4 /* Scrap.storyboard */,
 				F757547527A4DF1A00BFDF9B /* Assets.xcassets */,
 				0468B98D27CAD48500B2D31A /* GoogleService-Info.plist */,
 				3F2245BD27D62763002F29FE /* HexUIColor.swift */,
@@ -283,7 +286,8 @@
 				F757547927A4DF1A00BFDF9B /* LaunchScreen.storyboard in Resources */,
 				F7CDDF0F27D6E96300DB6A30 /* ContentsDetailView.storyboard in Resources */,
 				F757547627A4DF1A00BFDF9B /* Assets.xcassets in Resources */,
-				F731B7A827D4FF53009670A4 /* Scrap.storyboard in Resources */,
+				F7B4F41327D7A55A0045580F /* Info.storyboard in Resources */,
+				F7B4F41427D7A55A0045580F /* Write.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

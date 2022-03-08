@@ -85,7 +85,7 @@ class FindMateViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     @objc func tapWriteButton(sender:UIGestureRecognizer){
-        performSegue(withIdentifier: "goWirtePageSegue", sender: nil)
+        performSegue(withIdentifier: "writeSegue", sender: nil)
     }
 
     
