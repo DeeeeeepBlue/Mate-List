@@ -95,6 +95,11 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        writerPatternButton.backgroundColor = .white
+        writerPatternButton.tintColor = .white
+        writerPatternButton.layer.borderWidth = 1
+        writerPatternButton.layer.cornerRadius = 10
+        
         currentData = contentsDetailData
         userHabitCheck.removeAll()
         
@@ -135,10 +140,14 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
         
 
         userLabel.text = contentsDetailData.author
+        userLabel.textAlignment = .right
+        userLabel.sizeToFit()
         tittleLabel.text = contentsDetailData.title
+        tittleLabel.sizeToFit()
         contentsText.text = contentsDetailData.contents
+        contentsText.sizeToFit()
         dateLabel.text = contentsDetailData.date
-        
+        dateLabel.sizeToFit()
         // Do any additional setup after loading the view.
     }
     
@@ -162,8 +171,11 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
         if replyList.count > 0{
             
             userLabel.text = self.replyList[indexPath.section].author
+            userLabel.sizeToFit()
             contentsText.text = self.replyList[indexPath.section].contents
+            contentsText.sizeToFit()
             dateLabel.text = self.replyList[indexPath.section].date
+            dateLabel.sizeToFit()
             
             if self.replyList[indexPath.section].uid != Auth.auth().currentUser?.uid {
                 replyDeleteLabel.isHidden = true

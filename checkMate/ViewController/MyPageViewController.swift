@@ -113,13 +113,13 @@ class MyPage: UIViewController {
     
     func logoutButtonActive(){
         signInButton.layer.isHidden = true
-        signInButtonConstant.constant = 0
+//        signInButtonConstant.constant = 0
         LogoutButton.layer.isHidden = false
     }
     
     func loginButtonActive(){
         LogoutButton.layer.isHidden = true
-        signInButtonConstant.constant = 120
+//        signInButtonConstant.constant = 120
         signInButton.layer.isHidden = false
     }
     
