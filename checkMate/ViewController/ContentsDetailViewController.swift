@@ -23,7 +23,7 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
     
     @IBOutlet weak var writerPatternButton: UIButton!
     
-    @IBOutlet weak var deleteButton: UIButton!
+    @IBOutlet weak var deleteButton: UIBarButtonItem!
     var replyTableViewController = UITableViewController()
     
 
@@ -99,10 +99,12 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
         userHabitCheck.removeAll()
         
         if Auth.auth().currentUser == nil {
-            deleteButton.isHidden = true
+            deleteButton?.isEnabled = false
+//            deleteButton.isHidden = true
         } else {
             if Auth.auth().currentUser?.uid != contentsDetailData.uid {
-                deleteButton.isHidden = true
+//                deleteButton.isHidden = true
+                deleteButton?.isEnabled = false
             }
         }
         
