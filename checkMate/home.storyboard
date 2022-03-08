@@ -21,7 +21,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="mateCell" rowHeight="120" id="KsN-5e-VgS" customClass="FindMateTableViewCell" customModule="checkMate" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="45" width="414" height="120"/>
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="120"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KsN-5e-VgS" id="S86-E0-qrA">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="120"/>
@@ -129,7 +129,7 @@
                     <connections>
                         <outlet property="findMateTableView" destination="h85-Qm-IxM" id="EE9-le-zQf"/>
                         <outlet property="rootView" destination="UhN-9k-iA5" id="rbJ-We-UeM"/>
-                        <segue destination="Qcz-m6-JZR" kind="presentation" identifier="writeSegue" id="TRr-L9-y5A"/>
+                        <segue destination="Qcz-m6-JZR" kind="show" identifier="writeSegue" id="TRr-L9-y5A"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QpS-UJ-L27" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -163,7 +163,9 @@
         <!--Write-->
         <scene sceneID="uFo-fu-oFv">
             <objects>
-                <viewControllerPlaceholder storyboardName="Write" id="Qcz-m6-JZR" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardIdentifier="Write" storyboardName="Write" referencedIdentifier="Write" id="Qcz-m6-JZR" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="4ZT-U4-79E"/>
+                </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kkf-Gj-pdr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="828" y="-50"/>

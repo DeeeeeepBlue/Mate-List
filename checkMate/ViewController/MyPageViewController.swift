@@ -17,6 +17,7 @@ let signInConfig = GIDConfiguration.init(clientID: "14102016647-cle326t7m6o3u9n4
 
 class MyPage: UIViewController {
     
+    @IBOutlet weak var surveyButton: UIButton!
     @IBOutlet weak var LogoutButton: UIButton!
     @IBOutlet weak var accountView: UIView!
     @IBOutlet weak var nameLabel: UILabel!
@@ -25,7 +26,7 @@ class MyPage: UIViewController {
     @IBOutlet weak var appView: UIView!
     @IBOutlet weak var developeView: UIView!
     @IBOutlet weak var signInButton: GIDSignInButton!
-    @IBOutlet weak var signInButtonConstant: NSLayoutConstraint!
+    
     
     var db: Firestore!
     
@@ -113,18 +114,27 @@ class MyPage: UIViewController {
     
     func logoutButtonActive(){
         signInButton.layer.isHidden = true
-        signInButtonConstant.constant = 0
         LogoutButton.layer.isHidden = false
     }
     
     func loginButtonActive(){
         LogoutButton.layer.isHidden = true
-        signInButtonConstant.constant = 120
         signInButton.layer.isHidden = false
     }
     
     func cornerRadius(){
-        accountView.layer.cornerRadius = 5
+        surveyButton.layer.cornerRadius = 20
+        surveyButton.layer.borderWidth = 0.5
+        surveyButton.layer.borderColor = UIColor.gray.cgColor
+        
+        LogoutButton.layer.cornerRadius = 20
+        LogoutButton.layer.borderWidth = 0.5
+        LogoutButton.layer.borderColor = UIColor.gray.cgColor
+        
+        accountView.layer.cornerRadius = 20
+        accountView.layer.borderWidth = 0.5
+        accountView.layer.borderColor = UIColor.gray.cgColor
+        
     }
     
     /*

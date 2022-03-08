@@ -11,12 +11,12 @@
         <!--글쓰기-->
         <scene sceneID="jPX-gc-dzk">
             <objects>
-                <viewController id="MZi-Zz-jB9" customClass="WriteViewController" customModule="checkMate" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Write" id="MZi-Zz-jB9" customClass="WriteViewController" customModule="checkMate" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="I0u-QF-Jhr">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="제목" placeholder="Tittle" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HFv-1u-olV">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="제목" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HFv-1u-olV">
                                 <rect key="frame" x="20" y="103" width="374" height="18.5"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
@@ -27,7 +27,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemGray3Color"/>
                             </view>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="코멘트를 남겨주세요." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ULx-eY-VqT">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ULx-eY-VqT">
                                 <rect key="frame" x="20" y="139" width="374" height="512"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -35,9 +35,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H73-3I-FtL">
-                                <rect key="frame" x="96" y="746" width="223" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H73-3I-FtL">
+                                <rect key="frame" x="20" y="791" width="374" height="31"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="확인"/>
@@ -45,16 +44,22 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="mi8-Tc-e1f"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="mi8-Tc-e1f" firstAttribute="trailing" secondItem="H73-3I-FtL" secondAttribute="trailing" constant="20" id="AsH-hO-vy8"/>
+                            <constraint firstItem="H73-3I-FtL" firstAttribute="leading" secondItem="mi8-Tc-e1f" secondAttribute="leading" constant="20" id="Yxt-s2-C0j"/>
+                            <constraint firstItem="mi8-Tc-e1f" firstAttribute="bottom" secondItem="H73-3I-FtL" secondAttribute="bottom" constant="40" id="bM3-Qe-Khn"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="글쓰기" id="2WC-P5-jhN"/>
                     <connections>
                         <outlet property="contentTextView" destination="ULx-eY-VqT" id="i4B-RN-Iy8"/>
                         <outlet property="tittleTextField" destination="HFv-1u-olV" id="5BY-Au-Z5s"/>
+                        <outlet property="writeButton" destination="H73-3I-FtL" id="pCs-Ug-SNh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l5N-mU-wm6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1140.5797101449277" y="-668.30357142857144"/>
+            <point key="canvasLocation" x="1901" y="-668"/>
         </scene>
     </scenes>
     <resources>
