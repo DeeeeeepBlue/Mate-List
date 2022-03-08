@@ -15,8 +15,10 @@ class FindMateViewController: UIViewController, UITableViewDataSource, UITableVi
     
     @IBOutlet weak var findMateTableView: UITableView!
     @IBOutlet var rootView: UIView!
+    @IBOutlet weak var navigationBar: UINavigationBar!
     
     var findMateTableViewController = UITableViewController()
+    
     let db = Firestore.firestore()
     var List : [Post] = []
     var dbID: String = ""
@@ -42,6 +44,7 @@ class FindMateViewController: UIViewController, UITableViewDataSource, UITableVi
         self.findMateTableViewController.tableView.delegate = self
         self.findMateTableViewController.tableView.dataSource = self
         findMateTableView.reloadData()
+
 
         //         테두리 여백 만들기
         self.findMateTableView.frame = self.findMateTableView.frame.inset(by: UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 15))
@@ -81,6 +84,11 @@ class FindMateViewController: UIViewController, UITableViewDataSource, UITableVi
     
         writeButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         writeButton.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor, constant: -10).isActive = true
+        
+        
+        //navigation design
+        navigationBar.shadowImage = UIImage()
+        
         
     }
     
@@ -204,6 +212,9 @@ class FindMateViewController: UIViewController, UITableViewDataSource, UITableVi
 //        }
         tableView.reloadData()
     }
+    
+    
+    
 
     
     
