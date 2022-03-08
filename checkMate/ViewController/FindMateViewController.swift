@@ -14,6 +14,7 @@ class FindMateViewController: UIViewController, UITableViewDataSource, UITableVi
     
     
     @IBOutlet weak var findMateTableView: UITableView!
+    @IBOutlet var rootView: UIView!
     
     var findMateTableViewController = UITableViewController()
     let db = Firestore.firestore()
@@ -35,19 +36,58 @@ class FindMateViewController: UIViewController, UITableViewDataSource, UITableVi
         super.viewDidLoad()
 
 
-            self.findMateTableView.delegate = self
-            self.findMateTableView.dataSource = self
+        self.findMateTableView.delegate = self
+        self.findMateTableView.dataSource = self
+
+        self.findMateTableViewController.tableView.delegate = self
+        self.findMateTableViewController.tableView.dataSource = self
+        findMateTableView.reloadData()
+
+        //         테두리 여백 만들기
+        self.findMateTableView.frame = self.findMateTableView.frame.inset(by: UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 15))
     
-            self.findMateTableViewController.tableView.delegate = self
-            self.findMateTableViewController.tableView.dataSource = self
-            findMateTableView.reloadData()
+        //floating button - write button
+        let writeButton: UIView = {
+            let writeButtonBackground: UIView = UIView()
+            let writeButtonText: UILabel = UILabel()
+            
+            writeButtonBackground.addSubview(writeButtonText)
+            writeButtonBackground.translatesAutoresizingMaskIntoConstraints = false
+            writeButtonBackground.backgroundColor = .white
+            writeButtonBackground.widthAnchor.constraint(equalToConstant: 80).isActive = true
+            writeButtonBackground.heightAnchor.constraint(equalToConstant: 35).isActive = true
+            writeButtonBackground.layer.cornerRadius = 17.5
+            writeButtonBackground.layer.borderWidth = 1
+            writeButtonBackground.layer.borderColor = UIColor(rgb: 0xE5E5E5).cgColor
+            
+            writeButtonBackground.addSubview(writeButtonText)
+            
+            writeButtonText.text = "글쓰기"
+            writeButtonText.font = UIFont.boldSystemFont(ofSize: 16)
+            writeButtonText.textColor = .black
+            writeButtonText.translatesAutoresizingMaskIntoConstraints = false
+            writeButtonText.centerXAnchor.constraint(equalTo: writeButtonBackground.centerXAnchor).isActive = true
+            writeButtonText.centerYAnchor.constraint(equalTo: writeButtonBackground.centerYAnchor).isActive = true
+            
+            
+            //클릭이벤트
+            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapWriteButton(sender:)))
+            writeButtonBackground.addGestureRecognizer(tapGesture)
+
+            return writeButtonBackground
+        }()
+        
+        view.addSubview(writeButton)
     
-            //         테두리 여백 만들기
-            self.findMateTableView.frame = self.findMateTableView.frame.inset(by: UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 15))
- 
+        writeButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        writeButton.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor, constant: -10).isActive = true
+        
+    }
+    
+    @objc func tapWriteButton(sender:UIGestureRecognizer){
+        performSegue(withIdentifier: "goWirtePageSegue", sender: nil)
     }
 
-    
     
     func DataLoad() {
         List.removeAll()
@@ -103,24 +143,28 @@ class FindMateViewController: UIViewController, UITableViewDataSource, UITableVi
     
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 15 // cell.indexPath.section*(numbert)
+        return 5 // cell.indexPath.section*(numbert)
     }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+            return 120
+        }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let cell: UITableViewCell = self.findMateTableView.dequeueReusableCell(withIdentifier: "mateCell", for: indexPath)
         if self.List.count > 0 {
                 // List가 0보다 클때만 데이터 불러오기
-                let cellTittle = cell.viewWithTag(1) as! UILabel
-                let cellUser = cell.viewWithTag(2) as! UILabel
-                let cellContents = cell.viewWithTag(3) as! UILabel
-                let cellDate = cell.viewWithTag(4) as! UILabel
+                let cellTittle = cell.viewWithTag(3) as! UILabel
+                let cellContents = cell.viewWithTag(4) as! UILabel
+                let cellDate = cell.viewWithTag(5) as! UILabel
+                let cellUser = cell.viewWithTag(6) as! UILabel
                 print(self.List.count)
 
                 cellTittle.text = "\(self.List[indexPath.section].title)"
-                cellUser.text = "\(self.List[indexPath.section].author)"
                 cellContents.text = "\(self.List[indexPath.section].contents)"
                 cellDate.text = "\(self.List[indexPath.section].date)"
+                cellUser.text = "\(self.List[indexPath.section].author)"
             
             
         } else {}
@@ -129,11 +173,12 @@ class FindMateViewController: UIViewController, UITableViewDataSource, UITableVi
 //        cell.textLabel?.text = jinjuCastle[indexPath.row].name
         
 //         둥근 테두리 만들기
-        cell.backgroundColor = UIColor.white
-        cell.layer.borderColor = UIColor.black.cgColor
-        cell.layer.borderWidth = 1
-        cell.layer.cornerRadius = 8
-        cell.clipsToBounds = true
+//        cell.backgroundColor = UIColor.white
+//        cell.layer.borderColor = UIColor.black.cgColor
+//        cell.layer.borderWidth = 1
+//        cell.layer.cornerRadius = 8
+//        cell.clipsToBounds = true
+        
         
         // 필터
 //        let found = findMateData.filter { info in
@@ -159,6 +204,7 @@ class FindMateViewController: UIViewController, UITableViewDataSource, UITableVi
 //        }
         tableView.reloadData()
     }
+
     
     
     // 당기면 데이터 리로드
@@ -184,6 +230,22 @@ class FindMateViewController: UIViewController, UITableViewDataSource, UITableVi
         }
         else {}
     }
+    
+    // MARK: - v2.0.0때 마저 구현
+    //    func setFilterButton(){
+    //        self.filterButton.layer.cornerRadius = self.filterButton.frame.height/2
+    //        self.filterButton.layer.borderColor = UIColor(rgb: 0xE5E5E5).cgColor
+    //        self.filterButton.layer.borderWidth = 1
+    //    }
+    //
+    //
+    //    func setSearchBar(){
+    //        self.searchBar.placeholder = "검색어를 입력해주세요"
+    //        self.searchBar.setImage(UIImage(), for: UISearchBar.Icon.search, state: .normal)
+    //        self.searchBar.searchTextField.backgroundColor = UIColor.clear
+    //        self.searchBar.layer.borderColor = UIColor(rgb: 0xE5E5E5).cgColor
+    //        self.searchBar.layer.borderWidth = 1
+    //    }
 }
     
 

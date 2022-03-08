@@ -14,6 +14,8 @@
 		0468B98E27CAD48500B2D31A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0468B98D27CAD48500B2D31A /* GoogleService-Info.plist */; };
 		04A6963E27C2955600B02390 /* ResistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A6963D27C2955600B02390 /* ResistViewController.swift */; };
 		04BB243727ACED960003DA33 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BB243627ACED960003DA33 /* MyPageViewController.swift */; };
+		3F2245BE27D62763002F29FE /* HexUIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2245BD27D62763002F29FE /* HexUIColor.swift */; };
+		3FB23A5E27D79D3E00B8D071 /* FindMateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB23A5D27D79D3E00B8D071 /* FindMateTableViewCell.swift */; };
 		A600678027C7E4AA007C6EF1 /* (null) in Resources */ = {isa = PBXBuildFile; };
 		A623E33627B7C40E00172F38 /* DropDownViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A623E33527B7C40E00172F38 /* DropDownViewController.swift */; };
 		F72A3B0427B1437200358165 /* MyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72A3B0327B1437200358165 /* MyTableViewCell.swift */; };
@@ -24,10 +26,6 @@
 		F731B77827D4D56A009670A4 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = F731B77727D4D56A009670A4 /* FirebaseFirestore */; };
 		F731B77B27D4D581009670A4 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = F731B77A27D4D581009670A4 /* GoogleSignIn */; };
 		F731B77E27D4D5A5009670A4 /* DropDown in Frameworks */ = {isa = PBXBuildFile; productRef = F731B77D27D4D5A5009670A4 /* DropDown */; };
-		F731B7A227D4FF09009670A4 /* Detail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F731B79D27D4FF09009670A4 /* Detail.storyboard */; };
-		F731B7A327D4FF09009670A4 /* Surveyview.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F731B79E27D4FF09009670A4 /* Surveyview.storyboard */; };
-		F731B7A427D4FF09009670A4 /* Write.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F731B79F27D4FF09009670A4 /* Write.storyboard */; };
-		F731B7A527D4FF09009670A4 /* Info.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F731B7A027D4FF09009670A4 /* Info.storyboard */; };
 		F731B7A627D4FF09009670A4 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F731B7A127D4FF09009670A4 /* Home.storyboard */; };
 		F731B7A827D4FF53009670A4 /* Scrap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F731B7A727D4FF53009670A4 /* Scrap.storyboard */; };
 		F731B7AA27D500B3009670A4 /* testTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F731B7A927D500B3009670A4 /* testTableViewController.swift */; };
@@ -61,12 +59,10 @@
 		0468B98D27CAD48500B2D31A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		04A6963D27C2955600B02390 /* ResistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResistViewController.swift; sourceTree = "<group>"; };
 		04BB243627ACED960003DA33 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
+		3F2245BD27D62763002F29FE /* HexUIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexUIColor.swift; sourceTree = "<group>"; };
+		3FB23A5D27D79D3E00B8D071 /* FindMateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindMateTableViewCell.swift; sourceTree = "<group>"; };
 		A623E33527B7C40E00172F38 /* DropDownViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownViewController.swift; sourceTree = "<group>"; };
 		F72A3B0327B1437200358165 /* MyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTableViewCell.swift; sourceTree = "<group>"; };
-		F731B79D27D4FF09009670A4 /* Detail.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Detail.storyboard; sourceTree = "<group>"; };
-		F731B79E27D4FF09009670A4 /* Surveyview.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Surveyview.storyboard; sourceTree = "<group>"; };
-		F731B79F27D4FF09009670A4 /* Write.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Write.storyboard; sourceTree = "<group>"; };
-		F731B7A027D4FF09009670A4 /* Info.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Info.storyboard; sourceTree = "<group>"; };
 		F731B7A127D4FF09009670A4 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		F731B7A727D4FF53009670A4 /* Scrap.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Scrap.storyboard; sourceTree = "<group>"; };
 		F731B7A927D500B3009670A4 /* testTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testTableViewController.swift; sourceTree = "<group>"; };
@@ -186,14 +182,11 @@
 				F757547727A4DF1A00BFDF9B /* LaunchScreen.storyboard */,
 				F7CDDF0E27D6E96300DB6A30 /* ContentsDetailView.storyboard */,
 				F7EEBACC27CF43B9009728AF /* Main.storyboard */,
-				F731B79D27D4FF09009670A4 /* Detail.storyboard */,
 				F731B7A127D4FF09009670A4 /* Home.storyboard */,
-				F731B7A027D4FF09009670A4 /* Info.storyboard */,
 				F731B7A727D4FF53009670A4 /* Scrap.storyboard */,
-				F731B79E27D4FF09009670A4 /* Surveyview.storyboard */,
-				F731B79F27D4FF09009670A4 /* Write.storyboard */,
 				F757547527A4DF1A00BFDF9B /* Assets.xcassets */,
 				0468B98D27CAD48500B2D31A /* GoogleService-Info.plist */,
+				3F2245BD27D62763002F29FE /* HexUIColor.swift */,
 			);
 			path = checkMate;
 			sourceTree = "<group>";
@@ -206,6 +199,7 @@
 				F76B581127C5378100B6626D /* ReplyTextView.swift */,
 				F7379F2927AD4EFE00D99CD4 /* FilterTableViewCell.swift */,
 				F72A3B0327B1437200358165 /* MyTableViewCell.swift */,
+				3FB23A5D27D79D3E00B8D071 /* FindMateTableViewCell.swift */,
 			);
 			path = TableViewCell;
 			sourceTree = "<group>";
@@ -282,17 +276,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F731B7A527D4FF09009670A4 /* Info.storyboard in Resources */,
 				F731B7A627D4FF09009670A4 /* Home.storyboard in Resources */,
 				A600678027C7E4AA007C6EF1 /* (null) in Resources */,
-				F731B7A327D4FF09009670A4 /* Surveyview.storyboard in Resources */,
-				F731B7A427D4FF09009670A4 /* Write.storyboard in Resources */,
 				F7EEBACD27CF43B9009728AF /* Main.storyboard in Resources */,
 				0468B98E27CAD48500B2D31A /* GoogleService-Info.plist in Resources */,
 				F757547927A4DF1A00BFDF9B /* LaunchScreen.storyboard in Resources */,
 				F7CDDF0F27D6E96300DB6A30 /* ContentsDetailView.storyboard in Resources */,
 				F757547627A4DF1A00BFDF9B /* Assets.xcassets in Resources */,
-				F731B7A227D4FF09009670A4 /* Detail.storyboard in Resources */,
 				F731B7A827D4FF53009670A4 /* Scrap.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -313,12 +303,14 @@
 				F743792227ABDA8E0053947A /* Data.swift in Sources */,
 				F76B581627C5378100B6626D /* NewFilterTableViewCell.swift in Sources */,
 				F76B582427C5380600B6626D /* WriteViewController.swift in Sources */,
+				3F2245BE27D62763002F29FE /* HexUIColor.swift in Sources */,
 				04A6963E27C2955600B02390 /* ResistViewController.swift in Sources */,
 				A623E33627B7C40E00172F38 /* DropDownViewController.swift in Sources */,
 				F75452E727C7C59900E2DB41 /* Post.swift in Sources */,
 				F76B581427C5378100B6626D /* ReplyTextView.swift in Sources */,
 				F72A3B0427B1437200358165 /* MyTableViewCell.swift in Sources */,
 				F757546D27A4DF1800BFDF9B /* AppDelegate.swift in Sources */,
+				3FB23A5E27D79D3E00B8D071 /* FindMateTableViewCell.swift in Sources */,
 				F76B582027C5380600B6626D /* FilterViewController.swift in Sources */,
 				F75452EB27C7C68C00E2DB41 /* ServeyViewController.swift in Sources */,
 				F757546F27A4DF1800BFDF9B /* SceneDelegate.swift in Sources */,
