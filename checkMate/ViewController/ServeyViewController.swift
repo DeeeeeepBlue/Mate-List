@@ -17,6 +17,7 @@ class ServeyViewController: UIViewController,UITableViewDelegate,UITableViewData
     var selectedCountry: String?
 
 
+
     
     @IBOutlet weak var regbutton: UILabel!
     let db = Firestore.firestore()
@@ -26,8 +27,6 @@ class ServeyViewController: UIViewController,UITableViewDelegate,UITableViewData
     var ref: DocumentReference? = nil
     
     @IBOutlet weak var surveytable: UITableView!
- 
-
     
     var habitCheck: [String] = [
         "청소주기",
@@ -49,6 +48,7 @@ class ServeyViewController: UIViewController,UITableViewDelegate,UITableViewData
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
         regbutton.layer.cornerRadius=10
         regbutton.layer.borderWidth=1
         regbutton.layer.borderColor=UIColor.lightGray.cgColor

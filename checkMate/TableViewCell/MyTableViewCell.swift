@@ -20,14 +20,17 @@ class MyTableViewCell: UITableViewCell {
     
     @IBOutlet weak var check_B: UIButton!
     
-
-
+    
+    @IBOutlet weak var backView: UIView!
+    
     @IBAction func clicked(_ sender: Any) {
         check = !check
         if check { //true
             check_B.setImage(UIImage(systemName: "checkmark.circle.fill"), for: .normal)
+            backView.backgroundColor=UIColor.lightGray
         }else{
             check_B.setImage(UIImage(systemName: "checkmark.circle"), for: .normal)
+            backView.backgroundColor=UIColor.white
         }
         if myLabel.text == "흡연"{
             smokingSelect=check
@@ -55,6 +58,7 @@ class MyTableViewCell: UITableViewCell {
         // Initialization code
         initUI()
         setDropdown()
+        tfInput.layer.borderColor=UIColor.blue.cgColor
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -105,6 +109,7 @@ class MyTableViewCell: UITableViewCell {
                 print(mbtiSelect)
             }
             self!.inIcon.image = UIImage.init(systemName: "checkmark.circle.fill")
+            self?.backView.backgroundColor=UIColor.lightGray
         }
         
         // 취소 시 처리

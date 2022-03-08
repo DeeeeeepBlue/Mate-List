@@ -268,7 +268,7 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
                     print(self.List)
                     self.replyTableView.reloadData()
                 }
-                
+                self.habitDataLoad()
             }
         }
     }
@@ -380,18 +380,8 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
                     userHabitCheck.removeAll()
                     userHabitCheck.append(HabitCheck(cleanSelect: cleanSelect_db, smokingSelect: smokingSelect_db, gameSelect: gameSelect_db, snoringSelect: snoringSelect_db, griding_teethSelect: griding_TeethSelect_db, callSelect: callSelect_db, eatSelect: eatSelect_db, curfewSelect: curfewSelect_db, bedtimeSelect: bedtimeSelect_db, mbtiSelect: mbtiSelect_db))
                 }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-       
+                print("userhabits")
+                print(userHabitCheck)
             }
         }
     }
