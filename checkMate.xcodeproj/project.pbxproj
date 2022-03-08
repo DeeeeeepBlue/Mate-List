@@ -42,6 +42,7 @@
 		F76B582127C5380600B6626D /* FilterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76B581A27C5380600B6626D /* FilterTableViewController.swift */; };
 		F76B582327C5380600B6626D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76B581C27C5380600B6626D /* ViewController.swift */; };
 		F76B582427C5380600B6626D /* WriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76B581D27C5380600B6626D /* WriteViewController.swift */; };
+		F7CDDF0F27D6E96300DB6A30 /* ContentsDetailView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7CDDF0E27D6E96300DB6A30 /* ContentsDetailView.storyboard */; };
 		F7EEBACD27CF43B9009728AF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7EEBACC27CF43B9009728AF /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -74,6 +75,7 @@
 		F76B581A27C5380600B6626D /* FilterTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterTableViewController.swift; sourceTree = "<group>"; };
 		F76B581C27C5380600B6626D /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F76B581D27C5380600B6626D /* WriteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WriteViewController.swift; sourceTree = "<group>"; };
+		F7CDDF0E27D6E96300DB6A30 /* ContentsDetailView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ContentsDetailView.storyboard; sourceTree = "<group>"; };
 		F7EEBACC27CF43B9009728AF /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -167,6 +169,7 @@
 				F75B3B9327B16ED100368BC8 /* TableViewCell */,
 				F743792127ABDA8E0053947A /* Data.swift */,
 				F757547727A4DF1A00BFDF9B /* LaunchScreen.storyboard */,
+				F7CDDF0E27D6E96300DB6A30 /* ContentsDetailView.storyboard */,
 				F7EEBACC27CF43B9009728AF /* Main.storyboard */,
 				F757547527A4DF1A00BFDF9B /* Assets.xcassets */,
 				0468B98D27CAD48500B2D31A /* GoogleService-Info.plist */,
@@ -262,6 +265,7 @@
 				F7EEBACD27CF43B9009728AF /* Main.storyboard in Resources */,
 				0468B98E27CAD48500B2D31A /* GoogleService-Info.plist in Resources */,
 				F757547927A4DF1A00BFDF9B /* LaunchScreen.storyboard in Resources */,
+				F7CDDF0F27D6E96300DB6A30 /* ContentsDetailView.storyboard in Resources */,
 				F757547627A4DF1A00BFDF9B /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
