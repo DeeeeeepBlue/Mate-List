@@ -128,7 +128,6 @@
                     <connections>
                         <outlet property="findMateTableView" destination="h85-Qm-IxM" id="EE9-le-zQf"/>
                         <outlet property="rootView" destination="UhN-9k-iA5" id="rbJ-We-UeM"/>
-                        <segue destination="FOo-kn-rte" kind="show" identifier="goWirtePageSegue" id="ZtF-mT-MBd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QpS-UJ-L27" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -158,16 +157,6 @@
                 </view>
             </objects>
             <point key="canvasLocation" x="129" y="66"/>
-        </scene>
-        <!--Write-->
-        <scene sceneID="Xct-lF-nwb">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Write" id="FOo-kn-rte" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="QPt-hC-YuY"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="LnB-c7-dTc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="825" y="66"/>
         </scene>
     </scenes>
     <resources>
