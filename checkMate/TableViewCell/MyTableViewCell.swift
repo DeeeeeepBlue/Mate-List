@@ -25,9 +25,9 @@ class MyTableViewCell: UITableViewCell {
     @IBAction func clicked(_ sender: Any) {
         check = !check
         if check { //true
-            check_B.setImage(UIImage(named: "checkmark.circle.fill"), for: .normal)
+            check_B.setImage(UIImage(systemName: "checkmark.circle.fill"), for: .normal)
         }else{
-            check_B.setImage(UIImage(named: "checkmark.circle"), for: .normal)
+            check_B.setImage(UIImage(systemName: "checkmark.circle"), for: .normal)
         }
         if myLabel.text == "흡연"{
             smokingSelect=check
@@ -104,7 +104,7 @@ class MyTableViewCell: UITableViewCell {
                 mbtiSelect=item
                 print(mbtiSelect)
             }
-            self!.inIcon.image = UIImage.init(named: "checkmark.circle.fill")
+            self!.inIcon.image = UIImage.init(systemName: "checkmark.circle.fill")
         }
         
         // 취소 시 처리

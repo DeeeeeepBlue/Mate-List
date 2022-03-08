@@ -18,12 +18,12 @@ class FilterTableViewCell: UITableViewCell {
     @IBAction func checkButtonAction(_ sender: UIButton) {
         check = !check
         if check {
-            checkButton.setImage(UIImage(named: "checkmark.circle"), for: .normal)
+            checkButton.setImage(UIImage(systemName: "checkmark.circle"), for: .normal)
             checkMark = "checkmark.circle"
             print(check)
 //            print(scrapFilter)
         } else {
-            checkButton.setImage(UIImage(named: "checkmark.circle.fill"), for: .normal)
+            checkButton.setImage(UIImage(systemName: "checkmark.circle.fill"), for: .normal)
             checkMark = "checkmark.circle.fill"
             print(check)
         }
@@ -34,7 +34,7 @@ class FilterTableViewCell: UITableViewCell {
         // Initialization code
         
 //        checkButton.setImage(UIImage(named: "checkmark.circle"), for: .normal)
-        checkButton.setImage(UIImage(named: checkMark), for: .normal)
+        checkButton.setImage(UIImage(systemName: checkMark), for: .normal)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
