@@ -26,6 +26,8 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
     @IBOutlet weak var deleteButton: UIBarButtonItem!
     var replyTableViewController = UITableViewController()
     
+    // 라인 회색컬러
+    let color = UIColor(rgb: 0xE5E5E5)
 
 //    var contensDetailData: Post!
 //    var replySection: Int!
@@ -95,10 +97,13 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
     override func viewDidLoad() {
         super.viewDidLoad()
         
+//        self.replyTableView.frame.inset(by: UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 15))
+
         writerPatternButton.backgroundColor = .white
         writerPatternButton.tintColor = .white
         writerPatternButton.layer.borderWidth = 1
-        writerPatternButton.layer.cornerRadius = 10
+        writerPatternButton.layer.borderColor = color.cgColor
+        writerPatternButton.layer.cornerRadius = 15
         
         currentData = contentsDetailData
         userHabitCheck.removeAll()
@@ -155,12 +160,24 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
         return replyList.count
     }
     
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 15
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = replyTableView.dequeueReusableCell(withIdentifier: "replyCell", for: indexPath)
+        
+        //  둥근 테두리 만들기
+        cell.backgroundColor = UIColor.white
+        cell.layer.borderColor = color.cgColor
+        cell.layer.borderWidth = 1
+        cell.layer.cornerRadius = 8
+        cell.clipsToBounds = true
+//        cell.frame.inset(by: UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 15))
         
         let userLabel = cell.viewWithTag(1) as! UILabel
         let contentsText = cell.viewWithTag(2) as! UITextView
