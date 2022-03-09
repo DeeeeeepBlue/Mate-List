@@ -23,8 +23,6 @@ class MyPage: UIViewController {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
     
-    @IBOutlet weak var appView: UIView!
-    @IBOutlet weak var developeView: UIView!
     @IBOutlet weak var signInButton: GIDSignInButton!
     
     
