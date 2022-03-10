@@ -11,6 +11,7 @@ import FirebaseAuth
 
 class WriteViewController: UIViewController, UITextViewDelegate {
 
+    @IBOutlet weak var writeButton: UIButton!
     @IBOutlet weak var tittleTextField: UITextField!
     
     @IBOutlet weak var contentTextView: UITextView!
@@ -27,6 +28,10 @@ class WriteViewController: UIViewController, UITextViewDelegate {
         
         placeholderSetting()
         db = Firestore.firestore()
+        
+        writeButton.layer.cornerRadius = 20
+        writeButton.layer.borderWidth = 0.5
+        writeButton.layer.borderColor = UIColor.gray.cgColor
         
         // Do any additional setup after loading the view.
     }
@@ -67,13 +72,10 @@ class WriteViewController: UIViewController, UITextViewDelegate {
         ])
         
         // 모달 종료
-        dismiss(animated: true, completion: nil)
+        self.navigationController?.popViewController(animated: true)
     }
     
-    // 뒤로가기 버튼
-    @IBAction func backButton(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
-    }
+
     
     // 날짜 가져오기
     func getDate() -> String {
@@ -91,7 +93,7 @@ class WriteViewController: UIViewController, UITextViewDelegate {
         guard AppDelegate.user == nil else {return}
         let alert = UIAlertController(title: "유저가 없습니다", message: "로그인을 해주세요!", preferredStyle: UIAlertController.Style.alert)
         let okAction = UIAlertAction(title: "OK", style: .default) {_ in
-            self.dismiss(animated: true, completion: nil)
+            self.navigationController?.popViewController(animated: true)
         }
         alert.addAction(okAction)
         

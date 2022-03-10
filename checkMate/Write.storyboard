@@ -11,50 +11,80 @@
         <!--글쓰기-->
         <scene sceneID="jPX-gc-dzk">
             <objects>
-                <viewController id="MZi-Zz-jB9" customClass="WriteViewController" customModule="checkMate" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Write" id="MZi-Zz-jB9" customClass="WriteViewController" customModule="checkMate" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="I0u-QF-Jhr">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="제목" placeholder="Tittle" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HFv-1u-olV">
-                                <rect key="frame" x="20" y="103" width="374" height="18.5"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="42D-tF-otR">
-                                <rect key="frame" x="20" y="130" width="374" height="1"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemGray3Color"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q5m-87-M7E">
+                                <rect key="frame" x="20" y="64" width="374" height="50"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="제목" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HFv-1u-olV">
+                                        <rect key="frame" x="8" y="8" width="358" height="27"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="42D-tF-otR">
+                                        <rect key="frame" x="0.0" y="39" width="374" height="1"/>
+                                        <color key="backgroundColor" systemColor="systemGray3Color"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="cow-l6-Xlw"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="42D-tF-otR" secondAttribute="trailing" id="0xp-Ke-Wr0"/>
+                                    <constraint firstItem="42D-tF-otR" firstAttribute="leading" secondItem="q5m-87-M7E" secondAttribute="leading" id="2PT-Al-nau"/>
+                                    <constraint firstItem="HFv-1u-olV" firstAttribute="leading" secondItem="q5m-87-M7E" secondAttribute="leading" constant="8" id="CRv-9F-wak"/>
+                                    <constraint firstItem="42D-tF-otR" firstAttribute="top" secondItem="HFv-1u-olV" secondAttribute="bottom" constant="4" id="Caa-10-L25"/>
+                                    <constraint firstItem="HFv-1u-olV" firstAttribute="top" secondItem="q5m-87-M7E" secondAttribute="top" constant="8" id="Qq7-0H-sEM"/>
+                                    <constraint firstAttribute="height" constant="50" id="TGZ-E9-Whf"/>
+                                    <constraint firstAttribute="trailing" secondItem="HFv-1u-olV" secondAttribute="trailing" constant="8" id="bT7-XI-pYh"/>
+                                </constraints>
                             </view>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="코멘트를 남겨주세요." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ULx-eY-VqT">
-                                <rect key="frame" x="20" y="139" width="374" height="512"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H73-3I-FtL">
+                                <rect key="frame" x="20" y="791" width="374" height="31"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="확인"/>
+                                <connections>
+                                    <action selector="saveButton:" destination="MZi-Zz-jB9" eventType="touchUpInside" id="zFy-wZ-icX"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ULx-eY-VqT">
+                                <rect key="frame" x="20" y="134" width="374" height="637"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H73-3I-FtL">
-                                <rect key="frame" x="96" y="746" width="223" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="확인"/>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="mi8-Tc-e1f"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="H73-3I-FtL" firstAttribute="top" secondItem="ULx-eY-VqT" secondAttribute="bottom" constant="20" id="6SN-60-Fuk"/>
+                            <constraint firstItem="ULx-eY-VqT" firstAttribute="leading" secondItem="mi8-Tc-e1f" secondAttribute="leading" constant="20" id="8BR-RL-XUD"/>
+                            <constraint firstItem="q5m-87-M7E" firstAttribute="top" secondItem="mi8-Tc-e1f" secondAttribute="top" constant="20" id="9vK-dP-70F"/>
+                            <constraint firstItem="mi8-Tc-e1f" firstAttribute="trailing" secondItem="H73-3I-FtL" secondAttribute="trailing" constant="20" id="AsH-hO-vy8"/>
+                            <constraint firstItem="ULx-eY-VqT" firstAttribute="top" secondItem="q5m-87-M7E" secondAttribute="bottom" constant="20" id="FBe-jj-Tnt"/>
+                            <constraint firstItem="mi8-Tc-e1f" firstAttribute="trailing" secondItem="q5m-87-M7E" secondAttribute="trailing" constant="20" id="HQe-WL-C5a"/>
+                            <constraint firstItem="q5m-87-M7E" firstAttribute="leading" secondItem="mi8-Tc-e1f" secondAttribute="leading" constant="20" id="RJ0-Rl-rEq"/>
+                            <constraint firstItem="H73-3I-FtL" firstAttribute="leading" secondItem="mi8-Tc-e1f" secondAttribute="leading" constant="20" id="Yxt-s2-C0j"/>
+                            <constraint firstItem="mi8-Tc-e1f" firstAttribute="bottom" secondItem="H73-3I-FtL" secondAttribute="bottom" constant="40" id="bM3-Qe-Khn"/>
+                            <constraint firstItem="ULx-eY-VqT" firstAttribute="trailing" secondItem="mi8-Tc-e1f" secondAttribute="trailing" constant="-20" id="xSY-C5-ijW"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="글쓰기" id="2WC-P5-jhN"/>
                     <connections>
                         <outlet property="contentTextView" destination="ULx-eY-VqT" id="i4B-RN-Iy8"/>
                         <outlet property="tittleTextField" destination="HFv-1u-olV" id="5BY-Au-Z5s"/>
+                        <outlet property="writeButton" destination="H73-3I-FtL" id="pCs-Ug-SNh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l5N-mU-wm6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1140.5797101449277" y="-668.30357142857144"/>
+            <point key="canvasLocation" x="1900.0000000000002" y="-668.30357142857144"/>
         </scene>
     </scenes>
     <resources>
