@@ -20,6 +20,7 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
     @IBOutlet weak var contentsTextView: UITextView!
     
     @IBOutlet weak var replyTextField: UITextField!
+    @IBOutlet weak var replyOkButton: UIButton!
     
     @IBOutlet weak var writerPatternButton: UIButton!
     
@@ -104,6 +105,13 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
         writerPatternButton.layer.borderWidth = 1
         writerPatternButton.layer.borderColor = color.cgColor
         writerPatternButton.layer.cornerRadius = 15
+        replyOkButton.layer.borderColor = color.cgColor
+        replyOkButton.layer.borderWidth = 1
+        replyOkButton.layer.cornerRadius = 10
+        replyOkButton.tintColor = .white
+        replyTextField.layer.borderWidth = 1
+        replyTextField.layer.cornerRadius = 10
+        replyTextField.layer.borderColor = color.cgColor
         
         currentData = contentsDetailData
         userHabitCheck.removeAll()
