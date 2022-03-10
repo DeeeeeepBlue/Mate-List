@@ -17,7 +17,9 @@ class LifePatternViewController2: UIViewController,UITableViewDelegate,UITableVi
 
 
 
-    
+    @IBOutlet weak var surveyviewtitle: UILabel!
+    var surveyView_user_id :String!
+    var  surveyView_cont : HabitCheck!
     @IBOutlet weak var regbutton: UILabel!
     let db = Firestore.firestore()
     var lef: DatabaseReference!
@@ -54,7 +56,7 @@ class LifePatternViewController2: UIViewController,UITableViewDelegate,UITableVi
         surveytable.delegate=self
         lef = Database.database().reference(withPath: "servey")
         
-        
+        surveyviewtitle.text = surveyView_user_id+" 님의 생활패턴"
     }
     
    
@@ -69,29 +71,28 @@ class LifePatternViewController2: UIViewController,UITableViewDelegate,UITableVi
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier:"cell", for: indexPath)as! serveyviewViewCell
         cell.myLabel.text = habitCheck[indexPath.row]
-        print("라벨")
         print(cell.myLabel.text)
         if cell.myLabel.text == "청소주기" {
-            cell.value.text =  userHabitCheck[0].cleanSelect
+            cell.value.text =  surveyView_cont.cleanSelect
         } else if cell.myLabel.text == "흡연" {
-            cell.value.text =  String(userHabitCheck[0].smokingSelect ?? false)
+            cell.value.text =  String(surveyView_cont.smokingSelect ?? false)
         }else if cell.myLabel.text == "게임" {
-            cell.value.text =  String(userHabitCheck[0].gameSelect ?? false)
+            cell.value.text =  String(surveyView_cont.gameSelect ?? false)
         }else if cell.myLabel.text == "코골이" {
-            cell.value.text =  String(userHabitCheck[0].snoringSelect ?? false)
+            cell.value.text =  String(surveyView_cont.snoringSelect ?? false)
         }else if cell.myLabel.text == "이갈이" {
-            cell.value.text =  String(userHabitCheck[0].griding_teethSelect ?? false)
+            cell.value.text =  String(surveyView_cont.griding_teethSelect ?? false)
         }else if cell.myLabel.text == "방에서 통화" {
-            cell.value.text =  String(userHabitCheck[0].callSelect ?? false)
+            cell.value.text =  String(surveyView_cont.callSelect ?? false)
         }else if cell.myLabel.text == "방에서 음식섭취" {
-            cell.value.text =  String(userHabitCheck[0].eatSelect ?? false)
+            cell.value.text =  String(surveyView_cont.eatSelect ?? false)
         }else if cell.myLabel.text == "귀가 시간(11시 이후)" {
-            cell.value.text =  String(userHabitCheck[0].curfewSelect ?? false)
+            cell.value.text =  String(surveyView_cont.curfewSelect ?? false)
         }else if cell.myLabel.text == "취침 시간(12시 이후)" {
-            cell.value.text =  String(userHabitCheck[0].bedtimeSelect ?? false)
+            cell.value.text =  String(surveyView_cont.bedtimeSelect ?? false)
         }else if cell.myLabel.text == "mbti" {
-            cell.value.text =  userHabitCheck[0].mbtiSelect
-        } else {cell.value.text = "없음"}
+            cell.value.text =  surveyView_cont.mbtiSelect
+        } else {cell.value.text = "선택안함"}
        
         return cell
     

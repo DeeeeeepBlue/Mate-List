@@ -77,7 +77,7 @@
                                             <action selector="done:" destination="YOK-Q8-PT0" eventType="touchUpInside" id="8eA-mb-atZ"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="등록하기" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mYM-2g-WLP">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="확인" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mYM-2g-WLP">
                                         <rect key="frame" x="10" y="758" width="394" height="30"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="tintColor" white="0.87" alpha="1" colorSpace="calibratedWhite"/>
@@ -121,6 +121,7 @@
                     <connections>
                         <outlet property="regbutton" destination="mYM-2g-WLP" id="fEj-QD-dxx"/>
                         <outlet property="surveytable" destination="i9M-b0-lmc" id="L79-bx-HKV"/>
+                        <outlet property="surveyviewtitle" destination="2BT-7c-FAm" id="ikU-9e-B0u"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0qh-yU-DmG" sceneMemberID="firstResponder"/>
