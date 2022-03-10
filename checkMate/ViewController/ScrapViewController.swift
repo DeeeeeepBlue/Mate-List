@@ -135,16 +135,16 @@ class ScrapViewController: UIViewController, UITableViewDataSource, UITableViewD
         if self.List.count > 0 {
             
             // List가 0보다 클때만 데이터 불러오기
-            let cellTittle = cell.viewWithTag(1) as! UILabel
-            let cellUser = cell.viewWithTag(2) as! UILabel
-            let cellContents = cell.viewWithTag(3) as! UILabel
-            let cellDate = cell.viewWithTag(4) as! UILabel
-            //print(self.List.count)
-            
+            let cellTittle = cell.viewWithTag(3) as! UILabel
+            let cellContents = cell.viewWithTag(4) as! UILabel
+            let cellDate = cell.viewWithTag(5) as! UILabel
+            let cellUser = cell.viewWithTag(6) as! UILabel
+            print(self.List.count)
+
             cellTittle.text = "\(self.List[indexPath.section].title)"
-            cellUser.text = "\(self.List[indexPath.section].author)"
             cellContents.text = "\(self.List[indexPath.section].contents)"
             cellDate.text = "\(self.List[indexPath.section].date)"
+            cellUser.text = "\(self.List[indexPath.section].author)"
             
         }
         
