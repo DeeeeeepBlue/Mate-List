@@ -30,8 +30,6 @@ class ScrapViewController: UIViewController, UITableViewDataSource, UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        
         self.scrapTableView.delegate = self
         self.scrapTableView.dataSource = self
 
@@ -42,6 +40,8 @@ class ScrapViewController: UIViewController, UITableViewDataSource, UITableViewD
         
         // 테두리 여백 만들기
         self.scrapTableView.frame = self.scrapTableView.frame.inset(by: UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 15))
+        
+
         // Do any additional setup after loading the view.
     }
     
@@ -84,10 +84,13 @@ class ScrapViewController: UIViewController, UITableViewDataSource, UITableViewD
                             let isScrap_db = value["isScrap"] as? Bool ?? false
     //                        let findMate = value["findMate"]! as! Bool
                             
+                            print("스크랩 값 : \(value)")
+                            
                             existScrap(docPath: document.documentID){ (result) in
                                 if result{
                                     self.List.append(Post(uid: uid_db,author: author_db, title: title_db, contents: content_db, isScrap: isScrap_db, date: date_db, pid: document.documentID))
                                     print("잘 넣었음")
+                                    
                                     self.scrapTableView.reloadData()
                                 } else{
                                     self.db.collection("User").document(Auth.auth().currentUser!.uid).collection("Scrap").document(document.documentID).delete() { err in

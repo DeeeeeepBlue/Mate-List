@@ -26,11 +26,14 @@ class FindMateViewController: UIViewController, UITableViewDataSource, UITableVi
     // Add a new document with a generated ID
     var ref: DocumentReference? = nil
     
+    
+    // MARK: - Life Cycle
     override func viewWillAppear(_ animated: Bool) {
         
         super.viewWillAppear(true)
         DataLoad()
-//        findMateTableView.reloadData()
+        findMateTableView.reloadData()
+        print("scrap view load complete")
     }
     
     
@@ -49,6 +52,22 @@ class FindMateViewController: UIViewController, UITableViewDataSource, UITableVi
         //         테두리 여백 만들기
         self.findMateTableView.frame = self.findMateTableView.frame.inset(by: UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 15))
     
+        
+        
+        //navigation design
+        navigationBar.shadowImage = UIImage()
+        
+        createWirteButton()
+        
+    }
+    
+    
+    // MARK: - Custom Function
+    @objc func tapWriteButton(sender:UIGestureRecognizer){
+        performSegue(withIdentifier: "writeSegue", sender: nil)
+    }
+    
+    func createWirteButton(){
         //floating button - write button
         let writeButton: UIView = {
             let writeButtonBackground: UIView = UIView()
@@ -85,15 +104,6 @@ class FindMateViewController: UIViewController, UITableViewDataSource, UITableVi
         writeButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         writeButton.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor, constant: -10).isActive = true
         
-        
-        //navigation design
-        navigationBar.shadowImage = UIImage()
-        
-        
-    }
-    
-    @objc func tapWriteButton(sender:UIGestureRecognizer){
-        performSegue(withIdentifier: "writeSegue", sender: nil)
     }
 
     
@@ -127,12 +137,13 @@ class FindMateViewController: UIViewController, UITableViewDataSource, UITableVi
                    
                 }
             self.findMateTableView.reloadData()
+            
             }
        }
 
 
 
-    
+    //MARK: - Table View Data Source
     // indexPath.row 대신 indexPath.section으로 나눴음
     func numberOfSections(in tableView: UITableView) -> Int {
         var value : Int
@@ -215,9 +226,6 @@ class FindMateViewController: UIViewController, UITableViewDataSource, UITableVi
     
     
     
-
-    
-    
     // 당기면 데이터 리로드
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         self.findMateTableView.reloadData()
@@ -226,7 +234,7 @@ class FindMateViewController: UIViewController, UITableViewDataSource, UITableVi
 
 
     
-    
+    //MARK: - Scene Change
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "detailSegue" {
