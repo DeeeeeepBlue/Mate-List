@@ -16,9 +16,9 @@
 		04BB243727ACED960003DA33 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BB243627ACED960003DA33 /* MyPageViewController.swift */; };
 		3F2245BE27D62763002F29FE /* HexUIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2245BD27D62763002F29FE /* HexUIColor.swift */; };
 		3FB23A5E27D79D3E00B8D071 /* FindMateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB23A5D27D79D3E00B8D071 /* FindMateTableViewCell.swift */; };
+		5A75AE8827D9F2F9001C796C /* Scrap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A75AE8727D9F2F9001C796C /* Scrap.storyboard */; };
 		A600678027C7E4AA007C6EF1 /* (null) in Resources */ = {isa = PBXBuildFile; };
 		A623E33627B7C40E00172F38 /* DropDownViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A623E33527B7C40E00172F38 /* DropDownViewController.swift */; };
-		F72A3B0427B1437200358165 /* MyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72A3B0327B1437200358165 /* MyTableViewCell.swift */; };
 		F731B77027D4D56A009670A4 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = F731B76F27D4D56A009670A4 /* FirebaseAnalytics */; };
 		F731B77227D4D56A009670A4 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = F731B77127D4D56A009670A4 /* FirebaseAuth */; };
 		F731B77427D4D56A009670A4 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = F731B77327D4D56A009670A4 /* FirebaseCrashlytics */; };
@@ -29,11 +29,9 @@
 		F731B7A627D4FF09009670A4 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F731B7A127D4FF09009670A4 /* Home.storyboard */; };
 		F731B7AA27D500B3009670A4 /* testTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F731B7A927D500B3009670A4 /* testTableViewController.swift */; };
 		F7379F2A27AD4EFE00D99CD4 /* FilterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7379F2927AD4EFE00D99CD4 /* FilterTableViewCell.swift */; };
-		F742168627CBF029003CCE2F /* LifePatternViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F742168527CBF029003CCE2F /* LifePatternViewController.swift */; };
 		F743792227ABDA8E0053947A /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = F743792127ABDA8E0053947A /* Data.swift */; };
 		F75452E727C7C59900E2DB41 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75452E627C7C59900E2DB41 /* Post.swift */; };
 		F75452E927C7C5FB00E2DB41 /* FindMateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75452E827C7C5FB00E2DB41 /* FindMateViewController.swift */; };
-		F75452EB27C7C68C00E2DB41 /* ServeyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75452EA27C7C68C00E2DB41 /* ServeyViewController.swift */; };
 		F757546D27A4DF1800BFDF9B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F757546C27A4DF1800BFDF9B /* AppDelegate.swift */; };
 		F757546F27A4DF1800BFDF9B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F757546E27A4DF1800BFDF9B /* SceneDelegate.swift */; };
 		F757547627A4DF1A00BFDF9B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F757547527A4DF1A00BFDF9B /* Assets.xcassets */; };
@@ -48,6 +46,13 @@
 		F76B582427C5380600B6626D /* WriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76B581D27C5380600B6626D /* WriteViewController.swift */; };
 		F7B4F41327D7A55A0045580F /* Info.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7B4F41027D7A55A0045580F /* Info.storyboard */; };
 		F7B4F41427D7A55A0045580F /* Write.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7B4F41127D7A55A0045580F /* Write.storyboard */; };
+		F7B4F41627D7B4B80045580F /* LifePatternViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B4F41527D7B4B80045580F /* LifePatternViewController.swift */; };
+		F7B4F41827D7B4C00045580F /* ServeyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B4F41727D7B4C00045580F /* ServeyViewController.swift */; };
+		F7B4F41A27D7B4CD0045580F /* surveyviewViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B4F41927D7B4CD0045580F /* surveyviewViewCell.swift */; };
+		F7B4F41C27D7B5030045580F /* Survey.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7B4F41B27D7B5030045580F /* Survey.storyboard */; };
+		F7B4F41E27D7B5090045580F /* Surveyview.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7B4F41D27D7B5090045580F /* Surveyview.storyboard */; };
+		F7B4F42027D7B7460045580F /* MyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B4F41F27D7B7460045580F /* MyTableViewCell.swift */; };
+		F7B4F42227D7B8C10045580F /* RGBColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B4F42127D7B8C10045580F /* RGBColor.swift */; };
 		F7CDDF0F27D6E96300DB6A30 /* ContentsDetailView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7CDDF0E27D6E96300DB6A30 /* ContentsDetailView.storyboard */; };
 		F7EEBACD27CF43B9009728AF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7EEBACC27CF43B9009728AF /* Main.storyboard */; };
 /* End PBXBuildFile section */
@@ -62,16 +67,14 @@
 		04BB243627ACED960003DA33 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
 		3F2245BD27D62763002F29FE /* HexUIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexUIColor.swift; sourceTree = "<group>"; };
 		3FB23A5D27D79D3E00B8D071 /* FindMateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindMateTableViewCell.swift; sourceTree = "<group>"; };
+		5A75AE8727D9F2F9001C796C /* Scrap.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Scrap.storyboard; sourceTree = "<group>"; };
 		A623E33527B7C40E00172F38 /* DropDownViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownViewController.swift; sourceTree = "<group>"; };
-		F72A3B0327B1437200358165 /* MyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTableViewCell.swift; sourceTree = "<group>"; };
 		F731B7A127D4FF09009670A4 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		F731B7A927D500B3009670A4 /* testTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testTableViewController.swift; sourceTree = "<group>"; };
 		F7379F2927AD4EFE00D99CD4 /* FilterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterTableViewCell.swift; sourceTree = "<group>"; };
-		F742168527CBF029003CCE2F /* LifePatternViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LifePatternViewController.swift; sourceTree = "<group>"; };
 		F743792127ABDA8E0053947A /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		F75452E627C7C59900E2DB41 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		F75452E827C7C5FB00E2DB41 /* FindMateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindMateViewController.swift; sourceTree = "<group>"; };
-		F75452EA27C7C68C00E2DB41 /* ServeyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServeyViewController.swift; sourceTree = "<group>"; };
 		F757546927A4DF1800BFDF9B /* checkMate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = checkMate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F757546C27A4DF1800BFDF9B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ../AppDelegate.swift; sourceTree = "<group>"; };
 		F757546E27A4DF1800BFDF9B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SceneDelegate.swift; path = ../SceneDelegate.swift; sourceTree = "<group>"; };
@@ -87,6 +90,13 @@
 		F76B581D27C5380600B6626D /* WriteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WriteViewController.swift; sourceTree = "<group>"; };
 		F7B4F41027D7A55A0045580F /* Info.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Info.storyboard; sourceTree = "<group>"; };
 		F7B4F41127D7A55A0045580F /* Write.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Write.storyboard; sourceTree = "<group>"; };
+		F7B4F41527D7B4B80045580F /* LifePatternViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LifePatternViewController.swift; sourceTree = "<group>"; };
+		F7B4F41727D7B4C00045580F /* ServeyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServeyViewController.swift; sourceTree = "<group>"; };
+		F7B4F41927D7B4CD0045580F /* surveyviewViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = surveyviewViewCell.swift; sourceTree = "<group>"; };
+		F7B4F41B27D7B5030045580F /* Survey.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Survey.storyboard; sourceTree = "<group>"; };
+		F7B4F41D27D7B5090045580F /* Surveyview.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Surveyview.storyboard; sourceTree = "<group>"; };
+		F7B4F41F27D7B7460045580F /* MyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTableViewCell.swift; sourceTree = "<group>"; };
+		F7B4F42127D7B8C10045580F /* RGBColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RGBColor.swift; sourceTree = "<group>"; };
 		F7CDDF0E27D6E96300DB6A30 /* ContentsDetailView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ContentsDetailView.storyboard; sourceTree = "<group>"; };
 		F7EEBACC27CF43B9009728AF /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -134,14 +144,15 @@
 				A623E33527B7C40E00172F38 /* DropDownViewController.swift */,
 				04A6963D27C2955600B02390 /* ResistViewController.swift */,
 				F76B581727C5380600B6626D /* ContentsDetailViewController.swift */,
+				F7B4F42127D7B8C10045580F /* RGBColor.swift */,
 				F76B581A27C5380600B6626D /* FilterTableViewController.swift */,
+				F7B4F41727D7B4C00045580F /* ServeyViewController.swift */,
+				F7B4F41527D7B4B80045580F /* LifePatternViewController.swift */,
 				F731B7A927D500B3009670A4 /* testTableViewController.swift */,
 				F75452E827C7C5FB00E2DB41 /* FindMateViewController.swift */,
 				F76B581927C5380600B6626D /* FilterViewController.swift */,
 				F76B581C27C5380600B6626D /* ViewController.swift */,
-				F75452EA27C7C68C00E2DB41 /* ServeyViewController.swift */,
 				F76B581D27C5380600B6626D /* WriteViewController.swift */,
-				F742168527CBF029003CCE2F /* LifePatternViewController.swift */,
 				0444E00127C825A500B49F8B /* ScrapViewController.swift */,
 			);
 			path = ViewController;
@@ -185,7 +196,10 @@
 				F7CDDF0E27D6E96300DB6A30 /* ContentsDetailView.storyboard */,
 				F7B4F41027D7A55A0045580F /* Info.storyboard */,
 				F7B4F41127D7A55A0045580F /* Write.storyboard */,
+				F7B4F41B27D7B5030045580F /* Survey.storyboard */,
+				F7B4F41D27D7B5090045580F /* Surveyview.storyboard */,
 				F7EEBACC27CF43B9009728AF /* Main.storyboard */,
+				5A75AE8727D9F2F9001C796C /* Scrap.storyboard */,
 				F731B7A127D4FF09009670A4 /* Home.storyboard */,
 				F757547527A4DF1A00BFDF9B /* Assets.xcassets */,
 				0468B98D27CAD48500B2D31A /* GoogleService-Info.plist */,
@@ -199,9 +213,10 @@
 			children = (
 				F76B581227C5378100B6626D /* DetailTextView.swift */,
 				F76B581327C5378100B6626D /* NewFilterTableViewCell.swift */,
+				F7B4F41927D7B4CD0045580F /* surveyviewViewCell.swift */,
 				F76B581127C5378100B6626D /* ReplyTextView.swift */,
+				F7B4F41F27D7B7460045580F /* MyTableViewCell.swift */,
 				F7379F2927AD4EFE00D99CD4 /* FilterTableViewCell.swift */,
-				F72A3B0327B1437200358165 /* MyTableViewCell.swift */,
 				3FB23A5D27D79D3E00B8D071 /* FindMateTableViewCell.swift */,
 			);
 			path = TableViewCell;
@@ -279,11 +294,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7B4F41C27D7B5030045580F /* Survey.storyboard in Resources */,
 				F731B7A627D4FF09009670A4 /* Home.storyboard in Resources */,
 				A600678027C7E4AA007C6EF1 /* (null) in Resources */,
+				5A75AE8827D9F2F9001C796C /* Scrap.storyboard in Resources */,
 				F7EEBACD27CF43B9009728AF /* Main.storyboard in Resources */,
 				0468B98E27CAD48500B2D31A /* GoogleService-Info.plist in Resources */,
 				F757547927A4DF1A00BFDF9B /* LaunchScreen.storyboard in Resources */,
+				F7B4F41E27D7B5090045580F /* Surveyview.storyboard in Resources */,
 				F7CDDF0F27D6E96300DB6A30 /* ContentsDetailView.storyboard in Resources */,
 				F757547627A4DF1A00BFDF9B /* Assets.xcassets in Resources */,
 				F7B4F41327D7A55A0045580F /* Info.storyboard in Resources */,
@@ -301,6 +319,7 @@
 				040AA09927BECE16008F4BF5 /* Comment.swift in Sources */,
 				040AA09727BECDDD008F4BF5 /* HabitCheck.swift in Sources */,
 				F75452E927C7C5FB00E2DB41 /* FindMateViewController.swift in Sources */,
+				F7B4F41A27D7B4CD0045580F /* surveyviewViewCell.swift in Sources */,
 				F76B582127C5380600B6626D /* FilterTableViewController.swift in Sources */,
 				F76B582327C5380600B6626D /* ViewController.swift in Sources */,
 				F76B581527C5378100B6626D /* DetailTextView.swift in Sources */,
@@ -312,19 +331,20 @@
 				A623E33627B7C40E00172F38 /* DropDownViewController.swift in Sources */,
 				F75452E727C7C59900E2DB41 /* Post.swift in Sources */,
 				F76B581427C5378100B6626D /* ReplyTextView.swift in Sources */,
-				F72A3B0427B1437200358165 /* MyTableViewCell.swift in Sources */,
 				F757546D27A4DF1800BFDF9B /* AppDelegate.swift in Sources */,
 				3FB23A5E27D79D3E00B8D071 /* FindMateTableViewCell.swift in Sources */,
 				F76B582027C5380600B6626D /* FilterViewController.swift in Sources */,
-				F75452EB27C7C68C00E2DB41 /* ServeyViewController.swift in Sources */,
 				F757546F27A4DF1800BFDF9B /* SceneDelegate.swift in Sources */,
 				F731B7AA27D500B3009670A4 /* testTableViewController.swift in Sources */,
+				F7B4F41827D7B4C00045580F /* ServeyViewController.swift in Sources */,
+				F7B4F42027D7B7460045580F /* MyTableViewCell.swift in Sources */,
 				F7379F2A27AD4EFE00D99CD4 /* FilterTableViewCell.swift in Sources */,
+				F7B4F42227D7B8C10045580F /* RGBColor.swift in Sources */,
 				0444E00227C825A500B49F8B /* ScrapViewController.swift in Sources */,
 				04BB243727ACED960003DA33 /* MyPageViewController.swift in Sources */,
+				F7B4F41627D7B4B80045580F /* LifePatternViewController.swift in Sources */,
 				040AA09527BECD61008F4BF5 /* User.swift in Sources */,
 				F76B581E27C5380600B6626D /* ContentsDetailViewController.swift in Sources */,
-				F742168627CBF029003CCE2F /* LifePatternViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

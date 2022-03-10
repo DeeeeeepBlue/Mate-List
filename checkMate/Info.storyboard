@@ -48,6 +48,7 @@
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z7x-dS-sjJ">
                                 <rect key="frame" x="20" y="144" width="374" height="110"/>
+
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이름" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p8S-Gp-OPI">
                                         <rect key="frame" x="20" y="20" width="60" height="21"/>
@@ -79,6 +80,18 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wyq-xr-jFR">
+                                        <rect key="frame" x="272" y="69" width="72.5" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="로그아웃">
+                                            <backgroundConfiguration key="background"/>
+                                            <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="signOut:" destination="Njf-UX-cJ5" eventType="touchUpInside" id="O4f-w0-BqU"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
@@ -111,6 +124,7 @@
                                     <action selector="signOut:" destination="Njf-UX-cJ5" eventType="touchUpInside" id="O4f-w0-BqU"/>
                                 </connections>
                             </button>
+
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Odc-su-rpM"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -127,6 +141,7 @@
                             <constraint firstItem="Z7x-dS-sjJ" firstAttribute="leading" secondItem="Odc-su-rpM" secondAttribute="leading" constant="20" id="jSf-UQ-ZUX"/>
                             <constraint firstItem="Wyq-xr-jFR" firstAttribute="leading" secondItem="Odc-su-rpM" secondAttribute="leading" constant="20" id="okD-3L-gAX"/>
                             <constraint firstItem="ar4-7y-zK5" firstAttribute="leading" secondItem="Odc-su-rpM" secondAttribute="leading" constant="20" id="ujH-Kf-9z0"/>
+
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="person" catalog="system" selectedImage="person.fill" id="jMA-Zq-gw9"/>
@@ -138,11 +153,22 @@
                         <outlet property="nameLabel" destination="l2y-Az-nTU" id="GcX-z7-nYV"/>
                         <outlet property="signInButton" destination="F32-7j-SFn" id="EOz-Jz-PUX"/>
                         <outlet property="surveyButton" destination="ar4-7y-zK5" id="dw1-Wg-0NU"/>
+
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4rC-3g-cUd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="63.768115942028992" y="1542.8571428571429"/>
+            <point key="canvasLocation" x="68" y="1477"/>
+        </scene>
+        <!--Survey-->
+        <scene sceneID="Ru9-lB-SYl">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Survey" id="htb-UZ-Eqn" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Smm-vb-Lso"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9In-V7-aPy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="876" y="1477"/>
         </scene>
     </scenes>
     <resources>

@@ -80,15 +80,18 @@
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
+                    <connections>
+                        <segue destination="ryC-7G-1Sq" kind="relationship" relationship="rootViewController" id="Gk8-x2-OZ4"/>
+                    </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oqk-5p-vYd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-949" y="816"/>
         </scene>
-        <!--Storyboard Reference-->
+        <!--Scrap-->
         <scene sceneID="37V-mn-obE">
             <objects>
-                <viewControllerPlaceholder id="ryC-7G-1Sq" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Scrap" id="ryC-7G-1Sq" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="bLW-09-urA"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LLf-GH-RD2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

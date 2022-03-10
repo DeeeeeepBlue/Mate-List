@@ -20,12 +20,15 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
     @IBOutlet weak var contentsTextView: UITextView!
     
     @IBOutlet weak var replyTextField: UITextField!
+    @IBOutlet weak var replyOkButton: UIButton!
     
     @IBOutlet weak var writerPatternButton: UIButton!
     
     @IBOutlet weak var deleteButton: UIBarButtonItem!
     var replyTableViewController = UITableViewController()
     
+    // 라인 회색컬러
+    let color = UIColor(rgb: 0xE5E5E5)
 
 //    var contensDetailData: Post!
 //    var replySection: Int!
@@ -95,6 +98,21 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
     override func viewDidLoad() {
         super.viewDidLoad()
         
+//        self.replyTableView.frame.inset(by: UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 15))
+
+        writerPatternButton.backgroundColor = .white
+        writerPatternButton.tintColor = .white
+        writerPatternButton.layer.borderWidth = 1
+        writerPatternButton.layer.borderColor = color.cgColor
+        writerPatternButton.layer.cornerRadius = 15
+        replyOkButton.layer.borderColor = color.cgColor
+        replyOkButton.layer.borderWidth = 1
+        replyOkButton.layer.cornerRadius = 10
+        replyOkButton.tintColor = .white
+        replyTextField.layer.borderWidth = 1
+        replyTextField.layer.cornerRadius = 10
+        replyTextField.layer.borderColor = color.cgColor
+        
         currentData = contentsDetailData
         userHabitCheck.removeAll()
         
@@ -135,15 +153,23 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
         
 
         userLabel.text = contentsDetailData.author
+        userLabel.textAlignment = .right
+        userLabel.sizeToFit()
         tittleLabel.text = contentsDetailData.title
+        tittleLabel.sizeToFit()
         contentsText.text = contentsDetailData.contents
+        contentsText.sizeToFit()
         dateLabel.text = contentsDetailData.date
-        
+        dateLabel.sizeToFit()
         // Do any additional setup after loading the view.
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return replyList.count
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 15
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -152,6 +178,14 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = replyTableView.dequeueReusableCell(withIdentifier: "replyCell", for: indexPath)
+        
+        //  둥근 테두리 만들기
+        cell.backgroundColor = UIColor.white
+        cell.layer.borderColor = color.cgColor
+        cell.layer.borderWidth = 1
+        cell.layer.cornerRadius = 8
+        cell.clipsToBounds = true
+//        cell.frame.inset(by: UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 15))
         
         let userLabel = cell.viewWithTag(1) as! UILabel
         let contentsText = cell.viewWithTag(2) as! UITextView
@@ -162,8 +196,11 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
         if replyList.count > 0{
             
             userLabel.text = self.replyList[indexPath.section].author
+            userLabel.sizeToFit()
             contentsText.text = self.replyList[indexPath.section].contents
+            contentsText.sizeToFit()
             dateLabel.text = self.replyList[indexPath.section].date
+            dateLabel.sizeToFit()
             
             if self.replyList[indexPath.section].uid != Auth.auth().currentUser?.uid {
                 replyDeleteLabel.isHidden = true
