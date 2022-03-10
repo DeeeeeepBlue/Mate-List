@@ -29,7 +29,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="mateCell" rowHeight="120" id="7xt-cK-v8x" customClass="FindMateTableViewCell" customModule="checkMate" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="45" width="414" height="120"/>
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="120"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7xt-cK-v8x" id="UiI-CJ-QpI">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="120"/>
@@ -123,11 +123,22 @@
                     </view>
                     <connections>
                         <outlet property="scrapTableView" destination="Tcv-pc-8VC" id="boa-ff-J7W"/>
+                        <segue destination="7UH-EW-YjG" kind="show" id="ndf-dH-XDZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Py2-Hl-kD9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="63.768115942028992" y="815.625"/>
+        </scene>
+        <!--ContentsDetailView-->
+        <scene sceneID="nCh-B7-vee">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ContentsDetailView" id="7UH-EW-YjG" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="YyK-Md-DP5"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="A5m-GU-Zje" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="721" y="749"/>
         </scene>
     </scenes>
     <resources>

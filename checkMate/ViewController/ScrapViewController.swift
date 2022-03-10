@@ -157,12 +157,6 @@ class ScrapViewController: UIViewController, UITableViewDataSource, UITableViewD
         
 //        cell.textLabel?.text = jinjuCastle[indexPath.row].name
         
-//         둥근 테두리 만들기
-        cell.backgroundColor = UIColor.white
-        cell.layer.borderColor = UIColor.black.cgColor
-        cell.layer.borderWidth = 1
-        cell.layer.cornerRadius = 8
-        cell.clipsToBounds = true
         
         // 필터
 //        let found = findMateData.filter { info in
