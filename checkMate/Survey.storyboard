@@ -57,13 +57,13 @@
                                                             <rect key="frame" x="192" y="4" width="221.5" height="54"/>
                                                             <subviews>
                                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mQZ-YC-oAt">
-                                                                    <rect key="frame" x="100" y="10" width="101.5" height="34"/>
+                                                                    <rect key="frame" x="80" y="10" width="121.5" height="34"/>
                                                                     <color key="textColor" systemColor="linkColor"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                     <textInputTraits key="textInputTraits"/>
                                                                 </textField>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I3L-fR-Q4L">
-                                                                    <rect key="frame" x="100" y="10" width="101.5" height="34"/>
+                                                                    <rect key="frame" x="80" y="10" width="121.5" height="34"/>
                                                                     <state key="normal" title="Button"/>
                                                                     <buttonConfiguration key="configuration" style="plain" title=""/>
                                                                     <connections>
@@ -79,16 +79,17 @@
                                                             </subviews>
                                                             <color key="backgroundColor" systemColor="systemBlueColor"/>
                                                             <constraints>
+                                                                <constraint firstItem="mQZ-YC-oAt" firstAttribute="leading" secondItem="O0T-QN-zbW" secondAttribute="leading" constant="80" id="7Cj-Fj-XUc"/>
+                                                                <constraint firstItem="mQZ-YC-oAt" firstAttribute="top" secondItem="O0T-QN-zbW" secondAttribute="top" constant="10" id="CV6-TA-W11"/>
                                                                 <constraint firstAttribute="bottom" secondItem="AYz-WW-poa" secondAttribute="bottom" constant="13.5" id="DNU-HY-iG2"/>
-                                                                <constraint firstItem="mQZ-YC-oAt" firstAttribute="top" secondItem="O0T-QN-zbW" secondAttribute="top" constant="10" id="IhN-2u-n3u"/>
-                                                                <constraint firstItem="I3L-fR-Q4L" firstAttribute="top" secondItem="O0T-QN-zbW" secondAttribute="top" constant="10" id="Kbu-es-b6W"/>
-                                                                <constraint firstAttribute="trailing" secondItem="mQZ-YC-oAt" secondAttribute="trailing" constant="20" id="MY0-Mt-Jqg"/>
+                                                                <constraint firstAttribute="bottom" secondItem="mQZ-YC-oAt" secondAttribute="bottom" constant="10" id="KDZ-dD-Y1U"/>
                                                                 <constraint firstAttribute="trailing" secondItem="AYz-WW-poa" secondAttribute="trailing" constant="25" id="NV6-SN-19B"/>
-                                                                <constraint firstAttribute="bottom" secondItem="I3L-fR-Q4L" secondAttribute="bottom" constant="10" id="VQ3-pl-HtY"/>
+                                                                <constraint firstAttribute="trailing" secondItem="mQZ-YC-oAt" secondAttribute="trailing" constant="20" symbolic="YES" id="PUs-vo-WhG"/>
+                                                                <constraint firstAttribute="trailing" secondItem="I3L-fR-Q4L" secondAttribute="trailing" constant="20" id="Q6o-BD-vwf"/>
                                                                 <constraint firstItem="AYz-WW-poa" firstAttribute="top" secondItem="O0T-QN-zbW" secondAttribute="top" constant="10" id="ccg-dq-mEQ"/>
-                                                                <constraint firstItem="I3L-fR-Q4L" firstAttribute="leading" secondItem="O0T-QN-zbW" secondAttribute="leading" constant="100" id="coy-2K-aK0"/>
-                                                                <constraint firstAttribute="trailing" secondItem="I3L-fR-Q4L" secondAttribute="trailing" constant="20" symbolic="YES" id="niE-a8-S0J"/>
-                                                                <constraint firstItem="mQZ-YC-oAt" firstAttribute="leading" secondItem="O0T-QN-zbW" secondAttribute="leading" constant="100" id="zFc-nQ-Ry5"/>
+                                                                <constraint firstItem="I3L-fR-Q4L" firstAttribute="top" secondItem="O0T-QN-zbW" secondAttribute="top" constant="10" id="d9z-t8-vhS"/>
+                                                                <constraint firstAttribute="bottom" secondItem="I3L-fR-Q4L" secondAttribute="bottom" constant="10" id="rGF-oa-8Gx"/>
+                                                                <constraint firstItem="I3L-fR-Q4L" firstAttribute="leading" secondItem="O0T-QN-zbW" secondAttribute="leading" constant="80" id="vdS-vd-2ag"/>
                                                             </constraints>
                                                         </view>
                                                     </subviews>
