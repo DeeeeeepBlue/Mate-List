@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Scrap View Controller-->
+        <!--Title-->
         <scene sceneID="bzk-dU-ryx">
             <objects>
                 <viewController id="c4a-26-7Rt" customClass="ScrapViewController" customModule="checkMate" customModuleProvider="target" sceneMemberID="viewController">
@@ -16,16 +16,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" id="lHA-gr-Ylg">
-                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <items>
-                                    <navigationItem title="스크랩" id="dRb-Lq-e04"/>
-                                </items>
-                            </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="스크랩" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5MW-gt-tXU">
+                                <rect key="frame" x="184.5" y="44" width="45" height="20.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20.5" id="nrB-vG-mr4"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="120" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="3" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Tcv-pc-8VC">
-                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                                <rect key="frame" x="0.0" y="64.5" width="414" height="831.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="mateCell" rowHeight="120" id="7xt-cK-v8x" customClass="FindMateTableViewCell" customModule="checkMate" customModuleProvider="target">
@@ -116,12 +117,15 @@
                         <viewLayoutGuide key="safeArea" id="AMU-9M-emm"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Tcv-pc-8VC" firstAttribute="top" secondItem="lHA-gr-Ylg" secondAttribute="bottom" id="2QU-RA-K6d"/>
+                            <constraint firstItem="Tcv-pc-8VC" firstAttribute="top" secondItem="5MW-gt-tXU" secondAttribute="bottom" id="80C-Ux-O1g"/>
                             <constraint firstItem="Tcv-pc-8VC" firstAttribute="trailing" secondItem="AMU-9M-emm" secondAttribute="trailing" id="T3x-Sx-Taa"/>
+                            <constraint firstItem="5MW-gt-tXU" firstAttribute="top" secondItem="AMU-9M-emm" secondAttribute="top" id="bXX-A7-pKc"/>
+                            <constraint firstItem="5MW-gt-tXU" firstAttribute="centerX" secondItem="GRq-ZL-idU" secondAttribute="centerX" id="ey6-Mr-t2O"/>
                             <constraint firstItem="Tcv-pc-8VC" firstAttribute="leading" secondItem="AMU-9M-emm" secondAttribute="leading" id="gT6-q3-9cG"/>
                             <constraint firstAttribute="bottom" secondItem="Tcv-pc-8VC" secondAttribute="bottom" id="uUh-By-XMM"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Title" id="Kcx-1p-Nux" userLabel="스크랩"/>
                     <connections>
                         <outlet property="scrapTableView" destination="Tcv-pc-8VC" id="boa-ff-J7W"/>
                     </connections>

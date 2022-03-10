@@ -16,6 +16,7 @@
 		04BB243727ACED960003DA33 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BB243627ACED960003DA33 /* MyPageViewController.swift */; };
 		3F2245BE27D62763002F29FE /* HexUIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2245BD27D62763002F29FE /* HexUIColor.swift */; };
 		3FB23A5E27D79D3E00B8D071 /* FindMateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB23A5D27D79D3E00B8D071 /* FindMateTableViewCell.swift */; };
+		3FF0B03C27DA4E2C00CA147A /* Info.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FF0B03B27DA4E2C00CA147A /* Info.storyboard */; };
 		5A75AE8827D9F2F9001C796C /* Scrap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A75AE8727D9F2F9001C796C /* Scrap.storyboard */; };
 		A600678027C7E4AA007C6EF1 /* (null) in Resources */ = {isa = PBXBuildFile; };
 		A623E33627B7C40E00172F38 /* DropDownViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A623E33527B7C40E00172F38 /* DropDownViewController.swift */; };
@@ -30,7 +31,6 @@
 		F731B7AA27D500B3009670A4 /* testTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F731B7A927D500B3009670A4 /* testTableViewController.swift */; };
 		F7379F2A27AD4EFE00D99CD4 /* FilterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7379F2927AD4EFE00D99CD4 /* FilterTableViewCell.swift */; };
 		F743792227ABDA8E0053947A /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = F743792127ABDA8E0053947A /* Data.swift */; };
-		F754092827DA461300FBB6BE /* Info.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F754092727DA461300FBB6BE /* Info.storyboard */; };
 		F75452E727C7C59900E2DB41 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75452E627C7C59900E2DB41 /* Post.swift */; };
 		F75452E927C7C5FB00E2DB41 /* FindMateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75452E827C7C5FB00E2DB41 /* FindMateViewController.swift */; };
 		F757546D27A4DF1800BFDF9B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F757546C27A4DF1800BFDF9B /* AppDelegate.swift */; };
@@ -67,13 +67,13 @@
 		04BB243627ACED960003DA33 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
 		3F2245BD27D62763002F29FE /* HexUIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexUIColor.swift; sourceTree = "<group>"; };
 		3FB23A5D27D79D3E00B8D071 /* FindMateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindMateTableViewCell.swift; sourceTree = "<group>"; };
+		3FF0B03B27DA4E2C00CA147A /* Info.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Info.storyboard; sourceTree = "<group>"; };
 		5A75AE8727D9F2F9001C796C /* Scrap.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Scrap.storyboard; sourceTree = "<group>"; };
 		A623E33527B7C40E00172F38 /* DropDownViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownViewController.swift; sourceTree = "<group>"; };
 		F731B7A127D4FF09009670A4 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		F731B7A927D500B3009670A4 /* testTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testTableViewController.swift; sourceTree = "<group>"; };
 		F7379F2927AD4EFE00D99CD4 /* FilterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterTableViewCell.swift; sourceTree = "<group>"; };
 		F743792127ABDA8E0053947A /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
-		F754092727DA461300FBB6BE /* Info.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Info.storyboard; sourceTree = "<group>"; };
 		F75452E627C7C59900E2DB41 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		F75452E827C7C5FB00E2DB41 /* FindMateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindMateViewController.swift; sourceTree = "<group>"; };
 		F757546927A4DF1800BFDF9B /* checkMate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = checkMate.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -197,7 +197,7 @@
 				F7B4F41127D7A55A0045580F /* Write.storyboard */,
 				F7B4F41B27D7B5030045580F /* Survey.storyboard */,
 				F7B4F41D27D7B5090045580F /* Surveyview.storyboard */,
-				F754092727DA461300FBB6BE /* Info.storyboard */,
+				3FF0B03B27DA4E2C00CA147A /* Info.storyboard */,
 				F7EEBACC27CF43B9009728AF /* Main.storyboard */,
 				5A75AE8727D9F2F9001C796C /* Scrap.storyboard */,
 				F731B7A127D4FF09009670A4 /* Home.storyboard */,
@@ -300,7 +300,7 @@
 				5A75AE8827D9F2F9001C796C /* Scrap.storyboard in Resources */,
 				F7EEBACD27CF43B9009728AF /* Main.storyboard in Resources */,
 				0468B98E27CAD48500B2D31A /* GoogleService-Info.plist in Resources */,
-				F754092827DA461300FBB6BE /* Info.storyboard in Resources */,
+				3FF0B03C27DA4E2C00CA147A /* Info.storyboard in Resources */,
 				F757547927A4DF1A00BFDF9B /* LaunchScreen.storyboard in Resources */,
 				F7B4F41E27D7B5090045580F /* Surveyview.storyboard in Resources */,
 				F7CDDF0F27D6E96300DB6A30 /* ContentsDetailView.storyboard in Resources */,

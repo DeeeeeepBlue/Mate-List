@@ -55,7 +55,7 @@ class FindMateViewController: UIViewController, UITableViewDataSource, UITableVi
         
         
         //navigation design
-        navigationBar.shadowImage = UIImage()
+//        navigationBar.shadowImage = UIImage()
         
         createWirteButton()
         

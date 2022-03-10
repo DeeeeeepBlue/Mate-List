@@ -92,7 +92,7 @@
         <scene sceneID="37V-mn-obE">
             <objects>
                 <viewControllerPlaceholder storyboardName="Scrap" id="ryC-7G-1Sq" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="bLW-09-urA"/>
+                    <navigationItem key="navigationItem" title="스크랩" id="bLW-09-urA"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LLf-GH-RD2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

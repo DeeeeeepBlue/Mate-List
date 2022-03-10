@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Find Mate View Controller-->
+        <!--MATE LIST-->
         <scene sceneID="R5B-ta-fRD">
             <objects>
                 <viewController id="eVG-3V-8vd" customClass="FindMateViewController" customModule="checkMate" customModuleProvider="target" sceneMemberID="viewController">
@@ -16,14 +16,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" id="oaz-UA-Yug">
-                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <items>
-                                    <navigationItem title="MATE LIST" id="yGT-Vx-z1k"/>
-                                </items>
-                            </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="115" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="3" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="h85-Qm-IxM">
                                 <rect key="frame" x="0.0" y="122" width="414" height="774"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -122,18 +114,18 @@
                         <viewLayoutGuide key="safeArea" id="Wac-B1-yeI"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="tsZ-E0-BEM" firstAttribute="top" secondItem="oaz-UA-Yug" secondAttribute="bottom" constant="5" id="1eo-Vc-agK"/>
                             <constraint firstAttribute="bottom" secondItem="h85-Qm-IxM" secondAttribute="bottom" id="3RR-9A-lZD"/>
                             <constraint firstItem="Wac-B1-yeI" firstAttribute="trailing" secondItem="h85-Qm-IxM" secondAttribute="trailing" id="QWQ-h7-2jq"/>
+                            <constraint firstItem="tsZ-E0-BEM" firstAttribute="top" secondItem="Wac-B1-yeI" secondAttribute="top" constant="49" id="cIy-cu-NLb"/>
                             <constraint firstItem="h85-Qm-IxM" firstAttribute="leading" secondItem="Wac-B1-yeI" secondAttribute="leading" id="dR5-Rr-86a"/>
                             <constraint firstItem="tsZ-E0-BEM" firstAttribute="leading" secondItem="Wac-B1-yeI" secondAttribute="leading" constant="20" id="hZW-z1-j1j"/>
                             <constraint firstItem="h85-Qm-IxM" firstAttribute="top" secondItem="tsZ-E0-BEM" secondAttribute="bottom" constant="13" id="nms-P6-aJ2"/>
                             <constraint firstAttribute="bottom" secondItem="h85-Qm-IxM" secondAttribute="bottom" id="ns9-mR-qqL"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="MATE LIST" id="yGT-Vx-z1k"/>
                     <connections>
                         <outlet property="findMateTableView" destination="h85-Qm-IxM" id="EE9-le-zQf"/>
-                        <outlet property="navigationBar" destination="oaz-UA-Yug" id="R4i-Nz-6Ld"/>
                         <outlet property="rootView" destination="UhN-9k-iA5" id="rbJ-We-UeM"/>
                         <segue destination="Qcz-m6-JZR" kind="show" identifier="writeSegue" id="TRr-L9-y5A"/>
                     </connections>
@@ -171,7 +163,6 @@
             <objects>
                 <viewControllerPlaceholder storyboardIdentifier="Write" storyboardName="Write" referencedIdentifier="Write" id="Qcz-m6-JZR" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="4ZT-U4-79E"/>
-
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kkf-Gj-pdr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
