@@ -76,12 +76,12 @@ class MyTableViewCell: UITableViewCell {
         dropView.backgroundColor = UIColor.init(named: "gray")
         dropView.layer.cornerRadius = 8
         DropDown.appearance().textColor=UIColor.black
-        DropDown.appearance().selectedTextColor=UIColor.red
+        DropDown.appearance().selectedTextColor=UIColor.blue
         DropDown.appearance().backgroundColor=UIColor.white
-        DropDown.appearance().selectionBackgroundColor=UIColor.lightGray
+        DropDown.appearance().selectionBackgroundColor=color
         DropDown.appearance().setupCornerRadius(8)
         dropDown.dismissMode = .automatic
-        tfInput.text="선택해주세요"
+        tfInput.text="선택"
         inIcon.tintColor = UIColor.gray
     }
     
@@ -112,7 +112,7 @@ class MyTableViewCell: UITableViewCell {
                 print(mbtiSelect)
             }
             self!.inIcon.image = UIImage.init(systemName: "checkmark.circle.fill")
-            self?.backView.backgroundColor=UIColor.lightGray
+            self?.backView.backgroundColor=self?.color
         }
         
         // 취소 시 처리

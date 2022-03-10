@@ -15,6 +15,7 @@ import gRPC_Core
 
 
 class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    var send_username : String!
     
     @IBOutlet weak var replyTableView: UITableView!
     @IBOutlet weak var contentsTextView: UITextView!
@@ -153,6 +154,7 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
         
 
         userLabel.text = contentsDetailData.author
+        send_username =  userLabel.text
         userLabel.textAlignment = .right
         userLabel.sizeToFit()
         tittleLabel.text = contentsDetailData.title
@@ -420,18 +422,20 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
                     userHabitCheck.append(HabitCheck(cleanSelect: cleanSelect_db, smokingSelect: smokingSelect_db, gameSelect: gameSelect_db, snoringSelect: snoringSelect_db, griding_teethSelect: griding_TeethSelect_db, callSelect: callSelect_db, eatSelect: eatSelect_db, curfewSelect: curfewSelect_db, bedtimeSelect: bedtimeSelect_db, mbtiSelect: mbtiSelect_db))
                 }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
        
             }
         }
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "surveyView" {
+            
+    
+            let VCDest = segue.destination as! LifePatternViewController2
+            VCDest.surveyView_user_id=send_username
+            VCDest.surveyView_cont=userHabitCheck[0]
+
+        }
+        else {}
     }
 }
