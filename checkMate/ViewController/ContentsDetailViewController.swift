@@ -23,9 +23,9 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
     @IBOutlet weak var replyTextField: UITextField!
     @IBOutlet weak var replyOkButton: UIButton!
     
+    @IBOutlet weak var contentDeleteButton: UIButton!
     @IBOutlet weak var writerPatternButton: UIButton!
     
-    @IBOutlet weak var deleteButton: UIBarButtonItem!
     var replyTableViewController = UITableViewController()
     
     // 라인 회색컬러
@@ -118,12 +118,13 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
         userHabitCheck.removeAll()
         
         if Auth.auth().currentUser == nil {
-            deleteButton?.isEnabled = false
+            contentDeleteButton.isHidden = true
 //            deleteButton.isHidden = true
         } else {
             if Auth.auth().currentUser?.uid != contentsDetailData.uid {
-//                deleteButton.isHidden = true
-                deleteButton?.isEnabled = false
+//              deleteButton.isHidden = true
+                contentDeleteButton.isHidden = true
+                
             }
         }
         
