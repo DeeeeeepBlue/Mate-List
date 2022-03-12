@@ -107,7 +107,7 @@
                                         <connections>
                                             <outlet property="suitableButtonBackground" destination="N5j-IM-lgr" id="UNa-Td-IyY"/>
                                             <outlet property="suitableButtonText" destination="5TL-mB-TvT" id="QkC-x4-mCw"/>
-                                            <segue destination="7UH-EW-YjG" kind="show" id="ocu-Z1-1nM"/>
+                                            <segue destination="7UH-EW-YjG" kind="show" identifier="detailSegue" id="ocu-Z1-1nM"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

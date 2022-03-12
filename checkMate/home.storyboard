@@ -171,7 +171,6 @@
             <objects>
                 <viewControllerPlaceholder storyboardIdentifier="Write" storyboardName="Write" referencedIdentifier="Write" id="Qcz-m6-JZR" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="4ZT-U4-79E"/>
-
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kkf-Gj-pdr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
