@@ -41,11 +41,19 @@ class ScrapViewController: UIViewController, UITableViewDataSource, UITableViewD
         // 테두리 여백 만들기
         self.scrapTableView.frame = self.scrapTableView.frame.inset(by: UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 15))
         
+        customNavigationBar()
 
         // Do any additional setup after loading the view.
     }
     
     // MARK: Custom function
+    
+    func customNavigationBar(){
+        //배경하고 그림자 없게
+        let navigationBarAppearance = UINavigationBarAppearance()
+            navigationBarAppearance.configureWithTransparentBackground()
+        navigationController?.navigationBar.standardAppearance = navigationBarAppearance
+    }
     
     func existScrap(docPath:String, _ escapingHandler : @escaping (Bool) -> ()){
         var result = false
@@ -84,7 +92,6 @@ class ScrapViewController: UIViewController, UITableViewDataSource, UITableViewD
                             let isScrap_db = value["isScrap"] as? Bool ?? false
     //                        let findMate = value["findMate"]! as! Bool
                             
-                            print("스크랩 값 : \(value)")
                             
                             existScrap(docPath: document.documentID){ (result) in
                                 if result{

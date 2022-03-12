@@ -32,6 +32,23 @@ public struct HabitCheck: Codable {
         case bedtimeSelect
         case mbtiSelect
     }
+    
+    func calculatingFit(otherSurvey: HabitCheck) -> Int?{
+        var cnt = 0
+        
+        if otherSurvey.cleanSelect == self.cleanSelect { cnt += 1 }
+        if otherSurvey.smokingSelect == self.smokingSelect { cnt += 1 }
+        if otherSurvey.gameSelect == self.gameSelect { cnt += 1 }
+        if otherSurvey.snoringSelect == self.snoringSelect { cnt += 1 }
+        if otherSurvey.griding_teethSelect == self.griding_teethSelect { cnt += 1 }
+        if otherSurvey.callSelect == self.callSelect { cnt += 1 }
+        if otherSurvey.eatSelect == self.eatSelect { cnt += 1 }
+        if otherSurvey.curfewSelect == self.curfewSelect { cnt += 1 }
+        if otherSurvey.bedtimeSelect == self.bedtimeSelect { cnt += 1 }
+        if otherSurvey.mbtiSelect == self.mbtiSelect { cnt += 1 }
+
+        return Int(cnt / checkMate.select.count * 100)
+    }
 
 }
 

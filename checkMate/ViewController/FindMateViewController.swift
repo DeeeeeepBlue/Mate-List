@@ -8,26 +8,30 @@
 import Foundation
 import UIKit
 import Firebase
+import FirebaseAuth
+
 
 class FindMateViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    
+// MARK: - ✅ Data & Outlet
     
     @IBOutlet weak var findMateTableView: UITableView!
     @IBOutlet var rootView: UIView!
-    @IBOutlet weak var navigationBar: UINavigationBar!
     
     var findMateTableViewController = UITableViewController()
     
     let db = Firestore.firestore()
     var List : [Post] = []
+    var habitCheckList : [HabitCheck] = []
     var dbID: String = ""
+    var loginUserSurvey : HabitCheck!
+    var fitnessList : [Int] = []
     
     // Add a new document with a generated ID
     var ref: DocumentReference? = nil
     
     
-    // MARK: - Life Cycle
+    // MARK: - ✅ Life Cycle
     override func viewWillAppear(_ animated: Bool) {
         
         super.viewWillAppear(true)
@@ -49,22 +53,28 @@ class FindMateViewController: UIViewController, UITableViewDataSource, UITableVi
         findMateTableView.reloadData()
 
 
-        //         테두리 여백 만들기
+        // 테두리 여백 만들기
         self.findMateTableView.frame = self.findMateTableView.frame.inset(by: UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 15))
     
-        
-        
-        //navigation design
-//        navigationBar.shadowImage = UIImage()
+        customNavigationBar()
         
         createWirteButton()
+        
+        
         
     }
     
     
-    // MARK: - Custom Function
+    // MARK: - ✅ Custom Function
     @objc func tapWriteButton(sender:UIGestureRecognizer){
         performSegue(withIdentifier: "writeSegue", sender: nil)
+    }
+    
+    func customNavigationBar(){
+        //배경하고 그림자 없게
+        let navigationBarAppearance = UINavigationBarAppearance()
+            navigationBarAppearance.configureWithTransparentBackground()
+        navigationController?.navigationBar.standardAppearance = navigationBarAppearance
     }
     
     func createWirteButton(){
@@ -127,23 +137,93 @@ class FindMateViewController: UIViewController, UITableViewDataSource, UITableVi
                         let date_db = value["date"] as? String ?? "글이 없습니다."
                         let isScrap_db = value["isScrap"] as? Bool ?? false
 
-    //                        let findMate = value["findMate"]! as! Bool
+//                            let findMate = value["findMate"]! as! Bool
 
 
                         self.List.append(Post(uid: uid_db, author: author_db, title: title_db, contents: content_db, isScrap: isScrap_db, date: date_db, pid: document.documentID))
 
     //                    print("\(document.documentID) => \(document.data())")
+                        
                     }
                    
+                }
+            
+            self.getPostHabitCheck()
+            self.findMateTableView.reloadData()
+            
+            }
+        
+        getLoginUserSurvey()
+        
+       }
+    
+    // 📌 로그인된 유저 survey 받아오기
+    func getLoginUserSurvey(){
+        if AppDelegate.user != nil {
+            let docRef = self.db.collection("User").document(Auth.auth().currentUser!.uid).collection("HabitCheck").document(Auth.auth().currentUser!.uid)
+            docRef.getDocument { (document, error) in
+                if let document = document, document.exists {
+                    //data load success.
+                    do {
+                        //딕셔너리 -> json객체 -> HabitCheck 객체 순으로 변환
+                        let docData = document.data()!//딕셔너리 형 반환
+                        //json 객체로 변환. withJSONObject 인자엔 Array, Dictionary 등 넣어주면 됨.
+                        let data = try! JSONSerialization.data(withJSONObject: docData, options: [])
+                        let decoder = JSONDecoder()
+                        //첫번째 인자 : 해독할 형식(구조체), 두번째 인자 : 해독할 json 데이터
+                        let decodeHabitCheck = try decoder.decode(HabitCheck.self, from: data)
+                        self.loginUserSurvey = decodeHabitCheck
+                        
+                        } catch { print("Error when trying to encode book: \(error)") }
+
+                    } else { print("Document does not exist") }
                 }
             self.findMateTableView.reloadData()
             
             }
-       }
+    }
+    
+    // 📌 각 POST 마다 author의 survey 받아오기
+    func getPostHabitCheck(){
+        for i in 0...self.List.count-1{
+            let docRef = self.db.collection("User").document(self.List[i].uid).collection("HabitCheck").document(self.List[i].uid)
+            docRef.getDocument { (document, error) in
+                if let document = document, document.exists {
+                    //data load success
+                    do {
+                        //딕셔너리 -> json객체 -> HabitCheck 객체 순으로 변환
+                        let docData = document.data()!//딕셔너리 형 반환
+                        //json 객체로 변환. withJSONObject 인자엔 Array, Dictionary 등 넣어주면 됨.
+                        let data = try! JSONSerialization.data(withJSONObject: docData, options: [])
+                        let decoder = JSONDecoder()
+                        //첫번째 인자 : 해독할 형식(구조체), 두번째 인자 : 해독할 json 데이터
+                        let decodeHabitCheck = try decoder.decode(HabitCheck.self, from: data)
+                        self.habitCheckList.append(decodeHabitCheck)
+                        
+                    } catch { print("Error when trying to encode book: \(error)") }
+                    
+                } else { print("\(self.List[i].uid)'s Document does not exist") }
+                
+                self.saveFitList()
+                self.findMateTableView.reloadData()
+                
+            }
+        }
+    }
+    
+    // 📌 적합도 계산해서 저장하기
+    func saveFitList(){
+        if self.List.count == self.habitCheckList.count && AppDelegate.user != nil {
+            self.fitnessList.removeAll()
+            for habitCheck in habitCheckList {
+                fitnessList.append(habitCheck.calculatingFit(otherSurvey: loginUserSurvey) ?? 0)
+            }
+        }
+    }
 
 
 
-    //MARK: - Table View Data Source
+    //MARK: - ✅ Table View Data Source
     // indexPath.row 대신 indexPath.section으로 나눴음
     func numberOfSections(in tableView: UITableView) -> Int {
         var value : Int
@@ -178,27 +258,82 @@ class FindMateViewController: UIViewController, UITableViewDataSource, UITableVi
                 let cellContents = cell.viewWithTag(4) as! UILabel
                 let cellDate = cell.viewWithTag(5) as! UILabel
                 let cellUser = cell.viewWithTag(6) as! UILabel
-                print(self.List.count)
+//                print(self.List.count)
 
                 cellTittle.text = "\(self.List[indexPath.section].title)"
                 cellContents.text = "\(self.List[indexPath.section].contents)"
                 cellDate.text = "\(self.List[indexPath.section].date)"
                 cellUser.text = "\(self.List[indexPath.section].author)"
             
+            // 📌 적합도 계산 UI넣기
+            print(fitnessList.count, List.count)
+            if fitnessList.count == List.count {
+               
+                let fitnessView = cell.viewWithTag(1)
+                let fitnessText: UILabel = UILabel()
+                
+                //subview 다 지우기
+//                let fitnessViewSubViews = fitnessView?.subviews
+//                for v in fitnessViewSubViews! { v.removeFromSuperview() }
+                
+                //새로운 label 추가
+                fitnessView?.addSubview(fitnessText)
+                
+                fitnessText.text = "\(fitnessList[indexPath.section])%"
+                fitnessText.font = UIFont.boldSystemFont(ofSize: 14)
+                fitnessText.textColor = .black
+                fitnessText.translatesAutoresizingMaskIntoConstraints = false
+                fitnessText.centerXAnchor.constraint(equalTo: fitnessView!.centerXAnchor).isActive = true
+                fitnessText.centerYAnchor.constraint(equalTo: fitnessView!.centerYAnchor).isActive = true
+                
+                print("fitnessView subviews : \(fitnessView?.subviews)")
+                
+                fitnessView!.mask = fitnessText
+            
+            } else {
+                let fitnessView = cell.viewWithTag(1)
+                
+                //배경에 그라디언트 적용
+                let gradient = CAGradientLayer()
+
+                // gradient colors in order which they will visually appear
+                gradient.colors = [UIColor(rgb: 0x6795CF).cgColor, UIColor(rgb: 0x6764EE).cgColor]
+
+                // Gradient from left to right
+                gradient.startPoint = CGPoint(x: 0.0, y: 0.0)
+                gradient.endPoint = CGPoint(x: 1.0, y: 1.0)
+
+                // set the gradient layer to the same size as the view
+                gradient.frame = fitnessView!.bounds ?? CGRect()
+                // add the gradient layer to the views layer for rendering
+                fitnessView?.layer.addSublayer(gradient)
+
+                let fitnessText: UILabel = UILabel()
+                
+                //subview 다 지우기
+                let fitnessViewSubViews = fitnessView?.subviews
+                for v in fitnessViewSubViews! { v.removeFromSuperview() }
+                
+                //새로운 label 추가
+                fitnessView?.addSubview(fitnessText)
+                
+                fitnessText.text = "계산중.."
+                fitnessText.font = UIFont.boldSystemFont(ofSize: 14)
+                fitnessText.textColor = .black
+                fitnessText.translatesAutoresizingMaskIntoConstraints = false
+                fitnessText.centerXAnchor.constraint(equalTo: fitnessView!.centerXAnchor).isActive = true
+                fitnessText.centerYAnchor.constraint(equalTo: fitnessView!.centerYAnchor).isActive = true
+                
+                print("fitnessView subviews : \(fitnessView?.subviews)")
+                
+                fitnessView!.mask = fitnessText
+                
+                print("fitnessView : \(fitnessView)")
+                
+            }
+            
             
         } else {}
-    
-        
-//        cell.textLabel?.text = jinjuCastle[indexPath.row].name
-        
-//         둥근 테두리 만들기
-//        cell.backgroundColor = UIColor.white
-//        cell.layer.borderColor = UIColor.black.cgColor
-//        cell.layer.borderWidth = 1
-//        cell.layer.cornerRadius = 8
-//        cell.clipsToBounds = true
-        
-        
         // 필터
 //        let found = findMateData.filter { info in
 //            입력.name == 출력.name
@@ -234,7 +369,7 @@ class FindMateViewController: UIViewController, UITableViewDataSource, UITableVi
 
 
     
-    //MARK: - Scene Change
+    //MARK: - ✅ Scene Change
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "detailSegue" {
@@ -250,7 +385,7 @@ class FindMateViewController: UIViewController, UITableViewDataSource, UITableVi
         else {}
     }
     
-    // MARK: - v2.0.0때 마저 구현
+    // MARK: - ✅ v2.0.0때 마저 구현
     //    func setFilterButton(){
     //        self.filterButton.layer.cornerRadius = self.filterButton.frame.height/2
     //        self.filterButton.layer.borderColor = UIColor(rgb: 0xE5E5E5).cgColor

@@ -17,39 +17,22 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="115" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="3" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="h85-Qm-IxM">
-                                <rect key="frame" x="0.0" y="122" width="414" height="774"/>
+                                <rect key="frame" x="0.0" y="73" width="414" height="823"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="mateCell" rowHeight="120" id="KsN-5e-VgS" customClass="FindMateTableViewCell" customModule="checkMate" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44.5" width="414" height="120"/>
+                                        <rect key="frame" x="0.0" y="45" width="414" height="120"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KsN-5e-VgS" id="S86-E0-qrA">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="120"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="나와의 적합도 " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dnX-yU-Cgv">
-                                                    <rect key="frame" x="20" y="11" width="82" height="17"/>
+                                                    <rect key="frame" x="20" y="11" width="81" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                                     <color key="textColor" red="0.46274509800000002" green="0.46274509800000002" blue="0.46274509800000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <view tag="1" contentMode="scaleToFill" id="itG-gV-TEe">
-                                                    <rect key="frame" x="102" y="9" width="39" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="80%" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="StD-me-GSM">
-                                                            <rect key="frame" x="2.5" y="2" width="32.5" height="17"/>
-                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                    </subviews>
-                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                    <constraints>
-                                                        <constraint firstItem="StD-me-GSM" firstAttribute="centerY" secondItem="itG-gV-TEe" secondAttribute="centerY" id="hGj-aD-wDE"/>
-                                                        <constraint firstItem="StD-me-GSM" firstAttribute="centerX" secondItem="itG-gV-TEe" secondAttribute="centerX" id="oYn-Fy-2OL"/>
-                                                    </constraints>
-                                                </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gk3-sR-h3C" userLabel="Title">
                                                     <rect key="frame" x="20" y="33" width="38.5" height="21.5"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
@@ -80,6 +63,24 @@
                                                     <color key="backgroundColor" red="0.89803921568627454" green="0.89803921568627454" blue="0.89803921568627454" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <rect key="contentStretch" x="0.0" y="0.0" width="1" height="0.050000000000000003"/>
                                                 </view>
+                                                <view tag="1" contentMode="scaleToFill" id="itG-gV-TEe">
+                                                    <rect key="frame" x="101" y="11" width="70" height="17"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="80%" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="StD-me-GSM">
+                                                            <rect key="frame" x="0.0" y="0.0" width="70" height="17"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    <constraints>
+                                                        <constraint firstItem="StD-me-GSM" firstAttribute="centerY" secondItem="itG-gV-TEe" secondAttribute="centerY" id="MRn-BE-cu1"/>
+                                                        <constraint firstAttribute="trailing" secondItem="StD-me-GSM" secondAttribute="trailing" id="l17-cu-EYs"/>
+                                                        <constraint firstItem="StD-me-GSM" firstAttribute="leading" secondItem="itG-gV-TEe" secondAttribute="leading" id="wvk-Jr-ca5"/>
+                                                    </constraints>
+                                                </view>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="1Nw-Tg-bxi" firstAttribute="leading" secondItem="S86-E0-qrA" secondAttribute="leadingMargin" id="34K-Ph-idz"/>
@@ -97,15 +98,15 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="suitableButtonBackground" destination="itG-gV-TEe" id="yJA-Cx-OsM"/>
-                                            <outlet property="suitableButtonText" destination="StD-me-GSM" id="W9b-rg-1fZ"/>
+                                            <outlet property="suitableBackground" destination="itG-gV-TEe" id="cqH-s9-rFb"/>
+                                            <outlet property="suitableText" destination="StD-me-GSM" id="A54-78-aUO"/>
                                             <segue destination="QQx-k7-xc7" kind="show" identifier="detailSegue" id="EX2-zt-SEg"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="추천 룸메" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tsZ-E0-BEM">
-                                <rect key="frame" x="20" y="93" width="49" height="16"/>
+                                <rect key="frame" x="20" y="44" width="49" height="16"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -116,7 +117,7 @@
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="h85-Qm-IxM" secondAttribute="bottom" id="3RR-9A-lZD"/>
                             <constraint firstItem="Wac-B1-yeI" firstAttribute="trailing" secondItem="h85-Qm-IxM" secondAttribute="trailing" id="QWQ-h7-2jq"/>
-                            <constraint firstItem="tsZ-E0-BEM" firstAttribute="top" secondItem="Wac-B1-yeI" secondAttribute="top" constant="49" id="cIy-cu-NLb"/>
+                            <constraint firstItem="tsZ-E0-BEM" firstAttribute="top" secondItem="Wac-B1-yeI" secondAttribute="top" id="cIy-cu-NLb"/>
                             <constraint firstItem="h85-Qm-IxM" firstAttribute="leading" secondItem="Wac-B1-yeI" secondAttribute="leading" id="dR5-Rr-86a"/>
                             <constraint firstItem="tsZ-E0-BEM" firstAttribute="leading" secondItem="Wac-B1-yeI" secondAttribute="leading" constant="20" id="hZW-z1-j1j"/>
                             <constraint firstItem="h85-Qm-IxM" firstAttribute="top" secondItem="tsZ-E0-BEM" secondAttribute="bottom" constant="13" id="nms-P6-aJ2"/>
