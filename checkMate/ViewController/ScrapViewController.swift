@@ -74,6 +74,7 @@ class ScrapViewController: UIViewController, UITableViewDataSource, UITableViewD
     func DataLoad() {
         List.removeAll()
             //데이터 불러오기
+        guard Auth.auth().currentUser != nil else {return}
         self.db.collection("User").document(Auth.auth().currentUser!.uid).collection("Scrap").getDocuments() { [self] (querySnapshot, err) in
                     if let err = err {
                         print("Error getting documents: \(err)")

@@ -122,6 +122,7 @@ class FindMateViewController: UIViewController, UITableViewDataSource, UITableVi
     
     func DataLoad() {
         List.removeAll()
+        guard Auth.auth().currentUser != nil else {return}
         self.db.collection("Post").order(by: "date", descending: true).getDocuments() { (querySnapshot, err) in
                 if let err = err {
                     print("Error getting documents: \(err)")
