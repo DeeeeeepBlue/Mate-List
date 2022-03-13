@@ -46,8 +46,11 @@ public struct HabitCheck: Codable {
         if otherSurvey.curfewSelect == self.curfewSelect { cnt += 1 }
         if otherSurvey.bedtimeSelect == self.bedtimeSelect { cnt += 1 }
         if otherSurvey.mbtiSelect == self.mbtiSelect { cnt += 1 }
+        
+        
+        print("cnt : \(cnt), percentage : \(Double(cnt) / Double(checkMate.select.count) * 100)")
 
-        return Int(cnt / checkMate.select.count * 100)
+        return Int(Double(cnt) / Double(checkMate.select.count) * 100)
     }
 
 }

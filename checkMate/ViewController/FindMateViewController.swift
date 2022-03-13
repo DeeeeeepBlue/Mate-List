@@ -38,6 +38,7 @@ class FindMateViewController: UIViewController, UITableViewDataSource, UITableVi
         DataLoad()
         findMateTableView.reloadData()
         print("scrap view load complete")
+        
     }
     
     
@@ -59,6 +60,8 @@ class FindMateViewController: UIViewController, UITableViewDataSource, UITableVi
         customNavigationBar()
         
         createWirteButton()
+        
+
         
         
         
@@ -179,12 +182,12 @@ class FindMateViewController: UIViewController, UITableViewDataSource, UITableVi
                     } else { print("Document does not exist") }
                 }
             self.findMateTableView.reloadData()
-            
             }
     }
     
     // 📌 각 POST 마다 author의 survey 받아오기
     func getPostHabitCheck(){
+        habitCheckList.removeAll()
         for i in 0...self.List.count-1{
             let docRef = self.db.collection("User").document(self.List[i].uid).collection("HabitCheck").document(self.List[i].uid)
             docRef.getDocument { (document, error) in
@@ -216,6 +219,7 @@ class FindMateViewController: UIViewController, UITableViewDataSource, UITableVi
         if self.List.count == self.habitCheckList.count && AppDelegate.user != nil {
             self.fitnessList.removeAll()
             for habitCheck in habitCheckList {
+//                print("\()님과 \()님의 적합도")
                 fitnessList.append(habitCheck.calculatingFit(otherSurvey: loginUserSurvey) ?? 0)
             }
         }
@@ -266,15 +270,17 @@ class FindMateViewController: UIViewController, UITableViewDataSource, UITableVi
                 cellUser.text = "\(self.List[indexPath.section].author)"
             
             // 📌 적합도 계산 UI넣기
-            print(fitnessList.count, List.count)
+            print(fitnessList.count, List.count, habitCheckList.count)
             if fitnessList.count == List.count {
+                
+                print("적합도 함수 실행 됨 !!")
                
                 let fitnessView = cell.viewWithTag(1)
                 let fitnessText: UILabel = UILabel()
                 
                 //subview 다 지우기
-//                let fitnessViewSubViews = fitnessView?.subviews
-//                for v in fitnessViewSubViews! { v.removeFromSuperview() }
+                let fitnessViewSubViews = fitnessView!.subviews
+                for v in fitnessViewSubViews { v.removeFromSuperview() }
                 
                 //새로운 label 추가
                 fitnessView?.addSubview(fitnessText)
@@ -283,52 +289,54 @@ class FindMateViewController: UIViewController, UITableViewDataSource, UITableVi
                 fitnessText.font = UIFont.boldSystemFont(ofSize: 14)
                 fitnessText.textColor = .black
                 fitnessText.translatesAutoresizingMaskIntoConstraints = false
-                fitnessText.centerXAnchor.constraint(equalTo: fitnessView!.centerXAnchor).isActive = true
-                fitnessText.centerYAnchor.constraint(equalTo: fitnessView!.centerYAnchor).isActive = true
+                fitnessText.centerXAnchor.constraint(
+                    equalTo: fitnessView!.centerXAnchor).isActive = true
+                fitnessText.leftAnchor.constraint(equalTo: fitnessView!.leftAnchor
+                        , constant: 0).isActive = true // 왼쪽여백
                 
                 print("fitnessView subviews : \(fitnessView?.subviews)")
                 
-                fitnessView!.mask = fitnessText
+                fitnessView!.layer.mask = fitnessText.layer
             
             } else {
-                let fitnessView = cell.viewWithTag(1)
+//                let fitnessView = cell.viewWithTag(1)
+//
+//                //배경에 그라디언트 적용
+//                let gradient = CAGradientLayer()
+//
+//                // gradient colors in order which they will visually appear
+//                gradient.colors = [UIColor(rgb: 0x6795CF).cgColor,
+//                                   UIColor(rgb: 0x6764EE).cgColor]
+//
+//                // Gradient from left to right
+//                gradient.startPoint = CGPoint(x: 0.0, y: 0.0)
+//                gradient.endPoint = CGPoint(x: 1.0, y: 1.0)
+//
+//                // set the gradient layer to the same size as the view
+//                gradient.frame = fitnessView!.bounds
+//                // add the gradient layer to the views layer for rendering
+//                fitnessView?.layer.addSublayer(gradient)
+//
+//                let fitnessText: UILabel = UILabel()
+//
+//                //subview 다 지우기
+//                let fitnessViewSubViews = fitnessView?.subviews
+//                for v in fitnessViewSubViews! { v.removeFromSuperview() }
+//
+//                //새로운 label 추가
+//                fitnessView?.addSubview(fitnessText)
+//
+//                fitnessText.text = "계산중.."
+//                fitnessText.font = UIFont.boldSystemFont(ofSize: 14)
+//                fitnessText.textColor = .black
+//                fitnessText.translatesAutoresizingMaskIntoConstraints = false
+//                fitnessText.centerXAnchor.constraint(
+//                    equalTo: fitnessView!.centerXAnchor).isActive = true
+//                fitnessText.leftAnchor.constraint(equalTo: fitnessView!.leftAnchor
+//                        , constant: 0).isActive = true // 왼쪽여백
                 
-                //배경에 그라디언트 적용
-                let gradient = CAGradientLayer()
-
-                // gradient colors in order which they will visually appear
-                gradient.colors = [UIColor(rgb: 0x6795CF).cgColor, UIColor(rgb: 0x6764EE).cgColor]
-
-                // Gradient from left to right
-                gradient.startPoint = CGPoint(x: 0.0, y: 0.0)
-                gradient.endPoint = CGPoint(x: 1.0, y: 1.0)
-
-                // set the gradient layer to the same size as the view
-                gradient.frame = fitnessView!.bounds ?? CGRect()
-                // add the gradient layer to the views layer for rendering
-                fitnessView?.layer.addSublayer(gradient)
-
-                let fitnessText: UILabel = UILabel()
+//                fitnessView!.layer.mask = fitnessText.layer
                 
-                //subview 다 지우기
-                let fitnessViewSubViews = fitnessView?.subviews
-                for v in fitnessViewSubViews! { v.removeFromSuperview() }
-                
-                //새로운 label 추가
-                fitnessView?.addSubview(fitnessText)
-                
-                fitnessText.text = "계산중.."
-                fitnessText.font = UIFont.boldSystemFont(ofSize: 14)
-                fitnessText.textColor = .black
-                fitnessText.translatesAutoresizingMaskIntoConstraints = false
-                fitnessText.centerXAnchor.constraint(equalTo: fitnessView!.centerXAnchor).isActive = true
-                fitnessText.centerYAnchor.constraint(equalTo: fitnessView!.centerYAnchor).isActive = true
-                
-                print("fitnessView subviews : \(fitnessView?.subviews)")
-                
-                fitnessView!.mask = fitnessText
-                
-                print("fitnessView : \(fitnessView)")
                 
             }
             
