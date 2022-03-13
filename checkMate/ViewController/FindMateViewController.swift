@@ -275,32 +275,37 @@ class FindMateViewController: UIViewController, UITableViewDataSource, UITableVi
                 
                 print("적합도 함수 실행 됨 !!")
                
-                let fitnessView = cell.viewWithTag(1)
-                let fitnessText: UILabel = UILabel()
+//                let fitnessView = cell.viewWithTag(1)
+//                let fitnessText: UILabel = UILabel()
+                let fitnessText = cell.viewWithTag(2) as! UILabel
                 
+            
                 //subview 다 지우기
-                let fitnessViewSubViews = fitnessView!.subviews
-                for v in fitnessViewSubViews { v.removeFromSuperview() }
+                fitnessText.text?.removeAll()
+//                let fitnessViewSubViews = fitnessView!.subviews
+//                for v in fitnessViewSubViews { v.removeFromSuperview() }
                 
                 //새로운 label 추가
-                fitnessView?.addSubview(fitnessText)
+//                fitnessView?.addSubview(fitnessText)
                 
                 fitnessText.text = "\(fitnessList[indexPath.section])%"
                 fitnessText.font = UIFont.boldSystemFont(ofSize: 14)
                 fitnessText.textColor = .black
-                fitnessText.translatesAutoresizingMaskIntoConstraints = false
-                fitnessText.centerXAnchor.constraint(
-                    equalTo: fitnessView!.centerXAnchor).isActive = true
-                fitnessText.leftAnchor.constraint(equalTo: fitnessView!.leftAnchor
-                        , constant: 0).isActive = true // 왼쪽여백
+//                fitnessText.translatesAutoresizingMaskIntoConstraints = false
+//                fitnessText.centerXAnchor.constraint(
+//                    equalTo: fitnessView!.centerXAnchor).isActive = true
+//                fitnessText.leftAnchor.constraint(equalTo: fitnessView!.leftAnchor
+//                        , constant: 0).isActive = true // 왼쪽여백
                 
-                print("fitnessView subviews : \(fitnessView?.subviews)")
+//                print("fitnessView subviews : \(fitnessView?.subviews)")
                 
-                fitnessView!.layer.mask = fitnessText.layer
+//                fitnessView!.layer.mask = fitnessText.layer
+                
+
             
             } else {
-//                let fitnessView = cell.viewWithTag(1)
-//
+                let fitnessView = cell.viewWithTag(1)
+
 //                //배경에 그라디언트 적용
 //                let gradient = CAGradientLayer()
 //
@@ -316,16 +321,16 @@ class FindMateViewController: UIViewController, UITableViewDataSource, UITableVi
 //                gradient.frame = fitnessView!.bounds
 //                // add the gradient layer to the views layer for rendering
 //                fitnessView?.layer.addSublayer(gradient)
-//
+
 //                let fitnessText: UILabel = UILabel()
-//
+
 //                //subview 다 지우기
 //                let fitnessViewSubViews = fitnessView?.subviews
 //                for v in fitnessViewSubViews! { v.removeFromSuperview() }
-//
-//                //새로운 label 추가
+
+                //새로운 label 추가
 //                fitnessView?.addSubview(fitnessText)
-//
+
 //                fitnessText.text = "계산중.."
 //                fitnessText.font = UIFont.boldSystemFont(ofSize: 14)
 //                fitnessText.textColor = .black
@@ -334,11 +339,12 @@ class FindMateViewController: UIViewController, UITableViewDataSource, UITableVi
 //                    equalTo: fitnessView!.centerXAnchor).isActive = true
 //                fitnessText.leftAnchor.constraint(equalTo: fitnessView!.leftAnchor
 //                        , constant: 0).isActive = true // 왼쪽여백
-                
+//
 //                fitnessView!.layer.mask = fitnessText.layer
                 
-                
+
             }
+            
             
             
         } else {}
@@ -364,7 +370,7 @@ class FindMateViewController: UIViewController, UITableViewDataSource, UITableVi
 //        else { // 추가된 데이터
 //            데이터 리스트.remove(at: found.first!.offset)
 //        }
-        tableView.reloadData()
+//        tableView.reloadData()
     }
     
     
