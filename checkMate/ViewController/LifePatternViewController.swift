@@ -75,21 +75,39 @@ class LifePatternViewController2: UIViewController,UITableViewDelegate,UITableVi
         if cell.myLabel.text == "청소주기" {
             cell.value.text =  surveyView_cont.cleanSelect
         } else if cell.myLabel.text == "흡연" {
-            cell.value.text =  String(surveyView_cont.smokingSelect ?? false)
+            if(String(surveyView_cont.smokingSelect ?? false) == "true"){
+                cell.value.text = "O"
+            } else {cell.value.text = "X"}
+            
         }else if cell.myLabel.text == "게임" {
-            cell.value.text =  String(surveyView_cont.gameSelect ?? false)
+            if(String(surveyView_cont.gameSelect ?? false) == "true"){
+                cell.value.text = "O"
+            } else {cell.value.text = "X"}
         }else if cell.myLabel.text == "코골이" {
-            cell.value.text =  String(surveyView_cont.snoringSelect ?? false)
+            if(String(surveyView_cont.snoringSelect ?? false) == "true"){
+                cell.value.text = "O"
+            } else {cell.value.text = "X"}
         }else if cell.myLabel.text == "이갈이" {
-            cell.value.text =  String(surveyView_cont.griding_teethSelect ?? false)
+            if(String(surveyView_cont.griding_teethSelect ?? false) == "true"){
+                cell.value.text = "O"
+            } else {cell.value.text = "X"}
         }else if cell.myLabel.text == "방에서 통화" {
-            cell.value.text =  String(surveyView_cont.callSelect ?? false)
+            if(String(surveyView_cont.callSelect ?? false) == "true"){
+                cell.value.text = "O"
+            } else {cell.value.text = "X"}
+            
         }else if cell.myLabel.text == "방에서 음식섭취" {
-            cell.value.text =  String(surveyView_cont.eatSelect ?? false)
+            if(String(surveyView_cont.eatSelect ?? false) == "true"){
+                cell.value.text = "O"
+            } else {cell.value.text = "X"}
         }else if cell.myLabel.text == "귀가 시간(11시 이후)" {
-            cell.value.text =  String(surveyView_cont.curfewSelect ?? false)
+            if(String(surveyView_cont.curfewSelect ?? false) == "true"){
+                cell.value.text = "O"
+            } else {cell.value.text = "X"}
         }else if cell.myLabel.text == "취침 시간(12시 이후)" {
-            cell.value.text =  String(surveyView_cont.bedtimeSelect ?? false)
+            if(String(surveyView_cont.bedtimeSelect ?? false) == "true"){
+                cell.value.text = "O"
+            } else {cell.value.text = "X"}
         }else if cell.myLabel.text == "mbti" {
             cell.value.text =  surveyView_cont.mbtiSelect
         } else {cell.value.text = "선택안함"}

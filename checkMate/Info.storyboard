@@ -150,9 +150,7 @@
         <!--Survey-->
         <scene sceneID="Ru9-lB-SYl">
             <objects>
-                <viewControllerPlaceholder storyboardName="Survey" id="htb-UZ-Eqn" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="Smm-vb-Lso"/>
-                </viewControllerPlaceholder>
+                <viewControllerPlaceholder storyboardName="Survey" id="htb-UZ-Eqn" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9In-V7-aPy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="876" y="1477"/>
