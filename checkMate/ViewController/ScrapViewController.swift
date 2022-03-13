@@ -21,8 +21,8 @@ class ScrapViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        guard AppDelegate.user != nil else {return}
+        List.removeAll()
+        guard AppDelegate.user != nil else {return self.scrapTableView.reloadData()}
         DataLoad()
         
     }
