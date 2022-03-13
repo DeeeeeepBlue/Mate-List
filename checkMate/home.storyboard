@@ -20,8 +20,8 @@
                                 <rect key="frame" x="0.0" y="73" width="414" height="823"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="mateCell" rowHeight="120" id="KsN-5e-VgS">
-                                        <rect key="frame" x="0.0" y="44.5" width="414" height="120"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="mateCell" rowHeight="120" id="KsN-5e-VgS" customClass="FindMateTableViewCell" customModule="checkMate" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="45" width="414" height="120"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KsN-5e-VgS" id="S86-E0-qrA">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="120"/>
@@ -67,19 +67,15 @@
                                                     <rect key="frame" x="101" y="11" width="70" height="17"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="80%" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="StD-me-GSM">
+                                                        <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="80%" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="StD-me-GSM">
                                                             <rect key="frame" x="0.0" y="0.0" width="70" height="17"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                    <constraints>
-                                                        <constraint firstItem="StD-me-GSM" firstAttribute="centerY" secondItem="itG-gV-TEe" secondAttribute="centerY" id="MRn-BE-cu1"/>
-                                                        <constraint firstAttribute="trailing" secondItem="StD-me-GSM" secondAttribute="trailing" id="l17-cu-EYs"/>
-                                                        <constraint firstItem="StD-me-GSM" firstAttribute="leading" secondItem="itG-gV-TEe" secondAttribute="leading" id="wvk-Jr-ca5"/>
-                                                    </constraints>
                                                 </view>
                                             </subviews>
                                             <constraints>
@@ -98,6 +94,8 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="suitableBackground" destination="itG-gV-TEe" id="hsb-A6-HFp"/>
+                                            <outlet property="suitableText" destination="StD-me-GSM" id="PQv-rB-rfm"/>
                                             <segue destination="QQx-k7-xc7" kind="show" identifier="detailSegue" id="EX2-zt-SEg"/>
                                         </connections>
                                     </tableViewCell>
