@@ -9,13 +9,20 @@ import UIKit
 
 class FindMateTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var suitableButtonBackground: UIView!
-    @IBOutlet weak var suitableButtonText: UILabel!
+    @IBOutlet weak var suitableBackground: UIView!
+    @IBOutlet weak var suitableText: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        setSuitableLabelGradient(view: suitableButtonBackground, label: suitableButtonText)
+//        setSuitableLabelGradient(view: suitableBackground, label: suitableText)
+        if AppDelegate.user != nil {
+            suitableText.text = "로그인필요"
+        }
+        else{
+            suitableText.text = "계산중"
+        }
+
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -40,7 +47,7 @@ class FindMateTableViewCell: UITableViewCell {
         gradient.frame = view.bounds
         // add the gradient layer to the views layer for rendering
         view.layer.addSublayer(gradient)
-        
+
         view.mask = label
     }
 
