@@ -35,6 +35,7 @@ class FindMateViewController: UIViewController, UITableViewDataSource, UITableVi
     override func viewWillAppear(_ animated: Bool) {
         
         super.viewWillAppear(true)
+        getLoginUserSurvey()
         DataLoad()
         findMateTableView.reloadData()
         print("scrap view load complete")
@@ -156,7 +157,7 @@ class FindMateViewController: UIViewController, UITableViewDataSource, UITableVi
             
             }
         
-        getLoginUserSurvey()
+        
         
        }
     
@@ -201,33 +202,40 @@ class FindMateViewController: UIViewController, UITableViewDataSource, UITableVi
                         let decoder = JSONDecoder()
                         //첫번째 인자 : 해독할 형식(구조체), 두번째 인자 : 해독할 json 데이터
                         let decodeHabitCheck = try decoder.decode(HabitCheck.self, from: data)
+                        print("eun : i : \(i), habitCheck :\(decodeHabitCheck)")
                         self.habitCheckList.append(decodeHabitCheck)
                         
                     } catch { print("Error when trying to encode book: \(error)") }
                     
                 } else { print("\(self.List[i].uid)'s Document does not exist") }
                 
-                self.saveFitList()
-                self.findMateTableView.reloadData()
                 
+                if self.List.count == self.habitCheckList.count{
+                    self.saveFitList()
+                    self.findMateTableView.reloadData()
+                }
             }
         }
     }
     
     // 📌 적합도 계산해서 저장하기
+    /** 와 이 주석 신기하당 wow  */
     func saveFitList(){
         if self.List.count == self.habitCheckList.count && AppDelegate.user != nil {
             self.fitnessList.removeAll()
+            var cnt = 0
             for habitCheck in habitCheckList {
-//                print("\()님과 \()님의 적합도")
+                print("\(self.List[cnt].uid)님의 적합도.")
+                print("mbti: \(habitCheck.mbtiSelect)")
                 fitnessList.append(habitCheck.calculatingFit(otherSurvey: loginUserSurvey) ?? 0)
+                cnt += 1
             }
         }
     }
 
 
 
-    //MARK: - ✅ Table View Data Source
+    //MARK: - ✅ Table View function
     // indexPath.row 대신 indexPath.section으로 나눴음
     func numberOfSections(in tableView: UITableView) -> Int {
         var value : Int
@@ -269,97 +277,48 @@ class FindMateViewController: UIViewController, UITableViewDataSource, UITableVi
                 cellDate.text = "\(self.List[indexPath.section].date)"
                 cellUser.text = "\(self.List[indexPath.section].author)"
             
-            // 📌 적합도 계산 UI넣기
-//            print(fitnessList.count, List.count, habitCheckList.count)
-//            if fitnessList.count == List.count {
-//
-//                print("적합도 함수 실행 됨 !!")
-//
-//                let fitnessView = cell.viewWithTag(1)
-////                let fitnessText: UILabel = UILabel()
-//                let fitnessText = cell.viewWithTag(2) as! UILabel
-//
-////                배경에 그라디언트 적용
-//                let gradient = CAGradientLayer()
-//
-//                // gradient colors in order which they will visually appear
-//                gradient.colors = [UIColor(rgb: 0x6795CF).cgColor,
-//                                   UIColor(rgb: 0x6764EE).cgColor]
-//
-//                // Gradient from left to right
-//                gradient.startPoint = CGPoint(x: 0.0, y: 0.0)
-//                gradient.endPoint = CGPoint(x: 1.0, y: 1.0)
-//
-//                // set the gradient layer to the same size as the view
-//                gradient.frame = fitnessView!.bounds
-//                // add the gradient layer to the views layer for rendering
-//                fitnessView?.layer.addSublayer(gradient)
-//
-//
-//                //subview 다 지우기
-//                fitnessText.text?.removeAll()
-////                let fitnessViewSubViews = fitnessView!.subviews
-////                for v in fitnessViewSubViews { v.removeFromSuperview() }
-//
-//                //새로운 label 추가
-////                fitnessView?.addSubview(fitnessText)
-//
-//                fitnessText.text = "\(fitnessList[indexPath.section])%"
-//                fitnessText.font = UIFont.boldSystemFont(ofSize: 14)
-//                fitnessText.textColor = .black
-////                fitnessText.translatesAutoresizingMaskIntoConstraints = false
-////                fitnessText.centerXAnchor.constraint(
-////                    equalTo: fitnessView!.centerXAnchor).isActive = true
-////                fitnessText.leftAnchor.constraint(equalTo: fitnessView!.leftAnchor
-////                        , constant: 0).isActive = true // 왼쪽여백
-//
-////                print("fitnessView subviews : \(fitnessView?.subviews)")
-//
-//                fitnessView!.layer.mask = fitnessText.layer
-//
-//
-//
-//            } else {
-//                let fitnessView = cell.viewWithTag(1)
+            
+            /** 📌 적합도 계산 UI넣기 */
+            // 로그인 X 일 때 실행
+            let fitnessView = cell.viewWithTag(1)
+            let fitnessText: UILabel! = fitnessView?.subviews[0] as! UILabel
+            
+            fitnessText.text = "로그인"
+            fitnessText.font = UIFont.boldSystemFont(ofSize: 14)
+            fitnessText.textColor = .black
+            fitnessText.translatesAutoresizingMaskIntoConstraints = false
+            fitnessText.centerXAnchor.constraint(
+                equalTo: fitnessView!.centerXAnchor).isActive = true
+            fitnessText.leftAnchor.constraint(equalTo: fitnessView!.leftAnchor
+                    , constant: 0).isActive = true // 왼쪽여백
+        
 
-//                //배경에 그라디언트 적용
-//                let gradient = CAGradientLayer()
-//
-//                // gradient colors in order which they will visually appear
-//                gradient.colors = [UIColor(rgb: 0x6795CF).cgColor,
-//                                   UIColor(rgb: 0x6764EE).cgColor]
-//
-//                // Gradient from left to right
-//                gradient.startPoint = CGPoint(x: 0.0, y: 0.0)
-//                gradient.endPoint = CGPoint(x: 1.0, y: 1.0)
-//
-//                // set the gradient layer to the same size as the view
-//                gradient.frame = fitnessView!.bounds
-//                // add the gradient layer to the views layer for rendering
-//                fitnessView?.layer.addSublayer(gradient)
+            if fitnessList.count == List.count { //로그인되어있고 fitness 계산 완료됐으면 실행
 
-//                let fitnessText: UILabel = UILabel()
+                ///배경에 그라디언트 적용
+                let gradient = CAGradientLayer()
 
-//                //subview 다 지우기
-//                let fitnessViewSubViews = fitnessView?.subviews
-//                for v in fitnessViewSubViews! { v.removeFromSuperview() }
+                /// gradient colors in order which they will visually appear
+                gradient.colors = [UIColor(rgb: 0x6795CF).cgColor,
+                                   UIColor(rgb: 0x6764EE).cgColor]
 
-                //새로운 label 추가
-//                fitnessView?.addSubview(fitnessText)
+                /// Gradient from left to right
+                gradient.startPoint = CGPoint(x: 0.0, y: 0.0)
+                gradient.endPoint = CGPoint(x: 1.0, y: 1.0)
 
-//                fitnessText.text = "계산중.."
-//                fitnessText.font = UIFont.boldSystemFont(ofSize: 14)
-//                fitnessText.textColor = .black
-//                fitnessText.translatesAutoresizingMaskIntoConstraints = false
-//                fitnessText.centerXAnchor.constraint(
-//                    equalTo: fitnessView!.centerXAnchor).isActive = true
-//                fitnessText.leftAnchor.constraint(equalTo: fitnessView!.leftAnchor
-//                        , constant: 0).isActive = true // 왼쪽여백
-//
-//                fitnessView!.layer.mask = fitnessText.layer
+                /// set the gradient layer to the same size as the view
+                gradient.frame = fitnessView!.bounds
+                /// add the gradient layer to the views layer for rendering
+                fitnessView?.layer.addSublayer(gradient)
+
+                ///적합도 값 넣기
+                fitnessText.text = "\(fitnessList[indexPath.section])%"
                 
+                ///label만큼 그라디언트 적용
+                fitnessView!.layer.mask = fitnessText.layer
+   
+            }
 
-//            }
             
             
             
