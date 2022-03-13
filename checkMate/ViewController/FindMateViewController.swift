@@ -122,7 +122,7 @@ class FindMateViewController: UIViewController, UITableViewDataSource, UITableVi
     
     func DataLoad() {
         List.removeAll()
-        self.db.collection("Post").getDocuments() { (querySnapshot, err) in
+        self.db.collection("Post").order(by: "date", descending: true).getDocuments() { (querySnapshot, err) in
                 if let err = err {
                     print("Error getting documents: \(err)")
                 } else {
