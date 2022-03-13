@@ -275,9 +275,25 @@ class FindMateViewController: UIViewController, UITableViewDataSource, UITableVi
                 
                 print("적합도 함수 실행 됨 !!")
                
-//                let fitnessView = cell.viewWithTag(1)
+                let fitnessView = cell.viewWithTag(1)
 //                let fitnessText: UILabel = UILabel()
                 let fitnessText = cell.viewWithTag(2) as! UILabel
+                
+//                배경에 그라디언트 적용
+                let gradient = CAGradientLayer()
+
+                // gradient colors in order which they will visually appear
+                gradient.colors = [UIColor(rgb: 0x6795CF).cgColor,
+                                   UIColor(rgb: 0x6764EE).cgColor]
+
+                // Gradient from left to right
+                gradient.startPoint = CGPoint(x: 0.0, y: 0.0)
+                gradient.endPoint = CGPoint(x: 1.0, y: 1.0)
+
+                // set the gradient layer to the same size as the view
+                gradient.frame = fitnessView!.bounds
+                // add the gradient layer to the views layer for rendering
+                fitnessView?.layer.addSublayer(gradient)
                 
             
                 //subview 다 지우기
@@ -299,7 +315,7 @@ class FindMateViewController: UIViewController, UITableViewDataSource, UITableVi
                 
 //                print("fitnessView subviews : \(fitnessView?.subviews)")
                 
-//                fitnessView!.layer.mask = fitnessText.layer
+                fitnessView!.layer.mask = fitnessText.layer
                 
 
             
