@@ -99,7 +99,7 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        self.replyTableView.frame.inset(by: UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 15))
+
 
         writerPatternButton.backgroundColor = .white
         writerPatternButton.tintColor = .white
