@@ -122,7 +122,7 @@ class FindMateViewController: UIViewController, UITableViewDataSource, UITableVi
     
     func DataLoad() {
         List.removeAll()
-        guard Auth.auth().currentUser != nil else {return}
+        
         self.db.collection("Post").order(by: "date", descending: true).getDocuments() { (querySnapshot, err) in
                 if let err = err {
                     print("Error getting documents: \(err)")
@@ -151,8 +151,8 @@ class FindMateViewController: UIViewController, UITableViewDataSource, UITableVi
                     }
                    
                 }
-            
-            self.getPostHabitCheck()
+// MARK: 버전 2에 사용
+//           self.getPostHabitCheck()
             self.findMateTableView.reloadData()
             
             }
@@ -163,6 +163,7 @@ class FindMateViewController: UIViewController, UITableViewDataSource, UITableVi
     
     // 📌 로그인된 유저 survey 받아오기
     func getLoginUserSurvey(){
+        guard Auth.auth().currentUser != nil else {return}
         if AppDelegate.user != nil {
             let docRef = self.db.collection("User").document(Auth.auth().currentUser!.uid).collection("HabitCheck").document(Auth.auth().currentUser!.uid)
             docRef.getDocument { (document, error) in
@@ -185,7 +186,8 @@ class FindMateViewController: UIViewController, UITableViewDataSource, UITableVi
             self.findMateTableView.reloadData()
             }
     }
-    
+// MARK: 버전 2에 사용
+/*
     // 📌 각 POST 마다 author의 survey 받아오기
     func getPostHabitCheck(){
         habitCheckList.removeAll()
@@ -216,7 +218,9 @@ class FindMateViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     // 📌 적합도 계산해서 저장하기
+
     func saveFitList(){
+        guard loginUserSurvey != nil else {return}
         if self.List.count == self.habitCheckList.count && AppDelegate.user != nil {
             self.fitnessList.removeAll()
             for habitCheck in habitCheckList {
@@ -225,7 +229,7 @@ class FindMateViewController: UIViewController, UITableViewDataSource, UITableVi
             }
         }
     }
-
+*/
 
 
     //MARK: - ✅ Table View Data Source
