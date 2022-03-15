@@ -102,11 +102,11 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
         
 //        self.replyTableView.frame.inset(by: UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 15))
 
-        writerPatternButton.backgroundColor = .white
-        writerPatternButton.tintColor = .white
-        writerPatternButton.layer.borderWidth = 1
-        writerPatternButton.layer.borderColor = color.cgColor
-        writerPatternButton.layer.cornerRadius = 15
+//        writerPatternButton.backgroundColor = .white
+//        writerPatternButton.tintColor = .white
+//        writerPatternButton.layer.borderWidth = 1
+//        writerPatternButton.layer.borderColor = color.cgColor
+//        writerPatternButton.layer.cornerRadius = 15
         replyOkButton.layer.borderColor = color.cgColor
         replyOkButton.layer.borderWidth = 1
         replyOkButton.layer.cornerRadius = 10
