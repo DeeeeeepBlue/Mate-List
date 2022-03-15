@@ -18,14 +18,15 @@ class FindMateViewController: UIViewController, UITableViewDataSource, UITableVi
     @IBOutlet weak var findMateTableView: UITableView!
     @IBOutlet var rootView: UIView!
     
+    let MAX = 10000
+    
     var findMateTableViewController = UITableViewController()
     
     let db = Firestore.firestore()
     var List : [Post] = []
-    var habitCheckList : [HabitCheck] = []
+    var habitCheckList : [String:HabitCheck] = [:] //key is uid
     var dbID: String = ""
     var loginUserSurvey : HabitCheck!
-    var fitnessList : [Int] = []
     
     // Add a new document with a generated ID
     var ref: DocumentReference? = nil
@@ -45,6 +46,7 @@ class FindMateViewController: UIViewController, UITableViewDataSource, UITableVi
     
     override func viewDidLoad()  {
         super.viewDidLoad()
+
 
 
         self.findMateTableView.delegate = self
@@ -186,11 +188,18 @@ class FindMateViewController: UIViewController, UITableViewDataSource, UITableVi
             }
     }
     
-    // 📌 각 POST 마다 author의 survey 받아오기
+    /// 📌 각 POST 마다 author의 survey 받아오기
     func getPostHabitCheck(){
+        // 한 유저가 여러개 글을 작성해도 한번만 저장되도록 중복 제거
+        var writersUidList:[String] = self.List.map { $0.uid }
+        let writersUidSet = Set(writersUidList)
+        writersUidList = Array(writersUidSet)
+        
         habitCheckList.removeAll()
-        for i in 0...self.List.count-1{
-            let docRef = self.db.collection("User").document(self.List[i].uid).collection("HabitCheck").document(self.List[i].uid)
+        
+        // 글 작성한 유저들에 대해서 habitcheck을 받아온다. (유저 한명 당 한번만)
+        for checkUid in writersUidList{
+            let docRef = self.db.collection("User").document(checkUid).collection("HabitCheck").document(checkUid)
             docRef.getDocument { (document, error) in
                 if let document = document, document.exists {
                     //data load success
@@ -202,37 +211,18 @@ class FindMateViewController: UIViewController, UITableViewDataSource, UITableVi
                         let decoder = JSONDecoder()
                         //첫번째 인자 : 해독할 형식(구조체), 두번째 인자 : 해독할 json 데이터
                         let decodeHabitCheck = try decoder.decode(HabitCheck.self, from: data)
-                        print("eun : i : \(i), habitCheck :\(decodeHabitCheck)")
-                        self.habitCheckList.append(decodeHabitCheck)
+                        
+                        self.habitCheckList[checkUid] = decodeHabitCheck
                         
                     } catch { print("Error when trying to encode book: \(error)") }
                     
-                } else { print("\(self.List[i].uid)'s Document does not exist") }
-                
-                
-                if self.List.count == self.habitCheckList.count{
-                    self.saveFitList()
-                    self.findMateTableView.reloadData()
+                } else {
+                    print("\(checkUid)'s Document does not exist")
                 }
+                self.findMateTableView.reloadData()
             }
         }
     }
-    
-    // 📌 적합도 계산해서 저장하기
-    /** 와 이 주석 신기하당 wow  */
-    func saveFitList(){
-        if self.List.count == self.habitCheckList.count && AppDelegate.user != nil {
-            self.fitnessList.removeAll()
-            var cnt = 0
-            for habitCheck in habitCheckList {
-                print("\(self.List[cnt].uid)님의 적합도.")
-                print("mbti: \(habitCheck.mbtiSelect)")
-                fitnessList.append(habitCheck.calculatingFit(otherSurvey: loginUserSurvey) ?? 0)
-                cnt += 1
-            }
-        }
-    }
-
 
 
     //MARK: - ✅ Table View function
@@ -283,9 +273,9 @@ class FindMateViewController: UIViewController, UITableViewDataSource, UITableVi
             let fitnessView = cell.viewWithTag(1)
             let fitnessText: UILabel! = fitnessView?.subviews[0] as! UILabel
             
-            fitnessText.text = "로그인"
+            fitnessText.text = "로그인 필요"
             fitnessText.font = UIFont.boldSystemFont(ofSize: 14)
-            fitnessText.textColor = .black
+            fitnessText.textColor = .gray
             fitnessText.translatesAutoresizingMaskIntoConstraints = false
             fitnessText.centerXAnchor.constraint(
                 equalTo: fitnessView!.centerXAnchor).isActive = true
@@ -293,7 +283,7 @@ class FindMateViewController: UIViewController, UITableViewDataSource, UITableVi
                     , constant: 0).isActive = true // 왼쪽여백
         
 
-            if fitnessList.count == List.count { //로그인되어있고 fitness 계산 완료됐으면 실행
+            if AppDelegate.user != nil { //로그인되어있고 fitness 계산 완료됐으면 실행
 
                 ///배경에 그라디언트 적용
                 let gradient = CAGradientLayer()
@@ -310,15 +300,19 @@ class FindMateViewController: UIViewController, UITableViewDataSource, UITableVi
                 gradient.frame = fitnessView!.bounds
                 /// add the gradient layer to the views layer for rendering
                 fitnessView?.layer.addSublayer(gradient)
-
+                
+                //fitness 계산
+                let fitnessValue = habitCheckList[self.List[indexPath.section].uid]?
+                    .calculatingFit(otherSurvey: loginUserSurvey)
+                
                 ///적합도 값 넣기
-                fitnessText.text = "\(fitnessList[indexPath.section])%"
+                fitnessText.text = "\(fitnessValue ?? 0)%"
                 
                 ///label만큼 그라디언트 적용
                 fitnessView!.layer.mask = fitnessText.layer
    
             }
-
+            /**  적합도 계산 UI넣기 END */
             
             
             
