@@ -290,7 +290,7 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
     
     func DataLoad()  {
             //데이터 불러오기
-        db.collection("Post").document(contentsDetailData?.pid ?? "").collection("Comment").getDocuments() { (querySnapshot, err) in
+        db.collection("Post").document(contentsDetailData?.pid ?? "").collection("Comment").order(by: "date", descending: true).getDocuments() { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
