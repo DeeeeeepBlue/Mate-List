@@ -91,9 +91,10 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        DataLoad()
         replyTableView.reloadData()
         habitDataLoad()
-        DataLoad()
+        
     }
 
     override func viewDidLoad() {
@@ -289,6 +290,7 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
     
     func DataLoad()  {
             //데이터 불러오기
+        self.replyList.removeAll()
         db.collection("Post").document(contentsDetailData?.pid ?? "").collection("Comment").order(by: "date", descending: true).getDocuments() { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
@@ -306,11 +308,12 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
         
                     self.replyList.append(reply(author: author_db, contents: content_db, date: date_db, uid: uid_db, docid: document.documentID))
 //                    print("\(document.documentID) => \(document.data())")
-                    print(self.List)
-                    self.replyTableView.reloadData()
+                    print("## : \(self.replyList)")
+                    
                 }
                 
             }
+            self.replyTableView.reloadData()
         }
     }
     
@@ -348,7 +351,7 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
         let now = Date()
         let date = DateFormatter()
         date.locale = Locale(identifier: "ko_kr")
-        date.dateFormat = "yyyy-MM-dd"
+        date.dateFormat = "yyyy-MM-dd HH:mm:ss"
         
         let kr = date.string(from: now)
         return kr
@@ -369,8 +372,9 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
     
     // 테이블뷰 당겼을때 데이터 새로 불러오기
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        replyList.removeAll()
-//        DataLoad()
+        
+//        replyList.removeAll()
+        DataLoad()
     }
     // 댓글 삭제
     @IBAction func replyDelete(_ sender: UIButton) {
