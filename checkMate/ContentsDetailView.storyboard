@@ -43,20 +43,20 @@
                                     <constraint firstAttribute="height" constant="1" id="x55-gq-U3M"/>
                                 </constraints>
                             </view>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" tag="3" contentMode="scaleToFill" ambiguous="YES" text="안녕하세요 반학기 함께 사실 분 구합니다. 저는 연구실을 다녀서 방엔 거의 없을 것 같앙. 편하게 생활하시면서 깨끗하게 써주실 분이면 좋겠습니다." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="GNe-vT-xOX" customClass="DetailTextView" customModule="checkMate" customModuleProvider="target">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" tag="3" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="안녕하세요 반학기 함께 사실 분 구합니다. 저는 연구실을 다녀서 방엔 거의 없을 것 같앙. 편하게 생활하시면서 깨끗하게 써주실 분이면 좋겠습니다." textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GNe-vT-xOX" customClass="DetailTextView" customModule="checkMate" customModuleProvider="target">
                                 <rect key="frame" x="15" y="152" width="384" height="77"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" tag="4" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="2022/03/06" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mFn-1a-gcS">
+                            <label opaque="NO" userInteractionEnabled="NO" tag="4" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2022/03/06" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mFn-1a-gcS">
                                 <rect key="frame" x="20" y="237" width="90.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="70" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="15" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="X7U-10-kiK">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="70" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="15" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="X7U-10-kiK">
                                 <rect key="frame" x="15" y="327.5" width="384" height="475.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
@@ -84,18 +84,18 @@
                                                         </label>
                                                     </subviews>
                                                 </stackView>
-                                                <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" distribution="fillProportionally" spacing="129" translatesAutoresizingMaskIntoConstraints="NO" id="Ksg-GT-437">
-                                                    <rect key="frame" x="20" y="33" width="177.5" height="31"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" distribution="equalSpacing" spacing="149" translatesAutoresizingMaskIntoConstraints="NO" id="Ksg-GT-437">
+                                                    <rect key="frame" x="20" y="33" width="364" height="36.5"/>
                                                     <subviews>
                                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" tag="2" contentMode="scaleToFill" horizontalHuggingPriority="249" scrollEnabled="NO" editable="NO" text="저랑 룸메해용!" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="heJ-Yn-6OL">
-                                                            <rect key="frame" x="0.0" y="0.0" width="0.0" height="31"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="107.5" height="36.5"/>
                                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                             <color key="textColor" systemColor="labelColor"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                         </textView>
                                                         <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Db9-2R-mSZ">
-                                                            <rect key="frame" x="129" y="0.0" width="48.5" height="31"/>
+                                                            <rect key="frame" x="315.5" y="0.0" width="48.5" height="36.5"/>
                                                             <state key="normal" title="Button"/>
                                                             <buttonConfiguration key="configuration" style="plain" title="삭제"/>
                                                             <connections>
@@ -103,6 +103,9 @@
                                                             </connections>
                                                         </button>
                                                     </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="Db9-2R-mSZ" firstAttribute="leading" secondItem="heJ-Yn-6OL" secondAttribute="trailing" id="LZy-MC-yP3"/>
+                                                    </constraints>
                                                 </stackView>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -154,7 +157,7 @@
                                     <action selector="goTotresh:" destination="fXz-5F-R5J" eventType="touchUpInside" id="CHX-al-qSs"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kkM-HS-bOb">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kkM-HS-bOb">
                                 <rect key="frame" x="15" y="275.5" width="384" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="kkM-HS-bOb" secondAttribute="height" multiplier="192:17" id="Mc8-Il-ppk"/>
