@@ -84,7 +84,7 @@
                                                         </label>
                                                     </subviews>
                                                 </stackView>
-                                                <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" distribution="equalSpacing" spacing="149" translatesAutoresizingMaskIntoConstraints="NO" id="Ksg-GT-437">
+                                                <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" distribution="fillEqually" spacing="149" translatesAutoresizingMaskIntoConstraints="NO" id="Ksg-GT-437">
                                                     <rect key="frame" x="20" y="33" width="364" height="36.5"/>
                                                     <subviews>
                                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" tag="2" contentMode="scaleToFill" horizontalHuggingPriority="249" scrollEnabled="NO" editable="NO" text="저랑 룸메해용!" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="heJ-Yn-6OL">
@@ -95,7 +95,7 @@
                                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                         </textView>
                                                         <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Db9-2R-mSZ">
-                                                            <rect key="frame" x="315.5" y="0.0" width="48.5" height="36.5"/>
+                                                            <rect key="frame" x="256.5" y="0.0" width="107.5" height="36.5"/>
                                                             <state key="normal" title="Button"/>
                                                             <buttonConfiguration key="configuration" style="plain" title="삭제"/>
                                                             <connections>
