@@ -93,7 +93,7 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
         super.viewWillAppear(animated)
         replyTableView.reloadData()
         habitDataLoad()
-        
+        DataLoad()
     }
 
     override func viewDidLoad() {
@@ -140,7 +140,6 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
             }
         }
         
-        DataLoad()
 //        lef = Database.database().reference(withPath: "servey")
         
         let userLabel = self.view.viewWithTag(1) as! UILabel
