@@ -165,6 +165,9 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
         dateLabel.text = contentsDetailData.date
         dateLabel.sizeToFit()
         // Do any additional setup after loading the view.
+        
+        replyTableView.estimatedRowHeight = 70
+        replyTableView.rowHeight = UITableView.automaticDimension
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
