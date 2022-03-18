@@ -94,6 +94,7 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
         DataLoad()
         replyTableView.reloadData()
         habitDataLoad()
+        // 게시글 작성자만 삭제 버튼 보이게 하기
         if Auth.auth().currentUser == nil {
             contentDeleteButton.isHidden = true
 //            deleteButton.isHidden = true
