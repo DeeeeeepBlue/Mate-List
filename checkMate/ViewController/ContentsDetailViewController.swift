@@ -203,13 +203,15 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
         
 
         if replyList.count > 0{
-            
+            // 텍스트 크기 자동조절
             userLabel.text = self.replyList[indexPath.section].author
             userLabel.sizeToFit()
             contentsText.text = self.replyList[indexPath.section].contents
             contentsText.sizeToFit()
             dateLabel.text = self.replyList[indexPath.section].date
             dateLabel.sizeToFit()
+            
+            // 삭제 버튼 확이
             replyDeleteLabel.isHidden = true
             print("$$$\(self.replyList[indexPath.section].uid): \(Auth.auth().currentUser?.uid)")
             if self.check_replyuser[indexPath.section] {
