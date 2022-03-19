@@ -16,12 +16,14 @@ import gRPC_Core
 
 class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextViewDelegate {
     var send_username : String!
+    var count = 0
     
     @IBOutlet weak var replyTableView: UITableView!
     @IBOutlet weak var contentsTextView: UITextView!
     
     @IBOutlet weak var replyTextField: UITextField!
     @IBOutlet weak var replyOkButton: UIButton!
+    @IBOutlet weak var replyDeleteButton: UIButton!
     
     @IBOutlet weak var contentDeleteButton: UIButton!
     @IBOutlet weak var writerPatternButton: UIButton!
@@ -211,7 +213,7 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
             dateLabel.sizeToFit()
             
             if self.replyList[indexPath.section].uid != Auth.auth().currentUser?.uid {
-                replyDeleteLabel.isHidden = true
+                replyDeleteButton.isHidden = true
             }
             else {}
             
@@ -315,10 +317,20 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
 //                    print("\(document.documentID) => \(document.data())")
                     print("## : \(self.replyList)")
                     
+                    if self.replyList[self.count].uid != Auth.auth().currentUser?.uid {
+                        self.replyDeleteButton.isHidden = true
+                        let replyDeleteLabel = table
+                    }
+                    else {}
+                    
+                    self.count += 1
+                    
+                    
                 }
                 
             }
             self.replyTableView.reloadData()
+            self.count = 0
         }
     }
     

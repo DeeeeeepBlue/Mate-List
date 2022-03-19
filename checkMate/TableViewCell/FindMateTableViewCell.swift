@@ -34,19 +34,19 @@ class FindMateTableViewCell: UITableViewCell {
     func setSuitableLabelGradient(view:UIView, label:UILabel){
 
         // Create a gradient layer
-        let gradient = CAGradientLayer()
+        weak var gradient = CAGradientLayer()
 
         // gradient colors in order which they will visually appear
-        gradient.colors = [UIColor(rgb: 0x6795CF).cgColor, UIColor(rgb: 0x6764EE).cgColor]
+        gradient?.colors = [UIColor(rgb: 0x6795CF).cgColor, UIColor(rgb: 0x6764EE).cgColor]
 
         // Gradient from left to right
-        gradient.startPoint = CGPoint(x: 0.0, y: 0.0)
-        gradient.endPoint = CGPoint(x: 1.0, y: 1.0)
+        gradient?.startPoint = CGPoint(x: 0.0, y: 0.0)
+        gradient?.endPoint = CGPoint(x: 1.0, y: 1.0)
 
         // set the gradient layer to the same size as the view
-        gradient.frame = view.bounds
+        gradient?.frame = view.bounds
         // add the gradient layer to the views layer for rendering
-        view.layer.addSublayer(gradient)
+        view.layer.addSublayer(gradient!)
 
         view.mask = label
     }
