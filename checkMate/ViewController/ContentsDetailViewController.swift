@@ -210,11 +210,11 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
             contentsText.sizeToFit()
             dateLabel.text = self.replyList[indexPath.section].date
             dateLabel.sizeToFit()
-
+            replyDeleteLabel.isHidden = true
             print("$$$\(self.replyList[indexPath.section].uid): \(Auth.auth().currentUser?.uid)")
-            if !self.check_replyuser[indexPath.section] {
-                replyDeleteLabel.isHidden = true
-            }else{replyDeleteLabel.isHidden = false}
+            if self.check_replyuser[indexPath.section] {
+                replyDeleteLabel.isHidden = false
+            }
 //            if self.replyList[indexPath.section].uid != Auth.auth().currentUser?.uid {
 //                replyDeleteLabel.isHidden = true
 //            }
