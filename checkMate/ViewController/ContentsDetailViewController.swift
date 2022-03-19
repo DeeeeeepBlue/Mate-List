@@ -94,7 +94,17 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
         DataLoad()
         replyTableView.reloadData()
         habitDataLoad()
-        
+        // 게시글 작성자만 삭제 버튼 보이게 하기
+        if Auth.auth().currentUser == nil {
+            contentDeleteButton.isHidden = true
+//            deleteButton.isHidden = true
+        } else {
+            if Auth.auth().currentUser?.uid != contentsDetailData.uid {
+//              deleteButton.isHidden = true
+                contentDeleteButton.isHidden = true
+                
+            }
+        }
     }
 
     override func viewDidLoad() {
@@ -118,16 +128,7 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
         currentData = contentsDetailData
         userHabitCheck.removeAll()
         
-        if Auth.auth().currentUser == nil {
-            contentDeleteButton.isHidden = true
-//            deleteButton.isHidden = true
-        } else {
-            if Auth.auth().currentUser?.uid != contentsDetailData.uid {
-//              deleteButton.isHidden = true
-                contentDeleteButton.isHidden = true
-                
-            }
-        }
+
         
         scrapDataLoad{ (result) in
             print("*클로저 실행\(result)")
@@ -295,7 +296,7 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
     func DataLoad()  {
             //데이터 불러오기
         self.replyList.removeAll()
-        db.collection("Post").document(contentsDetailData?.pid ?? "").collection("Comment").order(by: "date", descending: true).getDocuments() { (querySnapshot, err) in
+        db.collection("Post").document(contentsDetailData?.pid ?? "").collection("Comment").order(by: "date").getDocuments() { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
