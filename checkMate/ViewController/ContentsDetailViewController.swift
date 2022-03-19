@@ -16,14 +16,12 @@ import gRPC_Core
 
 class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextViewDelegate {
     var send_username : String!
-    var count = 0
     
     @IBOutlet weak var replyTableView: UITableView!
     @IBOutlet weak var contentsTextView: UITextView!
     
     @IBOutlet weak var replyTextField: UITextField!
     @IBOutlet weak var replyOkButton: UIButton!
-    @IBOutlet weak var replyDeleteButton: UIButton!
     
     @IBOutlet weak var contentDeleteButton: UIButton!
     @IBOutlet weak var writerPatternButton: UIButton!
@@ -316,14 +314,6 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
                     self.replyList.append(reply(author: author_db, contents: content_db, date: date_db, uid: uid_db, docid: document.documentID))
 //                    print("\(document.documentID) => \(document.data())")
                     print("## : \(self.replyList)")
-                    
-                    if self.replyList[self.count].uid != Auth.auth().currentUser?.uid {
-                        self.replyDeleteButton.isHidden = true
-                        let replyDeleteLabel = table
-                    }
-                    else {}
-                    
-                    self.count += 1
                     
                     
                 }

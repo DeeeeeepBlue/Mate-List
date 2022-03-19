@@ -14,8 +14,8 @@
             filePath = "checkMate/ViewController/ContentsDetailViewController.swift"
             startingColumnNumber = "57"
             endingColumnNumber = "57"
-            startingLineNumber = "245"
-            endingLineNumber = "245"
+            startingLineNumber = "244"
+            endingLineNumber = "244"
             landmarkName = "saveButton(_:)"
             landmarkType = "7">
          </BreakpointContent>

@@ -266,7 +266,7 @@
                                                     <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Db9-2R-mSZ">
+                                                <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Db9-2R-mSZ">
                                                     <rect key="frame" x="321" y="5" width="63" height="31"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="63" id="tBS-CZ-kuF"/>
@@ -410,7 +410,6 @@
                     <connections>
                         <outlet property="contentDeleteButton" destination="inI-bZ-bi3" id="ZjM-tM-FW7"/>
                         <outlet property="contentsTextView" destination="GNe-vT-xOX" id="7zA-Hz-rbV"/>
-                        <outlet property="replyDeleteButton" destination="Db9-2R-mSZ" id="pdh-kK-lOX"/>
                         <outlet property="replyOkButton" destination="C9i-R7-rCZ" id="qpB-yd-GUR"/>
                         <outlet property="replyTableView" destination="X7U-10-kiK" id="0Ax-9w-X91"/>
                         <outlet property="replyTextField" destination="yE2-oQ-RDb" id="jNK-Es-TWV"/>
