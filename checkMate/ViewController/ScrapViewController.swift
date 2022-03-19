@@ -193,7 +193,7 @@ class ScrapViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     // 당기면 데이터 리로드
      func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        self.scrapTableView.reloadData()
+         self.scrapTableView.reloadData()
     }
 
     

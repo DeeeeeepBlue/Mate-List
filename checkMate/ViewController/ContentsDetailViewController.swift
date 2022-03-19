@@ -399,9 +399,10 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
     
     // 테이블뷰 당겼을때 데이터 새로 불러오기
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        
+        self.replyTableView.viewWithTag(4)?.isHidden = true
 //        replyList.removeAll()
         DataLoad()
+        
     }
     // 댓글 삭제
     @IBAction func replyDelete(_ sender: UIButton) {
