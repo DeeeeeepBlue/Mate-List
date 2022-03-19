@@ -213,6 +213,9 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
             
             // 삭제 버튼 확이
             replyDeleteLabel.isHidden = true
+            if Auth.auth().currentUser == nil || Auth.auth().currentUser?.uid != self.replyList[indexPath.section].uid   {
+                replyDeleteLabel.isHidden = true
+            }
             print("$$$\(self.replyList[indexPath.section].uid): \(Auth.auth().currentUser?.uid)")
             if self.check_replyuser[indexPath.section] {
                 replyDeleteLabel.isHidden = false
