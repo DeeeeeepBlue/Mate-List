@@ -14,7 +14,7 @@ import FirebaseAuth
 import gRPC_Core
 
 
-class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextViewDelegate {
     var send_username : String!
     
     @IBOutlet weak var replyTableView: UITableView!
@@ -166,7 +166,7 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
         dateLabel.sizeToFit()
         // Do any additional setup after loading the view.
         
-        // 셀 크기 자동조절 
+        // 셀 크기 자동조절
         replyTableView.estimatedRowHeight = 70
         replyTableView.rowHeight = UITableView.automaticDimension
     }
@@ -446,4 +446,25 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
         }
         else {}
     }
+    
+    // MARK: textview 높이 자동조절
+        func textViewDidChange(_ textView: UITextView) {
+            
+            let size = CGSize(width: view.frame.width, height: .infinity)
+            let estimatedSize = textView.sizeThatFits(size)
+            
+//            textView.constraints.forEach { (constraint) in
+//
+//              /// 180 이하일때는 더 이상 줄어들지 않게하기
+//                if estimatedSize.height <= 180 {
+//
+//                }
+//                else {
+//                    if constraint.firstAttribute == .height {
+//                        constraint.constant = estimatedSize.height
+//                    }
+//                }
+//            }
+        }
+    
 }
