@@ -210,6 +210,7 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
             contentsText.sizeToFit()
             dateLabel.text = self.replyList[indexPath.section].date
             dateLabel.sizeToFit()
+
             print("$$$\(self.replyList[indexPath.section].uid): \(Auth.auth().currentUser?.uid)")
             if !self.check_replyuser[indexPath.section] {
                 replyDeleteLabel.isHidden = true
@@ -319,11 +320,13 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
 //                    print("\(document.documentID) => \(document.data())")
                     print("## : \(self.replyList)")
                     
+                    
                 }
                 self.replyUserCheck()
             }
             
             self.replyTableView.reloadData()
+            self.count = 0
         }
     }
     func replyUserCheck() {
