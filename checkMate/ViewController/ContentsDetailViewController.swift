@@ -326,7 +326,6 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
             }
             
             self.replyTableView.reloadData()
-            self.count = 0
         }
     }
     func replyUserCheck() {
