@@ -40,6 +40,7 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
     var List : [Post] = []
     var replyList: [reply] = []
     var scrapFlag = false
+    var check_replyuser : [Bool] = []
     
     // Add a new document with a generated ID
     var ref: DocumentReference? = nil
@@ -209,11 +210,14 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
             contentsText.sizeToFit()
             dateLabel.text = self.replyList[indexPath.section].date
             dateLabel.sizeToFit()
-            
-            if self.replyList[indexPath.section].uid != Auth.auth().currentUser?.uid {
+            print("$$$\(self.replyList[indexPath.section].uid): \(Auth.auth().currentUser?.uid)")
+            if !self.check_replyuser[indexPath.section] {
                 replyDeleteLabel.isHidden = true
-            }
-            else {}
+            }else{replyDeleteLabel.isHidden = false}
+//            if self.replyList[indexPath.section].uid != Auth.auth().currentUser?.uid {
+//                replyDeleteLabel.isHidden = true
+//            }
+//            else {}
             
         }
         else {}
@@ -316,11 +320,22 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
                     print("## : \(self.replyList)")
                     
                 }
-                
+                self.replyUserCheck()
             }
+            
             self.replyTableView.reloadData()
         }
     }
+    func replyUserCheck() {
+        self.check_replyuser.removeAll()
+        for item in replyList {
+            if item.uid != Auth.auth().currentUser?.uid {
+                self.check_replyuser.append(false)
+            }else{self.check_replyuser.append(true)}
+        }
+    }
+    
+    
     
     func scrapDataLoad(_ escapingHandler : @escaping (Bool) -> ()) {
             //데이터 불러오기
