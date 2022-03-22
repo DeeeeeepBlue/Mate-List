@@ -257,6 +257,8 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
             let str = AppDelegate.user.profile!.email as String
             var userName = str.split(separator: "@")
             
+            
+            
             // Firestore에 데이터 올리는 코드
             var ref: DocumentReference? = nil
             let replyInput: [String: Any] = [
