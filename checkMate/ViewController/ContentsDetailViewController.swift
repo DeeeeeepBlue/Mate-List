@@ -284,12 +284,12 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
                     "date" : getDate()
                 ])
                 
-                replyTextField.text?.removeAll()
-                DataLoad()
-                self.replyTableView.reloadData()
+                
             }
             
-           
+            replyTextField.text?.removeAll()
+            DataLoad()
+            self.replyTableView.reloadData()
             
             // 화면 리로드
 //            viewWillAppear(true)
