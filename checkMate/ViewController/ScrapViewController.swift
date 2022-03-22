@@ -24,6 +24,7 @@ class ScrapViewController: UIViewController, UITableViewDataSource, UITableViewD
         List.removeAll()
         guard AppDelegate.user != nil else {return self.scrapTableView.reloadData()}
         DataLoad()
+        self.scrapTableView.reloadData()
         
     }
     
