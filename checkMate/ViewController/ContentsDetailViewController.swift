@@ -269,17 +269,27 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
                 "date" : getDate()
             ]
             
+            if inputText!.count > 30 {
+                let alert = UIAlertController(title: "글자 수 초과!", message: "댓글 30자 이내로 작성해 주세요", preferredStyle: UIAlertController.Style.alert)
+                let okAction = UIAlertAction(title: "OK", style: .default) {_ in
+                }
+                alert.addAction(okAction)
+                present(alert, animated: true, completion: nil)
+                
+            }else{
+                ref = db.collection("Post").document(contentsDetailData.pid).collection("Comment").addDocument(data: [
+                    "reply" : inputText!,
+                    "uid" : Auth.auth().currentUser!.uid,
+                    "user" : String(userName[0]),
+                    "date" : getDate()
+                ])
+                
+                replyTextField.text?.removeAll()
+                DataLoad()
+                self.replyTableView.reloadData()
+            }
             
-            ref = db.collection("Post").document(contentsDetailData.pid).collection("Comment").addDocument(data: [
-                "reply" : inputText!,
-                "uid" : Auth.auth().currentUser!.uid,
-                "user" : String(userName[0]),
-                "date" : getDate()
-            ])
-            
-            replyTextField.text?.removeAll()
-            DataLoad()
-            self.replyTableView.reloadData()
+           
             
             // 화면 리로드
 //            viewWillAppear(true)
