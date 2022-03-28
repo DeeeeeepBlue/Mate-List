@@ -242,6 +242,15 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
                 print("Document successfully removed!")
             }
         }
+        db.collection("Post").document("\(contentsDetailData.pid)").collection("Comment").getDocuments() { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                for document in querySnapshot!.documents {
+                    db.collection("Post").document(self.contentsDetailData.pid).collection("Comment").document(document.documentID).delete()
+                }
+            }
+        }
         
         self.navigationController?.popViewController(animated: true)
 
