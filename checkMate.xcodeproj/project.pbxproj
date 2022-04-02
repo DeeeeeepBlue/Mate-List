@@ -16,6 +16,7 @@
 		04BB243727ACED960003DA33 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BB243627ACED960003DA33 /* MyPageViewController.swift */; };
 		3F2245BE27D62763002F29FE /* HexUIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2245BD27D62763002F29FE /* HexUIColor.swift */; };
 		3FB23A5E27D79D3E00B8D071 /* FindMateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB23A5D27D79D3E00B8D071 /* FindMateTableViewCell.swift */; };
+		3FCF3B4E27F888EC008771B8 /* KeychainItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCF3B4D27F888EC008771B8 /* KeychainItem.swift */; };
 		3FF0B03C27DA4E2C00CA147A /* Info.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FF0B03B27DA4E2C00CA147A /* Info.storyboard */; };
 		5A75AE8827D9F2F9001C796C /* Scrap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A75AE8727D9F2F9001C796C /* Scrap.storyboard */; };
 		A600678027C7E4AA007C6EF1 /* (null) in Resources */ = {isa = PBXBuildFile; };
@@ -67,6 +68,8 @@
 		04BB243627ACED960003DA33 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
 		3F2245BD27D62763002F29FE /* HexUIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexUIColor.swift; sourceTree = "<group>"; };
 		3FB23A5D27D79D3E00B8D071 /* FindMateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindMateTableViewCell.swift; sourceTree = "<group>"; };
+		3FCF3B4927F88552008771B8 /* checkMate.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = checkMate.entitlements; sourceTree = "<group>"; };
+		3FCF3B4D27F888EC008771B8 /* KeychainItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainItem.swift; sourceTree = "<group>"; };
 		3FF0B03B27DA4E2C00CA147A /* Info.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Info.storyboard; sourceTree = "<group>"; };
 		5A75AE8727D9F2F9001C796C /* Scrap.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Scrap.storyboard; sourceTree = "<group>"; };
 		A623E33527B7C40E00172F38 /* DropDownViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownViewController.swift; sourceTree = "<group>"; };
@@ -130,6 +133,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		3FCF3B4C27F888C5008771B8 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3FCF3B4D27F888EC008771B8 /* KeychainItem.swift */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		F711782927C011A600729B52 /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
@@ -173,6 +184,7 @@
 				F757546B27A4DF1800BFDF9B /* checkMate */,
 				F757546A27A4DF1800BFDF9B /* Products */,
 				F711782927C011A600729B52 /* Recovered References */,
+				3FCF3B4C27F888C5008771B8 /* Supporting Files */,
 			);
 			sourceTree = "<group>";
 		};
@@ -187,6 +199,7 @@
 		F757546B27A4DF1800BFDF9B /* checkMate */ = {
 			isa = PBXGroup;
 			children = (
+				3FCF3B4927F88552008771B8 /* checkMate.entitlements */,
 				040AA09327BECD53008F4BF5 /* Model */,
 				F7379F2227AD409D00D99CD4 /* Delegate */,
 				F7379F2127AD37C000D99CD4 /* ViewController */,
@@ -318,6 +331,7 @@
 			files = (
 				040AA09927BECE16008F4BF5 /* Comment.swift in Sources */,
 				040AA09727BECDDD008F4BF5 /* HabitCheck.swift in Sources */,
+				3FCF3B4E27F888EC008771B8 /* KeychainItem.swift in Sources */,
 				F75452E927C7C5FB00E2DB41 /* FindMateViewController.swift in Sources */,
 				F7B4F41A27D7B4CD0045580F /* surveyviewViewCell.swift in Sources */,
 				F76B582127C5380600B6626D /* FilterTableViewController.swift in Sources */,
@@ -483,6 +497,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = checkMate/checkMate.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = XTZ6W4677Z;
@@ -512,6 +527,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = checkMate/checkMate.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = XTZ6W4677Z;
