@@ -467,7 +467,7 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
             compseVC.setToRecipients(["deeeeeep0122@gmail.com"])
             compseVC.setSubject("[메이트리스트]게시글 신고")
             compseVC.setMessageBody("메시지컨텐츠", isHTML: false)
-            
+            // 📌📌 내용 뭘로 채울지 정하기!!!!!!!!!
             self.present(compseVC, animated: true, completion: nil)
             
         }
