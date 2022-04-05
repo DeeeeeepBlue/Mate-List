@@ -119,3 +119,4 @@ var mbtiSelect : String = ""
 //    return true
 //}
 
+var new_mem_agree = false

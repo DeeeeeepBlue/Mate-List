@@ -19,6 +19,8 @@
 		3FF0B03C27DA4E2C00CA147A /* Info.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FF0B03B27DA4E2C00CA147A /* Info.storyboard */; };
 		5A75AE8827D9F2F9001C796C /* Scrap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A75AE8727D9F2F9001C796C /* Scrap.storyboard */; };
 		A600678027C7E4AA007C6EF1 /* (null) in Resources */ = {isa = PBXBuildFile; };
+		A60D25A127F72E9600E6A553 /* consent_popup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A60D25A027F72E9600E6A553 /* consent_popup.storyboard */; };
+		A60D25A327F7317700E6A553 /* consent_popup.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60D25A227F7317600E6A553 /* consent_popup.swift */; };
 		A623E33627B7C40E00172F38 /* DropDownViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A623E33527B7C40E00172F38 /* DropDownViewController.swift */; };
 		F731B77027D4D56A009670A4 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = F731B76F27D4D56A009670A4 /* FirebaseAnalytics */; };
 		F731B77227D4D56A009670A4 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = F731B77127D4D56A009670A4 /* FirebaseAuth */; };
@@ -69,6 +71,8 @@
 		3FB23A5D27D79D3E00B8D071 /* FindMateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindMateTableViewCell.swift; sourceTree = "<group>"; };
 		3FF0B03B27DA4E2C00CA147A /* Info.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Info.storyboard; sourceTree = "<group>"; };
 		5A75AE8727D9F2F9001C796C /* Scrap.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Scrap.storyboard; sourceTree = "<group>"; };
+		A60D25A027F72E9600E6A553 /* consent_popup.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = consent_popup.storyboard; sourceTree = "<group>"; };
+		A60D25A227F7317600E6A553 /* consent_popup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = consent_popup.swift; sourceTree = "<group>"; };
 		A623E33527B7C40E00172F38 /* DropDownViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownViewController.swift; sourceTree = "<group>"; };
 		F731B7A127D4FF09009670A4 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		F731B7A927D500B3009670A4 /* testTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testTableViewController.swift; sourceTree = "<group>"; };
@@ -154,6 +158,7 @@
 				F76B581C27C5380600B6626D /* ViewController.swift */,
 				F76B581D27C5380600B6626D /* WriteViewController.swift */,
 				0444E00127C825A500B49F8B /* ScrapViewController.swift */,
+				A60D25A227F7317600E6A553 /* consent_popup.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -198,6 +203,7 @@
 				F7B4F41B27D7B5030045580F /* Survey.storyboard */,
 				F7B4F41D27D7B5090045580F /* Surveyview.storyboard */,
 				3FF0B03B27DA4E2C00CA147A /* Info.storyboard */,
+				A60D25A027F72E9600E6A553 /* consent_popup.storyboard */,
 				F7EEBACC27CF43B9009728AF /* Main.storyboard */,
 				5A75AE8727D9F2F9001C796C /* Scrap.storyboard */,
 				F731B7A127D4FF09009670A4 /* Home.storyboard */,
@@ -300,6 +306,7 @@
 				5A75AE8827D9F2F9001C796C /* Scrap.storyboard in Resources */,
 				F7EEBACD27CF43B9009728AF /* Main.storyboard in Resources */,
 				0468B98E27CAD48500B2D31A /* GoogleService-Info.plist in Resources */,
+				A60D25A127F72E9600E6A553 /* consent_popup.storyboard in Resources */,
 				3FF0B03C27DA4E2C00CA147A /* Info.storyboard in Resources */,
 				F757547927A4DF1A00BFDF9B /* LaunchScreen.storyboard in Resources */,
 				F7B4F41E27D7B5090045580F /* Surveyview.storyboard in Resources */,
@@ -333,6 +340,7 @@
 				F76B581427C5378100B6626D /* ReplyTextView.swift in Sources */,
 				F757546D27A4DF1800BFDF9B /* AppDelegate.swift in Sources */,
 				3FB23A5E27D79D3E00B8D071 /* FindMateTableViewCell.swift in Sources */,
+				A60D25A327F7317700E6A553 /* consent_popup.swift in Sources */,
 				F76B582027C5380600B6626D /* FilterViewController.swift in Sources */,
 				F757546F27A4DF1800BFDF9B /* SceneDelegate.swift in Sources */,
 				F731B7AA27D500B3009670A4 /* testTableViewController.swift in Sources */,

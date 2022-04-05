@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Consent popup-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="consent_popup" id="Y6W-OH-hqX" customClass="consent_popup" customModule="checkMate" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ow6-g6-k0d">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yF4-vJ-iT5">
+                                        <rect key="frame" x="289.5" y="700" width="72.5" height="31"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="동의하기"/>
+                                        <connections>
+                                            <action selector="agreepopupBtn:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="hL8-p7-ibd"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L7R-S3-Yxp">
+                                        <rect key="frame" x="52" y="700" width="73" height="31"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="취소하기"/>
+                                        <connections>
+                                            <action selector="closePopupBtn:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="2Sf-PR-6GE"/>
+                                        </connections>
+                                    </button>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="3xq-4d-BHT">
+                                        <rect key="frame" x="30" y="82" width="354" height="585"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <mutableString key="text">커뮤니티 이용규칙 안내
+
+Mate-List는 깨끗한 커뮤니티를 만들기 위해 이용규칙을 제정하여 운영하고 있습니다. 모든 이용자는 글 등록하는 동시에 아래 이용규칙에 동의하였음으로 간주합니다. 모든 이용자는 커뮤니티 이용 전 반드시 커뮤니티 이용규칙의 모든 내용을 숙지하여야 합니다.
+
+모든 이용자는 방송통신심의위원회의 정보통신에 관한 심의규정,현행 법률,서비스 이용 약관 및 커뮤니티 이용규칙을 위반하거나, 사회 통념 및 관련 법령을 기준으로 타 이용자에게 악영향을 끼치는 경우, 게시물이 삭제되고 서비스 이용이 제한될 수 있습니다.
+
+커뮤니티 이용규칙은 불법 행위, 각종 차별 및 혐오, 사회적 갈등 조장,타인의 권리 침해, 다른 이용자에게 불쾌감을 주는 행위, 커뮤니티 유출 행위, 시스템 장애를 유발하는 비정상 행위 등 커뮤니티 분위기 형성과 운영에 악영향을 미치는 행위들을 제한하기 위해 지속적으로 개정됩니다.
+
+커뮤니티 이용자에게 다음과 같은 행위를 금지합니다.
+
+1. 범죄 기타 법령에 위반되는 행위
+- 범죄를 목적으로 하여 범죄 수단이나 방법 또는 범죄에 이르는 과정이나 결과를 구체적으로 묘사하는 행위
+- 범죄, 범죄인, 범죄 단체를 미화하는 행위
+- 그 밖에 범죄 및 법령에 위반되는 위법행위를 조장하여 건전한 법질서를 현저히 해할 우려가 있는 행위
+2. 사회통념상 일반인의 성욕을 자극하여 성적 흥분을 유발하고 정상적인 성적 수치심을 해하여 도의관념에 반하는 행위
+- 신체 부위 또는 성적 행위를 노골적으로 표현, 묘사하는 행위
+- 유흥 관련 정보 공유, 매매·알선 행위 등 불법 행위
+- 그 밖에 일반인의 성적 수치심을 현저히 해할 우려가 있는 행위
+3. 폭력성, 잔혹성, 혐오성 등이 심각한 행위
+- 살상, 폭행, 협박, 학대행위들을 지나치게 상세히 표현하여 혐오감을 불러일으키는 행위
+- 과도한 욕설 등 저속한 언어를 사용하여 혐
+4. 사회통합 및 사회질서를 저해하는 행위
+- 도박 등 사행심을 조장하는 행위
+- 사회적인 소외계층을 비하하는 행위
+- 자살을 목적으로 하거나 이를 미화, 방조 또는 권유하여 자살 충동을 일으킬 우려가 있는 행위
+- 그 밖에 사회적 혼란을 현저히 야기할 우려가 있는 행위
+5. 타인의 권리를 침해하는 행위
+- 다른 이용자에게 불쾌감이나 불편함을 주는 행위
+- 개인정보 유포 등 사생활의 비밀과 자유를 침해할 우려가 현저한 행위
+- 그 밖에 정당한 권한없이 타인의 권리를 침해하는 행위
+6. 악용 행위
+- 익명을 이용한 여론 조작 행위
+- 신고 제도를 악용하는 행위
+- 운영자 또는 이에 준하는 자격을 사칭하여 권한을 행사하는 행위
+- 외부 서비스 이용을 강제하거나 유도하는 행위
+
+
+허위사실 유포 및 명예훼손 게시물에 대한 게시중단 요청
+
+1. 모든 게시물은 커뮤니티 운영 시스템에 의해 처리됩니다.
+2. 게시물로 인해, 저작권 침해, 명예훼손, 기타 권리 침해를 당했다고 판단되실 경우, 추가적인 권리 침해를 방지하기 위해 개발자 메일(deeeeeep0122@gmail.com)로 해당 게시물에 대한 게시 중단 요청을 할 수 있습니다.
+3. 이후 담당자의 확인을 통해 게시 중단 조치가 이루어지며, 게시 중단 사유가 공개됩니다.</mutableString>
+                                        <color key="textColor" systemColor="labelColor"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="아래 항목에 대해 동의하십니까?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wNT-jz-JMp">
+                                        <rect key="frame" x="30" y="50" width="225" height="22"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="L7R-S3-Yxp" secondAttribute="bottom" constant="87" id="7vv-xx-9Z5"/>
+                                    <constraint firstItem="3xq-4d-BHT" firstAttribute="leading" secondItem="ow6-g6-k0d" secondAttribute="leading" constant="30" id="81d-9A-jof"/>
+                                    <constraint firstItem="L7R-S3-Yxp" firstAttribute="leading" secondItem="ow6-g6-k0d" secondAttribute="leading" constant="52" id="KD8-76-yOj"/>
+                                    <constraint firstItem="3xq-4d-BHT" firstAttribute="top" secondItem="wNT-jz-JMp" secondAttribute="bottom" constant="10" id="Pqj-u0-sRj"/>
+                                    <constraint firstItem="wNT-jz-JMp" firstAttribute="top" secondItem="ow6-g6-k0d" secondAttribute="top" constant="50" id="S87-Fm-WSW"/>
+                                    <constraint firstAttribute="trailing" secondItem="yF4-vJ-iT5" secondAttribute="trailing" constant="52" id="Uyy-hT-xjE"/>
+                                    <constraint firstAttribute="trailing" secondItem="3xq-4d-BHT" secondAttribute="trailing" constant="30" id="act-8o-4uO"/>
+                                    <constraint firstAttribute="bottom" secondItem="yF4-vJ-iT5" secondAttribute="bottom" constant="87" id="ght-H0-PRb"/>
+                                    <constraint firstItem="wNT-jz-JMp" firstAttribute="leading" secondItem="ow6-g6-k0d" secondAttribute="leading" constant="30" id="hhc-vq-YCf"/>
+                                    <constraint firstItem="yF4-vJ-iT5" firstAttribute="top" secondItem="3xq-4d-BHT" secondAttribute="bottom" constant="33" id="uD1-ii-SIW"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <constraints>
+                            <constraint firstItem="ow6-g6-k0d" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="6H6-8P-HgN"/>
+                            <constraint firstItem="ow6-g6-k0d" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="6q6-K7-unm"/>
+                            <constraint firstItem="ow6-g6-k0d" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" id="7ar-i7-44c"/>
+                            <constraint firstItem="ow6-g6-k0d" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="LlA-RT-65Y"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="backview" destination="5EZ-qb-Rvc" id="usp-GB-6Z5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="34.782608695652179" y="50.892857142857139"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
