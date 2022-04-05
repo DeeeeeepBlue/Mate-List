@@ -82,7 +82,6 @@ class MyPage: UIViewController {
                               self.blackAlert()
                               // 로그아웃 하기
                               self.signOut(self)
-                              print("@@\(document.documentID) => \(document.data())")
                           }
                       }
                   }
