@@ -35,6 +35,7 @@ class MyPage: UIViewController {
           guard error == nil else { return }
           guard let user = user else { return }
           
+          
           AppDelegate.user = user
           
           let emailAddress = user.profile?.email
@@ -71,13 +72,27 @@ class MyPage: UIViewController {
                       
                   }
                   
+                  // 블랙 리스트 유저 체크
+                  self.db.collection("BlackList").whereField(Auth.auth().currentUser!.uid, isEqualTo: true).getDocuments() { (querySnapshot, err) in
+                      if let err = err {
+                          print("@@Error getting documents: \(err)")
+                      } else {
+                          for document in querySnapshot!.documents {
+                              // 알럴트로 사용자에게 알리기
+                              self.blackAlert()
+                              // 로그아웃 하기
+                              self.signOut(self)
+                              print("@@\(document.documentID) => \(document.data())")
+                          }
+                      }
+                  }
               }
 
               
           }
           
       }
-        
+       
         
         
     }
@@ -108,6 +123,17 @@ class MyPage: UIViewController {
         // Do any additional setup after loading the view.
     }
     override func viewWillAppear(_ animated: Bool) {
+        
+    }
+    
+    func blackAlert() {
+        let alert = UIAlertController(title: "블랙 리스트", message: "해당 사용자는 타 사용자의 신고로 인해 블랙리스트에 추가되었습니다. 이의가 있으시면 문의하기로 연락 부탁드립니다.", preferredStyle: UIAlertController.Style.alert)
+        let okAction = UIAlertAction(title: "OK", style: .default) {_ in
+            self.navigationController?.popViewController(animated: true)
+        }
+        alert.addAction(okAction)
+        
+        present(alert, animated: true, completion: nil)
         
     }
     
