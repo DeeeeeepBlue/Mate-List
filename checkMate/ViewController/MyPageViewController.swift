@@ -17,6 +17,7 @@ let signInConfig = GIDConfiguration.init(clientID: "14102016647-cle326t7m6o3u9n4
 
 class MyPage: UIViewController {
     
+    @IBOutlet weak var inquiryButton: UIButton!
     @IBOutlet weak var surveyButton: UIButton!
     @IBOutlet weak var LogoutButton: UIButton!
     @IBOutlet weak var accountView: UIView!
@@ -133,6 +134,9 @@ class MyPage: UIViewController {
         accountView.layer.borderWidth = 0.5
         accountView.layer.borderColor = UIColor.gray.cgColor
         
+        inquiryButton.layer.cornerRadius = 20
+        inquiryButton.layer.borderWidth = 0.5
+        inquiryButton.layer.borderColor = UIColor.gray.cgColor
     }
     
     /*

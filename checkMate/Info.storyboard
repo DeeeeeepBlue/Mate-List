@@ -104,7 +104,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wyq-xr-jFR">
-                                <rect key="frame" x="20" y="325" width="374" height="31"/>
+                                <rect key="frame" x="20" y="376" width="374" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="로그아웃">
                                     <backgroundConfiguration key="background"/>
@@ -114,15 +114,26 @@
                                     <action selector="signOut:" destination="Njf-UX-cJ5" eventType="touchUpInside" id="O4f-w0-BqU"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kLl-RV-Plj">
+                                <rect key="frame" x="20" y="325" width="374" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="문의하기"/>
+                                <connections>
+                                    <segue destination="JLJ-z2-R4c" kind="show" id="P4y-gU-xDy"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Odc-su-rpM"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="kLl-RV-Plj" firstAttribute="top" secondItem="ar4-7y-zK5" secondAttribute="bottom" constant="20" id="7If-6t-ZfU"/>
+                            <constraint firstItem="Wyq-xr-jFR" firstAttribute="top" secondItem="kLl-RV-Plj" secondAttribute="bottom" constant="20" id="8zn-RH-ckf"/>
                             <constraint firstItem="Odc-su-rpM" firstAttribute="trailing" secondItem="ar4-7y-zK5" secondAttribute="trailing" constant="20" id="FtI-Ho-Rlk"/>
+                            <constraint firstItem="Odc-su-rpM" firstAttribute="trailing" secondItem="kLl-RV-Plj" secondAttribute="trailing" constant="20" id="GHD-jl-rOU"/>
                             <constraint firstItem="Yv5-jz-WoO" firstAttribute="top" secondItem="Odc-su-rpM" secondAttribute="top" constant="40" id="IAg-s5-e7q"/>
                             <constraint firstItem="Yv5-jz-WoO" firstAttribute="leading" secondItem="Odc-su-rpM" secondAttribute="leading" constant="35" id="IFd-Ql-Son"/>
                             <constraint firstItem="Odc-su-rpM" firstAttribute="trailing" secondItem="Yv5-jz-WoO" secondAttribute="trailing" constant="35" id="MLJ-NJ-vcx"/>
-                            <constraint firstItem="Wyq-xr-jFR" firstAttribute="top" secondItem="ar4-7y-zK5" secondAttribute="bottom" constant="20" id="Rcj-Ue-0yM"/>
+                            <constraint firstItem="kLl-RV-Plj" firstAttribute="leading" secondItem="Odc-su-rpM" secondAttribute="leading" constant="20" id="WB7-QE-8Sn"/>
                             <constraint firstItem="Odc-su-rpM" firstAttribute="trailing" secondItem="Z7x-dS-sjJ" secondAttribute="trailing" constant="20" id="Ylx-W4-veS"/>
                             <constraint firstItem="Z7x-dS-sjJ" firstAttribute="top" secondItem="Yv5-jz-WoO" secondAttribute="bottom" constant="10" id="aeW-n2-q87"/>
                             <constraint firstItem="ar4-7y-zK5" firstAttribute="top" secondItem="Z7x-dS-sjJ" secondAttribute="bottom" constant="20" id="apT-T3-oUL"/>
@@ -138,6 +149,7 @@
                         <outlet property="LogoutButton" destination="Wyq-xr-jFR" id="l8B-Ly-SD3"/>
                         <outlet property="accountView" destination="Z7x-dS-sjJ" id="cOl-Gl-lWL"/>
                         <outlet property="emailLabel" destination="KYV-g9-eGr" id="H7l-Nm-6ZL"/>
+                        <outlet property="inquiryButton" destination="kLl-RV-Plj" id="MNl-Ad-cmf"/>
                         <outlet property="nameLabel" destination="l2y-Az-nTU" id="GcX-z7-nYV"/>
                         <outlet property="signInButton" destination="F32-7j-SFn" id="EOz-Jz-PUX"/>
                         <outlet property="surveyButton" destination="ar4-7y-zK5" id="dw1-Wg-0NU"/>
@@ -145,7 +157,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4rC-3g-cUd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="68" y="1477"/>
+            <point key="canvasLocation" x="66.666666666666671" y="1476.5625"/>
         </scene>
         <!--Survey-->
         <scene sceneID="Ru9-lB-SYl">
@@ -154,6 +166,54 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9In-V7-aPy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="876" y="1477"/>
+        </scene>
+        <!--문의하기-->
+        <scene sceneID="GZx-7H-Xdm">
+            <objects>
+                <viewController title="문의하기" id="JLJ-z2-R4c" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="lqu-Xl-g6H">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="문의하기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fNC-ng-cae">
+                                <rect key="frame" x="35" y="40" width="90" height="31"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="26"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="문의할 내용이 있으시면 아래에 이메일로 연락부탁드립니다." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IPt-Fu-Aer">
+                                <rect key="frame" x="35" y="91" width="344" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="Gry-pI-xqO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="deeeeeepblue@gmail.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xgk-8C-Ofz">
+                                <rect key="frame" x="35" y="171" width="202" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Olr-q9-POS"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="fNC-ng-cae" firstAttribute="top" secondItem="Olr-q9-POS" secondAttribute="top" constant="40" id="NS8-EM-iDr"/>
+                            <constraint firstItem="IPt-Fu-Aer" firstAttribute="leading" secondItem="Olr-q9-POS" secondAttribute="leading" constant="35" id="Xp2-Va-mCE"/>
+                            <constraint firstAttribute="trailing" secondItem="IPt-Fu-Aer" secondAttribute="trailing" constant="35" id="biv-Qx-brl"/>
+                            <constraint firstItem="IPt-Fu-Aer" firstAttribute="top" secondItem="fNC-ng-cae" secondAttribute="bottom" constant="20" id="gh2-0E-5ZR"/>
+                            <constraint firstItem="xgk-8C-Ofz" firstAttribute="leading" secondItem="Olr-q9-POS" secondAttribute="leading" constant="35" id="i8n-Er-kcW"/>
+                            <constraint firstItem="fNC-ng-cae" firstAttribute="leading" secondItem="Olr-q9-POS" secondAttribute="leading" constant="35" id="rma-PJ-hbJ"/>
+                            <constraint firstItem="xgk-8C-Ofz" firstAttribute="top" secondItem="IPt-Fu-Aer" secondAttribute="bottom" constant="20" id="uws-sH-Vd8"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="obr-mW-RYd"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hw4-dd-DH9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="66.666666666666671" y="2178.3482142857142"/>
         </scene>
     </scenes>
     <resources>
