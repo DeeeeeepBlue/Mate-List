@@ -113,7 +113,7 @@ class MyPage: UIViewController{
     }
     override func viewWillAppear(_ animated: Bool) {
 
-        performExistingAccountSetupFlows()
+//        performExistingAccountSetupFlows()
     }
     
     func logoutButtonActive(){
@@ -142,15 +142,17 @@ class MyPage: UIViewController{
     }
     
     // MARK: - Apple login
+    
     @IBOutlet weak var loginProviderStackView: UIStackView!
     
-    
+    ///로그인 버튼 생성
     func setupProviderLoginView() {
         let authorizationButton = ASAuthorizationAppleIDButton()
         authorizationButton.addTarget(self, action: #selector(handleAuthorizationAppleIDButtonPress), for: .touchUpInside)
         self.loginProviderStackView.addArrangedSubview(authorizationButton)
     }
     
+    ///로그인 실행..???
     @objc
     func handleAuthorizationAppleIDButtonPress() {
         let appleIDProvider = ASAuthorizationAppleIDProvider()
@@ -163,6 +165,7 @@ class MyPage: UIViewController{
         authorizationController.performRequests()
     }
     
+    
     func performExistingAccountSetupFlows() {
         // Prepare requests for both Apple ID and password providers.
         let requests = [ASAuthorizationAppleIDProvider().createRequest(),
@@ -173,24 +176,6 @@ class MyPage: UIViewController{
         authorizationController.delegate = self
         authorizationController.presentationContextProvider = self
         authorizationController.performRequests()
-    }
-    
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        let appleIDProvider = ASAuthorizationAppleIDProvider()
-        appleIDProvider.getCredentialState(forUserID: KeychainItem.currentUserIdentifier) { (credentialState, error) in
-            switch credentialState {
-            case .authorized:
-                break // The Apple ID credential is valid.
-            case .revoked, .notFound:
-                // The Apple ID credential is either revoked or was not found, so show the sign-in UI.
-                DispatchQueue.main.async {
-//                    self.window?.rootViewController?.showLoginViewController()
-                }
-            default:
-                break
-            }
-        }
-        return true
     }
     
 }
@@ -214,34 +199,34 @@ extension MyPage: ASAuthorizationControllerDelegate {
             let email = appleIDCredential.email
             
             // For the purpose of this demo app, store the `userIdentifier` in the keychain.
-            self.saveUserInKeychain(userIdentifier)
+//            self.saveUserInKeychain(userIdentifier)
             
             // For the purpose of this demo app, show the Apple ID credential information in the `ResultViewController`.
             self.showResultViewController(userIdentifier: userIdentifier, fullName: fullName, email: email)
         
-        case let passwordCredential as ASPasswordCredential:
-        
-            // Sign in using an existing iCloud Keychain credential.
-            let username = passwordCredential.user
-            let password = passwordCredential.password
-            
-            // For the purpose of this demo app, show the password credential as an alert.
-            DispatchQueue.main.async {
-                self.showPasswordCredentialAlert(username: username, password: password)
-            }
+//        case let passwordCredential as ASPasswordCredential:
+//
+//            // Sign in using an existing iCloud Keychain credential.
+//            let username = passwordCredential.user
+//            let password = passwordCredential.password
+//
+//            // For the purpose of this demo app, show the password credential as an alert.
+//            DispatchQueue.main.async {
+//                self.showPasswordCredentialAlert(username: username, password: password)
+//            }
             
         default:
             break
         }
     }
     
-    private func saveUserInKeychain(_ userIdentifier: String) {
-        do {
-            try KeychainItem(service: "com.example.apple-samplecode.juice", account: "userIdentifier").saveItem(userIdentifier)
-        } catch {
-            print("Unable to save userIdentifier to keychain.")
-        }
-    }
+//    private func saveUserInKeychain(_ userIdentifier: String) {
+//        do {
+//            try KeychainItem(service: "com.example.apple-samplecode.juice", account: "userIdentifier").saveItem(userIdentifier)
+//        } catch {
+//            print("Unable to save userIdentifier to keychain.")
+//        }
+//    }
     
     private func showResultViewController(userIdentifier: String, fullName: PersonNameComponents?, email: String?) {
         guard let viewController = self.presentingViewController as? MyPage
@@ -256,21 +241,20 @@ extension MyPage: ASAuthorizationControllerDelegate {
         }
     }
     
-    private func showPasswordCredentialAlert(username: String, password: String) {
-        let message = "The app has received your selected credential from the keychain. \n\n Username: \(username)\n Password: \(password)"
-        let alertController = UIAlertController(title: "Keychain Credential Received",
-                                                message: message,
-                                                preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
-        self.present(alertController, animated: true, completion: nil)
-    }
+//    private func showPasswordCredentialAlert(username: String, password: String) {
+//        let message = "The app has received your selected credential from the keychain. \n\n Username: \(username)\n Password: \(password)"
+//        let alertController = UIAlertController(title: "Keychain Credential Received",
+//                                                message: message,
+//                                                preferredStyle: .alert)
+//        alertController.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
+//        self.present(alertController, animated: true, completion: nil)
+//    }
     
     /// - Tag: did_complete_error
     func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
         // Handle error.
     }
 }
-
 
 
 //extension UIViewController {
