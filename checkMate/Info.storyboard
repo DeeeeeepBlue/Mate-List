@@ -114,23 +114,13 @@
                                     <action selector="signOut:" destination="Njf-UX-cJ5" eventType="touchUpInside" id="O4f-w0-BqU"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l2m-0h-nY3">
-                                <rect key="frame" x="290" y="807" width="73" height="31"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="회원탈퇴"/>
-                                <connections>
-                                    <action selector="opt_out_request:" destination="Njf-UX-cJ5" eventType="touchUpInside" id="XSO-CO-hqT"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Odc-su-rpM"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Odc-su-rpM" firstAttribute="trailing" secondItem="l2m-0h-nY3" secondAttribute="trailing" constant="51" id="Fgc-Nm-xu7"/>
                             <constraint firstItem="Odc-su-rpM" firstAttribute="trailing" secondItem="ar4-7y-zK5" secondAttribute="trailing" constant="20" id="FtI-Ho-Rlk"/>
                             <constraint firstItem="Yv5-jz-WoO" firstAttribute="top" secondItem="Odc-su-rpM" secondAttribute="top" constant="40" id="IAg-s5-e7q"/>
                             <constraint firstItem="Yv5-jz-WoO" firstAttribute="leading" secondItem="Odc-su-rpM" secondAttribute="leading" constant="35" id="IFd-Ql-Son"/>
-                            <constraint firstItem="Odc-su-rpM" firstAttribute="bottom" secondItem="l2m-0h-nY3" secondAttribute="bottom" constant="24" id="MIN-RH-6Pm"/>
                             <constraint firstItem="Odc-su-rpM" firstAttribute="trailing" secondItem="Yv5-jz-WoO" secondAttribute="trailing" constant="35" id="MLJ-NJ-vcx"/>
                             <constraint firstItem="Wyq-xr-jFR" firstAttribute="top" secondItem="ar4-7y-zK5" secondAttribute="bottom" constant="20" id="Rcj-Ue-0yM"/>
                             <constraint firstItem="Odc-su-rpM" firstAttribute="trailing" secondItem="Z7x-dS-sjJ" secondAttribute="trailing" constant="20" id="Ylx-W4-veS"/>
@@ -147,7 +137,6 @@
                     <connections>
                         <outlet property="LogoutButton" destination="Wyq-xr-jFR" id="l8B-Ly-SD3"/>
                         <outlet property="accountView" destination="Z7x-dS-sjJ" id="cOl-Gl-lWL"/>
-                        <outlet property="btnout" destination="l2m-0h-nY3" id="tTv-kk-7oK"/>
                         <outlet property="emailLabel" destination="KYV-g9-eGr" id="H7l-Nm-6ZL"/>
                         <outlet property="nameLabel" destination="l2y-Az-nTU" id="GcX-z7-nYV"/>
                         <outlet property="signInButton" destination="F32-7j-SFn" id="EOz-Jz-PUX"/>
@@ -157,14 +146,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4rC-3g-cUd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="57" y="1496"/>
-        </scene>
-        <!--Storyboard Reference-->
-        <scene sceneID="noA-6P-KAl">
-            <objects>
-                <viewControllerPlaceholder storyboardIdentifier="consent_popup" id="RGD-vw-yp8" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="8Lo-7C-tpJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="530" y="1290"/>
         </scene>
         <!--Survey-->
         <scene sceneID="Ru9-lB-SYl">
