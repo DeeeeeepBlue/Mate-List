@@ -222,12 +222,20 @@ extension MyPage: ASAuthorizationControllerDelegate {
                                                         rawNonce: nonce)
               // Sign in with Firebase.
               Auth.auth().signIn(with: credential) { (authResult, error) in
-                  if (error != nil) {
-                  // Error. If error.code == .MissingOrInvalidNonce, make sure
-                  // you're sending the SHA256-hashed nonce as a hex string with
-                  // your request to Apple.
-                      print(error?.localizedDescription)
-                  return
+                  if let error = error {
+                      print("Firebase sign in error: \(error)")
+                      return
+                      
+                  } else {
+                      print("User is signed with Firebase&Google")
+                      // 로그인 버튼 숨기고 로그아웃 버튼 만들기
+                      self.db.collection("User").document(Auth.auth().currentUser!.uid).setData([
+                                              "user" : fullName!,
+                                              "email" : email!,
+                                              "gender" : true,
+                                              "uid" : Auth.auth().currentUser!.uid
+                                            ])
+                      self.logoutButtonActive()
                 }
                 // User is signed in to Firebase with Apple.
                 // ...
