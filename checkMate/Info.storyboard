@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Njf-UX-cJ5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Njf-UX-cJ5">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -114,13 +114,22 @@
                                     <action selector="signOut:" destination="Njf-UX-cJ5" eventType="touchUpInside" id="O4f-w0-BqU"/>
                                 </connections>
                             </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="zXC-Ca-POB">
+                                <rect key="frame" x="10" y="366" width="394" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="t2T-vI-QNt"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Odc-su-rpM"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="zXC-Ca-POB" firstAttribute="top" secondItem="Wyq-xr-jFR" secondAttribute="bottom" constant="10" id="0zZ-LR-LZ7"/>
+                            <constraint firstItem="zXC-Ca-POB" firstAttribute="leading" secondItem="Odc-su-rpM" secondAttribute="leading" constant="10" id="6Xp-Id-zj5"/>
                             <constraint firstItem="Odc-su-rpM" firstAttribute="trailing" secondItem="ar4-7y-zK5" secondAttribute="trailing" constant="20" id="FtI-Ho-Rlk"/>
                             <constraint firstItem="Yv5-jz-WoO" firstAttribute="top" secondItem="Odc-su-rpM" secondAttribute="top" constant="40" id="IAg-s5-e7q"/>
                             <constraint firstItem="Yv5-jz-WoO" firstAttribute="leading" secondItem="Odc-su-rpM" secondAttribute="leading" constant="35" id="IFd-Ql-Son"/>
+                            <constraint firstItem="Odc-su-rpM" firstAttribute="trailing" secondItem="zXC-Ca-POB" secondAttribute="trailing" constant="10" id="LY9-JE-Pw9"/>
                             <constraint firstItem="Odc-su-rpM" firstAttribute="trailing" secondItem="Yv5-jz-WoO" secondAttribute="trailing" constant="35" id="MLJ-NJ-vcx"/>
                             <constraint firstItem="Odc-su-rpM" firstAttribute="trailing" secondItem="Z7x-dS-sjJ" secondAttribute="trailing" constant="20" id="Ylx-W4-veS"/>
                             <constraint firstItem="Z7x-dS-sjJ" firstAttribute="top" secondItem="Yv5-jz-WoO" secondAttribute="bottom" constant="10" id="aeW-n2-q87"/>
@@ -138,6 +147,7 @@
                         <outlet property="LogoutButton" destination="Wyq-xr-jFR" id="l8B-Ly-SD3"/>
                         <outlet property="accountView" destination="Z7x-dS-sjJ" id="cOl-Gl-lWL"/>
                         <outlet property="emailLabel" destination="KYV-g9-eGr" id="H7l-Nm-6ZL"/>
+                        <outlet property="loginProviderStackView" destination="zXC-Ca-POB" id="IiV-EF-beu"/>
                         <outlet property="nameLabel" destination="l2y-Az-nTU" id="GcX-z7-nYV"/>
                         <outlet property="signInButton" destination="F32-7j-SFn" id="EOz-Jz-PUX"/>
                         <outlet property="surveyButton" destination="ar4-7y-zK5" id="dw1-Wg-0NU"/>
@@ -145,7 +155,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4rC-3g-cUd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="66.666666666666671" y="1476.5625"/>
+
+            <point key="canvasLocation" x="57" y="1496"/>
+
         </scene>
         <!--Survey-->
         <scene sceneID="Ru9-lB-SYl">

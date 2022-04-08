@@ -7,10 +7,10 @@
 
 import Foundation
 
-//struct User {
-//
-//    let email: String
-//    let name: String
-//    let gender: String
-//    let age: String
-//}
+struct User {
+
+    let email: String
+    let name: String
+    let gender: String
+    let age: String
+}

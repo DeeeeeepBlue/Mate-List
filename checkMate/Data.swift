@@ -118,4 +118,5 @@ var mbtiSelect : String = ""
 //    }
 //    return true
 //}
-
+//new_mem_agree : 0 (동의하기 전), 1(동의),2(거절)
+var new_mem_agree = 0
