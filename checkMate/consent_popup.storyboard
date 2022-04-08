@@ -11,7 +11,7 @@
         <!--Consent popup-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController storyboardIdentifier="consent_popup" id="Y6W-OH-hqX" customClass="consent_popup" customModule="checkMate" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="consent_popup" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="consent_popup" customModule="checkMate" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -38,7 +38,7 @@
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="3xq-4d-BHT">
                                         <rect key="frame" x="30" y="82" width="354" height="585"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        <mutableString key="text">커뮤니티 이용규칙 안내
+                                        <string key="text">커뮤니티 이용규칙 안내
 
 Mate-List는 깨끗한 커뮤니티를 만들기 위해 이용규칙을 제정하여 운영하고 있습니다. 모든 이용자는 글 등록하는 동시에 아래 이용규칙에 동의하였음으로 간주합니다. 모든 이용자는 커뮤니티 이용 전 반드시 커뮤니티 이용규칙의 모든 내용을 숙지하여야 합니다.
 
@@ -79,7 +79,7 @@ Mate-List는 깨끗한 커뮤니티를 만들기 위해 이용규칙을 제정�
 
 1. 모든 게시물은 커뮤니티 운영 시스템에 의해 처리됩니다.
 2. 게시물로 인해, 저작권 침해, 명예훼손, 기타 권리 침해를 당했다고 판단되실 경우, 추가적인 권리 침해를 방지하기 위해 개발자 메일(deeeeeep0122@gmail.com)로 해당 게시물에 대한 게시 중단 요청을 할 수 있습니다.
-3. 이후 담당자의 확인을 통해 게시 중단 조치가 이루어지며, 게시 중단 사유가 공개됩니다.</mutableString>
+3. 이후 담당자의 확인을 통해 게시 중단 조치가 이루어지며, 게시 중단 사유가 공개됩니다.</string>
                                         <color key="textColor" systemColor="labelColor"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -107,6 +107,7 @@ Mate-List는 깨끗한 커뮤니티를 만들기 위해 이용규칙을 제정�
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="ow6-g6-k0d" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="6H6-8P-HgN"/>
                             <constraint firstItem="ow6-g6-k0d" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="6q6-K7-unm"/>

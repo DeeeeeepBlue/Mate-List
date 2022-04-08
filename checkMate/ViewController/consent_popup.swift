@@ -8,22 +8,7 @@
 import UIKit
 
 class consent_popup: UIViewController {
-    class locationSign {
-            func agree() {
-                print(" ======= 모니터링 시작 =======")
-                new_mem_agree=true
-                //ViewController 함수 호출 할때
-                let mypageviewcontroller = MyPage()
-                mypageviewcontroller.modal_signIn()
-            }
-        func cancel(){
-            print(" ======= 모니터링 끝 =======")
-            new_mem_agree=false
-            //ViewController 함수 호출 할때
-            let mypageviewcontroller = MyPage()
-            mypageviewcontroller.modal_signOUt()
-        }
-        }
+
     @IBOutlet var backview: UIView!
     var viewBlurEffect:UIVisualEffectView!
 
@@ -33,7 +18,6 @@ class consent_popup: UIViewController {
     @IBAction func closePopupBtn(_ sender: Any) {
         self.dismiss(animated: false, completion: nil)  // 사라지게 하기
         print("#사라지게하기")
-        new_mem_agree=false
 //        let gofunc : locationSign = locationSign()
 //        gofunc.cancel()
 
@@ -57,7 +41,7 @@ class consent_popup: UIViewController {
             
     @IBAction func agreepopupBtn(_ sender: Any) {
         print("#동의하기")
-        new_mem_agree=true
+        new_mem_agree=1
         self.dismiss(animated: false, completion: nil)  // 사라지게 하기
 //
 //        let gofunc : locationSign = locationSign()
