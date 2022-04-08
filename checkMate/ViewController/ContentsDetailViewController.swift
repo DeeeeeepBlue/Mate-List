@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import MessageUI
 
 import Firebase
 import FirebaseDatabase
@@ -14,7 +15,8 @@ import FirebaseAuth
 import gRPC_Core
 
 
-class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextViewDelegate {
+
+class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextViewDelegate, MFMailComposeViewControllerDelegate {
     var send_username : String!
     
     @IBOutlet weak var replyTableView: UITableView!
@@ -25,6 +27,8 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
     
     @IBOutlet weak var contentDeleteButton: UIButton!
     @IBOutlet weak var writerPatternButton: UIButton!
+    
+    @IBOutlet weak var reportButton: UIButton!
     
     var replyTableViewController = UITableViewController()
     
@@ -450,6 +454,45 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
         self.replyTableView.reloadData()
         
     }
+    
+    // 게시글 신고하기
+    @IBAction func reportButton(_ sender: Any) {
+        
+        // 이메일 사용가능한지 체크하는 if문
+        if MFMailComposeViewController.canSendMail() {
+            
+            let compseVC = MFMailComposeViewController()
+            compseVC.mailComposeDelegate = self
+            
+            compseVC.setToRecipients(["deeeeeep0122@gmail.com"])
+            compseVC.setSubject("[메이트리스트]게시글 신고")
+            compseVC.setMessageBody("\(contentsDetailData.pid)", isHTML: false)
+            self.present(compseVC, animated: true, completion: nil)
+            
+        }
+        else {
+            self.showSendMailErrorAlert()
+        }
+    }
+    
+    // 메일 에러 메시지
+    func showSendMailErrorAlert() {
+            let sendMailErrorAlert = UIAlertController(title: "메일을 전송 실패", message: "아이폰 이메일 설정을 확인하고 다시 시도해주세요.", preferredStyle: .alert)
+            let confirmAction = UIAlertAction(title: "확인", style: .default) {
+                (action) in
+                print("확인")
+            }
+            sendMailErrorAlert.addAction(confirmAction)
+            self.present(sendMailErrorAlert, animated: true, completion: nil)
+        }
+    
+    // 메일 보낸 뒤 메일 창 닫기
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+            controller.dismiss(animated: true, completion: nil)
+        }
+    
+    
+    
     
     func habitDataLoad()  {
             //데이터 불러오기
