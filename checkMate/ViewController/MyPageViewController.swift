@@ -181,71 +181,6 @@ class MyPage: UIViewController{
     
     
     @IBAction func signIn(sender: Any) {
-
-      
-//       GIDSignIn.sharedInstance.signIn(with: signInConfig, presenting: self) { user, error in
-//           guard error == nil else { return }
-//           guard let user = user else { return }
-          
-          
-//           AppDelegate.user = user
-          
-//           let emailAddress = user.profile?.email
-//           let fullName = user.profile?.name
-//           self.nameLabel.text = fullName
-//           self.emailLabel.text = emailAddress
-          
-          
-//           user.authentication.do { authentication, error in
-//               guard error == nil else { return }
-              
-//               guard let authentication = authentication,
-//                   let idToken = authentication.idToken else { return }
-          
-//               // Send ID token to backend (example below).
-//               let credential = GoogleAuthProvider.credential(withIDToken: idToken,
-//                                                            accessToken: authentication.accessToken)
-              
-//               Auth.auth().signIn(with: credential) { (authResult, error) in
-//                   if let error = error {
-//                       print("Firebase sign in error: \(error)")
-//                       return
-                      
-//                   } else {
-//                       print("User is signed with Firebase&Google")
-//                       // 로그인 버튼 숨기고 로그아웃 버튼 만들기
-//                       self.db.collection("User").document(Auth.auth().currentUser!.uid).setData([
-//                                               "user" : fullName!,
-//                                               "email" : emailAddress!,
-//                                               "gender" : true,
-//                                               "uid" : Auth.auth().currentUser!.uid
-//                                             ])
-//                       self.logoutButtonActive()
-                      
-//                   }
-                  
-//                   // 블랙 리스트 유저 체크
-//                   self.db.collection("BlackList").whereField(Auth.auth().currentUser!.uid, isEqualTo: true).getDocuments() { (querySnapshot, err) in
-//                       if let err = err {
-//                           print("@@Error getting documents: \(err)")
-//                       } else {
-//                           for document in querySnapshot!.documents {
-//                               // 알럴트로 사용자에게 알리기
-//                               self.blackAlert()
-//                               // 로그아웃 하기
-//                               self.signOut(self)
-//                           }
-//                       }
-//                   }
-//               }
-
-              
-//           }
-          
-//       }
-       
-        
-
         if(dataloading){
             print("####",Member_email.count)
             print("####",dataloading)
@@ -279,46 +214,59 @@ class MyPage: UIViewController{
                             return
                             
                         } else {
+                            var flag: Bool = true
+                            self.db.collection("BlackList").whereField(Auth.auth().currentUser!.uid, isEqualTo: true).getDocuments() { (querySnapshot, err) in
+                                if let err = err {
+                                    print("@@Error getting documents: \(err)")
+                                } else {
+                                    for document in querySnapshot!.documents {
+                                        // 알럴트로 사용자에게 알리기
+                                        self.blackAlert()
+                                        // 로그아웃 하기
+                                        self.signOut(self)
+                                    }
+                                    flag = false
+                                }
+
+                            }
                             print("User is signed with Firebase&Google")
                             // 로그인 버튼 숨기고 로그아웃 버튼 만들기
                             
                             //firebase User collection에 현재 로그인하는 아이디가 존재하는 지 확인
-//
-                            if(!self.Member_email.contains(emailAddress!)){
-                                print("####alert실행");
-                                let storyboard = UIStoryboard(name: "consent_popup", bundle: nil)
+                            if flag {
+                                if(!self.Member_email.contains(emailAddress!)){
+                                    print("####alert실행");
+                                    let storyboard = UIStoryboard(name: "consent_popup", bundle: nil)
 
-                                //컨트롤러 객체 생성, Storyboard ID에 이름 설정(이동할 VC에 설정한 Storyboard ID)
-                                let secondVC: consent_popup = storyboard.instantiateViewController(withIdentifier: "consent_popup") as! consent_popup
-                                new_mem_agree=2
-                                //기본값이 fullScreen이므로 해당 라인은 생략 가능
-                                secondVC.modalPresentationStyle = .fullScreen
-                                self.present(secondVC, animated: true, completion: nil)
-//                                let popup = consent_popup()
-//                                self.present(popup, animated: false, completion: nil)
-//                                popup.modalPresentationStyle = .fullScreen
-                            }else{ // 기존 가입된 계정이면 파이어베이스에 등록
-                                self.db.collection("User").document(Auth.auth().currentUser!.uid).setData([
-                                                        "user" : fullName!,
-                                                        "email" : emailAddress!,
-                                                        "gender" : true,
-                                                        "uid" : Auth.auth().currentUser!.uid
-                                                      ])
-                                self.nameLabel.text = fullName
-                                self.emailLabel.text = emailAddress
-                                self.logoutButtonActive()
-                                self.btnout.isHidden=false
-                                self.loginProviderStackView.isHidden = true
-                                
+                                    //컨트롤러 객체 생성, Storyboard ID에 이름 설정(이동할 VC에 설정한 Storyboard ID)
+                                    let secondVC: consent_popup = storyboard.instantiateViewController(withIdentifier: "consent_popup") as! consent_popup
+                                    new_mem_agree=2
+                                    //기본값이 fullScreen이므로 해당 라인은 생략 가능
+                                    secondVC.modalPresentationStyle = .fullScreen
+                                    self.present(secondVC, animated: true, completion: nil)
+    //                                let popup = consent_popup()
+    //                                self.present(popup, animated: false, completion: nil)
+    //                                popup.modalPresentationStyle = .fullScreen
+                                }else{ // 기존 가입된 계정이면 파이어베이스에 등록
+                                    self.db.collection("User").document(Auth.auth().currentUser!.uid).setData([
+                                                            "user" : fullName!,
+                                                            "email" : emailAddress!,
+                                                            "gender" : true,
+                                                            "uid" : Auth.auth().currentUser!.uid
+                                                          ])
+                                    self.nameLabel.text = fullName
+                                    self.emailLabel.text = emailAddress
+                                    self.logoutButtonActive()
+                                    self.btnout.isHidden=false
+                                    self.loginProviderStackView.isHidden = true
+                                    
+                                }
                             }
-                            
-                            
                         }
+                           
                     }
                 }
             }
-        }else{
-            
         }
 
     }
