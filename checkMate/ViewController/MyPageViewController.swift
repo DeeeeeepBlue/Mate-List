@@ -29,7 +29,8 @@ fileprivate var currentNonce: String?
 class MyPage: UIViewController{
 
     
-   
+
+    @IBOutlet weak var inquiryButton: UIButton!
     @IBOutlet weak var btnout: UIButton!
     @IBOutlet weak var surveyButton: UIButton!
     @IBOutlet weak var LogoutButton: UIButton!
@@ -126,6 +127,71 @@ class MyPage: UIViewController{
     
     
     @IBAction func signIn(sender: Any) {
+
+      
+//       GIDSignIn.sharedInstance.signIn(with: signInConfig, presenting: self) { user, error in
+//           guard error == nil else { return }
+//           guard let user = user else { return }
+          
+          
+//           AppDelegate.user = user
+          
+//           let emailAddress = user.profile?.email
+//           let fullName = user.profile?.name
+//           self.nameLabel.text = fullName
+//           self.emailLabel.text = emailAddress
+          
+          
+//           user.authentication.do { authentication, error in
+//               guard error == nil else { return }
+              
+//               guard let authentication = authentication,
+//                   let idToken = authentication.idToken else { return }
+          
+//               // Send ID token to backend (example below).
+//               let credential = GoogleAuthProvider.credential(withIDToken: idToken,
+//                                                            accessToken: authentication.accessToken)
+              
+//               Auth.auth().signIn(with: credential) { (authResult, error) in
+//                   if let error = error {
+//                       print("Firebase sign in error: \(error)")
+//                       return
+                      
+//                   } else {
+//                       print("User is signed with Firebase&Google")
+//                       // 로그인 버튼 숨기고 로그아웃 버튼 만들기
+//                       self.db.collection("User").document(Auth.auth().currentUser!.uid).setData([
+//                                               "user" : fullName!,
+//                                               "email" : emailAddress!,
+//                                               "gender" : true,
+//                                               "uid" : Auth.auth().currentUser!.uid
+//                                             ])
+//                       self.logoutButtonActive()
+                      
+//                   }
+                  
+//                   // 블랙 리스트 유저 체크
+//                   self.db.collection("BlackList").whereField(Auth.auth().currentUser!.uid, isEqualTo: true).getDocuments() { (querySnapshot, err) in
+//                       if let err = err {
+//                           print("@@Error getting documents: \(err)")
+//                       } else {
+//                           for document in querySnapshot!.documents {
+//                               // 알럴트로 사용자에게 알리기
+//                               self.blackAlert()
+//                               // 로그아웃 하기
+//                               self.signOut(self)
+//                           }
+//                       }
+//                   }
+//               }
+
+              
+//           }
+          
+//       }
+       
+        
+
         if(dataloading){
             print("####",Member_email.count)
             print("####",dataloading)
@@ -264,6 +330,18 @@ class MyPage: UIViewController{
 
     }
 
+    func blackAlert() {
+        let alert = UIAlertController(title: "블랙 리스트", message: "해당 사용자는 타 사용자의 신고로 인해 블랙리스트에 추가되었습니다. 이의가 있으시면 문의하기로 연락 부탁드립니다.", preferredStyle: UIAlertController.Style.alert)
+        let okAction = UIAlertAction(title: "OK", style: .default) {_ in
+            self.navigationController?.popViewController(animated: true)
+        }
+        alert.addAction(okAction)
+        
+        present(alert, animated: true, completion: nil)
+        
+    }
+    
+
     func logoutButtonActive(){
         signInButton.layer.isHidden = true
         LogoutButton.layer.isHidden = false
@@ -287,6 +365,9 @@ class MyPage: UIViewController{
         accountView.layer.borderWidth = 0.5
         accountView.layer.borderColor = UIColor.gray.cgColor
         
+        inquiryButton.layer.cornerRadius = 20
+        inquiryButton.layer.borderWidth = 0.5
+        inquiryButton.layer.borderColor = UIColor.gray.cgColor
     }
     
     // MARK: - Apple login
