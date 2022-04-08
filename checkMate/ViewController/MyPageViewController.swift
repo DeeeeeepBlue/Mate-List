@@ -44,12 +44,13 @@ class MyPage: UIViewController{
     var Member_email : [String]=[]
     var dataloading = false
     func DataLoad() {
-        Member_email.removeAll()
+        
         
         self.db.collection("User").getDocuments() { (querySnapshot, err) in
                 if let err = err {
                     print("Error getting documents: \(err)")
                 } else {
+                    self.Member_email.removeAll()
                     //querySnapshot!.documents : Array -> 딕셔너리 타입임 data() 함수 사용시 내용 확인 가능
                     //ex) let value = querySnapshot!.documents[0].data()
                     //    value["callSelect", default: 0]
@@ -153,6 +154,7 @@ class MyPage: UIViewController{
                         
                         self.present(alert, animated: true, completion: nil)
                         self.modal_signOUt()
+                        new_mem_agree=0
                             
                     }
                     
@@ -234,7 +236,7 @@ class MyPage: UIViewController{
                             
                             //firebase User collection에 현재 로그인하는 아이디가 존재하는 지 확인
                             if flag {
-                                if(!self.Member_email.contains(emailAddress!)){
+                                if(!self.Member_email.contains(emailAddress!) && new_mem_agree != 1){
                                     print("####alert실행");
                                     let storyboard = UIStoryboard(name: "consent_popup", bundle: nil)
 
@@ -248,6 +250,7 @@ class MyPage: UIViewController{
     //                                self.present(popup, animated: false, completion: nil)
     //                                popup.modalPresentationStyle = .fullScreen
                                 }else{ // 기존 가입된 계정이면 파이어베이스에 등록
+                                    print("######else")
                                     self.db.collection("User").document(Auth.auth().currentUser!.uid).setData([
                                                             "user" : fullName!,
                                                             "email" : emailAddress!,
@@ -289,6 +292,7 @@ class MyPage: UIViewController{
         new_mem_agree=0
         btnout.isHidden=true
         self.loginProviderStackView.isHidden = false
+        self.viewDidLoad()
     }
     @IBAction func signOut(_ sender: Any) {
         let firebaseAuth = Auth.auth()
@@ -307,7 +311,7 @@ class MyPage: UIViewController{
              }
         btnout.isHidden=true
         self.loginProviderStackView.isHidden = false
-        new_mem_agree==0
+        new_mem_agree=0
     }
     
     override func viewDidLoad() {
@@ -327,7 +331,7 @@ class MyPage: UIViewController{
             btnout.isHidden=true
         }else {btnout.isHidden=false}
         if(new_mem_agree==1){
-            print("new_mem_agree true")
+            print("new_mem_agree true: \(new_mem_agree)")
             modal_signIn()
         }else if(new_mem_agree==2){
             modal_signOUt()
