@@ -80,46 +80,100 @@ class MyPage: UIViewController{
         self.nameLabel!.text = fullname_V
         self.emailLabel!.text = email_V
         self.logoutButtonActive()
-        btnout.isHidden=true
+        btnout.isHidden=false
+        self.loginProviderStackView.isHidden = true
         new_mem_agree==0
     }
     //회원탈퇴
     @IBAction func opt_out_request(_ sender: Any) {
-        // USER 삭제
-        db.collection("User").document(Auth.auth().currentUser!.uid).delete() { err in
-            if let err = err {
-                print("Error removing document: \(err)")
-            } else {
-                print("Document successfully removed!")
-            }
-        }
-        //User가 작성한 글 삭제
-        db.collection("Post").whereField("uid", isEqualTo: Auth.auth().currentUser!.uid).getDocuments() {(querySnapshot, err) in
+        //Habit check 삭제
+        db.collection("User").document(Auth.auth().currentUser!.uid).collection("HabitCheck").getDocuments() {(querySnapshot, err) in
                 if let err = err {
                     print("Error getting documents: \(err)")
                 } else {
                     for document in querySnapshot!.documents {
-                        print("\(document.documentID) => \(document.data())")
-                        D_Post_id.append(document.documentID)
+                        self.db.collection("User").document(Auth.auth().currentUser!.uid).collection("HabitCheck").document(document.documentID).delete() { err in
+                            if let err = err {
+                                print("Error removing document: \(err)")
+                            } else {
+                                print("Document successfully removed!")
+                            }
+                        }
                     }
                 }
-            for document_id in D_Post_id {
-                self.db.collection("Post").document(document_id).delete() { err in
+            //Scrap 삭제
+            self.db.collection("User").document(Auth.auth().currentUser!.uid).collection("Scrap").getDocuments() {(querySnapshot, err) in
+                    if let err = err {
+                        print("Error getting documents: \(err)")
+                    } else {
+                        for document in querySnapshot!.documents {
+                            self.db.collection("User").document(Auth.auth().currentUser!.uid).collection("Scrap").document(document.documentID).delete() { err in
+                                if let err = err {
+                                    print("Error removing document: \(err)")
+                                } else {
+                                    print("Document successfully removed!")
+                                }
+                            }
+                        }
+                    }
+              
+//              ===============
+                
+                // USER 삭제
+                self.db.collection("User").document(Auth.auth().currentUser!.uid).delete() { err in
                     if let err = err {
                         print("Error removing document: \(err)")
                     } else {
                         print("Document successfully removed!")
                     }
-                }
-            }
-            let alert = UIAlertController(title: "탈퇴", message: "탈퇴완료!", preferredStyle: UIAlertController.Style.alert)
-            let okAction = UIAlertAction(title: "OK", style: .default) {_ in
-            }
-            alert.addAction(okAction)
-            
-            self.present(alert, animated: true, completion: nil)
-            self.modal_signOUt()
+    //              ===============
+                    //User가 작성한 글 삭제
+                self.db.collection("Post").whereField("uid", isEqualTo: Auth.auth().currentUser!.uid).getDocuments() {(querySnapshot, err) in
+                            if let err = err {
+                                print("Error getting documents: \(err)")
+                            } else {
+                                for document in querySnapshot!.documents {
+                                    print("\(document.documentID) => \(document.data())")
+                                    D_Post_id.append(document.documentID)
+                                }
+                            }
+                        for document_id in D_Post_id {
+                            self.db.collection("Post").document(document_id).delete() { err in
+                                if let err = err {
+                                    print("Error removing document: \(err)")
+                                } else {
+                                    print("Document successfully removed!")
+                                }
+                            }
+                        }
+                        let alert = UIAlertController(title: "탈퇴", message: "탈퇴완료!", preferredStyle: UIAlertController.Style.alert)
+                        let okAction = UIAlertAction(title: "OK", style: .default) {_ in
+                        }
+                        alert.addAction(okAction)
+                        
+                        self.present(alert, animated: true, completion: nil)
+                        self.modal_signOUt()
+                            
+                    }
+                    
+                    
+                    
+                    
+    //              ===============
                 
+                
+//              ===============
+                
+                
+            }
+
+                
+                
+                
+            }
+            
+     
+            
         }
         
     }
@@ -254,6 +308,8 @@ class MyPage: UIViewController{
                                 self.emailLabel.text = emailAddress
                                 self.logoutButtonActive()
                                 self.btnout.isHidden=false
+                                self.loginProviderStackView.isHidden = true
+                                
                             }
                             
                             
@@ -284,6 +340,7 @@ class MyPage: UIViewController{
              }
         new_mem_agree=0
         btnout.isHidden=true
+        self.loginProviderStackView.isHidden = false
     }
     @IBAction func signOut(_ sender: Any) {
         let firebaseAuth = Auth.auth()
@@ -301,6 +358,7 @@ class MyPage: UIViewController{
                print("Error signing out: %@", signOutError)
              }
         btnout.isHidden=true
+        self.loginProviderStackView.isHidden = false
         new_mem_agree==0
     }
     
@@ -344,6 +402,8 @@ class MyPage: UIViewController{
     func logoutButtonActive(){
         signInButton.layer.isHidden = true
         LogoutButton.layer.isHidden = false
+        
+        loginProviderStackView.isHidden = false
     }
     
     func loginButtonActive(){
@@ -460,7 +520,7 @@ extension MyPage: ASAuthorizationControllerDelegate {
                       self.logoutButtonActive()
                 }
                 // User is signed in to Firebase with Apple.
-                // ...
+                  self.loginProviderStackView.isHidden = true
               }
             }
             
