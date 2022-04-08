@@ -309,7 +309,6 @@ class MyPage: UIViewController{
         DataLoad()
         loginButtonActive()
         cornerRadius()
-        db = Firestore.firestore()
         
         setupProviderLoginView()
         // Do any additional setup after loading the view.
@@ -365,9 +364,6 @@ class MyPage: UIViewController{
         accountView.layer.borderWidth = 0.5
         accountView.layer.borderColor = UIColor.gray.cgColor
         
-        inquiryButton.layer.cornerRadius = 20
-        inquiryButton.layer.borderWidth = 0.5
-        inquiryButton.layer.borderColor = UIColor.gray.cgColor
     }
     
     // MARK: - Apple login
