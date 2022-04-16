@@ -16,7 +16,7 @@ import gRPC_Core
 
 
 
-class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextViewDelegate, MFMailComposeViewControllerDelegate, UITextFieldDelegate {
+class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextViewDelegate, MFMailComposeViewControllerDelegate {
     var send_username : String!
     
     @IBOutlet weak var replyTableView: UITableView!
@@ -29,6 +29,7 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
     @IBOutlet weak var writerPatternButton: UIButton!
     
     @IBOutlet weak var reportButton: UIButton!
+    @IBOutlet weak var replyTextFieldStackView: UIStackView!
     
     var replyTableViewController = UITableViewController()
     
@@ -110,15 +111,23 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
                 
             }
         }
+        
+       
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+            super.viewWillDisappear(animated)
+            
+            NotificationCenter.default.removeObserver(self)
+        }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         // 키보드 코드
-        replyTextField.delegate = self
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+       
+       
 //        self.replyTableView.frame.inset(by: UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 15))
 
 //        writerPatternButton.backgroundColor = .white
@@ -558,14 +567,13 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
 //                }
 //            }
         }
-    @objc
-    func keyboardWillShow(_ sender: Notification) {
-         self.view.frame.origin.y = -150 // Move view 150 points upward
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            self.view.frame.size.height -= keyboardSize.height
+           }
         }
-
-    @objc
-    func keyboardWillHide(_ sender: Notification) {
-        self.view.frame.origin.y = 0 // Move view to original position
-
-    }
+        
+        @objc func keyboardWillHide() {
+            self.view.frame.origin.y = 0
+        }
 }
