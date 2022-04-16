@@ -62,7 +62,7 @@ class FindMateViewController: UIViewController, UITableViewDataSource, UITableVi
     
         customNavigationBar()
         
-        createWirteButton()
+//        createWirteButton()
         
 
         
