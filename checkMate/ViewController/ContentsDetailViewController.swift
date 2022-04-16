@@ -16,7 +16,7 @@ import gRPC_Core
 
 
 
-class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextViewDelegate, MFMailComposeViewControllerDelegate {
+class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextViewDelegate, MFMailComposeViewControllerDelegate, UITextFieldDelegate {
     var send_username : String!
     
     @IBOutlet weak var replyTableView: UITableView!
@@ -115,6 +115,10 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // 키보드 코드
+        replyTextField.delegate = self
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
 //        self.replyTableView.frame.inset(by: UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 15))
 
 //        writerPatternButton.backgroundColor = .white
@@ -554,5 +558,14 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
 //                }
 //            }
         }
-    
+    @objc
+    func keyboardWillShow(_ sender: Notification) {
+         self.view.frame.origin.y = -150 // Move view 150 points upward
+        }
+
+    @objc
+    func keyboardWillHide(_ sender: Notification) {
+        self.view.frame.origin.y = 0 // Move view to original position
+
+    }
 }
