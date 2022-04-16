@@ -155,7 +155,7 @@ class FindMateViewController: UIViewController, UITableViewDataSource, UITableVi
                    
                 }
 // MARK: 버전 2에 사용
-//           self.getPostHabitCheck()
+           self.getPostHabitCheck()
             self.findMateTableView.reloadData()
             
             }
@@ -191,7 +191,6 @@ class FindMateViewController: UIViewController, UITableViewDataSource, UITableVi
     }
 
 // MARK: 버전 2에 사용
-/*
     // 📌 각 POST 마다 author의 survey 받아오기
     func getPostHabitCheck(){
         // 한 유저가 여러개 글을 작성해도 한번만 저장되도록 중복 제거
@@ -227,20 +226,6 @@ class FindMateViewController: UIViewController, UITableViewDataSource, UITableVi
             }
         }
     }
-    
-    // 📌 적합도 계산해서 저장하기
-
-    func saveFitList(){
-        guard loginUserSurvey != nil else {return}
-        if self.List.count == self.habitCheckList.count && AppDelegate.user != nil {
-            self.fitnessList.removeAll()
-            for habitCheck in habitCheckList {
-//                print("\()님과 \()님의 적합도")
-                fitnessList.append(habitCheck.calculatingFit(otherSurvey: loginUserSurvey) ?? 0)
-            }
-        }
-    }
-*/
 
 
     //MARK: - ✅ Table View function
