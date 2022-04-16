@@ -299,6 +299,7 @@
                                     <color key="baseForegroundColor" red="0.29803922770000002" green="0.50588238240000005" blue="0.91372549530000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </buttonConfiguration>
                                 <connections>
+                                    <action selector="patternButtonClick:" destination="fXz-5F-R5J" eventType="touchUpInside" id="8ZV-Dp-8O4"/>
                                     <segue destination="Xal-6e-FCB" kind="presentation" identifier="surveyView" id="Cuw-x7-f7l"/>
                                 </connections>
                             </button>

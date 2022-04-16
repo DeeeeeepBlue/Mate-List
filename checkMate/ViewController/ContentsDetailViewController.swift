@@ -46,7 +46,7 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
     var replyList: [reply] = []
     var scrapFlag = false
     var check_replyuser : [Bool] = []
-    
+    var viewHeight : CGFloat = 0
     // Add a new document with a generated ID
     var ref: DocumentReference? = nil
 
@@ -97,6 +97,9 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+      
         DataLoad()
         replyTableView.reloadData()
         habitDataLoad()
@@ -123,10 +126,9 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewHeight = self.view.frame.size.height
         // 키보드 코드
-         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
-       
+         
        
 //        self.replyTableView.frame.inset(by: UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 15))
 
@@ -487,6 +489,9 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
             self.showSendMailErrorAlert()
         }
     }
+    @IBAction func patternButtonClick(_ sender: Any){
+        self.view.endEditing(true)
+    }
     
     // 메일 에러 메시지
     func showSendMailErrorAlert() {
@@ -570,10 +575,15 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
     @objc func keyboardWillShow(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
             self.view.frame.size.height -= keyboardSize.height
+            
            }
         }
         
-        @objc func keyboardWillHide() {
-            self.view.frame.origin.y = 0
-        }
+    @objc func keyboardWillHide() {
+        self.view.frame.size.height = viewHeight
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
+         self.view.endEditing(true)
+   }
 }
