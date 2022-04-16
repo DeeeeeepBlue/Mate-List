@@ -21,9 +21,10 @@ class ScrapViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        guard AppDelegate.user != nil else {return}
+        List.removeAll()
+        guard AppDelegate.user != nil else {return self.scrapTableView.reloadData()}
         DataLoad()
+        self.scrapTableView.reloadData()
         
     }
     
@@ -74,6 +75,7 @@ class ScrapViewController: UIViewController, UITableViewDataSource, UITableViewD
     func DataLoad() {
         List.removeAll()
             //데이터 불러오기
+        guard Auth.auth().currentUser != nil else {return}
         self.db.collection("User").document(Auth.auth().currentUser!.uid).collection("Scrap").getDocuments() { [self] (querySnapshot, err) in
                     if let err = err {
                         print("Error getting documents: \(err)")
@@ -192,7 +194,7 @@ class ScrapViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     // 당기면 데이터 리로드
      func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        self.scrapTableView.reloadData()
+         self.scrapTableView.reloadData()
     }
 
     

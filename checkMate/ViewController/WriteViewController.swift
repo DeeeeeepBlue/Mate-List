@@ -59,20 +59,46 @@ class WriteViewController: UIViewController, UITextViewDelegate {
         else {}
         
         // Firestore에 데이터 올리는 코드
-        var ref: DocumentReference? = nil
-        ref = db.collection("Post").addDocument(data: [
-            "reg" : true,
-            "contents" : contentText!,
-            "title" : titleText!,
-            "uid" : Auth.auth().currentUser!.uid,
-            "user" : userName[0],
-            "date" : getDate(),
-            "findMate" : false,
-            "isScrap" : false
-        ])
         
+        
+        
+        
+        if contentText!.count>100||titleText!.count>10 {
+            if titleText!.count>10 {
+                print("####alert실행");
+                let alert = UIAlertController(title: "글자 수 초과!", message: "제목 10자 이내로 작성해 주세요", preferredStyle: UIAlertController.Style.alert)
+                let okAction = UIAlertAction(title: "OK", style: .default) {_ in
+                }
+                alert.addAction(okAction)
+                present(alert, animated: true, completion: nil)
+            }else{
+                print("####alert실행");
+                let alert = UIAlertController(title: "글자 수 초과!", message: "100자 이내로 작성해 주세요", preferredStyle: UIAlertController.Style.alert)
+                let okAction = UIAlertAction(title: "OK", style: .default) {_ in
+                }
+                alert.addAction(okAction)
+                present(alert, animated: true, completion: nil)
+            }
+            
+            
+            
+            
+        }else{
+            var ref: DocumentReference? = nil
+            ref = db.collection("Post").addDocument(data: [
+                "reg" : true,
+                "contents" : contentText!,
+                "title" : titleText!,
+                "uid" : Auth.auth().currentUser!.uid,
+                "user" : userName[0],
+                "date" : getDate(),
+                "findMate" : false,
+                "isScrap" : false
+            ])
+            self.navigationController?.popViewController(animated: true)
+        }
         // 모달 종료
-        self.navigationController?.popViewController(animated: true)
+        
     }
     
 

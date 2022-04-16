@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import MessageUI
 
 import Firebase
 import FirebaseDatabase
@@ -14,7 +15,8 @@ import FirebaseAuth
 import gRPC_Core
 
 
-class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+
+class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextViewDelegate, MFMailComposeViewControllerDelegate {
     var send_username : String!
     
     @IBOutlet weak var replyTableView: UITableView!
@@ -25,6 +27,8 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
     
     @IBOutlet weak var contentDeleteButton: UIButton!
     @IBOutlet weak var writerPatternButton: UIButton!
+    
+    @IBOutlet weak var reportButton: UIButton!
     
     var replyTableViewController = UITableViewController()
     
@@ -40,6 +44,7 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
     var List : [Post] = []
     var replyList: [reply] = []
     var scrapFlag = false
+    var check_replyuser : [Bool] = []
     
     // Add a new document with a generated ID
     var ref: DocumentReference? = nil
@@ -91,9 +96,20 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        DataLoad()
         replyTableView.reloadData()
         habitDataLoad()
-        
+        // 게시글 작성자만 삭제 버튼 보이게 하기
+        if Auth.auth().currentUser == nil {
+            contentDeleteButton.isHidden = true
+//            deleteButton.isHidden = true
+        } else {
+            if Auth.auth().currentUser?.uid != contentsDetailData.uid {
+//              deleteButton.isHidden = true
+                contentDeleteButton.isHidden = true
+                
+            }
+        }
     }
 
     override func viewDidLoad() {
@@ -101,11 +117,11 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
         
 //        self.replyTableView.frame.inset(by: UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 15))
 
-        writerPatternButton.backgroundColor = .white
-        writerPatternButton.tintColor = .white
-        writerPatternButton.layer.borderWidth = 1
-        writerPatternButton.layer.borderColor = color.cgColor
-        writerPatternButton.layer.cornerRadius = 15
+//        writerPatternButton.backgroundColor = .white
+//        writerPatternButton.tintColor = .white
+//        writerPatternButton.layer.borderWidth = 1
+//        writerPatternButton.layer.borderColor = color.cgColor
+//        writerPatternButton.layer.cornerRadius = 15
         replyOkButton.layer.borderColor = color.cgColor
         replyOkButton.layer.borderWidth = 1
         replyOkButton.layer.cornerRadius = 10
@@ -117,16 +133,7 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
         currentData = contentsDetailData
         userHabitCheck.removeAll()
         
-        if Auth.auth().currentUser == nil {
-            contentDeleteButton.isHidden = true
-//            deleteButton.isHidden = true
-        } else {
-            if Auth.auth().currentUser?.uid != contentsDetailData.uid {
-//              deleteButton.isHidden = true
-                contentDeleteButton.isHidden = true
-                
-            }
-        }
+
         
         scrapDataLoad{ (result) in
             print("*클로저 실행\(result)")
@@ -140,7 +147,6 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
             }
         }
         
-        DataLoad()
 //        lef = Database.database().reference(withPath: "servey")
         
         let userLabel = self.view.viewWithTag(1) as! UILabel
@@ -165,6 +171,10 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
         dateLabel.text = contentsDetailData.date
         dateLabel.sizeToFit()
         // Do any additional setup after loading the view.
+        
+        // 셀 크기 자동조절
+        replyTableView.estimatedRowHeight = 70
+        replyTableView.rowHeight = UITableView.automaticDimension
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -197,7 +207,7 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
         
 
         if replyList.count > 0{
-            
+            // 텍스트 크기 자동조절
             userLabel.text = self.replyList[indexPath.section].author
             userLabel.sizeToFit()
             contentsText.text = self.replyList[indexPath.section].contents
@@ -205,10 +215,19 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
             dateLabel.text = self.replyList[indexPath.section].date
             dateLabel.sizeToFit()
             
-            if self.replyList[indexPath.section].uid != Auth.auth().currentUser?.uid {
+            // 삭제 버튼 확이
+            replyDeleteLabel.isHidden = true
+            if Auth.auth().currentUser == nil || Auth.auth().currentUser?.uid != self.replyList[indexPath.section].uid   {
                 replyDeleteLabel.isHidden = true
             }
-            else {}
+            print("$$$\(self.replyList[indexPath.section].uid): \(Auth.auth().currentUser?.uid)")
+            if self.check_replyuser[indexPath.section] {
+                replyDeleteLabel.isHidden = false
+            }
+//            if self.replyList[indexPath.section].uid != Auth.auth().currentUser?.uid {
+//                replyDeleteLabel.isHidden = true
+//            }
+//            else {}
             
         }
         else {}
@@ -227,6 +246,15 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
                 print("Document successfully removed!")
             }
         }
+        db.collection("Post").document("\(contentsDetailData.pid)").collection("Comment").getDocuments() { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                for document in querySnapshot!.documents {
+                    db.collection("Post").document(self.contentsDetailData.pid).collection("Comment").document(document.documentID).delete()
+                }
+            }
+        }
         
         self.navigationController?.popViewController(animated: true)
 
@@ -242,6 +270,8 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
             let str = AppDelegate.user.profile!.email as String
             var userName = str.split(separator: "@")
             
+            
+            
             // Firestore에 데이터 올리는 코드
             var ref: DocumentReference? = nil
             let replyInput: [String: Any] = [
@@ -252,13 +282,23 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
                 "date" : getDate()
             ]
             
-            
-            ref = db.collection("Post").document(contentsDetailData.pid).collection("Comment").addDocument(data: [
-                "reply" : inputText!,
-                "uid" : Auth.auth().currentUser!.uid,
-                "user" : String(userName[0]),
-                "date" : getDate()
-            ])
+            if inputText!.count > 30 {
+                let alert = UIAlertController(title: "글자 수 초과!", message: "댓글 30자 이내로 작성해 주세요", preferredStyle: UIAlertController.Style.alert)
+                let okAction = UIAlertAction(title: "OK", style: .default) {_ in
+                }
+                alert.addAction(okAction)
+                present(alert, animated: true, completion: nil)
+                
+            }else{
+                ref = db.collection("Post").document(contentsDetailData.pid).collection("Comment").addDocument(data: [
+                    "reply" : inputText!,
+                    "uid" : Auth.auth().currentUser!.uid,
+                    "user" : String(userName[0]),
+                    "date" : getDate()
+                ])
+                
+                
+            }
             
             replyTextField.text?.removeAll()
             DataLoad()
@@ -290,7 +330,8 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
     
     func DataLoad()  {
             //데이터 불러오기
-        db.collection("Post").document(contentsDetailData?.pid ?? "").collection("Comment").getDocuments() { (querySnapshot, err) in
+        self.replyList.removeAll()
+        db.collection("Post").document(contentsDetailData?.pid ?? "").collection("Comment").order(by: "date").getDocuments() { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
@@ -307,13 +348,26 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
         
                     self.replyList.append(reply(author: author_db, contents: content_db, date: date_db, uid: uid_db, docid: document.documentID))
 //                    print("\(document.documentID) => \(document.data())")
-                    print(self.List)
-                    self.replyTableView.reloadData()
+                    print("## : \(self.replyList)")
+                    
+                    
                 }
-                
+                self.replyUserCheck()
             }
+            
+            self.replyTableView.reloadData()
         }
     }
+    func replyUserCheck() {
+        self.check_replyuser.removeAll()
+        for item in replyList {
+            if item.uid != Auth.auth().currentUser?.uid {
+                self.check_replyuser.append(false)
+            }else{self.check_replyuser.append(true)}
+        }
+    }
+    
+    
     
     func scrapDataLoad(_ escapingHandler : @escaping (Bool) -> ()) {
             //데이터 불러오기
@@ -349,7 +403,7 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
         let now = Date()
         let date = DateFormatter()
         date.locale = Locale(identifier: "ko_kr")
-        date.dateFormat = "yyyy-MM-dd"
+        date.dateFormat = "yyyy-MM-dd HH:mm:ss"
         
         let kr = date.string(from: now)
         return kr
@@ -370,8 +424,10 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
     
     // 테이블뷰 당겼을때 데이터 새로 불러오기
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        replyList.removeAll()
-//        DataLoad()
+        self.replyTableView.viewWithTag(4)?.isHidden = true
+//        replyList.removeAll()
+        DataLoad()
+        
     }
     // 댓글 삭제
     @IBAction func replyDelete(_ sender: UIButton) {
@@ -398,6 +454,45 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
         self.replyTableView.reloadData()
         
     }
+    
+    // 게시글 신고하기
+    @IBAction func reportButton(_ sender: Any) {
+        
+        // 이메일 사용가능한지 체크하는 if문
+        if MFMailComposeViewController.canSendMail() {
+            
+            let compseVC = MFMailComposeViewController()
+            compseVC.mailComposeDelegate = self
+            
+            compseVC.setToRecipients(["deeeeeep0122@gmail.com"])
+            compseVC.setSubject("[메이트리스트]게시글 신고")
+            compseVC.setMessageBody("\(contentsDetailData.pid)", isHTML: false)
+            self.present(compseVC, animated: true, completion: nil)
+            
+        }
+        else {
+            self.showSendMailErrorAlert()
+        }
+    }
+    
+    // 메일 에러 메시지
+    func showSendMailErrorAlert() {
+            let sendMailErrorAlert = UIAlertController(title: "메일을 전송 실패", message: "아이폰 이메일 설정을 확인하고 다시 시도해주세요.", preferredStyle: .alert)
+            let confirmAction = UIAlertAction(title: "확인", style: .default) {
+                (action) in
+                print("확인")
+            }
+            sendMailErrorAlert.addAction(confirmAction)
+            self.present(sendMailErrorAlert, animated: true, completion: nil)
+        }
+    
+    // 메일 보낸 뒤 메일 창 닫기
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+            controller.dismiss(animated: true, completion: nil)
+        }
+    
+    
+    
     
     func habitDataLoad()  {
             //데이터 불러오기
@@ -439,4 +534,25 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
         }
         else {}
     }
+    
+    // MARK: textview 높이 자동조절
+        func textViewDidChange(_ textView: UITextView) {
+            
+            let size = CGSize(width: view.frame.width, height: .infinity)
+            let estimatedSize = textView.sizeThatFits(size)
+            
+//            textView.constraints.forEach { (constraint) in
+//
+//              /// 180 이하일때는 더 이상 줄어들지 않게하기
+//                if estimatedSize.height <= 180 {
+//
+//                }
+//                else {
+//                    if constraint.firstAttribute == .height {
+//                        constraint.constant = estimatedSize.height
+//                    }
+//                }
+//            }
+        }
+    
 }
