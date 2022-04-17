@@ -189,7 +189,7 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
         // Do any additional setup after loading the view.
         
         // 셀 크기 자동조절
-        replyTableView.estimatedRowHeight = 70
+        replyTableView.estimatedRowHeight = 60
         replyTableView.rowHeight = UITableView.automaticDimension
     }
     
