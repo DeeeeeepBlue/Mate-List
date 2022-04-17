@@ -108,7 +108,7 @@ class WriteViewController: UIViewController, UITextViewDelegate {
         let now = Date()
         let date = DateFormatter()
         date.locale = Locale(identifier: "ko_kr")
-        date.dateFormat = "yyyy-MM-dd"
+        date.dateFormat = "yyyy-MM-dd HH:mm:ss"
         
         let kr = date.string(from: now)
         return kr
