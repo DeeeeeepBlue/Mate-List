@@ -16,9 +16,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="115" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="3" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="h85-Qm-IxM">
-                                <rect key="frame" x="0.0" y="73" width="414" height="823"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="115" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="h85-Qm-IxM">
+                                <rect key="frame" x="0.0" y="73" width="414" height="789"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="mateCell" rowHeight="120" id="KsN-5e-VgS" customClass="FindMateTableViewCell" customModule="checkMate" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.5" width="414" height="120"/>
@@ -109,13 +108,12 @@
                         <viewLayoutGuide key="safeArea" id="Wac-B1-yeI"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="h85-Qm-IxM" secondAttribute="bottom" id="3RR-9A-lZD"/>
                             <constraint firstItem="Wac-B1-yeI" firstAttribute="trailing" secondItem="h85-Qm-IxM" secondAttribute="trailing" id="QWQ-h7-2jq"/>
                             <constraint firstItem="tsZ-E0-BEM" firstAttribute="top" secondItem="Wac-B1-yeI" secondAttribute="top" id="cIy-cu-NLb"/>
                             <constraint firstItem="h85-Qm-IxM" firstAttribute="leading" secondItem="Wac-B1-yeI" secondAttribute="leading" id="dR5-Rr-86a"/>
                             <constraint firstItem="tsZ-E0-BEM" firstAttribute="leading" secondItem="Wac-B1-yeI" secondAttribute="leading" constant="20" id="hZW-z1-j1j"/>
                             <constraint firstItem="h85-Qm-IxM" firstAttribute="top" secondItem="tsZ-E0-BEM" secondAttribute="bottom" constant="13" id="nms-P6-aJ2"/>
-                            <constraint firstAttribute="bottom" secondItem="h85-Qm-IxM" secondAttribute="bottom" id="ns9-mR-qqL"/>
+                            <constraint firstItem="Wac-B1-yeI" firstAttribute="bottom" secondItem="h85-Qm-IxM" secondAttribute="bottom" id="vp3-c3-juT"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="MATE LIST" id="yGT-Vx-z1k"/>

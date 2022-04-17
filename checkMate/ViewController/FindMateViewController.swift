@@ -11,7 +11,7 @@ import Firebase
 import FirebaseAuth
 
 
-class FindMateViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class FindMateViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
     
 // MARK: - ✅ Data & Outlet
     
@@ -61,8 +61,9 @@ class FindMateViewController: UIViewController, UITableViewDataSource, UITableVi
         self.findMateTableView.frame = self.findMateTableView.frame.inset(by: UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 15))
     
         customNavigationBar()
-        
+        customTabBar()
         createWirteButton()
+        
         
 
         
@@ -81,6 +82,13 @@ class FindMateViewController: UIViewController, UITableViewDataSource, UITableVi
         let navigationBarAppearance = UINavigationBarAppearance()
             navigationBarAppearance.configureWithTransparentBackground()
         navigationController?.navigationBar.standardAppearance = navigationBarAppearance
+    }
+    
+    func customTabBar(){
+        let tabBarAppearance = UITabBarAppearance()
+        tabBarAppearance.configureWithTransparentBackground()
+        tabBarController?.tabBar.standardAppearance = tabBarAppearance
+        
     }
     
     func createWirteButton(){
@@ -154,7 +162,6 @@ class FindMateViewController: UIViewController, UITableViewDataSource, UITableVi
                     }
                    
                 }
-// MARK: 버전 2에 사용
            self.getPostHabitCheck()
             self.findMateTableView.reloadData()
             

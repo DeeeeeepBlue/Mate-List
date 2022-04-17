@@ -17,11 +17,11 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="120" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="3" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Tcv-pc-8VC">
-                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="mateCell" rowHeight="120" id="Iup-0v-8JF" customClass="FindMateTableViewCell" customModule="checkMate" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44.5" width="414" height="120"/>
+                                        <rect key="frame" x="0.0" y="45" width="414" height="120"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Iup-0v-8JF" id="vgy-qk-1mg">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="120"/>
@@ -105,10 +105,10 @@
                         <viewLayoutGuide key="safeArea" id="AMU-9M-emm"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="Tcv-pc-8VC" firstAttribute="bottom" secondItem="AMU-9M-emm" secondAttribute="bottom" id="4Br-Nh-tyc"/>
                             <constraint firstItem="Tcv-pc-8VC" firstAttribute="trailing" secondItem="AMU-9M-emm" secondAttribute="trailing" id="T3x-Sx-Taa"/>
                             <constraint firstItem="Tcv-pc-8VC" firstAttribute="top" secondItem="AMU-9M-emm" secondAttribute="top" id="YTN-4w-c9W"/>
                             <constraint firstItem="Tcv-pc-8VC" firstAttribute="leading" secondItem="AMU-9M-emm" secondAttribute="leading" id="gT6-q3-9cG"/>
-                            <constraint firstAttribute="bottom" secondItem="Tcv-pc-8VC" secondAttribute="bottom" id="uUh-By-XMM"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="스크랩" id="Kcx-1p-Nux" userLabel="스크랩"/>
