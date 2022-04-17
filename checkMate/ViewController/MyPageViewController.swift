@@ -38,6 +38,8 @@ class MyPage: UIViewController{
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var signInButton: GIDSignInButton!
+    @IBOutlet weak var loginProviderStackView: UIStackView!
+
     var fullname_V = ""
     var email_V = ""
     let db = Firestore.firestore()
@@ -320,7 +322,7 @@ class MyPage: UIViewController{
         loginButtonActive()
         cornerRadius()
         
-        setupProviderLoginView()
+//        setupProviderLoginView()
         // Do any additional setup after loading the view.
     }
 
@@ -354,33 +356,48 @@ class MyPage: UIViewController{
     func logoutButtonActive(){
         signInButton.layer.isHidden = true
         LogoutButton.layer.isHidden = false
-        
-        loginProviderStackView.isHidden = false
+        loginProviderStackView.isHidden = true
+        NSLayoutConstraint(item: LogoutButton,
+                           attribute: .top,
+                           relatedBy: .equal,
+                           toItem: surveyButton,
+                           attribute: .bottom,
+                           multiplier: 1.0,
+                           constant: 20).isActive = true
     }
     
     func loginButtonActive(){
         LogoutButton.layer.isHidden = true
         signInButton.layer.isHidden = false
+        loginProviderStackView.isHidden = false
+        //로그인 provider 위치 조정
+        NSLayoutConstraint(item: loginProviderStackView,
+                           attribute: .top,
+                           relatedBy: .equal,
+                           toItem: surveyButton,
+                           attribute: .bottom,
+                           multiplier: 1.0,
+                           constant: 20).isActive = true
     }
     
     func cornerRadius(){
         surveyButton.layer.cornerRadius = 20
         surveyButton.layer.borderWidth = 0.5
-        surveyButton.layer.borderColor = UIColor.gray.cgColor
+        surveyButton.layer.borderColor = UIColor(rgb:0xE5E5E5).cgColor
         
         LogoutButton.layer.cornerRadius = 20
         LogoutButton.layer.borderWidth = 0.5
-        LogoutButton.layer.borderColor = UIColor.gray.cgColor
+        LogoutButton.layer.borderColor = UIColor(rgb:0xE5E5E5).cgColor
         
         accountView.layer.cornerRadius = 20
         accountView.layer.borderWidth = 0.5
-        accountView.layer.borderColor = UIColor.gray.cgColor
+        accountView.layer.borderColor = UIColor(rgb:0xE5E5E5).cgColor
         
     }
     
     // MARK: - Apple login
     
-    @IBOutlet weak var loginProviderStackView: UIStackView!
+
     
     ///로그인 버튼 생성
     func setupProviderLoginView() {
