@@ -235,37 +235,61 @@ class MyPage: UIViewController{
                             }
                             print("User is signed with Firebase&Google")
                             // 로그인 버튼 숨기고 로그아웃 버튼 만들기
-                            
+                            let gnumaile = "gnu.ac.kr"
                             //firebase User collection에 현재 로그인하는 아이디가 존재하는 지 확인
                             if flag {
-                                if(!self.Member_email.contains(emailAddress!) && new_mem_agree != 1){
-                                    print("####alert실행");
-                                    let storyboard = UIStoryboard(name: "consent_popup", bundle: nil)
+                                // gnu 메일인지 확인
+                                if emailAddress!.contains(gnumaile){
+                                    //이미 회원가입한 멤버가 아닌지 확인
+                                    if(!self.Member_email.contains(emailAddress!) && new_mem_agree != 1){
+                                        print("####alert실행");
+                                        let storyboard = UIStoryboard(name: "consent_popup", bundle: nil)
 
-                                    //컨트롤러 객체 생성, Storyboard ID에 이름 설정(이동할 VC에 설정한 Storyboard ID)
-                                    let secondVC: consent_popup = storyboard.instantiateViewController(withIdentifier: "consent_popup") as! consent_popup
-                                    new_mem_agree=2
-                                    //기본값이 fullScreen이므로 해당 라인은 생략 가능
-                                    secondVC.modalPresentationStyle = .fullScreen
-                                    self.present(secondVC, animated: true, completion: nil)
-    //                                let popup = consent_popup()
-    //                                self.present(popup, animated: false, completion: nil)
-    //                                popup.modalPresentationStyle = .fullScreen
-                                }else{ // 기존 가입된 계정이면 파이어베이스에 등록
-                                    print("######else")
-                                    self.db.collection("User").document(Auth.auth().currentUser!.uid).setData([
-                                                            "user" : fullName!,
-                                                            "email" : emailAddress!,
-                                                            "gender" : true,
-                                                            "uid" : Auth.auth().currentUser!.uid
-                                                          ])
-                                    self.nameLabel.text = fullName
-                                    self.emailLabel.text = emailAddress
-                                    self.logoutButtonActive()
-                                    self.btnout.isHidden=false
-                                    self.loginProviderStackView.isHidden = true
+                                        //컨트롤러 객체 생성, Storyboard ID에 이름 설정(이동할 VC에 설정한 Storyboard ID)
+                                        let secondVC: consent_popup = storyboard.instantiateViewController(withIdentifier: "consent_popup") as! consent_popup
+                                        new_mem_agree=2
+                                        //기본값이 fullScreen이므로 해당 라인은 생략 가능
+                                        secondVC.modalPresentationStyle = .fullScreen
+                                        self.present(secondVC, animated: true, completion: nil)
+        //                                let popup = consent_popup()
+        //                                self.present(popup, animated: false, completion: nil)
+        //                                popup.modalPresentationStyle = .fullScreen
+                                    }else{ // 기존 가입된 계정이면 파이어베이스에 등록
+                                        print("######else")
+                                        self.db.collection("User").document(Auth.auth().currentUser!.uid).setData([
+                                                                "user" : fullName!,
+                                                                "email" : emailAddress!,
+                                                                "gender" : true,
+                                                                "uid" : Auth.auth().currentUser!.uid
+                                                              ])
+                                        self.nameLabel.text = fullName
+                                        self.emailLabel.text = emailAddress
+                                        self.logoutButtonActive()
+                                        self.btnout.isHidden=false
+                                        self.loginProviderStackView.isHidden = true
+                                        
+                                    }
+                                } else {
+                                    //gnu 메일이 아니면 회원탈퇴 및 로그아웃
+                                    self.db.collection("User").document(Auth.auth().currentUser!.uid).delete() { err in
+                                        if let err = err {
+                                            print("Error removing document: \(err)")
+                                        } else {
+                                            print("Document successfully removed!")
+                                            
+                                            self.modal_signOUt()
+                                            let alert = UIAlertController(title: "경상대 학생이 아님", message: "gnu 메일로 로그인해 주세요 !!", preferredStyle: UIAlertController.Style.alert)
+                                            let okAction = UIAlertAction(title: "OK", style: .default) {_ in
+                                            }
+                                            alert.addAction(okAction)
+                                            
+                                            self.present(alert, animated: true, completion: nil)
+                                        }
+
+                                }
                                     
                                 }
+                                
                             }
                         }
                            

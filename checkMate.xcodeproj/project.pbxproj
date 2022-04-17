@@ -11,7 +11,6 @@
 		040AA09727BECDDD008F4BF5 /* HabitCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040AA09627BECDDD008F4BF5 /* HabitCheck.swift */; };
 		040AA09927BECE16008F4BF5 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040AA09827BECE16008F4BF5 /* Comment.swift */; };
 		0444E00227C825A500B49F8B /* ScrapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0444E00127C825A500B49F8B /* ScrapViewController.swift */; };
-		0468B98E27CAD48500B2D31A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0468B98D27CAD48500B2D31A /* GoogleService-Info.plist */; };
 		04BB243727ACED960003DA33 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BB243627ACED960003DA33 /* MyPageViewController.swift */; };
 		3F2245BE27D62763002F29FE /* HexUIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2245BD27D62763002F29FE /* HexUIColor.swift */; };
 		3FB23A5E27D79D3E00B8D071 /* FindMateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB23A5D27D79D3E00B8D071 /* FindMateTableViewCell.swift */; };
@@ -22,6 +21,7 @@
 		A60D25A127F72E9600E6A553 /* consent_popup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A60D25A027F72E9600E6A553 /* consent_popup.storyboard */; };
 		A60D25A327F7317700E6A553 /* consent_popup.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60D25A227F7317600E6A553 /* consent_popup.swift */; };
 		A623E33627B7C40E00172F38 /* DropDownViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A623E33527B7C40E00172F38 /* DropDownViewController.swift */; };
+		A6B5B8202801BE9300D0CF98 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A6B5B81F2801BE9300D0CF98 /* GoogleService-Info.plist */; };
 		F731B77027D4D56A009670A4 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = F731B76F27D4D56A009670A4 /* FirebaseAnalytics */; };
 		F731B77227D4D56A009670A4 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = F731B77127D4D56A009670A4 /* FirebaseAuth */; };
 		F731B77427D4D56A009670A4 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = F731B77327D4D56A009670A4 /* FirebaseCrashlytics */; };
@@ -63,7 +63,6 @@
 		040AA09627BECDDD008F4BF5 /* HabitCheck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitCheck.swift; sourceTree = "<group>"; };
 		040AA09827BECE16008F4BF5 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		0444E00127C825A500B49F8B /* ScrapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrapViewController.swift; sourceTree = "<group>"; };
-		0468B98D27CAD48500B2D31A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		04BB243627ACED960003DA33 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
 		3F2245BD27D62763002F29FE /* HexUIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexUIColor.swift; sourceTree = "<group>"; };
 		3FB23A5D27D79D3E00B8D071 /* FindMateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindMateTableViewCell.swift; sourceTree = "<group>"; };
@@ -74,6 +73,7 @@
 		A60D25A027F72E9600E6A553 /* consent_popup.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = consent_popup.storyboard; sourceTree = "<group>"; };
 		A60D25A227F7317600E6A553 /* consent_popup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = consent_popup.swift; sourceTree = "<group>"; };
 		A623E33527B7C40E00172F38 /* DropDownViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownViewController.swift; sourceTree = "<group>"; };
+		A6B5B81F2801BE9300D0CF98 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F731B7A127D4FF09009670A4 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		F731B7A927D500B3009670A4 /* testTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testTableViewController.swift; sourceTree = "<group>"; };
 		F7379F2927AD4EFE00D99CD4 /* FilterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterTableViewCell.swift; sourceTree = "<group>"; };
@@ -215,7 +215,7 @@
 				5A75AE8727D9F2F9001C796C /* Scrap.storyboard */,
 				F731B7A127D4FF09009670A4 /* Home.storyboard */,
 				F757547527A4DF1A00BFDF9B /* Assets.xcassets */,
-				0468B98D27CAD48500B2D31A /* GoogleService-Info.plist */,
+				A6B5B81F2801BE9300D0CF98 /* GoogleService-Info.plist */,
 				3F2245BD27D62763002F29FE /* HexUIColor.swift */,
 			);
 			path = checkMate;
@@ -307,12 +307,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A6B5B8202801BE9300D0CF98 /* GoogleService-Info.plist in Resources */,
 				F7B4F41C27D7B5030045580F /* Survey.storyboard in Resources */,
 				F731B7A627D4FF09009670A4 /* Home.storyboard in Resources */,
 				A600678027C7E4AA007C6EF1 /* (null) in Resources */,
 				5A75AE8827D9F2F9001C796C /* Scrap.storyboard in Resources */,
 				F7EEBACD27CF43B9009728AF /* Main.storyboard in Resources */,
-				0468B98E27CAD48500B2D31A /* GoogleService-Info.plist in Resources */,
 				A60D25A127F72E9600E6A553 /* consent_popup.storyboard in Resources */,
 				3FF0B03C27DA4E2C00CA147A /* Info.storyboard in Resources */,
 				F757547927A4DF1A00BFDF9B /* LaunchScreen.storyboard in Resources */,
@@ -499,8 +499,8 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = checkMate/checkMate.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = XTZ6W4677Z;
+				CURRENT_PROJECT_VERSION = 3;
+				DEVELOPMENT_TEAM = 4QG3GC35LA;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = checkMate/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = checkMate;
@@ -513,7 +513,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.codershigh.mu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -530,7 +530,7 @@
 				CODE_SIGN_ENTITLEMENTS = checkMate/checkMate.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = 4QG3GC35LA;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = checkMate/Info.plist;
@@ -544,11 +544,11 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.0;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.codershigh.mu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = CodersHighProvisioningProfile;
+				PROVISIONING_PROFILE_SPECIFIER = MateListProfile;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
