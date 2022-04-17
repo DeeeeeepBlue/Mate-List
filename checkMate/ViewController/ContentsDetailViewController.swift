@@ -53,8 +53,6 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
     var contentsDetailData: Post!
     
     
-    
-    
     @IBAction func ScrapButton(_ sender: Any) {
         guard Auth.auth().currentUser != nil else {
             haveUesr()
@@ -97,8 +95,6 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
       
         DataLoad()
         replyTableView.reloadData()
@@ -122,10 +118,15 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
             super.viewWillDisappear(animated)
             
             NotificationCenter.default.removeObserver(self)
-        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //옵저버
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
         viewHeight = self.view.frame.size.height
         // 키보드 코드
          
@@ -573,11 +574,15 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
 //            }
         }
     @objc func keyboardWillShow(notification: NSNotification) {
+
+        //화면-키보드 값 계산
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
-            self.view.frame.size.height -= keyboardSize.height
-            
-           }
+            if self.view.frame.size.height >= viewHeight {
+                self.view.frame.size.height -= keyboardSize.height
+            }
         }
+        print("## keyboardWillShow")
+    }
         
     @objc func keyboardWillHide() {
         self.view.frame.size.height = viewHeight

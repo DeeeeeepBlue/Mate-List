@@ -64,7 +64,7 @@ class WriteViewController: UIViewController, UITextViewDelegate {
         
         
         if contentText!.count>100||titleText!.count>10 {
-            if titleText!.count>10 {
+            if titleText!.count>20 {
                 print("####alert실행");
                 let alert = UIAlertController(title: "글자 수 초과!", message: "제목 10자 이내로 작성해 주세요", preferredStyle: UIAlertController.Style.alert)
                 let okAction = UIAlertAction(title: "OK", style: .default) {_ in
