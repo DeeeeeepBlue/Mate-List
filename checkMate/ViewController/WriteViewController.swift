@@ -62,8 +62,14 @@ class WriteViewController: UIViewController, UITextViewDelegate {
         
         
         
-        
-        if contentText!.count>100||titleText!.count>15 {
+        if contentText!.count<=0||titleText!.count<=0||contentText!=="Fill the content."{
+            let alert = UIAlertController(title: "내용 없음", message: "내용을 입력해 주세요!", preferredStyle: UIAlertController.Style.alert)
+            let okAction = UIAlertAction(title: "OK", style: .default) {_ in
+            }
+            alert.addAction(okAction)
+            present(alert, animated: true, completion: nil)
+        }
+        if contentText!.count>100||titleText!.count>15{
             if titleText!.count>15 {
                 print("####alert실행");
                 let alert = UIAlertController(title: "글자 수 초과!", message: "제목 15자 이내로 작성해 주세요", preferredStyle: UIAlertController.Style.alert)
@@ -79,10 +85,6 @@ class WriteViewController: UIViewController, UITextViewDelegate {
                 alert.addAction(okAction)
                 present(alert, animated: true, completion: nil)
             }
-            
-            
-            
-            
         }else{
             var ref: DocumentReference? = nil
             ref = db.collection("Post").addDocument(data: [
