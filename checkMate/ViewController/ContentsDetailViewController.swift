@@ -208,6 +208,7 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = replyTableView.dequeueReusableCell(withIdentifier: "replyCell", for: indexPath)
         
+        
         //  둥근 테두리 만들기
         cell.backgroundColor = UIColor.white
         cell.layer.borderColor = color.cgColor
