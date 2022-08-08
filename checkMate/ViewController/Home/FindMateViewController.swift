@@ -17,10 +17,8 @@ class FindMateViewController: UIViewController, UITableViewDataSource, UITableVi
     
     @IBOutlet weak var findMateTableView: UITableView!
     @IBOutlet var rootView: UIView!
-    
     let MAX = 10000
-    
-    var findMateTableViewController = UITableViewController()
+
     
     let db = Firestore.firestore()
     var List : [Post] = []
@@ -52,8 +50,6 @@ class FindMateViewController: UIViewController, UITableViewDataSource, UITableVi
         self.findMateTableView.delegate = self
         self.findMateTableView.dataSource = self
 
-        self.findMateTableViewController.tableView.delegate = self
-        self.findMateTableViewController.tableView.dataSource = self
         findMateTableView.reloadData()
 
 
