@@ -12,15 +12,15 @@ import FirebaseDatabase
 
 
 
-class LifePatternViewController2: UIViewController,UITableViewDelegate,UITableViewDataSource{
+class SurveyViewController: UIViewController,UITableViewDelegate,UITableViewDataSource{
     var selectedCountry: String?
 
 
 
     @IBOutlet weak var surveyviewtitle: UILabel!
+    @IBOutlet weak var regbutton: UILabel!
     var surveyView_user_id :String!
     var  surveyView_cont : HabitCheck!
-    @IBOutlet weak var regbutton: UILabel!
     let db = Firestore.firestore()
     var lef: DatabaseReference!
     
@@ -56,7 +56,7 @@ class LifePatternViewController2: UIViewController,UITableViewDelegate,UITableVi
         surveytable.delegate=self
         lef = Database.database().reference(withPath: "servey")
         
-        surveyviewtitle.text = surveyView_user_id+" 님의 생활패턴"
+        surveyviewtitle.text = surveyView_user_id + " 님의 생활패턴"
     }
     
    
@@ -69,7 +69,7 @@ class LifePatternViewController2: UIViewController,UITableViewDelegate,UITableVi
 //    dropDown.dataSource = ["피자", "치킨", "족발보쌈", "치즈돈까스", "햄버거"]
 //    dropDown.show()
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier:"cell", for: indexPath)as! serveyviewViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier:"cell", for: indexPath)as! ServeyViewCell
         cell.myLabel.text = habitCheck[indexPath.row]
         print(cell.myLabel.text)
         if cell.myLabel.text == "청소주기" {

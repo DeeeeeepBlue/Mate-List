@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Njf-UX-cJ5">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -172,10 +173,10 @@
             </objects>
             <point key="canvasLocation" x="56.521739130434788" y="1495.9821428571429"/>
         </scene>
-        <!--Survey-->
+        <!--SurveyInput-->
         <scene sceneID="Ru9-lB-SYl">
             <objects>
-                <viewControllerPlaceholder storyboardName="Survey" id="htb-UZ-Eqn" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="SurveyInput" id="htb-UZ-Eqn" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9In-V7-aPy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="876" y="1477"/>

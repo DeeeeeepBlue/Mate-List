@@ -547,7 +547,7 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
         if segue.identifier == "surveyView" {
             
     
-            let VCDest = segue.destination as! LifePatternViewController2
+            let VCDest = segue.destination as! SurveyViewController
             VCDest.surveyView_user_id=send_username
             VCDest.surveyView_cont=userHabitCheck[0]
 

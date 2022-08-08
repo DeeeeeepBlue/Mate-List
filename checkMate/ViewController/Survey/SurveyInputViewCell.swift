@@ -9,21 +9,15 @@ import UIKit
 import DropDown
 
 
-class MyTableViewCell: UITableViewCell {
+class SurveyInputViewCell: UITableViewCell {
     
+    var check : Bool = false
     let color = UIColor(rgb: 0xDBEBFF)
     @IBOutlet weak var dropView: UIView!
-    
     @IBOutlet weak var tfInput: UITextField!
     @IBOutlet weak var btnSelect: UIButton!
-    @IBOutlet weak var inIcon: UIImageView!
-
-    var check : Bool = false
     @IBOutlet weak var myLabel: UILabel!
-    
     @IBOutlet weak var check_B: UIButton!
-    
-    
     @IBOutlet weak var backView: UIView!
     
     @IBAction func clicked(_ sender: Any) {
@@ -35,6 +29,7 @@ class MyTableViewCell: UITableViewCell {
             check_B.setImage(UIImage(systemName: "checkmark.circle"), for: .normal)
             backView.backgroundColor=UIColor.white
         }
+        
         if myLabel.text == "흡연"{
             smokingSelect=check
         } else if myLabel.text == "게임"{
@@ -72,6 +67,7 @@ class MyTableViewCell: UITableViewCell {
     let dropDown = DropDown()
     let clean_itemList = ["0회","1회","2회","3회","4회","5회","6회","매일"]
     let mbti_itemList = ["ISTJ","ISFJ","INFJ","INTJ","ISTP","ISFP","INFP","INTP","ESTP","ESFP","ENFP","ENTP","ESTJ","ESFJ","ENFJ","ENTJ"]
+    
     func initUI() {
         dropView.backgroundColor = UIColor.init(named: "gray")
         dropView.layer.cornerRadius = 8
@@ -82,7 +78,8 @@ class MyTableViewCell: UITableViewCell {
         DropDown.appearance().setupCornerRadius(8)
         dropDown.dismissMode = .automatic
         tfInput.text="선택"
-        inIcon.tintColor = UIColor.gray
+        btnSelect.titleLabel?.text = ""
+        check_B.titleLabel?.text = ""
     }
     
     
@@ -111,23 +108,14 @@ class MyTableViewCell: UITableViewCell {
                 mbtiSelect=item
                 print(mbtiSelect)
             }
-            self!.inIcon.image = UIImage.init(systemName: "checkmark.circle.fill")
+
             self?.backView.backgroundColor=self?.color
         }
-        
-        // 취소 시 처리
-        dropDown.cancelAction = { [weak self] in
-            //빈 화면 터치 시 DropDown이 사라지고 아이콘을 원래대로 변경
-//            self!.inIcon.image = UIImage.init(named: "checkmark.circle.fill")
-        }
-    }
+}
     
     @IBAction func dropdownClicked(_ sender: Any) {
             dropDown.show() // 아이템 팝업을 보여준다.
-            // 아이콘 이미지를 변경하여 DropDown이 펼쳐진 것을 표현
-//            self.inIcon.image = UIImage.init(named: "checkmark.circle.fill")
         setDropdown()
-        
     }
     
     
