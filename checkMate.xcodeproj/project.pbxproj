@@ -84,7 +84,6 @@
 		F76B581227C5378100B6626D /* DetailTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailTextView.swift; sourceTree = "<group>"; };
 		F76B581327C5378100B6626D /* NewFilterTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewFilterTableViewCell.swift; sourceTree = "<group>"; };
 		F76B581727C5380600B6626D /* ContentsDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentsDetailViewController.swift; sourceTree = "<group>"; };
-		F76B581927C5380600B6626D /* FilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
 		F76B581A27C5380600B6626D /* FilterTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterTableViewController.swift; sourceTree = "<group>"; };
 		F76B581D27C5380600B6626D /* WriteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WriteViewController.swift; sourceTree = "<group>"; };
 		F7B4F41127D7A55A0045580F /* Write.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Write.storyboard; sourceTree = "<group>"; };
@@ -231,7 +230,6 @@
 				044B812128A14DE5002E8851 /* Scrap */,
 				044B812028A14DD9002E8851 /* Home */,
 				044B811F28A14DBF002E8851 /* Detail */,
-				F76B581927C5380600B6626D /* FilterViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
