@@ -123,6 +123,7 @@
 		044B811F28A14DBF002E8851 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
+				F76B581227C5378100B6626D /* DetailTextView.swift */,
 				F76B581727C5380600B6626D /* ContentsDetailViewController.swift */,
 				F7CDDF0E27D6E96300DB6A30 /* ContentsDetailView.storyboard */,
 			);
@@ -136,6 +137,7 @@
 				F76B581D27C5380600B6626D /* WriteViewController.swift */,
 				F731B7A127D4FF09009670A4 /* Home.storyboard */,
 				F75452E827C7C5FB00E2DB41 /* FindMateViewController.swift */,
+				3FB23A5D27D79D3E00B8D071 /* FindMateTableViewCell.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -172,7 +174,9 @@
 		044B812528A14E18002E8851 /* Survey */ = {
 			isa = PBXGroup;
 			children = (
+				F7B4F41927D7B4CD0045580F /* surveyviewViewCell.swift */,
 				F7B4F41727D7B4C00045580F /* ServeyViewController.swift */,
+				F7B4F41F27D7B7460045580F /* MyTableViewCell.swift */,
 				F7B4F41527D7B4B80045580F /* LifePatternViewController.swift */,
 				F7B4F41D27D7B5090045580F /* Surveyview.storyboard */,
 				F7B4F41B27D7B5030045580F /* Survey.storyboard */,
@@ -187,14 +191,6 @@
 				F7B4F42127D7B8C10045580F /* RGBColor.swift */,
 			);
 			path = Resource;
-			sourceTree = "<group>";
-		};
-		044B812728A14F54002E8851 /* TableView */ = {
-			isa = PBXGroup;
-			children = (
-				F75B3B9327B16ED100368BC8 /* TableViewCell */,
-			);
-			path = TableView;
 			sourceTree = "<group>";
 		};
 		3FCF3B4C27F888C5008771B8 /* Supporting Files */ = {
@@ -257,7 +253,6 @@
 			children = (
 				3FCF3B4927F88552008771B8 /* checkMate.entitlements */,
 				F7379F2227AD409D00D99CD4 /* App */,
-				044B812728A14F54002E8851 /* TableView */,
 				044B812628A14EBD002E8851 /* Resource */,
 				040AA09327BECD53008F4BF5 /* Model */,
 				F7379F2127AD37C000D99CD4 /* ViewController */,
@@ -265,17 +260,6 @@
 				A6B5B81F2801BE9300D0CF98 /* GoogleService-Info.plist */,
 			);
 			path = checkMate;
-			sourceTree = "<group>";
-		};
-		F75B3B9327B16ED100368BC8 /* TableViewCell */ = {
-			isa = PBXGroup;
-			children = (
-				F76B581227C5378100B6626D /* DetailTextView.swift */,
-				F7B4F41927D7B4CD0045580F /* surveyviewViewCell.swift */,
-				F7B4F41F27D7B7460045580F /* MyTableViewCell.swift */,
-				3FB23A5D27D79D3E00B8D071 /* FindMateTableViewCell.swift */,
-			);
-			path = TableViewCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
