@@ -36,7 +36,6 @@
 		F757546F27A4DF1800BFDF9B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F757546E27A4DF1800BFDF9B /* SceneDelegate.swift */; };
 		F757547627A4DF1A00BFDF9B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F757547527A4DF1A00BFDF9B /* Assets.xcassets */; };
 		F757547927A4DF1A00BFDF9B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F757547727A4DF1A00BFDF9B /* LaunchScreen.storyboard */; };
-		F76B581427C5378100B6626D /* ReplyTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76B581127C5378100B6626D /* ReplyTextView.swift */; };
 		F76B581527C5378100B6626D /* DetailTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76B581227C5378100B6626D /* DetailTextView.swift */; };
 		F76B581E27C5380600B6626D /* ContentsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76B581727C5380600B6626D /* ContentsDetailViewController.swift */; };
 		F76B582427C5380600B6626D /* WriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76B581D27C5380600B6626D /* WriteViewController.swift */; };
@@ -76,7 +75,6 @@
 		F757546E27A4DF1800BFDF9B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SceneDelegate.swift; path = ../SceneDelegate.swift; sourceTree = "<group>"; };
 		F757547527A4DF1A00BFDF9B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F757547827A4DF1A00BFDF9B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		F76B581127C5378100B6626D /* ReplyTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReplyTextView.swift; sourceTree = "<group>"; };
 		F76B581227C5378100B6626D /* DetailTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailTextView.swift; sourceTree = "<group>"; };
 		F76B581727C5380600B6626D /* ContentsDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentsDetailViewController.swift; sourceTree = "<group>"; };
 		F76B581D27C5380600B6626D /* WriteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WriteViewController.swift; sourceTree = "<group>"; };
@@ -274,7 +272,6 @@
 			children = (
 				F76B581227C5378100B6626D /* DetailTextView.swift */,
 				F7B4F41927D7B4CD0045580F /* surveyviewViewCell.swift */,
-				F76B581127C5378100B6626D /* ReplyTextView.swift */,
 				F7B4F41F27D7B7460045580F /* MyTableViewCell.swift */,
 				3FB23A5D27D79D3E00B8D071 /* FindMateTableViewCell.swift */,
 			);
@@ -386,7 +383,6 @@
 				F76B582427C5380600B6626D /* WriteViewController.swift in Sources */,
 				3F2245BE27D62763002F29FE /* HexUIColor.swift in Sources */,
 				F75452E727C7C59900E2DB41 /* Post.swift in Sources */,
-				F76B581427C5378100B6626D /* ReplyTextView.swift in Sources */,
 				F757546D27A4DF1800BFDF9B /* AppDelegate.swift in Sources */,
 				3FB23A5E27D79D3E00B8D071 /* FindMateTableViewCell.swift in Sources */,
 				A60D25A327F7317700E6A553 /* consent_popup.swift in Sources */,
