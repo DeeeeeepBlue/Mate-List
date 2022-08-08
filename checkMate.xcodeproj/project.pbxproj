@@ -69,7 +69,6 @@
 		A60D25A227F7317600E6A553 /* consent_popup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = consent_popup.swift; sourceTree = "<group>"; };
 		A6B5B81F2801BE9300D0CF98 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F731B7A127D4FF09009670A4 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
-		F7379F2927AD4EFE00D99CD4 /* FilterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterTableViewCell.swift; sourceTree = "<group>"; };
 		F743792127ABDA8E0053947A /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		F75452E627C7C59900E2DB41 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		F75452E827C7C5FB00E2DB41 /* FindMateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindMateViewController.swift; sourceTree = "<group>"; };
@@ -280,7 +279,6 @@
 				F7B4F41927D7B4CD0045580F /* surveyviewViewCell.swift */,
 				F76B581127C5378100B6626D /* ReplyTextView.swift */,
 				F7B4F41F27D7B7460045580F /* MyTableViewCell.swift */,
-				F7379F2927AD4EFE00D99CD4 /* FilterTableViewCell.swift */,
 				3FB23A5D27D79D3E00B8D071 /* FindMateTableViewCell.swift */,
 			);
 			path = TableViewCell;
