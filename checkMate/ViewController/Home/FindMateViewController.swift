@@ -18,8 +18,6 @@ class FindMateViewController: UIViewController, UITableViewDataSource, UITableVi
     @IBOutlet weak var findMateTableView: UITableView!
     @IBOutlet var rootView: UIView!
     let MAX = 10000
-
-    
     let db = Firestore.firestore()
     var List : [Post] = []
     var habitCheckList : [String:HabitCheck] = [:] //key is uid
@@ -37,36 +35,29 @@ class FindMateViewController: UIViewController, UITableViewDataSource, UITableVi
         getLoginUserSurvey()
         DataLoad()
         findMateTableView.reloadData()
-        print("scrap view load complete")
+        
         
     }
     
     
     override func viewDidLoad()  {
         super.viewDidLoad()
-
-
-
         self.findMateTableView.delegate = self
         self.findMateTableView.dataSource = self
-
         findMateTableView.reloadData()
-
-
+        setView()
+    
+    }
+    
+    //MARK: - SetView
+    func setView() {
         // 테두리 여백 만들기
         self.findMateTableView.frame = self.findMateTableView.frame.inset(by: UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 15))
-    
+
         customNavigationBar()
         customTabBar()
         createWirteButton()
-        
-        
-
-        
-        
-        
     }
-    
     
     // MARK: - ✅ Custom Function
     @objc func tapWriteButton(sender:UIGestureRecognizer){
