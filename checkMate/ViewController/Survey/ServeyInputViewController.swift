@@ -16,9 +16,6 @@ class ServeyInputViewController: UIViewController,UITableViewDelegate,UITableVie
 
     var selectedCountry: String?
 
-
-
-    
     @IBOutlet weak var regbutton: UILabel!
     let db = Firestore.firestore()
     var lef: DatabaseReference!
