@@ -93,6 +93,7 @@ class Info: UIViewController{
             
     }
     
+    /// 로그인
     @IBAction func signIn(sender: Any) {
         if(dataloading){
             GIDSignIn.sharedInstance.signIn(with: signInConfig, presenting: self) { user, error in
@@ -172,6 +173,7 @@ class Info: UIViewController{
         
     }
     
+    /// 로그아웃
     @IBAction func signOut(_ sender: Any) {
         let firebaseAuth = Auth.auth()
         do {
@@ -192,6 +194,7 @@ class Info: UIViewController{
         new_mem_agree=0
     }
     
+    /// 데이터 로드
     func DataLoad() {
         db.collection("User").getDocuments() { (querySnapshot, err) in
             if let err = err {
@@ -215,7 +218,7 @@ class Info: UIViewController{
         
     }
     
-    // user 게시글 삭제
+    /// user 게시글 삭제
     func deletePage(){
         db.collection("Post").whereField("uid", isEqualTo: Auth.auth().currentUser!.uid).getDocuments() {(querySnapshot, err) in
             if let err = err {
