@@ -12,15 +12,15 @@ import FirebaseDatabase
 
 
 
-class LifePatternViewController2: UIViewController,UITableViewDelegate,UITableViewDataSource{
+class SurveyViewController: UIViewController,UITableViewDelegate,UITableViewDataSource{
     var selectedCountry: String?
 
 
 
     @IBOutlet weak var surveyviewtitle: UILabel!
+    @IBOutlet weak var regbutton: UILabel!
     var surveyView_user_id :String!
     var  surveyView_cont : HabitCheck!
-    @IBOutlet weak var regbutton: UILabel!
     let db = Firestore.firestore()
     var lef: DatabaseReference!
     
@@ -56,7 +56,7 @@ class LifePatternViewController2: UIViewController,UITableViewDelegate,UITableVi
         surveytable.delegate=self
         lef = Database.database().reference(withPath: "servey")
         
-        surveyviewtitle.text = surveyView_user_id+" 님의 생활패턴"
+        surveyviewtitle.text = surveyView_user_id + " 님의 생활패턴"
     }
     
    
@@ -64,53 +64,69 @@ class LifePatternViewController2: UIViewController,UITableViewDelegate,UITableVi
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return habitCheck.count
     }
-    
-//    let dropDown = DropDown()
-//    dropDown.dataSource = ["피자", "치킨", "족발보쌈", "치즈돈까스", "햄버거"]
-//    dropDown.show()
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier:"cell", for: indexPath)as! serveyviewViewCell
+       
+        let cell = tableView.dequeueReusableCell(withIdentifier:"cell", for: indexPath)as! ServeyViewCell
+        
         cell.myLabel.text = habitCheck[indexPath.row]
-        print(cell.myLabel.text)
+        
+        guard surveyView_cont != nil else {
+            cell.value.text = "선택안함"
+            return cell
+        }
+        
         if cell.myLabel.text == "청소주기" {
             cell.value.text =  surveyView_cont.cleanSelect
-        } else if cell.myLabel.text == "흡연" {
+        }
+        else if cell.myLabel.text == "흡연" {
             if(String(surveyView_cont.smokingSelect ?? false) == "true"){
                 cell.value.text = "O"
-            } else {cell.value.text = "X"}
-            
-        }else if cell.myLabel.text == "게임" {
+            } else {
+                cell.value.text = "X"
+            }
+        }
+        else if cell.myLabel.text == "게임" {
             if(String(surveyView_cont.gameSelect ?? false) == "true"){
                 cell.value.text = "O"
             } else {cell.value.text = "X"}
-        }else if cell.myLabel.text == "코골이" {
+        }
+        else if cell.myLabel.text == "코골이" {
             if(String(surveyView_cont.snoringSelect ?? false) == "true"){
                 cell.value.text = "O"
             } else {cell.value.text = "X"}
-        }else if cell.myLabel.text == "이갈이" {
+        }
+        else if cell.myLabel.text == "이갈이" {
             if(String(surveyView_cont.griding_teethSelect ?? false) == "true"){
                 cell.value.text = "O"
             } else {cell.value.text = "X"}
-        }else if cell.myLabel.text == "방에서 통화" {
+        }
+        else if cell.myLabel.text == "방에서 통화" {
             if(String(surveyView_cont.callSelect ?? false) == "true"){
                 cell.value.text = "O"
             } else {cell.value.text = "X"}
             
-        }else if cell.myLabel.text == "방에서 음식섭취" {
+        }
+        else if cell.myLabel.text == "방에서 음식섭취" {
             if(String(surveyView_cont.eatSelect ?? false) == "true"){
                 cell.value.text = "O"
             } else {cell.value.text = "X"}
-        }else if cell.myLabel.text == "귀가 시간(11시 이후)" {
+        }
+        else if cell.myLabel.text == "귀가 시간(11시 이후)" {
             if(String(surveyView_cont.curfewSelect ?? false) == "true"){
                 cell.value.text = "O"
             } else {cell.value.text = "X"}
-        }else if cell.myLabel.text == "취침 시간(12시 이후)" {
+        }
+        else if cell.myLabel.text == "취침 시간(12시 이후)" {
             if(String(surveyView_cont.bedtimeSelect ?? false) == "true"){
                 cell.value.text = "O"
             } else {cell.value.text = "X"}
-        }else if cell.myLabel.text == "mbti" {
+        }
+        else if cell.myLabel.text == "mbti" {
             cell.value.text =  surveyView_cont.mbtiSelect
-        } else {cell.value.text = "선택안함"}
+        }
+        else {cell.value.text = "선택안함"}
+        
        
         return cell
     

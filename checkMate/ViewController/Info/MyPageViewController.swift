@@ -57,7 +57,6 @@ class MyPage: UIViewController{
                     //ex) let value = querySnapshot!.documents[0].data()
                     //    value["callSelect", default: 0]
                     for document in querySnapshot!.documents {
-                        //print(document.data())
                         let value = document.data()
 
                         let uid_db = value["email"] as? String ?? ""
@@ -66,28 +65,26 @@ class MyPage: UIViewController{
                    
                 }
 
-            //리로드
             self.dataloading=true
             }
         
        }
     func modal_signIn(){
-        print("#로그인시쟉")
         self.db.collection("User").document(Auth.auth().currentUser!.uid).setData([
             "user" : Fullname,
             "email" : Email,
             "gender" : true,
             "uid" : Auth.auth().currentUser!.uid
                               ])
-        print("#\(self.nameLabel.text)")
+       
         self.nameLabel!.text = fullname_V
         self.emailLabel!.text = email_V
         self.logoutButtonActive()
         btnout.isHidden=false
         self.loginProviderStackView.isHidden = true
-        new_mem_agree==0
     }
-    //회원탈퇴
+    
+    /// 회원탈퇴
     @IBAction func opt_out_request(_ sender: Any) {
         //Habit check 삭제
         db.collection("User").document(Auth.auth().currentUser!.uid).collection("HabitCheck").getDocuments() {(querySnapshot, err) in
@@ -120,8 +117,6 @@ class MyPage: UIViewController{
                         }
                     }
               
-//              ===============
-                
                 // USER 삭제
                 self.db.collection("User").document(Auth.auth().currentUser!.uid).delete() { err in
                     if let err = err {
@@ -129,8 +124,8 @@ class MyPage: UIViewController{
                     } else {
                         print("Document successfully removed!")
                     }
-    //              ===============
-                    //User가 작성한 글 삭제
+                    
+                //User가 작성한 글 삭제
                 self.db.collection("Post").whereField("uid", isEqualTo: Auth.auth().currentUser!.uid).getDocuments() {(querySnapshot, err) in
                             if let err = err {
                                 print("Error getting documents: \(err)")
@@ -159,27 +154,9 @@ class MyPage: UIViewController{
                         new_mem_agree=0
                             
                     }
-                    
-                    
-                    
-                    
-    //              ===============
-                
-                
-//              ===============
-                
-                
+                }
             }
-
-                
-                
-                
-            }
-            
-     
-            
         }
-        
     }
     
     
@@ -346,8 +323,7 @@ class MyPage: UIViewController{
         loginButtonActive()
         cornerRadius()
         
-//        setupProviderLoginView()
-        // Do any additional setup after loading the view.
+
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -421,8 +397,6 @@ class MyPage: UIViewController{
     
     // MARK: - Apple login
     
-
-    
     ///로그인 버튼 생성
     func setupProviderLoginView() {
         let authorizationButton = ASAuthorizationAppleIDButton()
@@ -443,19 +417,6 @@ class MyPage: UIViewController{
         authorizationController.presentationContextProvider = self
         authorizationController.performRequests()
     }
-    
-    
-//    func performExistingAccountSetupFlows() {
-//        // Prepare requests for both Apple ID and password providers.
-//        let requests = [ASAuthorizationAppleIDProvider().createRequest(),
-//                        ASAuthorizationPasswordProvider().createRequest()]
-//
-//        // Create an authorization controller with the given requests.
-//        let authorizationController = ASAuthorizationController(authorizationRequests: requests)
-//        authorizationController.delegate = self
-//        authorizationController.presentationContextProvider = self
-//        authorizationController.performRequests()
-//    }
     
 }
 

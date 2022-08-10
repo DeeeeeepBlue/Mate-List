@@ -544,12 +544,12 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
+        
         if segue.identifier == "surveyView" {
-            
-    
-            let VCDest = segue.destination as! LifePatternViewController2
+            let VCDest = segue.destination as! SurveyViewController
             VCDest.surveyView_user_id=send_username
-            VCDest.surveyView_cont=userHabitCheck[0]
+            guard userHabitCheck != nil else {return}
+            VCDest.surveyView_cont = userHabitCheck[0]
 
         }
         else {}
@@ -560,19 +560,7 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
             
             let size = CGSize(width: view.frame.width, height: .infinity)
             let estimatedSize = textView.sizeThatFits(size)
-            
-//            textView.constraints.forEach { (constraint) in
-//
-//              /// 180 이하일때는 더 이상 줄어들지 않게하기
-//                if estimatedSize.height <= 180 {
-//
-//                }
-//                else {
-//                    if constraint.firstAttribute == .height {
-//                        constraint.constant = estimatedSize.height
-//                    }
-//                }
-//            }
+
         }
     @objc func keyboardWillShow(notification: NSNotification) {
 

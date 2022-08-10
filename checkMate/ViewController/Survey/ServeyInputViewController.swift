@@ -12,13 +12,10 @@ import FirebaseDatabase
 
 
 
-class ServeyViewController: UIViewController,UITableViewDelegate,UITableViewDataSource{
+class ServeyInputViewController: UIViewController,UITableViewDelegate,UITableViewDataSource{
 
     var selectedCountry: String?
 
-
-
-    
     @IBOutlet weak var regbutton: UILabel!
     let db = Firestore.firestore()
     var lef: DatabaseReference!
@@ -67,19 +64,14 @@ class ServeyViewController: UIViewController,UITableViewDelegate,UITableViewData
     }
     
     var check : Bool = false
-//    let dropDown = DropDown()
-//    dropDown.dataSource = ["피자", "치킨", "족발보쌈", "치즈돈까스", "햄버거"]
-//    dropDown.show()
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier:"cell", for: indexPath)as! MyTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier:"cell", for: indexPath)as! SurveyInputViewCell
         cell.myLabel.text =  habitCheck[indexPath.row]
         if cell.myLabel.text == "청소주기"{
             cell.dropView.isHidden = false
             cell.check_B.isHidden=true
-//            cleanSelect = cell.tfInput.text!
         }else if cell.myLabel.text == "mbti"{
             cell.check_B.isHidden=true
-//            mbtiSelect = cell.tfInput.text!
         } else {
             cell.dropView.isHidden = true
             }
@@ -88,7 +80,7 @@ class ServeyViewController: UIViewController,UITableViewDelegate,UITableViewData
     
     }
     
-    // 유저가 로그인 했는지 확인
+    /// 유저가 로그인 했는지 확인
     func haveUesr() {
         guard AppDelegate.user == nil else {return}
         let alert = UIAlertController(title: "유저가 없습니다", message: "로그인을 해주세요!", preferredStyle: UIAlertController.Style.alert)
@@ -101,7 +93,7 @@ class ServeyViewController: UIViewController,UITableViewDelegate,UITableViewData
         
     }
 
-    // 딕셔너리로 파베에 저장
+    /// 딕셔너리로 파베에 저장
     @IBAction func submit(_ sender: Any) {
         
         let select: [String: Any] = [
