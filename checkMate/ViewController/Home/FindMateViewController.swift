@@ -298,6 +298,7 @@ class FindMateViewController: UIViewController, UITableViewDataSource, UITableVi
                 /// add the gradient layer to the views layer for rendering
                 fitnessView?.layer.addSublayer(gradient)
                 
+                //TODO: loginUserSurvey = nil Bug
                 //fitness 계산
                 let fitnessValue = habitCheckList[self.List[indexPath.section].uid]?
                     .calculatingFit(otherSurvey: loginUserSurvey)
