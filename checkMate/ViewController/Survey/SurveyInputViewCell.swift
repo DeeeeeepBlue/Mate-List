@@ -98,7 +98,6 @@ class SurveyInputViewCell: UITableViewCell {
         dropDown.bottomOffset = CGPoint(x: 0, y: dropView.bounds.height)
         
         // Item 선택 시 처리
-        
         dropDown.selectionAction = { [weak self] (index, item) in
             
             //선택한 Item을 TextField에 넣어준다.

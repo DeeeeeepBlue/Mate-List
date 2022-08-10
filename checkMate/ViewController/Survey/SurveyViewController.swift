@@ -64,10 +64,7 @@ class SurveyViewController: UIViewController,UITableViewDelegate,UITableViewData
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return habitCheck.count
     }
-    
-//    let dropDown = DropDown()
-//    dropDown.dataSource = ["피자", "치킨", "족발보쌈", "치즈돈까스", "햄버거"]
-//    dropDown.show()
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
        
         let cell = tableView.dequeueReusableCell(withIdentifier:"cell", for: indexPath)as! ServeyViewCell
