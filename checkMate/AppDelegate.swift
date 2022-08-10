@@ -8,13 +8,13 @@
 import GoogleSignIn
 import UIKit
 import Firebase
-
 import AuthenticationServices
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     public static var user: GIDGoogleUser!
+    public static var userApple : AuthDataResult?
     
 
     
