@@ -22,7 +22,7 @@ class FindMateViewController: UIViewController, UITableViewDataSource, UITableVi
     var List : [Post] = []
     var habitCheckList : [String:HabitCheck] = [:] //key is uid
     var dbID: String = ""
-    var loginUserSurvey : HabitCheck!
+    var loginUserSurvey : HabitCheck?
     
     // Add a new document with a generated ID
     var ref: DocumentReference? = nil
@@ -299,14 +299,13 @@ class FindMateViewController: UIViewController, UITableViewDataSource, UITableVi
                 fitnessView?.layer.addSublayer(gradient)
                 
                 //TODO: loginUserSurvey = nil Bug
-                //fitness 계산
-                let fitnessValue = habitCheckList[self.List[indexPath.section].uid]?
-                    .calculatingFit(otherSurvey: loginUserSurvey)
+                // fitness 계산
+                let fitnessValue = loginUserSurvey != nil ? habitCheckList[self.List[indexPath.section].uid]?.calculatingFit(otherSurvey: loginUserSurvey!) : 0
                 
-                ///적합도 값 넣기
+                // 적합도 값 넣기
                 fitnessText.text = "\(fitnessValue ?? 0)%"
                 
-                ///label만큼 그라디언트 적용
+                // label만큼 그라디언트 적용
                 fitnessView!.layer.mask = fitnessText.layer
    
             }
