@@ -110,7 +110,7 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
 
     }
     
-    @IBAction func saveButton(_ sender: Any) {
+    @IBAction func saveReplyButton(_ sender: Any) {
         let inputText = replyTextField.text
         // 한 글자라도 입력해야 댓글이 달림
         if inputText!.count > 0 && AppDelegate.user != nil {
