@@ -43,9 +43,6 @@ class WriteViewController: UIViewController, UITextViewDelegate {
         else {}
         
         // Firestore에 데이터 올리는 코드
-        
-        
-        
         if contentText!.trimmingCharacters(in: .whitespacesAndNewlines)
             .isEmpty||titleText!.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty||contentText!=="Fill the content."{
             let alert = UIAlertController(title: "내용 없음", message: "내용을 입력해 주세요!", preferredStyle: UIAlertController.Style.alert)
@@ -72,7 +69,7 @@ class WriteViewController: UIViewController, UITextViewDelegate {
             }
         }else{
             var ref: DocumentReference? = nil
-            ref = db.collection("Post").addDocument(data: [
+            ref = FireStoreService.db.collection("Post").addDocument(data: [
                 "reg" : true,
                 "contents" : contentText!,
                 "title" : titleText!,

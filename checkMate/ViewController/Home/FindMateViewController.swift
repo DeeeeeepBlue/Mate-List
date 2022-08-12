@@ -18,7 +18,6 @@ class FindMateViewController: UIViewController, UITableViewDataSource, UITableVi
     @IBOutlet weak var findMateTableView: UITableView!
     @IBOutlet var rootView: UIView!
     let MAX = 10000
-    let db = Firestore.firestore()
     var List : [Post] = []
     var habitCheckList : [String:HabitCheck] = [:] //key is uid
     var dbID: String = ""
@@ -121,7 +120,7 @@ class FindMateViewController: UIViewController, UITableViewDataSource, UITableVi
     func DataLoad() {
         List.removeAll()
         
-        self.db.collection("Post").order(by: "date", descending: true).getDocuments() { (querySnapshot, err) in
+        FireStoreService.db.collection("Post").order(by: "date", descending: true).getDocuments() { (querySnapshot, err) in
                 if let err = err {
                     print("Error getting documents: \(err)")
                 } else {
@@ -162,7 +161,7 @@ class FindMateViewController: UIViewController, UITableViewDataSource, UITableVi
     func getLoginUserSurvey(){
         guard Auth.auth().currentUser != nil else {return}
         if AppDelegate.user != nil {
-            let docRef = self.db.collection("User").document(Auth.auth().currentUser!.uid).collection("HabitCheck").document(Auth.auth().currentUser!.uid)
+            let docRef = FireStoreService.db.collection("User").document(Auth.auth().currentUser!.uid).collection("HabitCheck").document(Auth.auth().currentUser!.uid)
             docRef.getDocument { (document, error) in
                 if let document = document, document.exists {
                     //data load success.
@@ -196,7 +195,7 @@ class FindMateViewController: UIViewController, UITableViewDataSource, UITableVi
         
         // 글 작성한 유저들에 대해서 habitcheck을 받아온다. (유저 한명 당 한번만)
         for checkUid in writersUidList{
-            let docRef = self.db.collection("User").document(checkUid).collection("HabitCheck").document(checkUid)
+            let docRef = FireStoreService.db.collection("User").document(checkUid).collection("HabitCheck").document(checkUid)
             docRef.getDocument { (document, error) in
                 if let document = document, document.exists {
                     //data load success

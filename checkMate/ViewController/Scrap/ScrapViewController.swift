@@ -13,7 +13,7 @@ class ScrapViewController: UIViewController, UITableViewDataSource, UITableViewD
     @IBOutlet var scrapTableView: UITableView!
     
     var scrapTableViewController = UITableViewController()
-    let db = Firestore.firestore()
+   
     var ref: DocumentReference? = nil
     var List : [Post] = []
     
@@ -58,7 +58,7 @@ class ScrapViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     func existScrap(docPath:String, _ escapingHandler : @escaping (Bool) -> ()){
         var result = false
-        db.collection("Post").document(docPath).getDocument { (document, error) in
+        FireStoreService.db.collection("Post").document(docPath).getDocument { (document, error) in
             if let document = document, document.exists {
                 let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
                 print("Document data: \(dataDescription)")
@@ -76,7 +76,7 @@ class ScrapViewController: UIViewController, UITableViewDataSource, UITableViewD
         List.removeAll()
             //데이터 불러오기
         guard Auth.auth().currentUser != nil else {return}
-        self.db.collection("User").document(Auth.auth().currentUser!.uid).collection("Scrap").getDocuments() { [self] (querySnapshot, err) in
+        FireStoreService.db.collection("User").document(Auth.auth().currentUser!.uid).collection("Scrap").getDocuments() { [self] (querySnapshot, err) in
                     if let err = err {
                         print("Error getting documents: \(err)")
                     } else {
@@ -102,7 +102,7 @@ class ScrapViewController: UIViewController, UITableViewDataSource, UITableViewD
                                     
                                     self.scrapTableView.reloadData()
                                 } else{
-                                    self.db.collection("User").document(Auth.auth().currentUser!.uid).collection("Scrap").document(document.documentID).delete() { err in
+                                    FireStoreService.db.collection("User").document(Auth.auth().currentUser!.uid).collection("Scrap").document(document.documentID).delete() { err in
                                         if let err = err {
                                             print("Error removing document: \(err)")
                                         } else {

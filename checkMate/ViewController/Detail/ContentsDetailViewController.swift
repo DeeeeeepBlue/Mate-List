@@ -36,7 +36,6 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
     
     let color = UIColor.mainGrey
     
-    let db = Firestore.firestore()
     var lef: DatabaseReference!
     var List : [Post] = []
     var replyList: [reply] = []
@@ -58,7 +57,7 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
                 
                 contentsDetailData.isScrap = false
                 self.navigationItem.rightBarButtonItem?.image = UIImage(systemName: "star")
-                db.collection("User").document(Auth.auth().currentUser!.uid).collection("Scrap").document(contentsDetailData.pid).delete() { err in
+                FireStoreService.db.collection("User").document(Auth.auth().currentUser!.uid).collection("Scrap").document(contentsDetailData.pid).delete() { err in
                     if let err = err {
                         print("Error removing document: \(err)")
                     } else {
@@ -68,7 +67,7 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
             }else{
                 contentsDetailData.isScrap = true
                 self.navigationItem.rightBarButtonItem?.image = UIImage(systemName: "star.fill")
-                db.collection("User").document(Auth.auth().currentUser!.uid).collection("Scrap").document(contentsDetailData.pid).setData([
+                FireStoreService.db.collection("User").document(Auth.auth().currentUser!.uid).collection("Scrap").document(contentsDetailData.pid).setData([
                     "contents" : contentsDetailData.contents,
                     "title" :  contentsDetailData.title,
                     "uid" : contentsDetailData.uid,
@@ -88,20 +87,20 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
     
     @IBAction func goTotresh(_ sender: Any) {
         print("삭제")
-        let db = Firestore.firestore()
-        db.collection("Post").document("\(contentsDetailData.pid)").delete() { err in
+        
+        FireStoreService.db.collection("Post").document("\(contentsDetailData.pid)").delete() { err in
             if let err = err {
                 print("Error removing document: \(err)")
             } else {
                 print("Document successfully removed!")
             }
         }
-        db.collection("Post").document("\(contentsDetailData.pid)").collection("Comment").getDocuments() { (querySnapshot, err) in
+        FireStoreService.db.collection("Post").document("\(contentsDetailData.pid)").collection("Comment").getDocuments() { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
                 for document in querySnapshot!.documents {
-                    db.collection("Post").document(self.contentsDetailData.pid).collection("Comment").document(document.documentID).delete()
+                    FireStoreService.db.collection("Post").document(self.contentsDetailData.pid).collection("Comment").document(document.documentID).delete()
                 }
             }
         }
@@ -140,7 +139,7 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
                 present(alert, animated: true, completion: nil)
                 
             }else{
-                ref = db.collection("Post").document(contentsDetailData.pid).collection("Comment").addDocument(data: [
+                ref = FireStoreService.db.collection("Post").document(contentsDetailData.pid).collection("Comment").addDocument(data: [
                     "reply" : inputText!,
                     "uid" : Auth.auth().currentUser!.uid,
                     "user" : String(userName[0]),
@@ -177,7 +176,7 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
         
         if replyList.count > 0 {
             // 댓글의 문서 id 삭제
-            db.collection("Post").document(contentsDetailData.pid).collection("Comment").document(replyList[indexPath!.section].docid).delete() { err in
+            FireStoreService.db.collection("Post").document(contentsDetailData.pid).collection("Comment").document(replyList[indexPath!.section].docid).delete() { err in
                 if let err = err {
                     print("Error removing document: \(err)")
                 } else {
@@ -318,7 +317,7 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
     func DataLoad()  {
             //데이터 불러오기
         self.replyList.removeAll()
-        db.collection("Post").document(contentsDetailData?.pid ?? "").collection("Comment").order(by: "date").getDocuments() { (querySnapshot, err) in
+        FireStoreService.db.collection("Post").document(contentsDetailData?.pid ?? "").collection("Comment").order(by: "date").getDocuments() { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
@@ -359,7 +358,7 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
             //데이터 불러오기
         guard AppDelegate.user != nil else {return }
         var result: Bool = false
-        db.collection("User").document(Auth.auth().currentUser!.uid).collection("Scrap").document(contentsDetailData.pid).getDocument { (document, error) in
+        FireStoreService.db.collection("User").document(Auth.auth().currentUser!.uid).collection("Scrap").document(contentsDetailData.pid).getDocument { (document, error) in
             if let document = document, document.exists {
                 let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
                 print("Document data: \(dataDescription)")
@@ -434,7 +433,7 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
     
     func habitDataLoad()  {
             //데이터 불러오기
-        db.collection("User").document(currentData.uid).collection("HabitCheck").getDocuments() { (querySnapshot, err) in
+        FireStoreService.db.collection("User").document(currentData.uid).collection("HabitCheck").getDocuments() { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {

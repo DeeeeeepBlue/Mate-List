@@ -17,7 +17,7 @@ class ServeyInputViewController: UIViewController,UITableViewDelegate,UITableVie
     var selectedCountry: String?
 
     @IBOutlet weak var regbutton: UILabel!
-    let db = Firestore.firestore()
+    
     var lef: DatabaseReference!
     
     // Add a new document with a generated ID
@@ -109,7 +109,7 @@ class ServeyInputViewController: UIViewController,UITableViewDelegate,UITableVie
             "mbtiSelect" : mbtiSelect
         ]
         
-        db.collection("User").document(Auth.auth().currentUser!.uid).collection("HabitCheck").document(Auth.auth().currentUser!.uid).setData(select) { err in
+        FireStoreService.db.collection("User").document(Auth.auth().currentUser!.uid).collection("HabitCheck").document(Auth.auth().currentUser!.uid).setData(select) { err in
             if let err = err {
                 print("Error writing document: \(err)")
             } else {

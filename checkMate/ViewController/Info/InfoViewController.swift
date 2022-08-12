@@ -17,7 +17,7 @@ import AuthenticationServices
 import CryptoKit
 
 let signInConfig = GIDConfiguration.init(clientID: "14102016647-cle326t7m6o3u9n4pdoj5hesasjj5uio.apps.googleusercontent.com")
-let db = Firestore.firestore()
+
 
 var name=""
 var email=""
@@ -124,7 +124,7 @@ class Info: UIViewController{
                             
                         } else {
                             var flag: Bool = true
-                            db.collection("BlackList").whereField(Auth.auth().currentUser!.uid, isEqualTo: true).getDocuments() { (querySnapshot, err) in
+                            FireStoreService.db.collection("BlackList").whereField(Auth.auth().currentUser!.uid, isEqualTo: true).getDocuments() { (querySnapshot, err) in
                                 if let err = err {
                                     print("@@Error getting documents: \(err)")
                                 } else {
@@ -196,7 +196,7 @@ class Info: UIViewController{
     
     /// 데이터 로드
     func DataLoad() {
-        db.collection("User").getDocuments() { (querySnapshot, err) in
+        FireStoreService.db.collection("User").getDocuments() { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
@@ -220,7 +220,7 @@ class Info: UIViewController{
     
     /// user 게시글 삭제
     func deletePage(){
-        db.collection("Post").whereField("uid", isEqualTo: Auth.auth().currentUser!.uid).getDocuments() {(querySnapshot, err) in
+        FireStoreService.db.collection("Post").whereField("uid", isEqualTo: Auth.auth().currentUser!.uid).getDocuments() {(querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
@@ -230,7 +230,7 @@ class Info: UIViewController{
                 }
             }
             for document_id in D_Post_id {
-                db.collection("Post").document(document_id).delete() { err in
+                FireStoreService.db.collection("Post").document(document_id).delete() { err in
                     if let err = err {
                         print("Error removing document: \(err)")
                     } else {
@@ -244,12 +244,12 @@ class Info: UIViewController{
 
     /// Scrap 삭제
     func deleteScrap(){
-        db.collection("User").document(Auth.auth().currentUser!.uid).collection("Scrap").getDocuments() {(querySnapshot, err) in
+        FireStoreService.db.collection("User").document(Auth.auth().currentUser!.uid).collection("Scrap").getDocuments() {(querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
                 for document in querySnapshot!.documents {
-                    db.collection("User").document(Auth.auth().currentUser!.uid).collection("Scrap").document(document.documentID).delete() { err in
+                    FireStoreService.db.collection("User").document(Auth.auth().currentUser!.uid).collection("Scrap").document(document.documentID).delete() { err in
                         if let err = err {
                             print("Error removing document: \(err)")
                         } else {
@@ -263,12 +263,12 @@ class Info: UIViewController{
 
     /// User HabitCheck delete
     func deleteHabitCheck(){
-        db.collection("User").document(Auth.auth().currentUser!.uid).collection("HabitCheck").getDocuments() {(querySnapshot, err) in
+        FireStoreService.db.collection("User").document(Auth.auth().currentUser!.uid).collection("HabitCheck").getDocuments() {(querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
                 for document in querySnapshot!.documents {
-                    db.collection("User").document(Auth.auth().currentUser!.uid).collection("HabitCheck").document(document.documentID).delete() { err in
+                    FireStoreService.db.collection("User").document(Auth.auth().currentUser!.uid).collection("HabitCheck").document(document.documentID).delete() { err in
                         if let err = err {
                             print("Error removing document: \(err)")
                         } else {
@@ -282,7 +282,7 @@ class Info: UIViewController{
 
     /// 파이어베이스에 등록하기
     func registUserFirebase(user : String, email : String) {
-        db.collection("User").document(Auth.auth().currentUser!.uid).setData([
+        FireStoreService.db.collection("User").document(Auth.auth().currentUser!.uid).setData([
             "user" : user,
             "email" : email,
             "gender" : true,
@@ -297,7 +297,7 @@ class Info: UIViewController{
     
     /// 회원탈퇴
     func deleteUser() {
-        db.collection("User").document(Auth.auth().currentUser!.uid).delete() { err in
+        FireStoreService.db.collection("User").document(Auth.auth().currentUser!.uid).delete() { err in
             if let err = err {
                 print("Error removing document: \(err)")
             } else {
@@ -338,7 +338,7 @@ class Info: UIViewController{
     
     /// 로그인
     func modal_signIn(){
-        db.collection("User").document(Auth.auth().currentUser!.uid).setData([
+        FireStoreService.db.collection("User").document(Auth.auth().currentUser!.uid).setData([
             "user" : name,
             "email" : email,
             "gender" : true,

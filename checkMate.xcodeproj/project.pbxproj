@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0407C0AE28A66642006AFA59 /* GlobalFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0407C0AD28A66642006AFA59 /* GlobalFunctions.swift */; };
 		040AA09527BECD61008F4BF5 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040AA09427BECD61008F4BF5 /* User.swift */; };
 		040AA09727BECDDD008F4BF5 /* HabitCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040AA09627BECDDD008F4BF5 /* HabitCheck.swift */; };
 		040AA09927BECE16008F4BF5 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040AA09827BECE16008F4BF5 /* Comment.swift */; };
@@ -51,6 +52,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0407C0AD28A66642006AFA59 /* GlobalFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalFunctions.swift; sourceTree = "<group>"; };
 		040AA09427BECD61008F4BF5 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		040AA09627BECDDD008F4BF5 /* HabitCheck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitCheck.swift; sourceTree = "<group>"; };
 		040AA09827BECE16008F4BF5 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 			children = (
 				F757547727A4DF1A00BFDF9B /* LaunchScreen.storyboard */,
 				F7EEBACC27CF43B9009728AF /* Main.storyboard */,
+				0407C0AD28A66642006AFA59 /* GlobalFunctions.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -370,6 +373,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0407C0AE28A66642006AFA59 /* GlobalFunctions.swift in Sources */,
 				040AA09927BECE16008F4BF5 /* Comment.swift in Sources */,
 				040AA09727BECDDD008F4BF5 /* HabitCheck.swift in Sources */,
 				3FCF3B4E27F888EC008771B8 /* KeychainItem.swift in Sources */,

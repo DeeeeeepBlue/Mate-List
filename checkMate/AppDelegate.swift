@@ -27,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use Firebase library to configure APIs
         // Firebase 연결
         FirebaseApp.configure()
-        let db = Firestore.firestore()
+        
         
         signOut()
         

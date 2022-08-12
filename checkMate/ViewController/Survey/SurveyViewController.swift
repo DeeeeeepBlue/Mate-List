@@ -21,7 +21,7 @@ class SurveyViewController: UIViewController,UITableViewDelegate,UITableViewData
     @IBOutlet weak var regbutton: UILabel!
     var surveyView_user_id :String!
     var  surveyView_cont : HabitCheck!
-    let db = Firestore.firestore()
+   
     var lef: DatabaseReference!
     
     // Add a new document with a generated ID
