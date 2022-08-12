@@ -13,7 +13,7 @@
 		0444E00227C825A500B49F8B /* ScrapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0444E00127C825A500B49F8B /* ScrapViewController.swift */; };
 		044B812828A172AF002E8851 /* Survey.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7B4F41D27D7B5090045580F /* Survey.storyboard */; };
 		04BB243727ACED960003DA33 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BB243627ACED960003DA33 /* InfoViewController.swift */; };
-		3F2245BE27D62763002F29FE /* HexUIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2245BD27D62763002F29FE /* HexUIColor.swift */; };
+		3F2245BE27D62763002F29FE /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2245BD27D62763002F29FE /* UIColor.swift */; };
 		3FB23A5E27D79D3E00B8D071 /* FindMateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB23A5D27D79D3E00B8D071 /* FindMateTableViewCell.swift */; };
 		3FCF3B4E27F888EC008771B8 /* KeychainItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCF3B4D27F888EC008771B8 /* KeychainItem.swift */; };
 		3FF0B03C27DA4E2C00CA147A /* Info.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FF0B03B27DA4E2C00CA147A /* Info.storyboard */; };
@@ -46,7 +46,6 @@
 		F7B4F41A27D7B4CD0045580F /* SurveyViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B4F41927D7B4CD0045580F /* SurveyViewCell.swift */; };
 		F7B4F41C27D7B5030045580F /* SurveyInput.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7B4F41B27D7B5030045580F /* SurveyInput.storyboard */; };
 		F7B4F42027D7B7460045580F /* SurveyInputViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B4F41F27D7B7460045580F /* SurveyInputViewCell.swift */; };
-		F7B4F42227D7B8C10045580F /* RGBColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B4F42127D7B8C10045580F /* RGBColor.swift */; };
 		F7CDDF0F27D6E96300DB6A30 /* ContentsDetailView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7CDDF0E27D6E96300DB6A30 /* ContentsDetailView.storyboard */; };
 		F7EEBACD27CF43B9009728AF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7EEBACC27CF43B9009728AF /* Main.storyboard */; };
 /* End PBXBuildFile section */
@@ -57,7 +56,7 @@
 		040AA09827BECE16008F4BF5 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		0444E00127C825A500B49F8B /* ScrapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrapViewController.swift; sourceTree = "<group>"; };
 		04BB243627ACED960003DA33 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
-		3F2245BD27D62763002F29FE /* HexUIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexUIColor.swift; sourceTree = "<group>"; };
+		3F2245BD27D62763002F29FE /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		3FB23A5D27D79D3E00B8D071 /* FindMateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindMateTableViewCell.swift; sourceTree = "<group>"; };
 		3FCF3B4927F88552008771B8 /* checkMate.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = checkMate.entitlements; sourceTree = "<group>"; };
 		3FCF3B4D27F888EC008771B8 /* KeychainItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainItem.swift; sourceTree = "<group>"; };
@@ -85,7 +84,6 @@
 		F7B4F41B27D7B5030045580F /* SurveyInput.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SurveyInput.storyboard; sourceTree = "<group>"; };
 		F7B4F41D27D7B5090045580F /* Survey.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Survey.storyboard; sourceTree = "<group>"; };
 		F7B4F41F27D7B7460045580F /* SurveyInputViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SurveyInputViewCell.swift; sourceTree = "<group>"; };
-		F7B4F42127D7B8C10045580F /* RGBColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RGBColor.swift; sourceTree = "<group>"; };
 		F7CDDF0E27D6E96300DB6A30 /* ContentsDetailView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ContentsDetailView.storyboard; sourceTree = "<group>"; };
 		F7EEBACC27CF43B9009728AF /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -108,6 +106,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0407C0AB28A6111D006AFA59 /* extention */ = {
+			isa = PBXGroup;
+			children = (
+				3F2245BD27D62763002F29FE /* UIColor.swift */,
+			);
+			path = extention;
+			sourceTree = "<group>";
+		};
 		040AA09327BECD53008F4BF5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -187,8 +193,7 @@
 		044B812628A14EBD002E8851 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				3F2245BD27D62763002F29FE /* HexUIColor.swift */,
-				F7B4F42127D7B8C10045580F /* RGBColor.swift */,
+				0407C0AB28A6111D006AFA59 /* extention */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -365,7 +370,7 @@
 				F76B581527C5378100B6626D /* DetailTextView.swift in Sources */,
 				F743792227ABDA8E0053947A /* Data.swift in Sources */,
 				F76B582427C5380600B6626D /* WriteViewController.swift in Sources */,
-				3F2245BE27D62763002F29FE /* HexUIColor.swift in Sources */,
+				3F2245BE27D62763002F29FE /* UIColor.swift in Sources */,
 				F75452E727C7C59900E2DB41 /* Post.swift in Sources */,
 				F757546D27A4DF1800BFDF9B /* AppDelegate.swift in Sources */,
 				3FB23A5E27D79D3E00B8D071 /* FindMateTableViewCell.swift in Sources */,
@@ -373,7 +378,6 @@
 				F757546F27A4DF1800BFDF9B /* SceneDelegate.swift in Sources */,
 				F7B4F41827D7B4C00045580F /* ServeyInputViewController.swift in Sources */,
 				F7B4F42027D7B7460045580F /* SurveyInputViewCell.swift in Sources */,
-				F7B4F42227D7B8C10045580F /* RGBColor.swift in Sources */,
 				0444E00227C825A500B49F8B /* ScrapViewController.swift in Sources */,
 				04BB243727ACED960003DA33 /* InfoViewController.swift in Sources */,
 				F7B4F41627D7B4B80045580F /* SurveyViewController.swift in Sources */,
