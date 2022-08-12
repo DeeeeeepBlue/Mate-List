@@ -9,37 +9,20 @@ import UIKit
 import FirebaseFirestore
 import FirebaseAuth
 
-class WriteViewController: UIViewController, UITextViewDelegate {
 
+class WriteViewController: UIViewController, UITextViewDelegate {
+    
+    //MARK: - Properties
     @IBOutlet weak var writeButton: UIButton!
     @IBOutlet weak var tittleTextField: UITextField!
-    
     @IBOutlet weak var contentTextView: UITextView!
-    var db: Firestore!
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        haveUesr()
-    }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        
-        placeholderSetting()
-        db = Firestore.firestore()
-        
-        writeButton.layer.cornerRadius = 20
-        writeButton.layer.borderWidth = 0.5
-        writeButton.layer.borderColor = UIColor.gray.cgColor
-        
-        // Do any additional setup after loading the view.
-    }
-    
-    // 글쓰기 저장 버튼
+    //MARK: - IBAction
+    /// 글쓰기 저장 버튼
     @IBAction func saveButton(_ sender: Any) {
         // 유저 이름 분리하기
-        let str = AppDelegate.user.profile!.email as String 
+        let str = AppDelegate.user.profile!.email as String
         var userName = str.split(separator: "@")
     
         
@@ -53,7 +36,7 @@ class WriteViewController: UIViewController, UITextViewDelegate {
         }
         
         // 제목과 내용에 글이 있을때, 리스트에 변수를 추가
-        if titleText!.count > 0 && contentText!.count > 0 {
+        if titleText!.isEmpty && contentText!.isEmpty {
             findMateData.append(newWriting)
         }
         else {}
@@ -104,8 +87,27 @@ class WriteViewController: UIViewController, UITextViewDelegate {
     }
     
 
+    //MARK: - Life Cycle
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        haveUesr()
+    }
     
-    // 날짜 가져오기
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        
+        placeholderSetting()
+        
+        writeButton.layer.cornerRadius = 20
+        writeButton.layer.borderWidth = 0.5
+        writeButton.layer.borderColor = UIColor.gray.cgColor
+        
+        // Do any additional setup after loading the view.
+    }
+  
+    // MARK: - Custom Function
+    /// 날짜 가져오기
     func getDate() -> String {
         let now = Date()
         let date = DateFormatter()
@@ -116,7 +118,7 @@ class WriteViewController: UIViewController, UITextViewDelegate {
         return kr
     }
     
-    // 유저가 로그인 했는지 확인
+    /// 유저가 로그인 했는지 확인
     func haveUesr() {
         guard AppDelegate.user == nil else {return}
         let alert = UIAlertController(title: "유저가 없습니다", message: "로그인을 해주세요!", preferredStyle: UIAlertController.Style.alert)
@@ -129,7 +131,7 @@ class WriteViewController: UIViewController, UITextViewDelegate {
         
     }
     
-    // 텍스트뷰 플레이스 홀더 코드
+    /// 텍스트뷰 플레이스 홀더 코드
     func placeholderSetting() {
         contentTextView.delegate = self
         contentTextView.text = "Fill the content."
@@ -138,7 +140,7 @@ class WriteViewController: UIViewController, UITextViewDelegate {
     }
     
     
-    // 텍스트뷰 플레이스 홀더 코드
+    /// 텍스트뷰 플레이스 홀더 코드
     func textViewDidBeginEditing(_ textView: UITextView) {
         if contentTextView.textColor == UIColor.lightGray {
             contentTextView.text = nil
@@ -146,24 +148,13 @@ class WriteViewController: UIViewController, UITextViewDelegate {
         }
         
     }
-    // 텍스트뷰 플레이스 홀더 코드
+    
+    /// 텍스트뷰 플레이스 홀더 코드
     func textViewDidEndEditing(_ textView: UITextView) {
         if contentTextView.text.isEmpty {
             contentTextView.text = "Fill the content."
             contentTextView.textColor = UIColor.lightGray
         }
     }
-
-
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

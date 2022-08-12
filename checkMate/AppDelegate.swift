@@ -9,12 +9,15 @@ import GoogleSignIn
 import UIKit
 import Firebase
 import AuthenticationServices
+import FirebaseCore
+import FirebaseFirestore
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     public static var user: GIDGoogleUser!
     public static var userApple : AuthDataResult?
+    
     
 
     
@@ -24,7 +27,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use Firebase library to configure APIs
         // Firebase 연결
         FirebaseApp.configure()
-    
+        let db = Firestore.firestore()
+        
         signOut()
         
         /// 🍎 Apple login
