@@ -17,17 +17,13 @@ import AuthenticationServices
 import CryptoKit
 
 let signInConfig = GIDConfiguration.init(clientID: "14102016647-cle326t7m6o3u9n4pdoj5hesasjj5uio.apps.googleusercontent.com")
-
-
 var name=""
 var email=""
 var D_Post_id: [String] = []
 fileprivate var currentNonce: String?
 
 class Info: UIViewController{
-    
-    
-    
+    //MARK: - Properties
     @IBOutlet weak var inquiryButton: UIButton!
     @IBOutlet weak var btnout: UIButton!
     @IBOutlet weak var surveyButton: UIButton!
@@ -41,53 +37,30 @@ class Info: UIViewController{
     var Member_email : [String]=[]
     var dataloading = false
 
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        DataLoad()
-        loginButtonActive()
-        cornerRadius()
-        setupProviderLoginView()
-        
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        
-        DataLoad()
-        if(AppDelegate.user == nil){
-            btnout.isHidden=true
-        }
-        else {
-            btnout.isHidden=false
-        }
-        if(new_mem_agree==1){
-            modal_signIn()
-        }else if(new_mem_agree==2){
-            modal_signOut()
-        }
-        
-    }
-    
+    //MARK: - IBAction
     /// 회원탈퇴
     @IBAction func opt_out_request(_ sender: Any) {
-        //Habit check 삭제
-        deleteHabitCheck()
+        let uid = Auth.auth().currentUser!.uid
         //Scrap 삭제
-        deleteScrap()
-                
-        // USER 삭제
-       deleteUser()
+        deleteScrap(uid: uid)
+        
+        //Habit check 삭제
+        deleteHabitCheck(uid: uid)
         
         //User가 작성한 글 삭제
-        deletePage()
+        deletePage(uid: uid)
+        
+        // USER 삭제
+        deleteUser(uid: uid)
+        
                     
         let alert = UIAlertController(title: "탈퇴", message: "탈퇴완료!", preferredStyle: UIAlertController.Style.alert)
         let okAction = UIAlertAction(title: "OK", style: .default) {_ in
         }
         alert.addAction(okAction)
-        
         self.present(alert, animated: true, completion: nil)
-        modal_signOut()
+        
+        // modal_signOut()
         new_mem_agree=0
         
             
@@ -160,7 +133,7 @@ class Info: UIViewController{
                                     }
                                 } else {
                                     //gnu 메일이 아니면 회원탈퇴 및 로그아웃
-                                    self.deleteUser()
+                                    self.deleteUser(uid: Auth.auth().currentUser?.uid ?? "")
                                 }
                                 
                             }
@@ -194,33 +167,70 @@ class Info: UIViewController{
         new_mem_agree=0
     }
     
-    /// 데이터 로드
-    func DataLoad() {
-        FireStoreService.db.collection("User").getDocuments() { (querySnapshot, err) in
-            if let err = err {
-                print("Error getting documents: \(err)")
-            } else {
-                self.Member_email.removeAll()
-                //querySnapshot!.documents : Array -> 딕셔너리 타입임 data() 함수 사용시 내용 확인 가능
-                //ex) let value = querySnapshot!.documents[0].data()
-                //    value["callSelect", default: 0]
-                for document in querySnapshot!.documents {
-                    let value = document.data()
-                    
-                    let uid_db = value["email"] as? String ?? ""
-                    self.Member_email.append(uid_db)
-                }
-                
-            }
-            
-            self.dataloading=true
+    
+    //MARK: - Life Cycle
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        DataLoad()
+        loginButtonActive()
+        cornerRadius()
+        setupProviderLoginView()
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        DataLoad()
+        if(AppDelegate.user == nil){
+            btnout.isHidden=true
+        }
+        else {
+            btnout.isHidden=false
+        }
+        if(new_mem_agree==1){
+            modal_signIn()
+        }else if(new_mem_agree==2){
+            modal_signOut()
         }
         
     }
     
+    //MARK: - Sign In
+    /// 파이어베이스에 등록하기
+    func registUserFirebase(user : String, email : String) {
+        FireStoreService.db.collection("User").document(Auth.auth().currentUser!.uid).setData([
+            "user" : user,
+            "email" : email,
+            "gender" : true,
+            "uid" : Auth.auth().currentUser!.uid
+        ])
+        nameLabel.text = user
+        emailLabel.text = email
+        logoutButtonActive()
+        btnout.isHidden=false
+        loginProviderStackView.isHidden = true
+    }
+  
+    /// 로그인
+    func modal_signIn(){
+        FireStoreService.db.collection("User").document(Auth.auth().currentUser!.uid).setData([
+            "user" : name,
+            "email" : email,
+            "gender" : true,
+            "uid" : Auth.auth().currentUser!.uid
+        ])
+        
+        self.nameLabel!.text = name
+        self.emailLabel!.text = email
+        logoutButtonActive()
+        btnout.isHidden=false
+        self.loginProviderStackView.isHidden = true
+    }
+    //MARK: - Sign Out
     /// user 게시글 삭제
-    func deletePage(){
-        FireStoreService.db.collection("Post").whereField("uid", isEqualTo: Auth.auth().currentUser!.uid).getDocuments() {(querySnapshot, err) in
+    func deletePage(uid : String){
+        FireStoreService.db.collection("Post").whereField("uid", isEqualTo: uid).getDocuments() {(querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
@@ -243,13 +253,13 @@ class Info: UIViewController{
     }
 
     /// Scrap 삭제
-    func deleteScrap(){
-        FireStoreService.db.collection("User").document(Auth.auth().currentUser!.uid).collection("Scrap").getDocuments() {(querySnapshot, err) in
+    func deleteScrap(uid : String){
+        FireStoreService.db.collection("User").document(uid).collection("Scrap").getDocuments() {(querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
                 for document in querySnapshot!.documents {
-                    FireStoreService.db.collection("User").document(Auth.auth().currentUser!.uid).collection("Scrap").document(document.documentID).delete() { err in
+                    FireStoreService.db.collection("User").document(uid).collection("Scrap").document(document.documentID).delete() { err in
                         if let err = err {
                             print("Error removing document: \(err)")
                         } else {
@@ -261,14 +271,14 @@ class Info: UIViewController{
         }
     }
 
-    /// User HabitCheck delete
-    func deleteHabitCheck(){
-        FireStoreService.db.collection("User").document(Auth.auth().currentUser!.uid).collection("HabitCheck").getDocuments() {(querySnapshot, err) in
+    /// User HabitCheck 삭제
+    func deleteHabitCheck(uid : String){
+        FireStoreService.db.collection("User").document(uid).collection("HabitCheck").getDocuments() {(querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
                 for document in querySnapshot!.documents {
-                    FireStoreService.db.collection("User").document(Auth.auth().currentUser!.uid).collection("HabitCheck").document(document.documentID).delete() { err in
+                    FireStoreService.db.collection("User").document(uid).collection("HabitCheck").document(document.documentID).delete() { err in
                         if let err = err {
                             print("Error removing document: \(err)")
                         } else {
@@ -278,26 +288,13 @@ class Info: UIViewController{
                 }
             }
         }
-    }
-
-    /// 파이어베이스에 등록하기
-    func registUserFirebase(user : String, email : String) {
-        FireStoreService.db.collection("User").document(Auth.auth().currentUser!.uid).setData([
-            "user" : user,
-            "email" : email,
-            "gender" : true,
-            "uid" : Auth.auth().currentUser!.uid
-        ])
-        nameLabel.text = user
-        emailLabel.text = email
-        logoutButtonActive()
-        btnout.isHidden=false
-        loginProviderStackView.isHidden = true
     }
     
+    
     /// 회원탈퇴
-    func deleteUser() {
-        FireStoreService.db.collection("User").document(Auth.auth().currentUser!.uid).delete() { err in
+    func deleteUser(uid : String) {
+        
+        FireStoreService.db.collection("User").document(uid).delete() { err in
             if let err = err {
                 print("Error removing document: \(err)")
             } else {
@@ -336,22 +333,34 @@ class Info: UIViewController{
         self.viewDidLoad()
     }
     
-    /// 로그인
-    func modal_signIn(){
-        FireStoreService.db.collection("User").document(Auth.auth().currentUser!.uid).setData([
-            "user" : name,
-            "email" : email,
-            "gender" : true,
-            "uid" : Auth.auth().currentUser!.uid
-        ])
+    
+   //MARK: - Data Load
+    /// 데이터 로드
+    func DataLoad() {
+        FireStoreService.db.collection("User").getDocuments() { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                self.Member_email.removeAll()
+                //querySnapshot!.documents : Array -> 딕셔너리 타입임 data() 함수 사용시 내용 확인 가능
+                //ex) let value = querySnapshot!.documents[0].data()
+                //    value["callSelect", default: 0]
+                for document in querySnapshot!.documents {
+                    let value = document.data()
+                    
+                    let uid_db = value["email"] as? String ?? ""
+                    self.Member_email.append(uid_db)
+                }
+                
+            }
+            
+            self.dataloading=true
+        }
         
-        self.nameLabel!.text = name
-        self.emailLabel!.text = email
-        logoutButtonActive()
-        btnout.isHidden=false
-        self.loginProviderStackView.isHidden = true
     }
-  
+    
+
+    //MARK: - UI Set
     /// 블랙 리스트 alert
     func blackAlert() {
         let alert = UIAlertController(title: "블랙 리스트", message: "해당 사용자는 타 사용자의 신고로 인해 블랙리스트에 추가되었습니다. 이의가 있으시면 문의하기로 연락 부탁드립니다.", preferredStyle: UIAlertController.Style.alert)

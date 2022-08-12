@@ -18,9 +18,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     public static var user: GIDGoogleUser!
     public static var userApple : AuthDataResult?
     
-    
-
-    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
