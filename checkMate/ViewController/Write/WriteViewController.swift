@@ -36,7 +36,8 @@ class WriteViewController: UIViewController, UITextViewDelegate {
         }
         
         // 제목과 내용에 글이 있을때, 리스트에 변수를 추가
-        if titleText!.isEmpty && contentText!.isEmpty {
+        if !contentText!.trimmingCharacters(in: .whitespacesAndNewlines)
+            .isEmpty || !titleText!.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
             findMateData.append(newWriting)
         }
         else {}
@@ -45,7 +46,8 @@ class WriteViewController: UIViewController, UITextViewDelegate {
         
         
         
-        if contentText!.count<=0||titleText!.count<=0||contentText!=="Fill the content."{
+        if contentText!.trimmingCharacters(in: .whitespacesAndNewlines)
+            .isEmpty||titleText!.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty||contentText!=="Fill the content."{
             let alert = UIAlertController(title: "내용 없음", message: "내용을 입력해 주세요!", preferredStyle: UIAlertController.Style.alert)
             let okAction = UIAlertAction(title: "OK", style: .default) {_ in
             }
