@@ -17,9 +17,7 @@ import AuthenticationServices
 import CryptoKit
 
 
-// flag : firebase User collection에 현재 로그인하는 아이디가 존재하는 지 확인
 var flag: Bool = true
-
 let signInConfig = GIDConfiguration.init(clientID: "14102016647-cle326t7m6o3u9n4pdoj5hesasjj5uio.apps.googleusercontent.com")
 var name=""
 var email=""
@@ -100,7 +98,7 @@ class Info: UIViewController{
                             return
                         } else {
                             self.checkBlack()
-                            self.checkSchool(flag: flag, emailAddress: email, name: name)
+                            self.checkSchool(emailAddress: email, name: name)
                         }
                     }
                 }
@@ -172,32 +170,37 @@ class Info: UIViewController{
                     // 로그아웃 하기
                     self.signOut(self)
                 }
-                flag = false
             }
         }
     }
     
     /// 경상대 확인 함수
-    /// flag : firebase User collection에 현재 로그인하는 아이디가 존재하는 지 확인
-    func checkSchool(flag : Bool, emailAddress : String, name : String) {
-        if flag {
-            // gnu 메일인지 확인
-            if emailAddress.contains(gnumaile){
-                //이미 회원가입한 멤버가 아닌지 확인
-                if(!self.Member_email.contains(emailAddress) && new_mem_agree != 1){
-                    agreeCheck()
-                }else{
-                    // 기존 가입된 계정이면 파이어베이스에 등록
-                    self.registUserFirebase(user: name, email: emailAddress)
-                }
-            } else {
-                //gnu 메일이 아니면 회원탈퇴 및 로그아웃
-                self.deleteUser(uid: Auth.auth().currentUser?.uid ?? "")
-                self.modal_signOut()
+    func checkSchool( emailAddress : String, name : String) {
+        // gnu 메일인지 확인
+        if emailAddress.contains(gnumaile){
+            //이미 회원가입한 멤버가 아닌지 확인
+            if(!self.Member_email.contains(emailAddress) && new_mem_agree != 1){
+                agreeCheck()
+            }else{
+                // 기존 가입된 계정이면 파이어베이스에 등록
+                self.registUserFirebase(user: name, email: emailAddress)
             }
+        } else {
+            //gnu 메일이 아니면 회원탈퇴 및 로그아웃
+            self.schoolAlert()
+            self.deleteUser(uid: Auth.auth().currentUser?.uid ?? "")
+            self.modal_signOut()
         }
     }
-    
+    /// 학생 아님 경고창
+    func schoolAlert(){
+        let alert = UIAlertController(title: "경상대 학생이 아님", message: "gnu 메일로 로그인해 주세요 !!", preferredStyle: UIAlertController.Style.alert)
+        let okAction = UIAlertAction(title: "OK", style: .default) {_ in
+        }
+        alert.addAction(okAction)
+        
+        self.present(alert, animated: true, completion: nil)
+    }
     
     /// 개인정보 제공 동의서 제출
     func agreeCheck(){
@@ -312,16 +315,11 @@ class Info: UIViewController{
                 print("Error removing document: \(err)")
             } else {
                 print("Document successfully removed!")
-                
-                let alert = UIAlertController(title: "경상대 학생이 아님", message: "gnu 메일로 로그인해 주세요 !!", preferredStyle: UIAlertController.Style.alert)
-                let okAction = UIAlertAction(title: "OK", style: .default) {_ in
-                }
-                alert.addAction(okAction)
-                
-                self.present(alert, animated: true, completion: nil)
             }
         }
     }
+    
+
     
     /// 로그아웃
     func modal_signOut(){
