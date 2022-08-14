@@ -16,6 +16,10 @@ import SwiftUI
 import AuthenticationServices
 import CryptoKit
 
+
+// flag : firebase User collection에 현재 로그인하는 아이디가 존재하는 지 확인
+var flag: Bool = true
+
 let signInConfig = GIDConfiguration.init(clientID: "14102016647-cle326t7m6o3u9n4pdoj5hesasjj5uio.apps.googleusercontent.com")
 var name=""
 var email=""
@@ -36,7 +40,7 @@ class Info: UIViewController{
     
     var Member_email : [String]=[]
     var dataloading = false
-
+    
     //MARK: - IBAction
     /// 회원탈퇴
     @IBAction func opt_out_request(_ sender: Any) {
@@ -55,17 +59,17 @@ class Info: UIViewController{
         
         // App Delegate 로그아웃
         modal_signOut()
-                    
+        
         let alert = UIAlertController(title: "탈퇴", message: "탈퇴완료!", preferredStyle: UIAlertController.Style.alert)
         let okAction = UIAlertAction(title: "OK", style: .default) {_ in
         }
         alert.addAction(okAction)
         self.present(alert, animated: true, completion: nil)
         
-      
-       
         
-            
+        
+        
+        
     }
     
     /// 로그인
@@ -76,11 +80,9 @@ class Info: UIViewController{
                 guard let user = user else { return }
                 
                 AppDelegate.user = user
-                let emailAddress = user.profile?.email
-                let fullName = user.profile?.name
-                
-                name = fullName!
-                email = emailAddress!
+                email = user.profile!.email
+                name = user.profile!.name
+            
                 
                 user.authentication.do { authentication, error in
                     guard error == nil else { return }
@@ -96,52 +98,10 @@ class Info: UIViewController{
                         if let error = error {
                             print("Firebase sign in error: \(error)")
                             return
-                            
                         } else {
-                            var flag: Bool = true
-                            FireStoreService.db.collection("BlackList").whereField(Auth.auth().currentUser!.uid, isEqualTo: true).getDocuments() { (querySnapshot, err) in
-                                if let err = err {
-                                    print("@@Error getting documents: \(err)")
-                                } else {
-                                    for document in querySnapshot!.documents {
-                                        // 알럴트로 사용자에게 알리기
-                                        self.blackAlert()
-                                        // 로그아웃 하기
-                                        self.signOut(self)
-                                    }
-                                    flag = false
-                                }
-                                
-                            }
-                            print("User is signed with Firebase&Google")
-                            // 로그인 버튼 숨기고 로그아웃 버튼 만들기
-                            let gnumaile = "gnu.ac.kr"
-                            //firebase User collection에 현재 로그인하는 아이디가 존재하는 지 확인
-                            if flag {
-                                // gnu 메일인지 확인
-                                if emailAddress!.contains(gnumaile){
-                                    //이미 회원가입한 멤버가 아닌지 확인
-                                    if(!self.Member_email.contains(emailAddress!) && new_mem_agree != 1){
-                                        let storyboard = UIStoryboard(name: "consent_popup", bundle: nil)
-                                        //컨트롤러 객체 생성, Storyboard ID에 이름 설정(이동할 VC에 설정한 Storyboard ID)
-                                        let secondVC: consent_popup = storyboard.instantiateViewController(withIdentifier: "consent_popup") as! consent_popup
-                                        new_mem_agree=2
-                                        //기본값이 fullScreen이므로 해당 라인은 생략 가능
-                                        secondVC.modalPresentationStyle = .fullScreen
-                                        self.present(secondVC, animated: true, completion: nil)
-                                    }else{
-                                        // 기존 가입된 계정이면 파이어베이스에 등록
-                                        self.registUserFirebase(user: fullName!, email: emailAddress!)
-                                    }
-                                } else {
-                                    //gnu 메일이 아니면 회원탈퇴 및 로그아웃
-                                    self.deleteUser(uid: Auth.auth().currentUser?.uid ?? "")
-                                    self.modal_signOut()
-                                }
-                                
-                            }
+                            self.checkBlack()
+                            self.checkSchool(flag: flag, emailAddress: email, name: name)
                         }
-                        
                     }
                 }
             }
@@ -200,6 +160,57 @@ class Info: UIViewController{
     }
     
     //MARK: - Sign In
+    /// 블랙리스트 체크
+    func checkBlack() {
+        FireStoreService.db.collection("BlackList").whereField(Auth.auth().currentUser!.uid, isEqualTo: true).getDocuments() { (querySnapshot, err) in
+            if let err = err {
+                print("@@Error getting documents: \(err)")
+            } else {
+                for _ in querySnapshot!.documents {
+                    // 알럴트로 사용자에게 알리기
+                    self.blackAlert()
+                    // 로그아웃 하기
+                    self.signOut(self)
+                }
+                flag = false
+            }
+        }
+    }
+    
+    /// 경상대 확인 함수
+    /// flag : firebase User collection에 현재 로그인하는 아이디가 존재하는 지 확인
+    func checkSchool(flag : Bool, emailAddress : String, name : String) {
+        if flag {
+            // gnu 메일인지 확인
+            if emailAddress.contains(gnumaile){
+                //이미 회원가입한 멤버가 아닌지 확인
+                if(!self.Member_email.contains(emailAddress) && new_mem_agree != 1){
+                    agreeCheck()
+                }else{
+                    // 기존 가입된 계정이면 파이어베이스에 등록
+                    self.registUserFirebase(user: name, email: emailAddress)
+                }
+            } else {
+                //gnu 메일이 아니면 회원탈퇴 및 로그아웃
+                self.deleteUser(uid: Auth.auth().currentUser?.uid ?? "")
+                self.modal_signOut()
+            }
+        }
+    }
+    
+    
+    /// 개인정보 제공 동의서 제출
+    func agreeCheck(){
+        let storyboard = UIStoryboard(name: "consent_popup", bundle: nil)
+        //컨트롤러 객체 생성, Storyboard ID에 이름 설정(이동할 VC에 설정한 Storyboard ID)
+        let secondVC: consent_popup = storyboard.instantiateViewController(withIdentifier: "consent_popup") as! consent_popup
+        new_mem_agree=2
+        //기본값이 fullScreen이므로 해당 라인은 생략 가능
+        secondVC.modalPresentationStyle = .fullScreen
+        self.present(secondVC, animated: true, completion: nil)
+    }
+    
+    
     /// 파이어베이스에 등록하기
     func registUserFirebase(user : String, email : String) {
         FireStoreService.db.collection("User").document(Auth.auth().currentUser!.uid).setData([
@@ -214,7 +225,7 @@ class Info: UIViewController{
         btnout.isHidden=false
         loginProviderStackView.isHidden = true
     }
-  
+    
     /// 로그인
     func modal_signIn(){
         FireStoreService.db.collection("User").document(Auth.auth().currentUser!.uid).setData([
@@ -251,10 +262,10 @@ class Info: UIViewController{
                     }
                 }
             }
-        
+            
         }
     }
-
+    
     /// Scrap 삭제
     func deleteScrap(uid : String){
         FireStoreService.db.collection("User").document(uid).collection("Scrap").getDocuments() {(querySnapshot, err) in
@@ -273,7 +284,7 @@ class Info: UIViewController{
             }
         }
     }
-
+    
     /// User HabitCheck 삭제
     func deleteHabitCheck(uid : String){
         FireStoreService.db.collection("User").document(uid).collection("HabitCheck").getDocuments() {(querySnapshot, err) in
@@ -335,7 +346,7 @@ class Info: UIViewController{
     }
     
     
-   //MARK: - Data Load
+    //MARK: - Data Load
     /// 데이터 로드
     func DataLoad() {
         FireStoreService.db.collection("User").getDocuments() { (querySnapshot, err) in
@@ -360,7 +371,7 @@ class Info: UIViewController{
         
     }
     
-
+    
     //MARK: - UI Set
     /// 블랙 리스트 alert
     func blackAlert() {
@@ -432,7 +443,7 @@ class Info: UIViewController{
             self.dismiss(animated: true, completion: nil)
         }
     }
-
+    
     
     ///Apple 로그인 버튼 생성
     func setupProviderLoginView() {

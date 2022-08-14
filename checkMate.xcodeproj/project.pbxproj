@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0407C0AE28A66642006AFA59 /* GlobalFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0407C0AD28A66642006AFA59 /* GlobalFunctions.swift */; };
+		0407C0B128A91A65006AFA59 /* Email.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0407C0B028A91A65006AFA59 /* Email.swift */; };
 		040AA09527BECD61008F4BF5 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040AA09427BECD61008F4BF5 /* User.swift */; };
 		040AA09727BECDDD008F4BF5 /* HabitCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040AA09627BECDDD008F4BF5 /* HabitCheck.swift */; };
 		040AA09927BECE16008F4BF5 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040AA09827BECE16008F4BF5 /* Comment.swift */; };
@@ -53,6 +54,7 @@
 
 /* Begin PBXFileReference section */
 		0407C0AD28A66642006AFA59 /* GlobalFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalFunctions.swift; sourceTree = "<group>"; };
+		0407C0B028A91A65006AFA59 /* Email.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Email.swift; sourceTree = "<group>"; };
 		040AA09427BECD61008F4BF5 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		040AA09627BECDDD008F4BF5 /* HabitCheck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitCheck.swift; sourceTree = "<group>"; };
 		040AA09827BECE16008F4BF5 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
@@ -123,6 +125,14 @@
 				F76B581D27C5380600B6626D /* WriteViewController.swift */,
 			);
 			path = Write;
+			sourceTree = "<group>";
+		};
+		0407C0AF28A91A48006AFA59 /* Constant */ = {
+			isa = PBXGroup;
+			children = (
+				0407C0B028A91A65006AFA59 /* Email.swift */,
+			);
+			path = Constant;
 			sourceTree = "<group>";
 		};
 		040AA09327BECD53008F4BF5 /* Model */ = {
@@ -203,6 +213,7 @@
 		044B812628A14EBD002E8851 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				0407C0AF28A91A48006AFA59 /* Constant */,
 				0407C0AB28A6111D006AFA59 /* extention */,
 			);
 			path = Resource;
@@ -387,6 +398,7 @@
 				F757546D27A4DF1800BFDF9B /* AppDelegate.swift in Sources */,
 				3FB23A5E27D79D3E00B8D071 /* FindMateTableViewCell.swift in Sources */,
 				A60D25A327F7317700E6A553 /* consent_popup.swift in Sources */,
+				0407C0B128A91A65006AFA59 /* Email.swift in Sources */,
 				F757546F27A4DF1800BFDF9B /* SceneDelegate.swift in Sources */,
 				F7B4F41827D7B4C00045580F /* ServeyInputViewController.swift in Sources */,
 				F7B4F42027D7B7460045580F /* SurveyInputViewCell.swift in Sources */,
