@@ -53,6 +53,8 @@ class Info: UIViewController{
         // USER 삭제
         deleteUser(uid: uid)
         
+        // App Delegate 로그아웃
+        modal_signOut()
                     
         let alert = UIAlertController(title: "탈퇴", message: "탈퇴완료!", preferredStyle: UIAlertController.Style.alert)
         let okAction = UIAlertAction(title: "OK", style: .default) {_ in
@@ -60,15 +62,15 @@ class Info: UIViewController{
         alert.addAction(okAction)
         self.present(alert, animated: true, completion: nil)
         
-        // modal_signOut()
-        new_mem_agree=0
+      
+       
         
             
     }
     
     /// 로그인
     @IBAction func signIn(sender: Any) {
-        if(dataloading){
+        if (dataloading){
             GIDSignIn.sharedInstance.signIn(with: signInConfig, presenting: self) { user, error in
                 guard error == nil else { return }
                 guard let user = user else { return }
@@ -134,6 +136,7 @@ class Info: UIViewController{
                                 } else {
                                     //gnu 메일이 아니면 회원탈퇴 및 로그아웃
                                     self.deleteUser(uid: Auth.auth().currentUser?.uid ?? "")
+                                    self.modal_signOut()
                                 }
                                 
                             }
@@ -291,16 +294,14 @@ class Info: UIViewController{
     }
     
     
-    /// 회원탈퇴
+    /// User 삭제
     func deleteUser(uid : String) {
-        
         FireStoreService.db.collection("User").document(uid).delete() { err in
             if let err = err {
                 print("Error removing document: \(err)")
             } else {
                 print("Document successfully removed!")
                 
-                self.modal_signOut()
                 let alert = UIAlertController(title: "경상대 학생이 아님", message: "gnu 메일로 로그인해 주세요 !!", preferredStyle: UIAlertController.Style.alert)
                 let okAction = UIAlertAction(title: "OK", style: .default) {_ in
                 }
@@ -330,7 +331,7 @@ class Info: UIViewController{
         new_mem_agree=0
         btnout.isHidden=true
         self.loginProviderStackView.isHidden = false
-        self.viewDidLoad()
+        
     }
     
     
@@ -433,12 +434,13 @@ class Info: UIViewController{
     }
 
     
-    ///로그인 버튼 생성
+    ///Apple 로그인 버튼 생성
     func setupProviderLoginView() {
         let authorizationButton = ASAuthorizationAppleIDButton()
         authorizationButton.addTarget(self, action: #selector(handleAuthorizationAppleIDButtonPress), for: .touchUpInside)
         self.loginProviderStackView.addArrangedSubview(authorizationButton)
     }
+    
     
     ///로그인 함수
     @objc
