@@ -117,19 +117,13 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
             replyList.removeAll()
             // 유저 이름 분리
             let str = AppDelegate.user.profile!.email as String
-            var userName = str.split(separator: "@")
+            let userName = str.split(separator: "@")
             
             
             
             // Firestore에 데이터 올리는 코드
-            var ref: DocumentReference? = nil
-            let replyInput: [String: Any] = [
-                
-                "reply" : inputText!,
-                "uid" : Auth.auth().currentUser!.uid,
-                "user" : userName[0],
-                "date" : getDate()
-            ]
+            // var ref: DocumentReference? = nil
+           
             
             if inputText!.count > 30 {
                 let alert = UIAlertController(title: "글자 수 초과!", message: "댓글 30자 이내로 작성해 주세요", preferredStyle: UIAlertController.Style.alert)
