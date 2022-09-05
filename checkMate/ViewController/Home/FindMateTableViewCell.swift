@@ -15,7 +15,6 @@ class FindMateTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-//        setSuitableLabelGradient(view: suitableBackground, label: suitableText)
         suitableText?.text = "준비중"
         
 

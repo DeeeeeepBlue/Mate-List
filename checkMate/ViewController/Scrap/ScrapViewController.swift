@@ -47,7 +47,7 @@ class ScrapViewController: UIViewController, UITableViewDataSource, UITableViewD
         // Do any additional setup after loading the view.
     }
     
-    // MARK: Custom function
+    // MARK: - Custom function
     
     func customNavigationBar(){
         //배경하고 그림자 없게
@@ -92,7 +92,6 @@ class ScrapViewController: UIViewController, UITableViewDataSource, UITableViewD
                             let content_db = value["contents"] as? String ?? "글이 없습니다."
                             let date_db = value["date"] as? String ?? "글이 없습니다."
                             let isScrap_db = value["isScrap"] as? Bool ?? false
-    //                        let findMate = value["findMate"]! as! Bool
                             
                             
                             existScrap(docPath: document.documentID){ (result) in
@@ -144,6 +143,7 @@ class ScrapViewController: UIViewController, UITableViewDataSource, UITableViewD
     
      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: UITableViewCell = self.scrapTableView.dequeueReusableCell(withIdentifier: "mateCell", for: indexPath)
+         
         if self.List.count > 0 {
             
             // List가 0보다 클때만 데이터 불러오기
@@ -151,44 +151,28 @@ class ScrapViewController: UIViewController, UITableViewDataSource, UITableViewD
             let cellContents = cell.viewWithTag(4) as! UILabel
             let cellDate = cell.viewWithTag(5) as! UILabel
             let cellUser = cell.viewWithTag(6) as! UILabel
+            let cellSameLabel = cell.viewWithTag(7) as! UILabel
+            let cellSameNumber = cell.viewWithTag(8)!
+            let cellSameNumberLabel: UILabel! = cellSameNumber.subviews[0] as! UILabel
             print(self.List.count)
 
             cellTittle.text = "\(self.List[indexPath.section].title)"
             cellContents.text = "\(self.List[indexPath.section].contents)"
             cellDate.text = "\(self.List[indexPath.section].date)"
             cellUser.text = "\(self.List[indexPath.section].author)"
-            
+            cellSameNumberLabel.text = "홈에서 확인"
+            cellSameNumberLabel 
         }
         
         else {
             
         }
-        
-//        cell.textLabel?.text = jinjuCastle[indexPath.row].name
-        
-        
-        // 필터
-//        let found = findMateData.filter { info in
-//            입력.name == 출력.name
-        
-//        cell.accessoryType = found.count == 0 ? .none : .checkmark
-//        }
 
         return cell
     }
     
      func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-//        let found = 데이터리스트.enumerated().filter { _, info in
-//            입력.name == 출력.name
-//        }
-//
-//        if found.count == 0 { // 추가 안된 데이터.
-//            엄마 데이터.append(자식 데이터)
-//        }
-//        else { // 추가된 데이터
-//            데이터 리스트.remove(at: found.first!.offset)
-//        }
+
         tableView.reloadData()
     }
     

@@ -135,10 +135,18 @@
 			path = Constant;
 			sourceTree = "<group>";
 		};
-		040AA09327BECD53008F4BF5 /* Model */ = {
+		0407C0B228A92980006AFA59 /* Data */ = {
 			isa = PBXGroup;
 			children = (
 				F743792127ABDA8E0053947A /* Data.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		040AA09327BECD53008F4BF5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0407C0B228A92980006AFA59 /* Data */,
 				040AA09427BECD61008F4BF5 /* User.swift */,
 				040AA09627BECDDD008F4BF5 /* HabitCheck.swift */,
 				040AA09827BECE16008F4BF5 /* Comment.swift */,
