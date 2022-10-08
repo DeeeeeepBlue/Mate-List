@@ -491,7 +491,11 @@ extension Info: ASAuthorizationControllerDelegate {
             
             
             Auth.auth().signIn(with: credential) { (authResult, error) in
-                if (error != nil) {return}
+                if (error != nil) {
+                    print(error?.localizedDescription)
+                    return
+                    
+                }
                 
                 print("@@@@@@ 성공")
                 
