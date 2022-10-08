@@ -8,13 +8,16 @@
 import GoogleSignIn
 import UIKit
 import Firebase
+import AuthenticationServices
+import FirebaseCore
+import FirebaseFirestore
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    public static var user: GIDGoogleUser!
-    
-
+    //public static var user: GIDGoogleUser!
+    public static var userAuth : AuthDataResult?
+    public static var authFunc = fbAuth()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -22,20 +25,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use Firebase library to configure APIs
         // Firebase 연결
         FirebaseApp.configure()
-    
-        signOut()
+        
+        
+        AppDelegate.authFunc.signOut()
+        
+        /// 🍎 Apple login
+//        let appleIDProvider = ASAuthorizationAppleIDProvider()
+//        appleIDProvider.getCredentialState(forUserID: KeychainItem.currentUserIdentifier) { (credentialState, error) in
+//            switch credentialState {
+//            case .authorized:
+//
+//                break // The Apple ID credential is valid.
+//            case .revoked, .notFound:
+//                // The Apple ID credential is either revoked or was not found, so show the sign-in UI.
+//                DispatchQueue.main.async {
+////                    self.window?.rootViewController?.showLoginViewController()
+//                }
+//            default:
+//                break
+//            }
+//        }
+
+        
         return true
     }
-    
-    func signOut(){
-        let firebaseAuth = Auth.auth()
-      do {
-        try firebaseAuth.signOut()
-      } catch let signOutError as NSError {
-        print("Error signing out: %@", signOutError)
-      }
-    }
-    
+
     // MARK: Google Login
     @available(iOS 9.0, *)
     func application(_ application: UIApplication, open url: URL,

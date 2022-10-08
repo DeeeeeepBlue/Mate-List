@@ -7,19 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0407C0AE28A66642006AFA59 /* GlobalFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0407C0AD28A66642006AFA59 /* GlobalFunctions.swift */; };
+		0407C0B128A91A65006AFA59 /* Email.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0407C0B028A91A65006AFA59 /* Email.swift */; };
 		040AA09527BECD61008F4BF5 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040AA09427BECD61008F4BF5 /* User.swift */; };
 		040AA09727BECDDD008F4BF5 /* HabitCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040AA09627BECDDD008F4BF5 /* HabitCheck.swift */; };
 		040AA09927BECE16008F4BF5 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040AA09827BECE16008F4BF5 /* Comment.swift */; };
+		040C118328F16D380012160E /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040C118228F16D380012160E /* Auth.swift */; };
 		0444E00227C825A500B49F8B /* ScrapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0444E00127C825A500B49F8B /* ScrapViewController.swift */; };
-		0468B98E27CAD48500B2D31A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0468B98D27CAD48500B2D31A /* GoogleService-Info.plist */; };
-		04A6963E27C2955600B02390 /* ResistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A6963D27C2955600B02390 /* ResistViewController.swift */; };
-		04BB243727ACED960003DA33 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BB243627ACED960003DA33 /* MyPageViewController.swift */; };
-		3F2245BE27D62763002F29FE /* HexUIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2245BD27D62763002F29FE /* HexUIColor.swift */; };
+		044B812828A172AF002E8851 /* Survey.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7B4F41D27D7B5090045580F /* Survey.storyboard */; };
+		04BB243727ACED960003DA33 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BB243627ACED960003DA33 /* InfoViewController.swift */; };
+		3F2245BE27D62763002F29FE /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2245BD27D62763002F29FE /* UIColor.swift */; };
 		3FB23A5E27D79D3E00B8D071 /* FindMateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB23A5D27D79D3E00B8D071 /* FindMateTableViewCell.swift */; };
+		3FCF3B4E27F888EC008771B8 /* KeychainItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCF3B4D27F888EC008771B8 /* KeychainItem.swift */; };
 		3FF0B03C27DA4E2C00CA147A /* Info.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FF0B03B27DA4E2C00CA147A /* Info.storyboard */; };
 		5A75AE8827D9F2F9001C796C /* Scrap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A75AE8727D9F2F9001C796C /* Scrap.storyboard */; };
 		A600678027C7E4AA007C6EF1 /* (null) in Resources */ = {isa = PBXBuildFile; };
-		A623E33627B7C40E00172F38 /* DropDownViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A623E33527B7C40E00172F38 /* DropDownViewController.swift */; };
+		A60D25A127F72E9600E6A553 /* consent_popup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A60D25A027F72E9600E6A553 /* consent_popup.storyboard */; };
+		A60D25A327F7317700E6A553 /* consent_popup.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60D25A227F7317600E6A553 /* consent_popup.swift */; };
+		A6B5B8202801BE9300D0CF98 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A6B5B81F2801BE9300D0CF98 /* GoogleService-Info.plist */; };
 		F731B77027D4D56A009670A4 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = F731B76F27D4D56A009670A4 /* FirebaseAnalytics */; };
 		F731B77227D4D56A009670A4 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = F731B77127D4D56A009670A4 /* FirebaseAuth */; };
 		F731B77427D4D56A009670A4 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = F731B77327D4D56A009670A4 /* FirebaseCrashlytics */; };
@@ -28,8 +33,6 @@
 		F731B77B27D4D581009670A4 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = F731B77A27D4D581009670A4 /* GoogleSignIn */; };
 		F731B77E27D4D5A5009670A4 /* DropDown in Frameworks */ = {isa = PBXBuildFile; productRef = F731B77D27D4D5A5009670A4 /* DropDown */; };
 		F731B7A627D4FF09009670A4 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F731B7A127D4FF09009670A4 /* Home.storyboard */; };
-		F731B7AA27D500B3009670A4 /* testTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F731B7A927D500B3009670A4 /* testTableViewController.swift */; };
-		F7379F2A27AD4EFE00D99CD4 /* FilterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7379F2927AD4EFE00D99CD4 /* FilterTableViewCell.swift */; };
 		F743792227ABDA8E0053947A /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = F743792127ABDA8E0053947A /* Data.swift */; };
 		F75452E727C7C59900E2DB41 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75452E627C7C59900E2DB41 /* Post.swift */; };
 		F75452E927C7C5FB00E2DB41 /* FindMateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75452E827C7C5FB00E2DB41 /* FindMateViewController.swift */; };
@@ -37,42 +40,38 @@
 		F757546F27A4DF1800BFDF9B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F757546E27A4DF1800BFDF9B /* SceneDelegate.swift */; };
 		F757547627A4DF1A00BFDF9B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F757547527A4DF1A00BFDF9B /* Assets.xcassets */; };
 		F757547927A4DF1A00BFDF9B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F757547727A4DF1A00BFDF9B /* LaunchScreen.storyboard */; };
-		F76B581427C5378100B6626D /* ReplyTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76B581127C5378100B6626D /* ReplyTextView.swift */; };
 		F76B581527C5378100B6626D /* DetailTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76B581227C5378100B6626D /* DetailTextView.swift */; };
-		F76B581627C5378100B6626D /* NewFilterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76B581327C5378100B6626D /* NewFilterTableViewCell.swift */; };
 		F76B581E27C5380600B6626D /* ContentsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76B581727C5380600B6626D /* ContentsDetailViewController.swift */; };
-		F76B582027C5380600B6626D /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76B581927C5380600B6626D /* FilterViewController.swift */; };
-		F76B582127C5380600B6626D /* FilterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76B581A27C5380600B6626D /* FilterTableViewController.swift */; };
-		F76B582327C5380600B6626D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76B581C27C5380600B6626D /* ViewController.swift */; };
 		F76B582427C5380600B6626D /* WriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76B581D27C5380600B6626D /* WriteViewController.swift */; };
 		F7B4F41427D7A55A0045580F /* Write.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7B4F41127D7A55A0045580F /* Write.storyboard */; };
-		F7B4F41627D7B4B80045580F /* LifePatternViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B4F41527D7B4B80045580F /* LifePatternViewController.swift */; };
-		F7B4F41827D7B4C00045580F /* ServeyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B4F41727D7B4C00045580F /* ServeyViewController.swift */; };
-		F7B4F41A27D7B4CD0045580F /* surveyviewViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B4F41927D7B4CD0045580F /* surveyviewViewCell.swift */; };
-		F7B4F41C27D7B5030045580F /* Survey.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7B4F41B27D7B5030045580F /* Survey.storyboard */; };
-		F7B4F41E27D7B5090045580F /* Surveyview.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7B4F41D27D7B5090045580F /* Surveyview.storyboard */; };
-		F7B4F42027D7B7460045580F /* MyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B4F41F27D7B7460045580F /* MyTableViewCell.swift */; };
-		F7B4F42227D7B8C10045580F /* RGBColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B4F42127D7B8C10045580F /* RGBColor.swift */; };
+		F7B4F41627D7B4B80045580F /* SurveyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B4F41527D7B4B80045580F /* SurveyViewController.swift */; };
+		F7B4F41827D7B4C00045580F /* ServeyInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B4F41727D7B4C00045580F /* ServeyInputViewController.swift */; };
+		F7B4F41A27D7B4CD0045580F /* SurveyViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B4F41927D7B4CD0045580F /* SurveyViewCell.swift */; };
+		F7B4F41C27D7B5030045580F /* SurveyInput.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7B4F41B27D7B5030045580F /* SurveyInput.storyboard */; };
+		F7B4F42027D7B7460045580F /* SurveyInputViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B4F41F27D7B7460045580F /* SurveyInputViewCell.swift */; };
 		F7CDDF0F27D6E96300DB6A30 /* ContentsDetailView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7CDDF0E27D6E96300DB6A30 /* ContentsDetailView.storyboard */; };
 		F7EEBACD27CF43B9009728AF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7EEBACC27CF43B9009728AF /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0407C0AD28A66642006AFA59 /* GlobalFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalFunctions.swift; sourceTree = "<group>"; };
+		0407C0B028A91A65006AFA59 /* Email.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Email.swift; sourceTree = "<group>"; };
 		040AA09427BECD61008F4BF5 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		040AA09627BECDDD008F4BF5 /* HabitCheck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitCheck.swift; sourceTree = "<group>"; };
 		040AA09827BECE16008F4BF5 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		040C118228F16D380012160E /* Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Auth.swift; sourceTree = "<group>"; };
 		0444E00127C825A500B49F8B /* ScrapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrapViewController.swift; sourceTree = "<group>"; };
-		0468B98D27CAD48500B2D31A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		04A6963D27C2955600B02390 /* ResistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResistViewController.swift; sourceTree = "<group>"; };
-		04BB243627ACED960003DA33 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
-		3F2245BD27D62763002F29FE /* HexUIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexUIColor.swift; sourceTree = "<group>"; };
+		04BB243627ACED960003DA33 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
+		3F2245BD27D62763002F29FE /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		3FB23A5D27D79D3E00B8D071 /* FindMateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindMateTableViewCell.swift; sourceTree = "<group>"; };
+		3FCF3B4927F88552008771B8 /* checkMate.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = checkMate.entitlements; sourceTree = "<group>"; };
+		3FCF3B4D27F888EC008771B8 /* KeychainItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainItem.swift; sourceTree = "<group>"; };
 		3FF0B03B27DA4E2C00CA147A /* Info.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Info.storyboard; sourceTree = "<group>"; };
 		5A75AE8727D9F2F9001C796C /* Scrap.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Scrap.storyboard; sourceTree = "<group>"; };
-		A623E33527B7C40E00172F38 /* DropDownViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownViewController.swift; sourceTree = "<group>"; };
+		A60D25A027F72E9600E6A553 /* consent_popup.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = consent_popup.storyboard; sourceTree = "<group>"; };
+		A60D25A227F7317600E6A553 /* consent_popup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = consent_popup.swift; sourceTree = "<group>"; };
+		A6B5B81F2801BE9300D0CF98 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F731B7A127D4FF09009670A4 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
-		F731B7A927D500B3009670A4 /* testTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testTableViewController.swift; sourceTree = "<group>"; };
-		F7379F2927AD4EFE00D99CD4 /* FilterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterTableViewCell.swift; sourceTree = "<group>"; };
 		F743792127ABDA8E0053947A /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		F75452E627C7C59900E2DB41 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		F75452E827C7C5FB00E2DB41 /* FindMateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindMateViewController.swift; sourceTree = "<group>"; };
@@ -81,22 +80,16 @@
 		F757546E27A4DF1800BFDF9B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SceneDelegate.swift; path = ../SceneDelegate.swift; sourceTree = "<group>"; };
 		F757547527A4DF1A00BFDF9B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F757547827A4DF1A00BFDF9B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		F76B581127C5378100B6626D /* ReplyTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReplyTextView.swift; sourceTree = "<group>"; };
 		F76B581227C5378100B6626D /* DetailTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailTextView.swift; sourceTree = "<group>"; };
-		F76B581327C5378100B6626D /* NewFilterTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewFilterTableViewCell.swift; sourceTree = "<group>"; };
 		F76B581727C5380600B6626D /* ContentsDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentsDetailViewController.swift; sourceTree = "<group>"; };
-		F76B581927C5380600B6626D /* FilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
-		F76B581A27C5380600B6626D /* FilterTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterTableViewController.swift; sourceTree = "<group>"; };
-		F76B581C27C5380600B6626D /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F76B581D27C5380600B6626D /* WriteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WriteViewController.swift; sourceTree = "<group>"; };
 		F7B4F41127D7A55A0045580F /* Write.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Write.storyboard; sourceTree = "<group>"; };
-		F7B4F41527D7B4B80045580F /* LifePatternViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LifePatternViewController.swift; sourceTree = "<group>"; };
-		F7B4F41727D7B4C00045580F /* ServeyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServeyViewController.swift; sourceTree = "<group>"; };
-		F7B4F41927D7B4CD0045580F /* surveyviewViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = surveyviewViewCell.swift; sourceTree = "<group>"; };
-		F7B4F41B27D7B5030045580F /* Survey.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Survey.storyboard; sourceTree = "<group>"; };
-		F7B4F41D27D7B5090045580F /* Surveyview.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Surveyview.storyboard; sourceTree = "<group>"; };
-		F7B4F41F27D7B7460045580F /* MyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTableViewCell.swift; sourceTree = "<group>"; };
-		F7B4F42127D7B8C10045580F /* RGBColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RGBColor.swift; sourceTree = "<group>"; };
+		F7B4F41527D7B4B80045580F /* SurveyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SurveyViewController.swift; sourceTree = "<group>"; };
+		F7B4F41727D7B4C00045580F /* ServeyInputViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServeyInputViewController.swift; sourceTree = "<group>"; };
+		F7B4F41927D7B4CD0045580F /* SurveyViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SurveyViewCell.swift; sourceTree = "<group>"; };
+		F7B4F41B27D7B5030045580F /* SurveyInput.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SurveyInput.storyboard; sourceTree = "<group>"; };
+		F7B4F41D27D7B5090045580F /* Survey.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Survey.storyboard; sourceTree = "<group>"; };
+		F7B4F41F27D7B7460045580F /* SurveyInputViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SurveyInputViewCell.swift; sourceTree = "<group>"; };
 		F7CDDF0E27D6E96300DB6A30 /* ContentsDetailView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ContentsDetailView.storyboard; sourceTree = "<group>"; };
 		F7EEBACC27CF43B9009728AF /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -119,15 +112,137 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0407C0AB28A6111D006AFA59 /* extention */ = {
+			isa = PBXGroup;
+			children = (
+				3F2245BD27D62763002F29FE /* UIColor.swift */,
+			);
+			path = extention;
+			sourceTree = "<group>";
+		};
+		0407C0AC28A63780006AFA59 /* Write */ = {
+			isa = PBXGroup;
+			children = (
+				F7B4F41127D7A55A0045580F /* Write.storyboard */,
+				F76B581D27C5380600B6626D /* WriteViewController.swift */,
+			);
+			path = Write;
+			sourceTree = "<group>";
+		};
+		0407C0AF28A91A48006AFA59 /* Constant */ = {
+			isa = PBXGroup;
+			children = (
+				0407C0B028A91A65006AFA59 /* Email.swift */,
+			);
+			path = Constant;
+			sourceTree = "<group>";
+		};
+		0407C0B228A92980006AFA59 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				F743792127ABDA8E0053947A /* Data.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
 		040AA09327BECD53008F4BF5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				0407C0B228A92980006AFA59 /* Data */,
 				040AA09427BECD61008F4BF5 /* User.swift */,
 				040AA09627BECDDD008F4BF5 /* HabitCheck.swift */,
 				040AA09827BECE16008F4BF5 /* Comment.swift */,
 				F75452E627C7C59900E2DB41 /* Post.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		040C118128F16D2A0012160E /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				040C118228F16D380012160E /* Auth.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		044B811F28A14DBF002E8851 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				F76B581227C5378100B6626D /* DetailTextView.swift */,
+				F76B581727C5380600B6626D /* ContentsDetailViewController.swift */,
+				F7CDDF0E27D6E96300DB6A30 /* ContentsDetailView.storyboard */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		044B812028A14DD9002E8851 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				F731B7A127D4FF09009670A4 /* Home.storyboard */,
+				F75452E827C7C5FB00E2DB41 /* FindMateViewController.swift */,
+				3FB23A5D27D79D3E00B8D071 /* FindMateTableViewCell.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		044B812128A14DE5002E8851 /* Scrap */ = {
+			isa = PBXGroup;
+			children = (
+				5A75AE8727D9F2F9001C796C /* Scrap.storyboard */,
+				0444E00127C825A500B49F8B /* ScrapViewController.swift */,
+			);
+			path = Scrap;
+			sourceTree = "<group>";
+		};
+		044B812328A14DFA002E8851 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				F757547727A4DF1A00BFDF9B /* LaunchScreen.storyboard */,
+				F7EEBACC27CF43B9009728AF /* Main.storyboard */,
+				0407C0AD28A66642006AFA59 /* GlobalFunctions.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		044B812428A14E13002E8851 /* Info */ = {
+			isa = PBXGroup;
+			children = (
+				04BB243627ACED960003DA33 /* InfoViewController.swift */,
+				3FF0B03B27DA4E2C00CA147A /* Info.storyboard */,
+				A60D25A227F7317600E6A553 /* consent_popup.swift */,
+				A60D25A027F72E9600E6A553 /* consent_popup.storyboard */,
+			);
+			path = Info;
+			sourceTree = "<group>";
+		};
+		044B812528A14E18002E8851 /* Survey */ = {
+			isa = PBXGroup;
+			children = (
+				F7B4F41B27D7B5030045580F /* SurveyInput.storyboard */,
+				F7B4F41727D7B4C00045580F /* ServeyInputViewController.swift */,
+				F7B4F41F27D7B7460045580F /* SurveyInputViewCell.swift */,
+				F7B4F41D27D7B5090045580F /* Survey.storyboard */,
+				F7B4F41527D7B4B80045580F /* SurveyViewController.swift */,
+				F7B4F41927D7B4CD0045580F /* SurveyViewCell.swift */,
+			);
+			path = Survey;
+			sourceTree = "<group>";
+		};
+		044B812628A14EBD002E8851 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				0407C0AF28A91A48006AFA59 /* Constant */,
+				0407C0AB28A6111D006AFA59 /* extention */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		3FCF3B4C27F888C5008771B8 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3FCF3B4D27F888EC008771B8 /* KeychainItem.swift */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		F711782927C011A600729B52 /* Recovered References */ = {
@@ -140,31 +255,24 @@
 		F7379F2127AD37C000D99CD4 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				04BB243627ACED960003DA33 /* MyPageViewController.swift */,
-				A623E33527B7C40E00172F38 /* DropDownViewController.swift */,
-				04A6963D27C2955600B02390 /* ResistViewController.swift */,
-				F76B581727C5380600B6626D /* ContentsDetailViewController.swift */,
-				F7B4F42127D7B8C10045580F /* RGBColor.swift */,
-				F76B581A27C5380600B6626D /* FilterTableViewController.swift */,
-				F7B4F41727D7B4C00045580F /* ServeyViewController.swift */,
-				F7B4F41527D7B4B80045580F /* LifePatternViewController.swift */,
-				F731B7A927D500B3009670A4 /* testTableViewController.swift */,
-				F75452E827C7C5FB00E2DB41 /* FindMateViewController.swift */,
-				F76B581927C5380600B6626D /* FilterViewController.swift */,
-				F76B581C27C5380600B6626D /* ViewController.swift */,
-				F76B581D27C5380600B6626D /* WriteViewController.swift */,
-				0444E00127C825A500B49F8B /* ScrapViewController.swift */,
+				0407C0AC28A63780006AFA59 /* Write */,
+				044B812328A14DFA002E8851 /* Base */,
+				044B812528A14E18002E8851 /* Survey */,
+				044B812428A14E13002E8851 /* Info */,
+				044B812128A14DE5002E8851 /* Scrap */,
+				044B812028A14DD9002E8851 /* Home */,
+				044B811F28A14DBF002E8851 /* Detail */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
 		};
-		F7379F2227AD409D00D99CD4 /* Delegate */ = {
+		F7379F2227AD409D00D99CD4 /* App */ = {
 			isa = PBXGroup;
 			children = (
 				F757546C27A4DF1800BFDF9B /* AppDelegate.swift */,
 				F757546E27A4DF1800BFDF9B /* SceneDelegate.swift */,
 			);
-			path = Delegate;
+			path = App;
 			sourceTree = "<group>";
 		};
 		F757546027A4DF1800BFDF9B = {
@@ -173,6 +281,7 @@
 				F757546B27A4DF1800BFDF9B /* checkMate */,
 				F757546A27A4DF1800BFDF9B /* Products */,
 				F711782927C011A600729B52 /* Recovered References */,
+				3FCF3B4C27F888C5008771B8 /* Supporting Files */,
 			);
 			sourceTree = "<group>";
 		};
@@ -187,39 +296,16 @@
 		F757546B27A4DF1800BFDF9B /* checkMate */ = {
 			isa = PBXGroup;
 			children = (
+				040C118128F16D2A0012160E /* Network */,
+				3FCF3B4927F88552008771B8 /* checkMate.entitlements */,
+				F7379F2227AD409D00D99CD4 /* App */,
+				044B812628A14EBD002E8851 /* Resource */,
 				040AA09327BECD53008F4BF5 /* Model */,
-				F7379F2227AD409D00D99CD4 /* Delegate */,
 				F7379F2127AD37C000D99CD4 /* ViewController */,
-				F75B3B9327B16ED100368BC8 /* TableViewCell */,
-				F743792127ABDA8E0053947A /* Data.swift */,
-				F757547727A4DF1A00BFDF9B /* LaunchScreen.storyboard */,
-				F7CDDF0E27D6E96300DB6A30 /* ContentsDetailView.storyboard */,
-				F7B4F41127D7A55A0045580F /* Write.storyboard */,
-				F7B4F41B27D7B5030045580F /* Survey.storyboard */,
-				F7B4F41D27D7B5090045580F /* Surveyview.storyboard */,
-				3FF0B03B27DA4E2C00CA147A /* Info.storyboard */,
-				F7EEBACC27CF43B9009728AF /* Main.storyboard */,
-				5A75AE8727D9F2F9001C796C /* Scrap.storyboard */,
-				F731B7A127D4FF09009670A4 /* Home.storyboard */,
 				F757547527A4DF1A00BFDF9B /* Assets.xcassets */,
-				0468B98D27CAD48500B2D31A /* GoogleService-Info.plist */,
-				3F2245BD27D62763002F29FE /* HexUIColor.swift */,
+				A6B5B81F2801BE9300D0CF98 /* GoogleService-Info.plist */,
 			);
 			path = checkMate;
-			sourceTree = "<group>";
-		};
-		F75B3B9327B16ED100368BC8 /* TableViewCell */ = {
-			isa = PBXGroup;
-			children = (
-				F76B581227C5378100B6626D /* DetailTextView.swift */,
-				F76B581327C5378100B6626D /* NewFilterTableViewCell.swift */,
-				F7B4F41927D7B4CD0045580F /* surveyviewViewCell.swift */,
-				F76B581127C5378100B6626D /* ReplyTextView.swift */,
-				F7B4F41F27D7B7460045580F /* MyTableViewCell.swift */,
-				F7379F2927AD4EFE00D99CD4 /* FilterTableViewCell.swift */,
-				3FB23A5D27D79D3E00B8D071 /* FindMateTableViewCell.swift */,
-			);
-			path = TableViewCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -294,15 +380,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F7B4F41C27D7B5030045580F /* Survey.storyboard in Resources */,
+				A6B5B8202801BE9300D0CF98 /* GoogleService-Info.plist in Resources */,
+				F7B4F41C27D7B5030045580F /* SurveyInput.storyboard in Resources */,
 				F731B7A627D4FF09009670A4 /* Home.storyboard in Resources */,
 				A600678027C7E4AA007C6EF1 /* (null) in Resources */,
 				5A75AE8827D9F2F9001C796C /* Scrap.storyboard in Resources */,
 				F7EEBACD27CF43B9009728AF /* Main.storyboard in Resources */,
-				0468B98E27CAD48500B2D31A /* GoogleService-Info.plist in Resources */,
+				A60D25A127F72E9600E6A553 /* consent_popup.storyboard in Resources */,
 				3FF0B03C27DA4E2C00CA147A /* Info.storyboard in Resources */,
+				044B812828A172AF002E8851 /* Survey.storyboard in Resources */,
 				F757547927A4DF1A00BFDF9B /* LaunchScreen.storyboard in Resources */,
-				F7B4F41E27D7B5090045580F /* Surveyview.storyboard in Resources */,
 				F7CDDF0F27D6E96300DB6A30 /* ContentsDetailView.storyboard in Resources */,
 				F757547627A4DF1A00BFDF9B /* Assets.xcassets in Resources */,
 				F7B4F41427D7A55A0045580F /* Write.storyboard in Resources */,
@@ -316,35 +403,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0407C0AE28A66642006AFA59 /* GlobalFunctions.swift in Sources */,
 				040AA09927BECE16008F4BF5 /* Comment.swift in Sources */,
 				040AA09727BECDDD008F4BF5 /* HabitCheck.swift in Sources */,
+				3FCF3B4E27F888EC008771B8 /* KeychainItem.swift in Sources */,
 				F75452E927C7C5FB00E2DB41 /* FindMateViewController.swift in Sources */,
-				F7B4F41A27D7B4CD0045580F /* surveyviewViewCell.swift in Sources */,
-				F76B582127C5380600B6626D /* FilterTableViewController.swift in Sources */,
-				F76B582327C5380600B6626D /* ViewController.swift in Sources */,
+				F7B4F41A27D7B4CD0045580F /* SurveyViewCell.swift in Sources */,
 				F76B581527C5378100B6626D /* DetailTextView.swift in Sources */,
 				F743792227ABDA8E0053947A /* Data.swift in Sources */,
-				F76B581627C5378100B6626D /* NewFilterTableViewCell.swift in Sources */,
 				F76B582427C5380600B6626D /* WriteViewController.swift in Sources */,
-				3F2245BE27D62763002F29FE /* HexUIColor.swift in Sources */,
-				04A6963E27C2955600B02390 /* ResistViewController.swift in Sources */,
-				A623E33627B7C40E00172F38 /* DropDownViewController.swift in Sources */,
+				3F2245BE27D62763002F29FE /* UIColor.swift in Sources */,
 				F75452E727C7C59900E2DB41 /* Post.swift in Sources */,
-				F76B581427C5378100B6626D /* ReplyTextView.swift in Sources */,
 				F757546D27A4DF1800BFDF9B /* AppDelegate.swift in Sources */,
 				3FB23A5E27D79D3E00B8D071 /* FindMateTableViewCell.swift in Sources */,
-				F76B582027C5380600B6626D /* FilterViewController.swift in Sources */,
+				A60D25A327F7317700E6A553 /* consent_popup.swift in Sources */,
+				0407C0B128A91A65006AFA59 /* Email.swift in Sources */,
 				F757546F27A4DF1800BFDF9B /* SceneDelegate.swift in Sources */,
-				F731B7AA27D500B3009670A4 /* testTableViewController.swift in Sources */,
-				F7B4F41827D7B4C00045580F /* ServeyViewController.swift in Sources */,
-				F7B4F42027D7B7460045580F /* MyTableViewCell.swift in Sources */,
-				F7379F2A27AD4EFE00D99CD4 /* FilterTableViewCell.swift in Sources */,
-				F7B4F42227D7B8C10045580F /* RGBColor.swift in Sources */,
+				F7B4F41827D7B4C00045580F /* ServeyInputViewController.swift in Sources */,
+				F7B4F42027D7B7460045580F /* SurveyInputViewCell.swift in Sources */,
 				0444E00227C825A500B49F8B /* ScrapViewController.swift in Sources */,
-				04BB243727ACED960003DA33 /* MyPageViewController.swift in Sources */,
-				F7B4F41627D7B4B80045580F /* LifePatternViewController.swift in Sources */,
+				04BB243727ACED960003DA33 /* InfoViewController.swift in Sources */,
+				F7B4F41627D7B4B80045580F /* SurveyViewController.swift in Sources */,
 				040AA09527BECD61008F4BF5 /* User.swift in Sources */,
 				F76B581E27C5380600B6626D /* ContentsDetailViewController.swift in Sources */,
+				040C118328F16D380012160E /* Auth.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -413,7 +495,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -468,7 +550,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -483,9 +565,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = checkMate/checkMate.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = XTZ6W4677Z;
+				CURRENT_PROJECT_VERSION = 3;
+				DEVELOPMENT_TEAM = TDUR55YWW6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = checkMate/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = checkMate;
@@ -494,12 +577,13 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.13wjdgk.checkMate;
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ognam.Mate-List";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -512,9 +596,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = checkMate/checkMate.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = XTZ6W4677Z;
+				CURRENT_PROJECT_VERSION = 3;
+				DEVELOPMENT_TEAM = TDUR55YWW6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = checkMate/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = checkMate;
@@ -523,14 +609,16 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.0;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.13wjdgk.checkMate;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ognam.Mate-List";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;

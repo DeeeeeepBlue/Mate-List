@@ -14,9 +14,9 @@
             filePath = "checkMate/ViewController/ContentsDetailViewController.swift"
             startingColumnNumber = "57"
             endingColumnNumber = "57"
-            startingLineNumber = "247"
-            endingLineNumber = "247"
-            landmarkName = "goTotresh(_:)"
+            startingLineNumber = "248"
+            endingLineNumber = "248"
+            landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -250,6 +250,22 @@
             endingLineNumber = "11"
             landmarkName = "ReplyTableViewCell"
             landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "262A76B3-4B0C-44A6-9C62-E49AAFC44B94"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "checkMate/ViewController/ContentsDetailViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "206"
+            endingLineNumber = "206"
+            landmarkName = "tableView(_:numberOfRowsInSection:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

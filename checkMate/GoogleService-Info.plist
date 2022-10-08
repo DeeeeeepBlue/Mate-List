@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>14102016647-hag7qm7p1ef0h1ggc0jfnqhvdt4rg6ff.apps.googleusercontent.com</string>
+	<string>14102016647-37m019d8iopsi0i7utjfpqas4h4l3ebe.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.14102016647-hag7qm7p1ef0h1ggc0jfnqhvdt4rg6ff</string>
+	<string>com.googleusercontent.apps.14102016647-37m019d8iopsi0i7utjfpqas4h4l3ebe</string>
 	<key>API_KEY</key>
 	<string>AIzaSyBMX4gC3OtWciZMdYJM38XMd_R0KgIh2-4</string>
 	<key>GCM_SENDER_ID</key>
@@ -13,7 +13,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.Hansizm.checkMate</string>
+	<string>com.ognam.Mate-List</string>
 	<key>PROJECT_ID</key>
 	<string>usg-checkmate</string>
 	<key>STORAGE_BUCKET</key>
@@ -29,7 +29,7 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:14102016647:ios:22674e8359212883d93e22</string>
+	<string>1:14102016647:ios:518793745d2292a1d93e22</string>
 	<key>DATABASE_URL</key>
 	<string>https://usg-checkmate-default-rtdb.firebaseio.com</string>
 </dict>

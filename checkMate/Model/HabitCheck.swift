@@ -33,7 +33,7 @@ public struct HabitCheck: Codable {
         case mbtiSelect
     }
     
-    func calculatingFit(otherSurvey: HabitCheck) -> Int?{
+    func calculatingFit(otherSurvey: HabitCheck) -> Int{
         var cnt = 0
         
         if otherSurvey.cleanSelect == self.cleanSelect { cnt += 1 }
@@ -46,9 +46,6 @@ public struct HabitCheck: Codable {
         if otherSurvey.curfewSelect == self.curfewSelect { cnt += 1 }
         if otherSurvey.bedtimeSelect == self.bedtimeSelect { cnt += 1 }
         if otherSurvey.mbtiSelect == self.mbtiSelect { cnt += 1 }
-        
-        
-        print("cnt : \(cnt), percentage : \(Double(cnt) / Double(checkMate.select.count) * 100)")
 
         return Int(Double(cnt) / Double(checkMate.select.count) * 100)
     }
