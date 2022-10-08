@@ -391,13 +391,7 @@ class Info: UIViewController{
         signInButton.layer.isHidden = true
         LogoutButton.layer.isHidden = false
         loginProviderStackView.isHidden = true
-        NSLayoutConstraint(item: LogoutButton,
-                           attribute: .top,
-                           relatedBy: .equal,
-                           toItem: surveyButton,
-                           attribute: .bottom,
-                           multiplier: 1.0,
-                           constant: 20).isActive = true
+
     }
     
     /// 로그인 버튼 비활성화
@@ -405,14 +399,7 @@ class Info: UIViewController{
         LogoutButton.layer.isHidden = true
         signInButton.layer.isHidden = false
         loginProviderStackView.isHidden = false
-        //로그인 provider 위치 조정
-        NSLayoutConstraint(item: loginProviderStackView,
-                           attribute: .top,
-                           relatedBy: .equal,
-                           toItem: surveyButton,
-                           attribute: .bottom,
-                           multiplier: 1.0,
-                           constant: 20).isActive = true
+   
     }
     
     /// 버튼 모서리 세팅
