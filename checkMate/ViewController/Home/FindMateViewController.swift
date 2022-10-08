@@ -160,7 +160,7 @@ class FindMateViewController: UIViewController, UITableViewDataSource, UITableVi
     // 📌 로그인된 유저 survey 받아오기
     func getLoginUserSurvey(){
         guard Auth.auth().currentUser != nil else {return}
-        if AppDelegate.user != nil {
+        if AppDelegate.userAuth != nil {
             let docRef = FireStoreService.db.collection("User").document(Auth.auth().currentUser!.uid).collection("HabitCheck").document(Auth.auth().currentUser!.uid)
             docRef.getDocument { (document, error) in
                 if let document = document, document.exists {
@@ -279,7 +279,7 @@ class FindMateViewController: UIViewController, UITableViewDataSource, UITableVi
                     , constant: 0).isActive = true // 왼쪽여백
         
 
-            if AppDelegate.user != nil { //로그인되어있고 fitness 계산 완료됐으면 실행
+            if AppDelegate.userAuth != nil { //로그인되어있고 fitness 계산 완료됐으면 실행
 
                 ///배경에 그라디언트 적용
                 let gradient = CAGradientLayer()

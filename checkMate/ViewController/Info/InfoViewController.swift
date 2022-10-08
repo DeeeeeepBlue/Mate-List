@@ -6,19 +6,17 @@
 //
 
 import UIKit
-import FirebaseCore
+
 import GoogleSignIn
 import FirebaseAuth
 import FirebaseFirestore
 import Firebase
-import SwiftUI
-
 import AuthenticationServices
 import CryptoKit
 
 
 var flag: Bool = true
-let signInConfig = GIDConfiguration.init(clientID: "14102016647-cle326t7m6o3u9n4pdoj5hesasjj5uio.apps.googleusercontent.com")
+let signInConfig =  AppDelegate.authFunc.signInConfig
 var name=""
 var email=""
 var D_Post_id: [String] = []
@@ -71,16 +69,15 @@ class Info: UIViewController{
     }
     
     /// 로그인
-    @IBAction func signIn(sender: Any) {
+    @IBAction func googleSignIn(sender: Any) {
         if (dataloading){
             GIDSignIn.sharedInstance.signIn(with: signInConfig, presenting: self) { user, error in
                 guard error == nil else { return }
                 guard let user = user else { return }
                 
-                AppDelegate.user = user
+               
                 email = user.profile!.email
                 name = user.profile!.name
-            
                 
                 user.authentication.do { authentication, error in
                     guard error == nil else { return }
@@ -92,15 +89,7 @@ class Info: UIViewController{
                     let credential = GoogleAuthProvider.credential(withIDToken: idToken,
                                                                    accessToken: authentication.accessToken)
                     
-                    Auth.auth().signIn(with: credential) { (authResult, error) in
-                        if let error = error {
-                            print("Firebase sign in error: \(error)")
-                            return
-                        } else {
-                            self.checkBlack()
-                            self.checkSchool(emailAddress: email, name: name)
-                        }
-                    }
+                    self.authSignIn(credential: credential)
                 }
             }
         }
@@ -115,7 +104,7 @@ class Info: UIViewController{
             loginButtonActive()
             GIDSignIn.sharedInstance.disconnect{ error in
                 guard error == nil else { return }
-                AppDelegate.user = nil
+                AppDelegate.userAuth = nil
             }
             self.nameLabel.text = "로그인이 필요합니다."
             self.emailLabel.text = "로그인이 필요합니다."
@@ -143,7 +132,7 @@ class Info: UIViewController{
     override func viewWillAppear(_ animated: Bool) {
         
         DataLoad()
-        if(AppDelegate.user == nil){
+        if(AppDelegate.userAuth == nil){
             btnout.isHidden=true
         }
         else {
@@ -158,6 +147,20 @@ class Info: UIViewController{
     }
     
     //MARK: - Sign In
+    /// 공통 auth 로그인
+    func authSignIn(credential : AuthCredential) {
+        Auth.auth().signIn(with: credential) { (authResult, error) in
+            if let error = error {
+                print("Firebase sign in error: \(error)")
+                return
+            } else {
+                AppDelegate.userAuth = authResult
+                self.checkBlack()
+                self.checkSchool(emailAddress: email, name: name)
+            }
+        }
+    }
+    
     /// 블랙리스트 체크
     func checkBlack() {
         FireStoreService.db.collection("BlackList").whereField(Auth.auth().currentUser!.uid, isEqualTo: true).getDocuments() { (querySnapshot, err) in
@@ -329,7 +332,7 @@ class Info: UIViewController{
             loginButtonActive()
             GIDSignIn.sharedInstance.disconnect{ error in
                 guard error == nil else { return }
-                AppDelegate.user = nil
+                AppDelegate.userAuth = nil
             }
             nameLabel.text = "로그인이 필요합니다."
             emailLabel.text = "로그인이 필요합니다."
@@ -488,20 +491,8 @@ extension Info: ASAuthorizationControllerDelegate {
                                                       idToken: idTokenString,
                                                       rawNonce: nonce)
             // Sign in with Firebase.
+            authSignIn(credential: credential)
             
-            
-            Auth.auth().signIn(with: credential) { (authResult, error) in
-                if (error != nil) {
-                    print(error?.localizedDescription)
-                    return
-                    
-                }
-                
-                print("@@@@@@ 성공")
-                
-            }
-            
-            print("0000000000000")
             // User is signed in to Firebase with Apple.
             // ...
         }

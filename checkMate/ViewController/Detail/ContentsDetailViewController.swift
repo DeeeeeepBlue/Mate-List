@@ -112,11 +112,11 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
     @IBAction func saveButton(_ sender: Any) {
         let inputText = replyTextField.text
         // 한 글자라도 입력해야 댓글이 달림
-        if inputText!.count > 0 && AppDelegate.user != nil {
+        if inputText!.count > 0 && AppDelegate.userAuth != nil {
             
             replyList.removeAll()
             // 유저 이름 분리
-            let str = AppDelegate.user.profile!.email as String
+            let str = AppDelegate.userAuth!.user.email! as String
             let userName = str.split(separator: "@")
             
             
@@ -149,7 +149,7 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
             
             
         }
-        if AppDelegate.user == nil {
+        if AppDelegate.userAuth == nil {
             haveUesr()
             replyTextField.text?.removeAll()
             self.replyTableView.reloadData()
@@ -350,7 +350,7 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
     
     func scrapDataLoad(_ escapingHandler : @escaping (Bool) -> ()) {
             //데이터 불러오기
-        guard AppDelegate.user != nil else {return }
+        guard AppDelegate.userAuth != nil else {return }
         var result: Bool = false
         FireStoreService.db.collection("User").document(Auth.auth().currentUser!.uid).collection("Scrap").document(contentsDetailData.pid).getDocument { (document, error) in
             if let document = document, document.exists {
@@ -390,7 +390,7 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
     
     // 유저가 로그인 했는지 확인
     func haveUesr() {
-        guard AppDelegate.user == nil else {return}
+        guard AppDelegate.userAuth == nil else {return}
         let alert = UIAlertController(title: "유저가 없습니다", message: "로그인을 해주세요!", preferredStyle: UIAlertController.Style.alert)
         let okAction = UIAlertAction(title: "OK", style: .default) {_ in
             self.dismiss(animated: true, completion: nil)

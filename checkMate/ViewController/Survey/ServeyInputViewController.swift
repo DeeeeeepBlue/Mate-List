@@ -82,7 +82,7 @@ class ServeyInputViewController: UIViewController,UITableViewDelegate,UITableVie
     
     /// 유저가 로그인 했는지 확인
     func haveUesr() {
-        guard AppDelegate.user == nil else {return}
+        guard AppDelegate.userAuth == nil else {return}
         let alert = UIAlertController(title: "유저가 없습니다", message: "로그인을 해주세요!", preferredStyle: UIAlertController.Style.alert)
         let okAction = UIAlertAction(title: "OK", style: .default) {_ in
             self.navigationController?.popViewController(animated: true)
