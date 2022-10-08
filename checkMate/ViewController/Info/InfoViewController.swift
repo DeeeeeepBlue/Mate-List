@@ -78,7 +78,7 @@ class Info: UIViewController{
                
                 email = user.profile!.email
                 name = user.profile!.name
-                
+                print(name, email)
                 user.authentication.do { authentication, error in
                     guard error == nil else { return }
                     
@@ -108,7 +108,8 @@ class Info: UIViewController{
             }
             self.nameLabel.text = "로그인이 필요합니다."
             self.emailLabel.text = "로그인이 필요합니다."
-            
+            name = ""
+            email = ""
         } catch let signOutError as NSError {
             print("Error signing out: %@", signOutError)
         }
@@ -146,6 +147,7 @@ class Info: UIViewController{
         
     }
     
+    
     //MARK: - Sign In
     /// 공통 auth 로그인
     func authSignIn(credential : AuthCredential) {
@@ -155,8 +157,9 @@ class Info: UIViewController{
                 return
             } else {
                 AppDelegate.userAuth = authResult
-                self.checkBlack()
-                self.checkSchool(emailAddress: email, name: name)
+                name = authResult!.user.displayName ?? "nil"
+                email = authResult?.user.email ?? "nil"
+                self.registUserFirebase(user: name, email: email)
             }
         }
     }
@@ -170,6 +173,7 @@ class Info: UIViewController{
                 for _ in querySnapshot!.documents {
                     // 알럴트로 사용자에게 알리기
                     self.blackAlert()
+                    
                     // 로그아웃 하기
                     self.signOut(self)
                 }
@@ -479,7 +483,7 @@ extension Info: ASAuthorizationControllerDelegate {
                                                       rawNonce: nonce)
             // Sign in with Firebase.
             authSignIn(credential: credential)
-            
+          
             // User is signed in to Firebase with Apple.
             // ...
         }
