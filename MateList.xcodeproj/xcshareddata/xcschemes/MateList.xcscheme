@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "F757546827A4DF1800BFDF9B"
-               BuildableName = "checkMate.app"
-               BlueprintName = "checkMate"
-               ReferencedContainer = "container:checkMate.xcodeproj">
+               BuildableName = "MateList.app"
+               BlueprintName = "MateList"
+               ReferencedContainer = "container:MateList.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -45,9 +45,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "F757546827A4DF1800BFDF9B"
-            BuildableName = "checkMate.app"
-            BlueprintName = "checkMate"
-            ReferencedContainer = "container:checkMate.xcodeproj">
+            BuildableName = "MateList.app"
+            BlueprintName = "MateList"
+            ReferencedContainer = "container:MateList.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <CommandLineArguments>
@@ -68,9 +68,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "F757546827A4DF1800BFDF9B"
-            BuildableName = "checkMate.app"
-            BlueprintName = "checkMate"
-            ReferencedContainer = "container:checkMate.xcodeproj">
+            BuildableName = "MateList.app"
+            BlueprintName = "MateList"
+            ReferencedContainer = "container:MateList.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

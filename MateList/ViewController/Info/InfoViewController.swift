@@ -157,7 +157,7 @@ class Info: UIViewController{
                 return
             } else {
                 AppDelegate.userAuth = authResult
-                name = authResult!.user.displayName ?? "nil"
+                name = authResult!.user.displayName ?? "NoName"
                 email = authResult?.user.email ?? "nil"
                 self.registUserFirebase(user: name, email: email)
             }
