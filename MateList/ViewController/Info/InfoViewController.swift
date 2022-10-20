@@ -16,7 +16,7 @@ import CryptoKit
 
 
 var flag: Bool = true
-let signInConfig =  AppDelegate.authFunc.signInConfig
+let signInConfig =  AppDelegate.fireAuth.signInConfig
 var name=""
 var email=""
 var D_Post_id: [String] = []
@@ -160,6 +160,7 @@ class Info: UIViewController{
                 name = authResult!.user.displayName ?? "NoName"
                 email = authResult?.user.email ?? "nil"
                 self.registUserFirebase(user: name, email: email)
+                self.agreeCheck()
             }
         }
     }

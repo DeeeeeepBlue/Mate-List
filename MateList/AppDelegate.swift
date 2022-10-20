@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     //public static var user: GIDGoogleUser!
     public static var userAuth : AuthDataResult?
-    public static var authFunc = fbAuth()
+    public static var fireAuth = FireAuth()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -27,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         
         
-        AppDelegate.authFunc.signOut()
+        AppDelegate.fireAuth.signOut()
         
         /// 🍎 Apple login
 //        let appleIDProvider = ASAuthorizationAppleIDProvider()

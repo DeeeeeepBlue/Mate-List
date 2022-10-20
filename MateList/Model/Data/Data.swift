@@ -13,9 +13,6 @@ struct contents {
     let author: String
     let tittle: String
     let contents: String
-//    let lifePattern?
-//    let dueTime: String
-//    let howManyPeople: int
 
 }
 
