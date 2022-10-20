@@ -64,7 +64,7 @@
 		04BB243627ACED960003DA33 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		3F2245BD27D62763002F29FE /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		3FB23A5D27D79D3E00B8D071 /* FindMateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindMateTableViewCell.swift; sourceTree = "<group>"; };
-		3FCF3B4927F88552008771B8 /* checkMate.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = checkMate.entitlements; sourceTree = "<group>"; };
+		3FCF3B4927F88552008771B8 /* MateList.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MateList.entitlements; sourceTree = "<group>"; };
 		3FCF3B4D27F888EC008771B8 /* KeychainItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainItem.swift; sourceTree = "<group>"; };
 		3FF0B03B27DA4E2C00CA147A /* Info.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Info.storyboard; sourceTree = "<group>"; };
 		5A75AE8727D9F2F9001C796C /* Scrap.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Scrap.storyboard; sourceTree = "<group>"; };
@@ -75,7 +75,7 @@
 		F743792127ABDA8E0053947A /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		F75452E627C7C59900E2DB41 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		F75452E827C7C5FB00E2DB41 /* FindMateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindMateViewController.swift; sourceTree = "<group>"; };
-		F757546927A4DF1800BFDF9B /* checkMate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = checkMate.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F757546927A4DF1800BFDF9B /* MateList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MateList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F757546C27A4DF1800BFDF9B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ../AppDelegate.swift; sourceTree = "<group>"; };
 		F757546E27A4DF1800BFDF9B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SceneDelegate.swift; path = ../SceneDelegate.swift; sourceTree = "<group>"; };
 		F757547527A4DF1A00BFDF9B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -278,7 +278,7 @@
 		F757546027A4DF1800BFDF9B = {
 			isa = PBXGroup;
 			children = (
-				F757546B27A4DF1800BFDF9B /* checkMate */,
+				F757546B27A4DF1800BFDF9B /* MateList */,
 				F757546A27A4DF1800BFDF9B /* Products */,
 				F711782927C011A600729B52 /* Recovered References */,
 				3FCF3B4C27F888C5008771B8 /* Supporting Files */,
@@ -288,16 +288,16 @@
 		F757546A27A4DF1800BFDF9B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F757546927A4DF1800BFDF9B /* checkMate.app */,
+				F757546927A4DF1800BFDF9B /* MateList.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		F757546B27A4DF1800BFDF9B /* checkMate */ = {
+		F757546B27A4DF1800BFDF9B /* MateList */ = {
 			isa = PBXGroup;
 			children = (
 				040C118128F16D2A0012160E /* Network */,
-				3FCF3B4927F88552008771B8 /* checkMate.entitlements */,
+				3FCF3B4927F88552008771B8 /* MateList.entitlements */,
 				F7379F2227AD409D00D99CD4 /* App */,
 				044B812628A14EBD002E8851 /* Resource */,
 				040AA09327BECD53008F4BF5 /* Model */,
@@ -305,15 +305,15 @@
 				F757547527A4DF1A00BFDF9B /* Assets.xcassets */,
 				A6B5B81F2801BE9300D0CF98 /* GoogleService-Info.plist */,
 			);
-			path = checkMate;
+			path = MateList;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		F757546827A4DF1800BFDF9B /* checkMate */ = {
+		F757546827A4DF1800BFDF9B /* MateList */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F757547D27A4DF1A00BFDF9B /* Build configuration list for PBXNativeTarget "checkMate" */;
+			buildConfigurationList = F757547D27A4DF1A00BFDF9B /* Build configuration list for PBXNativeTarget "MateList" */;
 			buildPhases = (
 				F757546527A4DF1800BFDF9B /* Sources */,
 				F757546627A4DF1800BFDF9B /* Frameworks */,
@@ -323,7 +323,7 @@
 			);
 			dependencies = (
 			);
-			name = checkMate;
+			name = MateList;
 			packageProductDependencies = (
 				F731B76F27D4D56A009670A4 /* FirebaseAnalytics */,
 				F731B77127D4D56A009670A4 /* FirebaseAuth */,
@@ -334,7 +334,7 @@
 				F731B77D27D4D5A5009670A4 /* DropDown */,
 			);
 			productName = checkMate;
-			productReference = F757546927A4DF1800BFDF9B /* checkMate.app */;
+			productReference = F757546927A4DF1800BFDF9B /* MateList.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -352,7 +352,7 @@
 					};
 				};
 			};
-			buildConfigurationList = F757546427A4DF1800BFDF9B /* Build configuration list for PBXProject "checkMate" */;
+			buildConfigurationList = F757546427A4DF1800BFDF9B /* Build configuration list for PBXProject "MateList" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -370,7 +370,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				F757546827A4DF1800BFDF9B /* checkMate */,
+				F757546827A4DF1800BFDF9B /* MateList */,
 			);
 		};
 /* End PBXProject section */
@@ -565,13 +565,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = checkMate/checkMate.entitlements;
+				CODE_SIGN_ENTITLEMENTS = MateList/MateList.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = TDUR55YWW6;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = checkMate/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = checkMate;
+				INFOPLIST_FILE = MateList/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = MateList;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -596,14 +596,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = checkMate/checkMate.entitlements;
+				CODE_SIGN_ENTITLEMENTS = MateList/MateList.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = TDUR55YWW6;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = checkMate/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = checkMate;
+				INFOPLIST_FILE = MateList/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = MateList;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -628,7 +628,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		F757546427A4DF1800BFDF9B /* Build configuration list for PBXProject "checkMate" */ = {
+		F757546427A4DF1800BFDF9B /* Build configuration list for PBXProject "MateList" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F757547B27A4DF1A00BFDF9B /* Debug */,
@@ -637,7 +637,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F757547D27A4DF1A00BFDF9B /* Build configuration list for PBXNativeTarget "checkMate" */ = {
+		F757547D27A4DF1A00BFDF9B /* Build configuration list for PBXNativeTarget "MateList" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F757547E27A4DF1A00BFDF9B /* Debug */,
