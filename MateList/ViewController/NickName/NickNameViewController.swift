@@ -7,9 +7,15 @@
 
 import UIKit
 import SnapKit
+import Firebase
+import FirebaseAuth
+import RxCocoa
+import RxSwift
 
 class NickNameViewController: UIViewController {
     //MARK: - Properties
+    let disposeBag = DisposeBag()
+    
     let tfNickName : UITextField = {
         let tf = UITextField()
         tf.layer.cornerRadius = 8
@@ -33,7 +39,7 @@ class NickNameViewController: UIViewController {
         bt.layer.borderWidth = 0.5
         bt.setTitleColor(.black, for: .normal)
         bt.setTitle("중복 확인", for: .normal)
-    
+        
         return bt
     }()
     
@@ -53,7 +59,26 @@ class NickNameViewController: UIViewController {
         return bt
     }()
     
-
+    //MARK: - binding
+    private func bind(){
+        var str = ""
+        
+        checkButton.rx.tap
+            .bind{
+                
+            }
+        
+        
+        tfNickName.rx.text.orEmpty
+            .subscribe(onNext: { text in
+                str = text
+            })
+            .disposed(by: disposeBag)
+        
+        
+    }
+    
+    
     
     //MARK: - Life Cycle
     override func viewDidLoad() {
@@ -63,6 +88,9 @@ class NickNameViewController: UIViewController {
         
         setView()
         setConstraint()
+        bind()
+        
+        
     }
     
 
