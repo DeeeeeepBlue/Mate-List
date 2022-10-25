@@ -18,6 +18,7 @@ import CryptoKit
 var flag: Bool = true
 let signInConfig =  AppDelegate.fireAuth.signInConfig
 var name=""
+var nick=""
 var email=""
 var D_Post_id: [String] = []
 fileprivate var currentNonce: String?
@@ -29,7 +30,7 @@ class Info: UIViewController{
     @IBOutlet weak var surveyButton: UIButton!
     @IBOutlet weak var LogoutButton: UIButton!
     @IBOutlet weak var accountView: UIView!
-    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var nickLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var signInButton: GIDSignInButton!
     @IBOutlet weak var loginProviderStackView: UIStackView!
@@ -78,7 +79,7 @@ class Info: UIViewController{
                
                 email = user.profile!.email
                 name = user.profile!.name
-                print(name, email)
+                
                 user.authentication.do { authentication, error in
                     guard error == nil else { return }
                     
@@ -106,8 +107,9 @@ class Info: UIViewController{
                 guard error == nil else { return }
                 AppDelegate.userAuth = nil
             }
-            self.nameLabel.text = "로그인이 필요합니다."
+            self.nickLabel.text = "로그인이 필요합니다."
             self.emailLabel.text = "로그인이 필요합니다."
+            nick = ""
             name = ""
             email = ""
         } catch let signOutError as NSError {
@@ -161,9 +163,9 @@ class Info: UIViewController{
                 email = authResult?.user.email ?? "nil"
                 
                
-               // self.checkAgree()
-                self.checkUser()
                 
+                self.checkUser()
+                self.modal_signIn()
             }
         }
         
@@ -172,19 +174,20 @@ class Info: UIViewController{
     /// 유저 있는지 체크
     func checkUser() {
         guard let user = Auth.auth().currentUser else {return}
-        print("currnet", user.uid)
-        FireStoreService.db.collection("User").whereField("uid", isEqualTo: user.uid).addSnapshotListener { (querySnapshot, err) in
+        FireStoreService.db.collection("User").whereField("uid", isEqualTo: user.uid).getDocuments { (querySnapshot, err) in
             guard let documents = querySnapshot?.documents else {
                 print("Error!!!!! : \(err!)")
                 return
             }
             let vari = documents.map{$0["uid"]!}
             if vari.isEmpty {
+                print("HI")
                 self.setNickName()
+                self.registUserFirebase(user: name, email: email)
+                
             }
         }
-        //self.registUserFirebase(user: name, email: email)
-       
+        
     }
     
     /// 블랙리스트 체크
@@ -250,30 +253,21 @@ class Info: UIViewController{
             "user" : user,
             "email" : email,
             "gender" : true,
-            "uid" : Auth.auth().currentUser!.uid
+            "uid" : Auth.auth().currentUser!.uid,
+            "NickName" : ""
         ])
-        nameLabel.text = user
-        emailLabel.text = email
-        logoutButtonActive()
-        btnout.isHidden=false
-        loginProviderStackView.isHidden = true
+
     }
     
-    /// 로그인
+    /// 로그인 상태 유지
     func modal_signIn(){
-        FireStoreService.db.collection("User").document(Auth.auth().currentUser!.uid).setData([
-            "user" : name,
-            "email" : email,
-            "gender" : true,
-            "uid" : Auth.auth().currentUser!.uid
-        ])
-        
-        self.nameLabel!.text = name
+        self.nickLabel!.text = nick
         self.emailLabel!.text = email
         logoutButtonActive()
         btnout.isHidden=false
         self.loginProviderStackView.isHidden = true
     }
+    
     //MARK: - Sign Out
     /// user 게시글 삭제
     func deletePage(uid : String){
@@ -351,7 +345,7 @@ class Info: UIViewController{
     
 
     
-    /// 로그아웃
+    /// 로그아웃 상태 유지
     func modal_signOut(){
         let firebaseAuth = Auth.auth()
         do {
@@ -361,7 +355,7 @@ class Info: UIViewController{
                 guard error == nil else { return }
                 AppDelegate.userAuth = nil
             }
-            nameLabel.text = "로그인이 필요합니다."
+            nickLabel.text = "로그인이 필요합니다."
             emailLabel.text = "로그인이 필요합니다."
             
         } catch let signOutError as NSError {
@@ -463,7 +457,7 @@ class Info: UIViewController{
         else { return }
         
         DispatchQueue.main.async {
-            viewController.nameLabel.text = userIdentifier
+            viewController.nickLabel.text = userIdentifier
             if let email = email {
                 viewController.emailLabel.text = email
             }

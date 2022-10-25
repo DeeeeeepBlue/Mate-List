@@ -85,12 +85,14 @@ class NickNameViewController: UIViewController {
                             self.checkLb.text = "사용 가능한 닉네임입니다."
                             self.checkLb.textColor = .green
                         }
+                        flag = true
                         
                     } else {
                         DispatchQueue.main.async {
                             self.checkLb.text = "사용 불가능한 닉네임입니다."
                             self.checkLb.textColor = .red
                         }
+                        flag = false
                     }
                 }
             }
@@ -98,9 +100,16 @@ class NickNameViewController: UIViewController {
         finButton.rx.tap
             .bind{
                 //TODO: Firebase에 닉네임 설정
-                
-                self.dismiss(animated: true)
-        }
+                if flag {
+                    FireStoreService.db.collection("User").document(Auth.auth().currentUser!.uid).setData(["NickName" : str], merge: true)
+                    self.dismiss(animated: true)
+                } else {
+                    let alert = UIAlertController(title: "닉네임 설정", message: "닉네임을 다시 확인해주세요.", preferredStyle: UIAlertController.Style.alert)
+                    let okAction = UIAlertAction(title: "OK", style: .default) {_ in
+                    }
+                    alert.addAction(okAction)
+                }
+            }
         
     }
     
