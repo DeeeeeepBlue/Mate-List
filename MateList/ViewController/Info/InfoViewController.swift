@@ -407,6 +407,8 @@ class Info: UIViewController{
         guard let vc = storyboard.instantiateViewController(identifier: "NickName") as?
                 NickNameViewController else { return }
         
+        vc.modalPresentationStyle = UIModalPresentationStyle.fullScreen
+        
         self.present(vc, animated: true, completion: nil)
     }
     
