@@ -15,6 +15,13 @@
 		040C118328F16D380012160E /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040C118228F16D380012160E /* Auth.swift */; };
 		0444E00227C825A500B49F8B /* ScrapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0444E00127C825A500B49F8B /* ScrapViewController.swift */; };
 		044B812828A172AF002E8851 /* Survey.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7B4F41D27D7B5090045580F /* Survey.storyboard */; };
+		04718D1D2907CA3400481015 /* NickNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04718D1B2907CA3400481015 /* NickNameViewController.swift */; };
+		04718D1E2907CA3400481015 /* NickName.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04718D1C2907CA3400481015 /* NickName.storyboard */; };
+		04718D212907CB3500481015 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 04718D202907CB3500481015 /* SnapKit */; };
+		04718D242907CBA200481015 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 04718D232907CBA200481015 /* RxCocoa */; };
+		04718D262907CBA200481015 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 04718D252907CBA200481015 /* RxRelay */; };
+		04718D282907CBA200481015 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 04718D272907CBA200481015 /* RxSwift */; };
+		04718D2C2907CBF600481015 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04718D2B2907CBF600481015 /* TextField.swift */; };
 		04BB243727ACED960003DA33 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BB243627ACED960003DA33 /* InfoViewController.swift */; };
 		3F2245BE27D62763002F29FE /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2245BD27D62763002F29FE /* UIColor.swift */; };
 		3FB23A5E27D79D3E00B8D071 /* FindMateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB23A5D27D79D3E00B8D071 /* FindMateTableViewCell.swift */; };
@@ -61,6 +68,9 @@
 		040AA09827BECE16008F4BF5 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		040C118228F16D380012160E /* Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Auth.swift; sourceTree = "<group>"; };
 		0444E00127C825A500B49F8B /* ScrapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrapViewController.swift; sourceTree = "<group>"; };
+		04718D1B2907CA3400481015 /* NickNameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NickNameViewController.swift; sourceTree = "<group>"; };
+		04718D1C2907CA3400481015 /* NickName.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NickName.storyboard; sourceTree = "<group>"; };
+		04718D2B2907CBF600481015 /* TextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		04BB243627ACED960003DA33 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		3F2245BD27D62763002F29FE /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		3FB23A5D27D79D3E00B8D071 /* FindMateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindMateTableViewCell.swift; sourceTree = "<group>"; };
@@ -99,13 +109,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04718D262907CBA200481015 /* RxRelay in Frameworks */,
+				04718D242907CBA200481015 /* RxCocoa in Frameworks */,
 				F731B77427D4D56A009670A4 /* FirebaseCrashlytics in Frameworks */,
+				04718D212907CB3500481015 /* SnapKit in Frameworks */,
 				F731B77027D4D56A009670A4 /* FirebaseAnalytics in Frameworks */,
 				F731B77627D4D56A009670A4 /* FirebaseDatabase in Frameworks */,
 				F731B77827D4D56A009670A4 /* FirebaseFirestore in Frameworks */,
 				F731B77E27D4D5A5009670A4 /* DropDown in Frameworks */,
 				F731B77227D4D56A009670A4 /* FirebaseAuth in Frameworks */,
 				F731B77B27D4D581009670A4 /* GoogleSignIn in Frameworks */,
+				04718D282907CBA200481015 /* RxSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -115,6 +129,7 @@
 		0407C0AB28A6111D006AFA59 /* extention */ = {
 			isa = PBXGroup;
 			children = (
+				04718D2B2907CBF600481015 /* TextField.swift */,
 				3F2245BD27D62763002F29FE /* UIColor.swift */,
 			);
 			path = extention;
@@ -237,6 +252,15 @@
 			path = Resource;
 			sourceTree = "<group>";
 		};
+		04718D1A2907CA3400481015 /* NickName */ = {
+			isa = PBXGroup;
+			children = (
+				04718D1B2907CA3400481015 /* NickNameViewController.swift */,
+				04718D1C2907CA3400481015 /* NickName.storyboard */,
+			);
+			path = NickName;
+			sourceTree = "<group>";
+		};
 		3FCF3B4C27F888C5008771B8 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -255,6 +279,7 @@
 		F7379F2127AD37C000D99CD4 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				04718D1A2907CA3400481015 /* NickName */,
 				0407C0AC28A63780006AFA59 /* Write */,
 				044B812328A14DFA002E8851 /* Base */,
 				044B812528A14E18002E8851 /* Survey */,
@@ -332,6 +357,10 @@
 				F731B77727D4D56A009670A4 /* FirebaseFirestore */,
 				F731B77A27D4D581009670A4 /* GoogleSignIn */,
 				F731B77D27D4D5A5009670A4 /* DropDown */,
+				04718D202907CB3500481015 /* SnapKit */,
+				04718D232907CBA200481015 /* RxCocoa */,
+				04718D252907CBA200481015 /* RxRelay */,
+				04718D272907CBA200481015 /* RxSwift */,
 			);
 			productName = checkMate;
 			productReference = F757546927A4DF1800BFDF9B /* MateList.app */;
@@ -365,6 +394,8 @@
 				F731B76E27D4D56A009670A4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				F731B77927D4D581009670A4 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 				F731B77C27D4D5A5009670A4 /* XCRemoteSwiftPackageReference "DropDown" */,
+				04718D1F2907CB3500481015 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				04718D222907CBA200481015 /* XCRemoteSwiftPackageReference "RxSwift" */,
 			);
 			productRefGroup = F757546A27A4DF1800BFDF9B /* Products */;
 			projectDirPath = "";
@@ -380,6 +411,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04718D1E2907CA3400481015 /* NickName.storyboard in Resources */,
 				A6B5B8202801BE9300D0CF98 /* GoogleService-Info.plist in Resources */,
 				F7B4F41C27D7B5030045580F /* SurveyInput.storyboard in Resources */,
 				F731B7A627D4FF09009670A4 /* Home.storyboard in Resources */,
@@ -408,11 +440,13 @@
 				040AA09727BECDDD008F4BF5 /* HabitCheck.swift in Sources */,
 				3FCF3B4E27F888EC008771B8 /* KeychainItem.swift in Sources */,
 				F75452E927C7C5FB00E2DB41 /* FindMateViewController.swift in Sources */,
+				04718D2C2907CBF600481015 /* TextField.swift in Sources */,
 				F7B4F41A27D7B4CD0045580F /* SurveyViewCell.swift in Sources */,
 				F76B581527C5378100B6626D /* DetailTextView.swift in Sources */,
 				F743792227ABDA8E0053947A /* Data.swift in Sources */,
 				F76B582427C5380600B6626D /* WriteViewController.swift in Sources */,
 				3F2245BE27D62763002F29FE /* UIColor.swift in Sources */,
+				04718D1D2907CA3400481015 /* NickNameViewController.swift in Sources */,
 				F75452E727C7C59900E2DB41 /* Post.swift in Sources */,
 				F757546D27A4DF1800BFDF9B /* AppDelegate.swift in Sources */,
 				3FB23A5E27D79D3E00B8D071 /* FindMateTableViewCell.swift in Sources */,
@@ -649,6 +683,22 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		04718D1F2907CB3500481015 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				branch = develop;
+				kind = branch;
+			};
+		};
+		04718D222907CBA200481015 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 		F731B76E27D4D56A009670A4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -676,6 +726,26 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		04718D202907CB3500481015 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 04718D1F2907CB3500481015 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		04718D232907CBA200481015 /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 04718D222907CBA200481015 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		04718D252907CBA200481015 /* RxRelay */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 04718D222907CBA200481015 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxRelay;
+		};
+		04718D272907CBA200481015 /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 04718D222907CBA200481015 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
 		F731B76F27D4D56A009670A4 /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = F731B76E27D4D56A009670A4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
