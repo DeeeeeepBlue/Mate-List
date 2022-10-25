@@ -12,7 +12,7 @@
         <!--내정보-->
         <scene sceneID="xkl-5Z-K2a">
             <objects>
-                <viewController id="Njf-UX-cJ5" customClass="Info" customModule="checkMate" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Njf-UX-cJ5" customClass="Info" customModule="MateList" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zJm-n9-tIS">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

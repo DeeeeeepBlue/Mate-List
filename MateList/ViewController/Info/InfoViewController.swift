@@ -159,10 +159,32 @@ class Info: UIViewController{
                 AppDelegate.userAuth = authResult
                 name = authResult!.user.displayName ?? "NoName"
                 email = authResult?.user.email ?? "nil"
-                self.registUserFirebase(user: name, email: email)
-                self.agreeCheck()
+                
+               
+               // self.checkAgree()
+                self.checkUser()
+                
             }
         }
+        
+        
+    }
+    /// 유저 있는지 체크
+    func checkUser() {
+        guard let user = Auth.auth().currentUser else {return}
+        print("currnet", user.uid)
+        FireStoreService.db.collection("User").whereField("uid", isEqualTo: user.uid).addSnapshotListener { (querySnapshot, err) in
+            guard let documents = querySnapshot?.documents else {
+                print("Error!!!!! : \(err!)")
+                return
+            }
+            let vari = documents.map{$0["uid"]!}
+            if vari.isEmpty {
+                self.setNickName()
+            }
+        }
+        //self.registUserFirebase(user: name, email: email)
+       
     }
     
     /// 블랙리스트 체크
@@ -188,7 +210,7 @@ class Info: UIViewController{
         if emailAddress.contains(gnumaile){
             //이미 회원가입한 멤버가 아닌지 확인
             if(!self.Member_email.contains(emailAddress) && new_mem_agree != 1){
-                agreeCheck()
+                checkAgree()
             }else{
                 // 기존 가입된 계정이면 파이어베이스에 등록
                 self.registUserFirebase(user: name, email: emailAddress)
@@ -211,7 +233,7 @@ class Info: UIViewController{
     }
     
     /// 개인정보 제공 동의서 제출
-    func agreeCheck(){
+    func checkAgree(){
         let storyboard = UIStoryboard(name: "consent_popup", bundle: nil)
         //컨트롤러 객체 생성, Storyboard ID에 이름 설정(이동할 VC에 설정한 Storyboard ID)
         let secondVC: consent_popup = storyboard.instantiateViewController(withIdentifier: "consent_popup") as! consent_popup
@@ -379,6 +401,16 @@ class Info: UIViewController{
     
     
     //MARK: - UI Set
+    /// 닉네임 설정 View 띄우기
+    func setNickName() {
+        let storyboard = UIStoryboard(name: "NickName", bundle: Bundle.main)
+        guard let vc = storyboard.instantiateViewController(identifier: "NickName") as?
+                NickNameViewController else { return }
+        
+        self.present(vc, animated: true, completion: nil)
+    }
+    
+    
     /// 블랙 리스트 alert
     func blackAlert() {
         let alert = UIAlertController(title: "블랙 리스트", message: "해당 사용자는 타 사용자의 신고로 인해 블랙리스트에 추가되었습니다. 이의가 있으시면 문의하기로 연락 부탁드립니다.", preferredStyle: UIAlertController.Style.alert)
