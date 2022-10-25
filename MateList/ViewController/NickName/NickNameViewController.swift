@@ -61,13 +61,8 @@ class NickNameViewController: UIViewController {
     
     //MARK: - binding
     private func bind(){
+        var flag = false
         var str = ""
-        
-        checkButton.rx.tap
-            .bind{
-                
-            }
-        
         
         tfNickName.rx.text.orEmpty
             .subscribe(onNext: { text in
@@ -75,6 +70,37 @@ class NickNameViewController: UIViewController {
             })
             .disposed(by: disposeBag)
         
+        
+        checkButton.rx.tap
+            .bind{
+                FireStoreService.db.collection("User").whereField("NickName", isEqualTo: str).addSnapshotListener { (querySnapshot, err) in
+                    guard let documents = querySnapshot?.documents else {
+                        print("Error!!!!! : \(err!)")
+                        return
+                    }
+                    let vari = documents.map{$0["NickName"]!}
+                    print(type(of: vari), vari)
+                    if vari.isEmpty{
+                        DispatchQueue.main.async {
+                            self.checkLb.text = "사용 가능한 닉네임입니다."
+                            self.checkLb.textColor = .green
+                        }
+                        
+                    } else {
+                        DispatchQueue.main.async {
+                            self.checkLb.text = "사용 불가능한 닉네임입니다."
+                            self.checkLb.textColor = .red
+                        }
+                    }
+                }
+            }
+        
+        finButton.rx.tap
+            .bind{
+                //TODO: Firebase에 닉네임 설정
+                
+                self.dismiss(animated: true)
+        }
         
     }
     
