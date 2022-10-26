@@ -34,6 +34,7 @@ class Info: UIViewController{
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var signInButton: GIDSignInButton!
     @IBOutlet weak var loginProviderStackView: UIStackView!
+    @IBOutlet weak var socialLabel: UILabel!
     
     var Member_email : [String]=[]
     var dataloading = false
@@ -497,7 +498,14 @@ class Info: UIViewController{
     func setupProviderLoginView() {
         let authorizationButton = ASAuthorizationAppleIDButton()
         authorizationButton.addTarget(self, action: #selector(handleAuthorizationAppleIDButtonPress), for: .touchUpInside)
-        self.loginProviderStackView.addArrangedSubview(authorizationButton)
+        self.view.addSubview(authorizationButton)
+        
+        authorizationButton.snp.makeConstraints { make in
+            make.top.equalTo(socialLabel.snp.bottom).offset(20)
+            make.leading.equalTo(self.view.snp.leading).offset(20)
+            make.trailing.equalTo(self.view.snp.trailing).offset(-20)
+            make.height.equalTo(50)
+        }
     }
     
     
