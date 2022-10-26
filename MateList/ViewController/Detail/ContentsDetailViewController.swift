@@ -52,9 +52,7 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
             return
         }
         scrapDataLoad{ [self] (result) in
-            
             if result {
-                
                 contentsDetailData.isScrap = false
                 self.navigationItem.rightBarButtonItem?.image = UIImage(systemName: "star")
                 FireStoreService.db.collection("User").document(Auth.auth().currentUser!.uid).collection("Scrap").document(contentsDetailData.pid).delete() { err in
@@ -205,6 +203,12 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
         else {
             self.showSendMailErrorAlert()
         }
+        
+        // 게시물 차단하기
+        guard let user = Auth.auth().currentUser else {return}
+        FireStoreService.db.collection("User").document(user.uid).collection("HatePost").document(contentsDetailData.pid).setData([
+            "PostId" : contentsDetailData.pid
+        ])
     }
     
     @IBAction func patternButtonClick(_ sender: Any){
