@@ -11,7 +11,7 @@ import FirebaseAuth
 import AuthenticationServices
 import GoogleSignIn
 
-struct fbAuth {
+struct FireAuth {
     
     let signInConfig =  GIDConfiguration.init(clientID: "14102016647-37m019d8iopsi0i7utjfpqas4h4l3ebe.apps.googleusercontent.com")
     

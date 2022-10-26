@@ -13,12 +13,13 @@ import FirebaseFirestore
 import Firebase
 import AuthenticationServices
 import CryptoKit
+import RxSwift
+import RxCocoa
 
 
-var flag: Bool = true
-let signInConfig =  AppDelegate.authFunc.signInConfig
-var name=""
-var email=""
+
+let signInConfig =  AppDelegate.fireAuth.signInConfig
+
 var D_Post_id: [String] = []
 fileprivate var currentNonce: String?
 
@@ -29,17 +30,23 @@ class Info: UIViewController{
     @IBOutlet weak var surveyButton: UIButton!
     @IBOutlet weak var LogoutButton: UIButton!
     @IBOutlet weak var accountView: UIView!
-    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var nickLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var signInButton: GIDSignInButton!
     @IBOutlet weak var loginProviderStackView: UIStackView!
+    @IBOutlet weak var socialLabel: UILabel!
     
     var Member_email : [String]=[]
     var dataloading = false
+    var name=""
+    var nick="로그인이 필요합니다."
+    var email="로그인이 필요합니다."
     
+    var flag: Bool = true
     //MARK: - IBAction
     /// 회원탈퇴
     @IBAction func opt_out_request(_ sender: Any) {
+        flag = false
         let uid = Auth.auth().currentUser!.uid
         //Scrap 삭제
         deleteScrap(uid: uid)
@@ -55,13 +62,14 @@ class Info: UIViewController{
         
         // App Delegate 로그아웃
         modal_signOut()
+ 
         
         let alert = UIAlertController(title: "탈퇴", message: "탈퇴완료!", preferredStyle: UIAlertController.Style.alert)
         let okAction = UIAlertAction(title: "OK", style: .default) {_ in
         }
         alert.addAction(okAction)
         self.present(alert, animated: true, completion: nil)
-        
+
         
         
         
@@ -76,9 +84,9 @@ class Info: UIViewController{
                 guard let user = user else { return }
                 
                
-                email = user.profile!.email
-                name = user.profile!.name
-                print(name, email)
+                self.email = user.profile!.email
+                self.name = user.profile!.name
+                
                 user.authentication.do { authentication, error in
                     guard error == nil else { return }
                     
@@ -106,10 +114,15 @@ class Info: UIViewController{
                 guard error == nil else { return }
                 AppDelegate.userAuth = nil
             }
-            self.nameLabel.text = "로그인이 필요합니다."
-            self.emailLabel.text = "로그인이 필요합니다."
+            nick = "로그인이 필요합니다."
             name = ""
-            email = ""
+            email = "로그인이 필요합니다."
+
+            self.nickLabel.text = nick
+            self.emailLabel.text = email
+
+            
+            
         } catch let signOutError as NSError {
             print("Error signing out: %@", signOutError)
         }
@@ -127,7 +140,7 @@ class Info: UIViewController{
         loginButtonActive()
         cornerRadius()
         setupProviderLoginView()
-        
+        subscribeFlag()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -151,17 +164,40 @@ class Info: UIViewController{
     //MARK: - Sign In
     /// 공통 auth 로그인
     func authSignIn(credential : AuthCredential) {
+        self.flag = true
         Auth.auth().signIn(with: credential) { (authResult, error) in
             if let error = error {
                 print("Firebase sign in error: \(error)")
                 return
             } else {
                 AppDelegate.userAuth = authResult
-                name = authResult!.user.displayName ?? "NoName"
-                email = authResult?.user.email ?? "nil"
-                self.registUserFirebase(user: name, email: email)
+                self.name = authResult!.user.displayName ?? "NoName"
+                self.email = authResult?.user.email ?? "nil"
+                
+                self.checkUser()
+                self.getNickName()
             }
         }
+        
+        
+    }
+    /// 유저 있는지 체크
+    func checkUser() {
+        guard let user = Auth.auth().currentUser else {return}
+        FireStoreService.db.collection("User").whereField("uid", isEqualTo: user.uid).getDocuments { (querySnapshot, err) in
+            guard let documents = querySnapshot?.documents else {
+                print("Error!!!!! : \(err!)")
+                return
+            }
+            let vari = documents.map{$0["uid"]!}
+            if vari.isEmpty {
+                print("HI")
+                self.setNickName()
+                self.registUserFirebase(user: self.name, email: self.email)
+                
+            }
+        }
+        
     }
     
     /// 블랙리스트 체크
@@ -181,36 +217,8 @@ class Info: UIViewController{
         }
     }
     
-    /// 경상대 확인 함수
-    func checkSchool( emailAddress : String, name : String) {
-        // gnu 메일인지 확인
-        if emailAddress.contains(gnumaile){
-            //이미 회원가입한 멤버가 아닌지 확인
-            if(!self.Member_email.contains(emailAddress) && new_mem_agree != 1){
-                agreeCheck()
-            }else{
-                // 기존 가입된 계정이면 파이어베이스에 등록
-                self.registUserFirebase(user: name, email: emailAddress)
-            }
-        } else {
-            //gnu 메일이 아니면 회원탈퇴 및 로그아웃
-            self.schoolAlert()
-            self.deleteUser(uid: Auth.auth().currentUser?.uid ?? "")
-            self.modal_signOut()
-        }
-    }
-    /// 학생 아님 경고창
-    func schoolAlert(){
-        let alert = UIAlertController(title: "경상대 학생이 아님", message: "gnu 메일로 로그인해 주세요 !!", preferredStyle: UIAlertController.Style.alert)
-        let okAction = UIAlertAction(title: "OK", style: .default) {_ in
-        }
-        alert.addAction(okAction)
-        
-        self.present(alert, animated: true, completion: nil)
-    }
-    
     /// 개인정보 제공 동의서 제출
-    func agreeCheck(){
+    func checkAgree(){
         let storyboard = UIStoryboard(name: "consent_popup", bundle: nil)
         //컨트롤러 객체 생성, Storyboard ID에 이름 설정(이동할 VC에 설정한 Storyboard ID)
         let secondVC: consent_popup = storyboard.instantiateViewController(withIdentifier: "consent_popup") as! consent_popup
@@ -227,30 +235,42 @@ class Info: UIViewController{
             "user" : user,
             "email" : email,
             "gender" : true,
-            "uid" : Auth.auth().currentUser!.uid
+            "uid" : Auth.auth().currentUser!.uid,
+            "NickName" : ""
         ])
-        nameLabel.text = user
-        emailLabel.text = email
-        logoutButtonActive()
-        btnout.isHidden=false
-        loginProviderStackView.isHidden = true
+
     }
     
-    /// 로그인
+    /// 로그인 상태 유지
     func modal_signIn(){
-        FireStoreService.db.collection("User").document(Auth.auth().currentUser!.uid).setData([
-            "user" : name,
-            "email" : email,
-            "gender" : true,
-            "uid" : Auth.auth().currentUser!.uid
-        ])
-        
-        self.nameLabel!.text = name
+        self.nickLabel!.text = nick
         self.emailLabel!.text = email
         logoutButtonActive()
         btnout.isHidden=false
         self.loginProviderStackView.isHidden = true
+        
     }
+    
+    func getNickName(){
+        guard let user = Auth.auth().currentUser else {return}
+        FireStoreService.db.collection("User").document(user.uid).addSnapshotListener { documentSnapshot, err in
+            guard let document = documentSnapshot else {
+                print("ERR: \(err)")
+                return
+            }
+            guard let data = document.data() else {
+                print("Document Empty")
+                return
+            }
+            self.nick = data["NickName"] as! String
+            if self.flag {
+                self.modal_signIn()
+            }
+        }
+        
+    }
+    
+    
     //MARK: - Sign Out
     /// user 게시글 삭제
     func deletePage(uid : String){
@@ -328,8 +348,9 @@ class Info: UIViewController{
     
 
     
-    /// 로그아웃
+    /// 로그아웃 상태 유지
     func modal_signOut(){
+        
         let firebaseAuth = Auth.auth()
         do {
             try firebaseAuth.signOut()
@@ -338,8 +359,13 @@ class Info: UIViewController{
                 guard error == nil else { return }
                 AppDelegate.userAuth = nil
             }
-            nameLabel.text = "로그인이 필요합니다."
-            emailLabel.text = "로그인이 필요합니다."
+
+            self.name = ""
+            self.email = "로그인이 필요합니다."
+            self.nick = "로그인이 필요합니다."
+            
+            nickLabel.text = nick
+            emailLabel.text = email
             
         } catch let signOutError as NSError {
             print("Error signing out: %@", signOutError)
@@ -375,9 +401,40 @@ class Info: UIViewController{
         }
         
     }
+    //MARK: - Bind
+    //TODO: Lebel 설정하는거 Rx로 하기
+    func observeFlag() -> Observable<Bool> {
+        return Observable.create() { emitter in
+            emitter.onNext(self.flag)
+            return Disposables.create()
+        }
+    }
     
+    func subscribeFlag() {
+        observeFlag().subscribe(onNext: { f in
+            if f {
+                print("CHANGGE")
+                DispatchQueue.main.async { [self] in
+                    self.emailLabel.text = self.email
+                    self.nickLabel.text = self.nick
+                }
+            }
+        })
+    }
     
     //MARK: - UI Set
+    /// 닉네임 설정 View 띄우기
+    func setNickName() {
+        let storyboard = UIStoryboard(name: "NickName", bundle: Bundle.main)
+        guard let vc = storyboard.instantiateViewController(identifier: "NickName") as?
+                NickNameViewController else { return }
+        
+        vc.modalPresentationStyle = UIModalPresentationStyle.fullScreen
+        
+        self.present(vc, animated: true, completion: nil)
+    }
+    
+    
     /// 블랙 리스트 alert
     func blackAlert() {
         let alert = UIAlertController(title: "블랙 리스트", message: "해당 사용자는 타 사용자의 신고로 인해 블랙리스트에 추가되었습니다. 이의가 있으시면 문의하기로 연락 부탁드립니다.", preferredStyle: UIAlertController.Style.alert)
@@ -428,7 +485,7 @@ class Info: UIViewController{
         else { return }
         
         DispatchQueue.main.async {
-            viewController.nameLabel.text = userIdentifier
+            viewController.nickLabel.text = userIdentifier
             if let email = email {
                 viewController.emailLabel.text = email
             }
@@ -441,7 +498,14 @@ class Info: UIViewController{
     func setupProviderLoginView() {
         let authorizationButton = ASAuthorizationAppleIDButton()
         authorizationButton.addTarget(self, action: #selector(handleAuthorizationAppleIDButtonPress), for: .touchUpInside)
-        self.loginProviderStackView.addArrangedSubview(authorizationButton)
+        self.view.addSubview(authorizationButton)
+        
+        authorizationButton.snp.makeConstraints { make in
+            make.top.equalTo(socialLabel.snp.bottom).offset(20)
+            make.leading.equalTo(self.view.snp.leading).offset(20)
+            make.trailing.equalTo(self.view.snp.trailing).offset(-20)
+            make.height.equalTo(50)
+        }
     }
     
     
@@ -562,4 +626,36 @@ extension Info: ASAuthorizationControllerDelegate {
         
     }
     
+    //MARK: - 경상대 관련 함수
+    
+    /// 경상대 확인 함수
+    func checkSchool( emailAddress : String, name : String) {
+        // gnu 메일인지 확인
+        if emailAddress.contains(gnumaile){
+            //이미 회원가입한 멤버가 아닌지 확인
+            if(!self.Member_email.contains(emailAddress) && new_mem_agree != 1){
+                checkAgree()
+            }else{
+                // 기존 가입된 계정이면 파이어베이스에 등록
+                self.registUserFirebase(user: name, email: emailAddress)
+            }
+        } else {
+            //gnu 메일이 아니면 회원탈퇴 및 로그아웃
+            self.schoolAlert()
+            self.deleteUser(uid: Auth.auth().currentUser?.uid ?? "")
+            self.modal_signOut()
+        }
+    }
+    /// 학생 아님 경고창
+    func schoolAlert(){
+        let alert = UIAlertController(title: "경상대 학생이 아님", message: "gnu 메일로 로그인해 주세요 !!", preferredStyle: UIAlertController.Style.alert)
+        let okAction = UIAlertAction(title: "OK", style: .default) {_ in
+        }
+        alert.addAction(okAction)
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    
 }
+

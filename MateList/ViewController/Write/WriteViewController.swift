@@ -8,7 +8,8 @@
 import UIKit
 import FirebaseFirestore
 import FirebaseAuth
-
+import RxSwift
+import RxCocoa
 
 class WriteViewController: UIViewController, UITextViewDelegate {
     
@@ -17,14 +18,14 @@ class WriteViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var tittleTextField: UITextField!
     @IBOutlet weak var contentTextView: UITextView!
     
+    var nickName = ""
     
     //MARK: - IBAction
     /// 글쓰기 저장 버튼
     @IBAction func saveButton(_ sender: Any) {
         // 유저 이름 분리하기
         
-        let str = (AppDelegate.userAuth?.user.email)! as String
-        var userName = str.split(separator: "@")
+        var userName = nickName
     
         
         // 텍스트 필드의 입력된 텍스트를 상수로 지정
@@ -75,7 +76,7 @@ class WriteViewController: UIViewController, UITextViewDelegate {
                 "contents" : contentText!,
                 "title" : titleText!,
                 "uid" : Auth.auth().currentUser!.uid,
-                "user" : userName[0],
+                "user" : userName,
                 "date" : getDate(),
                 "findMate" : false,
                 "isScrap" : false
@@ -91,6 +92,7 @@ class WriteViewController: UIViewController, UITextViewDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         haveUesr()
+        getNickName()
     }
     
     override func viewDidLoad() {
@@ -107,6 +109,22 @@ class WriteViewController: UIViewController, UITextViewDelegate {
     }
   
     // MARK: - Custom Function
+    /// 닉네임 가져오기
+    func getNickName(){
+        guard let user = Auth.auth().currentUser else {return }
+        FireStoreService.db.collection("User").document(user.uid).getDocument { documentSnapshot, err in
+            guard let document = documentSnapshot else {
+                print("ERR: \(err)")
+                return
+            }
+            guard let data = document.data() else {
+                print("Document Empty")
+                return
+            }
+            self.nickName = data["NickName"] as! String
+        }
+    }
+    
     /// 날짜 가져오기
     func getDate() -> String {
         let now = Date()

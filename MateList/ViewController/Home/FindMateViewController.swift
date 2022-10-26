@@ -18,7 +18,7 @@ class FindMateViewController: UIViewController, UITableViewDataSource, UITableVi
     @IBOutlet weak var findMateTableView: UITableView!
     @IBOutlet var rootView: UIView!
     let MAX = 10000
-    var List : [Post] = []
+    var posts : [Post] = []
     var habitCheckList : [String:HabitCheck] = [:] //key is uid
     var dbID: String = ""
     var loginUserSurvey : HabitCheck?
@@ -118,17 +118,12 @@ class FindMateViewController: UIViewController, UITableViewDataSource, UITableVi
 
     
     func DataLoad() {
-        List.removeAll()
-        
+        posts.removeAll()
         FireStoreService.db.collection("Post").order(by: "date", descending: true).getDocuments() { (querySnapshot, err) in
                 if let err = err {
                     print("Error getting documents: \(err)")
                 } else {
-                    //querySnapshot!.documents : Array -> 딕셔너리 타입임 data() 함수 사용시 내용 확인 가능
-                    //ex) let value = querySnapshot!.documents[0].data()
-                    //    value["callSelect", default: 0]
                     for document in querySnapshot!.documents {
-                        //print(document.data())
                         let value = document.data()
 
                         let uid_db = value["uid"] as? String ?? "글이 없습니다."
@@ -138,26 +133,30 @@ class FindMateViewController: UIViewController, UITableViewDataSource, UITableVi
                         let date_db = value["date"] as? String ?? "글이 없습니다."
                         let isScrap_db = value["isScrap"] as? Bool ?? false
 
-//                            let findMate = value["findMate"]! as! Bool
-
-
-                        self.List.append(Post(uid: uid_db, author: author_db, title: title_db, contents: content_db, isScrap: isScrap_db, date: date_db, pid: document.documentID))
-
-    //                    print("\(document.documentID) => \(document.data())")
-                        
+                        self.posts.append(Post(uid: uid_db, author: author_db, title: title_db, contents: content_db, isScrap: isScrap_db, date: date_db, pid: document.documentID))
                     }
-                   
                 }
-           self.getPostHabitCheck()
+            self.getPostHabitCheck()
             self.findMateTableView.reloadData()
-            
+        }
+        
+        // 차단한 게시글 삭제
+        guard let user = Auth.auth().currentUser else {return}
+        FireStoreService.db.collection("User").document(user.uid).collection("HatePost").getDocuments { querySnapshot, err in
+            if let err = err {
+                print("차단한 게시글 에러 : \(err)")
+            } else{
+                guard let querySnapshot = querySnapshot else {return}
+                for document in querySnapshot.documents{
+                    let hatePid = document.documentID
+                    self.posts = self.posts.filter{$0.pid != hatePid}
+                }
             }
+        }
         
-        
-        
-       }
+    }
     
-    // 📌 로그인된 유저 survey 받아오기
+    /// 📌 로그인된 유저 survey 받아오기
     func getLoginUserSurvey(){
         guard Auth.auth().currentUser != nil else {return}
         if AppDelegate.userAuth != nil {
@@ -180,14 +179,14 @@ class FindMateViewController: UIViewController, UITableViewDataSource, UITableVi
                     } else { print("Document does not exist") }
                 }
             self.findMateTableView.reloadData()
-            }
+        }
     }
 
 // MARK: 버전 2에 사용
-    // 📌 각 POST 마다 author의 survey 받아오기
+    /// 📌 각 POST 마다 author의 survey 받아오기
     func getPostHabitCheck(){
         // 한 유저가 여러개 글을 작성해도 한번만 저장되도록 중복 제거
-        var writersUidList:[String] = self.List.map { $0.uid }
+        var writersUidList:[String] = self.posts.map { $0.uid }
         let writersUidSet = Set(writersUidList)
         writersUidList = Array(writersUidSet)
         
@@ -225,10 +224,10 @@ class FindMateViewController: UIViewController, UITableViewDataSource, UITableVi
     // indexPath.row 대신 indexPath.section으로 나눴음
     func numberOfSections(in tableView: UITableView) -> Int {
         var value : Int
-        if(List.count<=0){
+        if(posts.count<=0){
             value = 0
         } else {
-            value = List.count
+            value = posts.count
         }
         return value
     }
@@ -250,7 +249,7 @@ class FindMateViewController: UIViewController, UITableViewDataSource, UITableVi
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let cell: UITableViewCell = self.findMateTableView.dequeueReusableCell(withIdentifier: "mateCell", for: indexPath)
-        if self.List.count > 0 {
+        if self.posts.count > 0 {
                 // List가 0보다 클때만 데이터 불러오기
                 let cellTittle = cell.viewWithTag(3) as! UILabel
                 let cellContents = cell.viewWithTag(4) as! UILabel
@@ -258,10 +257,10 @@ class FindMateViewController: UIViewController, UITableViewDataSource, UITableVi
                 let cellUser = cell.viewWithTag(6) as! UILabel
 //                print(self.List.count)
 
-                cellTittle.text = "\(self.List[indexPath.section].title)"
-                cellContents.text = "\(self.List[indexPath.section].contents)"
-                cellDate.text = "\(self.List[indexPath.section].date)"
-                cellUser.text = "\(self.List[indexPath.section].author)"
+                cellTittle.text = "\(self.posts[indexPath.section].title)"
+                cellContents.text = "\(self.posts[indexPath.section].contents)"
+                cellDate.text = "\(self.posts[indexPath.section].date)"
+                cellUser.text = "\(self.posts[indexPath.section].author)"
             
             
             /** 📌 적합도 계산 UI넣기 */
@@ -299,7 +298,7 @@ class FindMateViewController: UIViewController, UITableViewDataSource, UITableVi
                 
                 //TODO: loginUserSurvey = nil Bug
                 // fitness 계산
-                let fitnessValue = loginUserSurvey != nil ? habitCheckList[self.List[indexPath.section].uid]?.calculatingFit(otherSurvey: loginUserSurvey!) : 0
+                let fitnessValue = loginUserSurvey != nil ? habitCheckList[self.posts[indexPath.section].uid]?.calculatingFit(otherSurvey: loginUserSurvey!) : 0
                 
                 // 적합도 값 넣기
                 fitnessText.text = "\(fitnessValue ?? 0)%"
@@ -356,8 +355,8 @@ class FindMateViewController: UIViewController, UITableViewDataSource, UITableVi
             let findMateTableViewIndexPath = findMateTableView.indexPath(for: sender as! UITableViewCell)!
             let VCDest = segue.destination as! ContentsDetailViewController
 
-            if List.count > 0 {
-                VCDest.contentsDetailData = List[findMateTableViewIndexPath.section]
+            if posts.count > 0 {
+                VCDest.contentsDetailData = posts[findMateTableViewIndexPath.section]
             }
 
         }
