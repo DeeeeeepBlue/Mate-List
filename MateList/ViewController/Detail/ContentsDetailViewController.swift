@@ -13,6 +13,8 @@ import FirebaseDatabase
 import FirebaseFirestore
 import FirebaseAuth
 import gRPC_Core
+import RxSwift
+import RxCocoa
 
 
 
@@ -38,7 +40,7 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
     
     var lef: DatabaseReference!
     var List : [Post] = []
-    var replyList: [reply] = []
+    var replyList: [Reply] = []
     var scrapFlag = false
     var check_replyuser : [Bool] = []
     var viewHeight : CGFloat = 0
@@ -142,7 +144,7 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
             }
             
             replyTextField.text?.removeAll()
-            DataLoad()
+            replyDataLoad()
             self.replyTableView.reloadData()
             
             
@@ -180,7 +182,7 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
         
         // 화면 재구성
         replyList.removeAll()
-        DataLoad()
+        replyDataLoad()
         self.replyTableView.reloadData()
         
     }
@@ -188,21 +190,7 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
     /// 게시글 신고하기
     @IBAction func reportButton(_ sender: Any) {
         
-        // 이메일 사용가능한지 체크하는 if문
-        if MFMailComposeViewController.canSendMail() {
-            
-            let compseVC = MFMailComposeViewController()
-            compseVC.mailComposeDelegate = self
-            
-            compseVC.setToRecipients(["deeeeeep0122@gmail.com"])
-            compseVC.setSubject("[메이트리스트]게시글 신고")
-            compseVC.setMessageBody("\(contentsDetailData.pid)", isHTML: false)
-            self.present(compseVC, animated: true, completion: nil)
-            
-        }
-        else {
-            self.showSendMailErrorAlert()
-        }
+        reportFunc()
         
         // 게시물 차단하기
         guard let user = Auth.auth().currentUser else {return}
@@ -215,12 +203,23 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
         self.view.endEditing(true)
     }
     
+    @IBAction func reportReplyButton(_ sender: UIButton) {
+        // 버튼의 위치 찾기
+        let contentView = sender.superview
+        let cell = contentView?.superview as! UITableViewCell
+        let indexPath = replyTableView.indexPath(for: cell)
+        
+        
+        self.reportReple(docId: self.replyList[indexPath!.section].docid)
+        self.replyDataLoad()
+        
+    }
     
     //MARK: - LifeCycle
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
       
-        DataLoad()
+        replyDataLoad()
         replyTableView.reloadData()
         habitDataLoad()
         // 게시글 작성자만 삭제 버튼 보이게 하기
@@ -312,8 +311,8 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
     
     //MARK: - Custom Function
     
-    func DataLoad()  {
-            //데이터 불러오기
+    func replyDataLoad()  {
+        //데이터 불러오기
         self.replyList.removeAll()
         FireStoreService.db.collection("Post").document(contentsDetailData?.pid ?? "").collection("Comment").order(by: "date").getDocuments() { (querySnapshot, err) in
             if let err = err {
@@ -330,15 +329,36 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
 //                    let isScrap_db = value["isScrap"] as? Bool ?? false
 //                    let findMate = value["findMate"]! as! Bool
         
-                    self.replyList.append(reply(author: author_db, contents: content_db, date: date_db, uid: uid_db, docid: document.documentID))
+                    self.replyList.append(Reply(author: author_db, contents: content_db, date: date_db, uid: uid_db, docid: document.documentID))
 //                    print("\(document.documentID) => \(document.data())")
                     print("## : \(self.replyList)")
                     
-                    
+                   
                 }
                 self.replyUserCheck()
             }
             
+            self.deleteHateReply()
+        }
+        
+    }
+    
+    func deleteHateReply() {
+        // 차단한 댓글 삭제
+        guard let user = Auth.auth().currentUser else {
+            self.replyTableView.reloadData()
+            return
+        }
+        FireStoreService.db.collection("User").document(user.uid).collection("HateReple").getDocuments { querySnapshot, err in
+            if let err = err {
+                print("차단한 댓글 에러 : \(err)")
+            } else{
+                guard let querySnapshot = querySnapshot else {return}
+                for document in querySnapshot.documents{
+                    let hatePid = document.documentID
+                    self.replyList = self.replyList.filter{$0.docid != hatePid }
+                }
+            }
             self.replyTableView.reloadData()
         }
     }
@@ -409,7 +429,7 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         self.replyTableView.viewWithTag(4)?.isHidden = true
 //        replyList.removeAll()
-        DataLoad()
+        replyDataLoad()
         
     }
   
@@ -458,6 +478,24 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
         }
     }
     
+    func reportFunc() {
+        // 이메일 사용가능한지 체크하는 if문
+        if MFMailComposeViewController.canSendMail() {
+            
+            let compseVC = MFMailComposeViewController()
+            compseVC.mailComposeDelegate = self
+            
+            compseVC.setToRecipients(["deeeeeep0122@gmail.com"])
+            compseVC.setSubject("[메이트리스트]게시글 신고")
+            compseVC.setMessageBody("\(contentsDetailData.pid)", isHTML: false)
+            self.present(compseVC, animated: true, completion: nil)
+            
+        }
+        else {
+            self.showSendMailErrorAlert()
+        }
+    }
+    
     //MARK: - Reply TableView
     func numberOfSections(in tableView: UITableView) -> Int {
         return replyList.count
@@ -487,8 +525,10 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
         let contentsText = cell.viewWithTag(2) as! UITextView
         let dateLabel = cell.viewWithTag(3) as! UILabel
         let replyDeleteLabel = cell.viewWithTag(4) as! UIButton
+        let replyReportButton = cell.viewWithTag(5) as! UIButton
         
-
+      
+        
         if replyList.count > 0{
             // 텍스트 크기 자동조절
             userLabel.text = self.replyList[indexPath.section].author
@@ -516,6 +556,17 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
         else {}
         
         return cell
+    }
+    
+    func reportReple(docId : String) {
+        reportFunc()
+        
+        // 게시물 차단하기
+        guard let user = Auth.auth().currentUser else {return}
+        FireStoreService.db.collection("User").document(user.uid).collection("HateReple").document(docId).setData([
+            "docId" : docId
+        ])
+    
     }
 
     //MARK: - 화면 전환

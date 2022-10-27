@@ -35,6 +35,7 @@ class Info: UIViewController{
     @IBOutlet weak var signInButton: GIDSignInButton!
     @IBOutlet weak var loginProviderStackView: UIStackView!
     @IBOutlet weak var socialLabel: UILabel!
+    let authorizationButton = ASAuthorizationAppleIDButton()
     
     var Member_email : [String]=[]
     var dataloading = false
@@ -452,7 +453,7 @@ class Info: UIViewController{
         signInButton.layer.isHidden = true
         LogoutButton.layer.isHidden = false
         loginProviderStackView.isHidden = true
-
+        authorizationButton.isHidden = true
     }
     
     /// 로그인 버튼 비활성화
@@ -460,6 +461,7 @@ class Info: UIViewController{
         LogoutButton.layer.isHidden = true
         signInButton.layer.isHidden = false
         loginProviderStackView.isHidden = false
+        authorizationButton.isHidden = false
    
     }
     
@@ -496,7 +498,7 @@ class Info: UIViewController{
     
     ///Apple 로그인 버튼 생성
     func setupProviderLoginView() {
-        let authorizationButton = ASAuthorizationAppleIDButton()
+        
         authorizationButton.addTarget(self, action: #selector(handleAuthorizationAppleIDButtonPress), for: .touchUpInside)
         self.view.addSubview(authorizationButton)
         

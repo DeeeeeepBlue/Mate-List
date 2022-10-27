@@ -105,6 +105,7 @@
                                     <constraint firstAttribute="height" constant="30" id="Qyc-G3-Ya0"/>
                                     <constraint firstAttribute="width" constant="60" id="pQs-Nj-onm"/>
                                 </constraints>
+                                <color key="tintColor" systemColor="systemPinkColor"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="삭제"/>
                                 <connections>
@@ -136,9 +137,9 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="uiM-Aw-lVs"/>
                                 </constraints>
-                                <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" systemColor="systemRedColor"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="신고"/>
+                                <buttonConfiguration key="configuration" style="plain" image="light.beacon.max" catalog="system" title=" "/>
                                 <connections>
                                     <action selector="reportButton:" destination="fXz-5F-R5J" eventType="touchUpInside" id="3dx-7b-w4M"/>
                                 </connections>
@@ -180,16 +181,16 @@
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JfV-i0-LEZ">
+                                                <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JfV-i0-LEZ">
                                                     <rect key="frame" x="324" y="5" width="60" height="34.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="60" id="9Jw-WE-bMt"/>
                                                     </constraints>
-                                                    <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="tintColor" systemColor="systemRedColor"/>
                                                     <state key="normal" title="Button"/>
-                                                    <buttonConfiguration key="configuration" style="plain" title="신고"/>
+                                                    <buttonConfiguration key="configuration" style="plain" image="light.beacon.max" catalog="system" title=" "/>
                                                     <connections>
-                                                        <action selector="reportButton:" destination="fXz-5F-R5J" eventType="touchUpInside" id="L9J-3J-RXg"/>
+                                                        <action selector="reportReplyButton:" destination="fXz-5F-R5J" eventType="touchUpInside" id="lPv-Vq-P9G"/>
                                                     </connections>
                                                 </button>
                                                 <button hidden="YES" opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Db9-2R-mSZ">
@@ -197,6 +198,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="60" id="tBS-CZ-kuF"/>
                                                     </constraints>
+                                                    <color key="tintColor" systemColor="systemPinkColor"/>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" title="삭제"/>
                                                     <connections>
@@ -295,6 +297,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="light.beacon.max" catalog="system" width="128" height="102"/>
         <image name="star" catalog="system" width="128" height="116"/>
         <namedColor name="AccentColor">
             <color red="1" green="0.79199999570846558" blue="0.15700000524520874" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -304,6 +307,12 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
