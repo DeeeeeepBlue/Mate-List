@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct reply {
+public struct Reply {
     
     let author: String
     let contents: String

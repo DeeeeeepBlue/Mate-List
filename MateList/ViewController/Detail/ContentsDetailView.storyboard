@@ -180,7 +180,7 @@
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JfV-i0-LEZ">
+                                                <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JfV-i0-LEZ">
                                                     <rect key="frame" x="324" y="5" width="60" height="34.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="60" id="9Jw-WE-bMt"/>
@@ -189,7 +189,7 @@
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" title="신고"/>
                                                     <connections>
-                                                        <action selector="reportButton:" destination="fXz-5F-R5J" eventType="touchUpInside" id="L9J-3J-RXg"/>
+                                                        <action selector="reportReplyButton:" destination="fXz-5F-R5J" eventType="touchUpInside" id="lPv-Vq-P9G"/>
                                                     </connections>
                                                 </button>
                                                 <button hidden="YES" opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Db9-2R-mSZ">
