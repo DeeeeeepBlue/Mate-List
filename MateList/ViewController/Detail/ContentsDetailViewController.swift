@@ -189,7 +189,7 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
     
     /// 게시글 신고하기
     @IBAction func reportButton(_ sender: Any) {
-        
+        self.userBlockAlert()
         // 게시물 차단하기
         guard let user = Auth.auth().currentUser else {return}
         FireStoreService.db.collection("User").document(user.uid).collection("HatePost").document(contentsDetailData.pid).setData([
@@ -370,6 +370,33 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
         }
     }
     //MARK: Other
+    /// 사용자 차단
+    func userBlockAlert() {
+        guard AppDelegate.userAuth != nil else {
+            let alert = UIAlertController(title: "신고하기", message: "게시글과 사용자를 차단하려면 로그인을 해야합니다.", preferredStyle: UIAlertController.Style.alert)
+            let okAction = UIAlertAction(title: "OK", style: .default) {_ in
+                self.dismiss(animated: true, completion: nil)
+            }
+            alert.addAction(okAction)
+            
+            present(alert, animated: true, completion: nil)
+            return
+        }
+        let alert = UIAlertController(title: "차단", message: "게시글과 작성자를 차단하시겠습니까?", preferredStyle: UIAlertController.Style.alert)
+        let okAction = UIAlertAction(title: "차단", style: .destructive) { _ in
+            
+            print("OK")
+            
+            self.dismiss(animated: true, completion: nil)
+        }
+        let cancelAction = UIAlertAction(title: "취소", style: .cancel)
+        
+        alert.addAction(okAction)
+        alert.addAction(cancelAction)
+        
+        present(alert, animated: true, completion: nil)
+    }
+    
     func scrapDataLoad(_ escapingHandler : @escaping (Bool) -> ()) {
             //데이터 불러오기
         guard AppDelegate.userAuth != nil else {return }
