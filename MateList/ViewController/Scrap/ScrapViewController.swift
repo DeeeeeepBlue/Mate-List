@@ -7,25 +7,30 @@
 
 import UIKit
 import Firebase
+import RxCocoa
+import RxSwift
 
 
 class ScrapViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    //MARK: - Properties
     @IBOutlet var scrapTableView: UITableView!
     
     var scrapTableViewController = UITableViewController()
    
     var ref: DocumentReference? = nil
-    var List : [Post] = []
+    var posts : [Post] = []
+    let relay = BehaviorRelay(value: [Post]())
     
-    // MARK: LifeCycle
+    
+    // MARK: - LifeCycle
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        List.removeAll()
-        guard AppDelegate.userAuth != nil else {return self.scrapTableView.reloadData()}
-        DataLoad()
-        self.scrapTableView.reloadData()
+        posts.removeAll()
         
+        self.dataLoad()
+        self.reloadTableView()
+        self.setEmptyView()
     }
     
     override func viewDidLoad() {
@@ -48,6 +53,38 @@ class ScrapViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     // MARK: - Custom function
+    func setEmptyView(){
+        lazy var emptyView : UIView = {
+            let v = UIView()
+            let lb = UILabel()
+            lb.text = "Empty!"
+            lb.textColor = .gray
+            v.addSubview(lb)
+            lb.snp.makeConstraints {$0.center.equalToSuperview()}
+            v.isHidden = true
+            return v
+        }()
+        
+        
+        self.view.addSubview(emptyView)
+        
+        emptyView.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+            make.width.equalTo(50)
+            make.height.equalTo(50)
+        }
+        // BehaviorRelay
+        relay.asObservable()
+            .subscribe{ event in
+                let result = event.element ?? []
+                if result.isEmpty {
+                    emptyView.isHidden = false
+                } else {
+                    emptyView.isHidden = true
+                }
+            }
+        
+    }
     
     func customNavigationBar(){
         //배경하고 그림자 없게
@@ -72,9 +109,9 @@ class ScrapViewController: UIViewController, UITableViewDataSource, UITableViewD
         }
     }
     
-    func DataLoad() {
-        List.removeAll()
-            //데이터 불러오기
+    func dataLoad() {
+        posts.removeAll()
+            //데이터 불러오기\
         guard Auth.auth().currentUser != nil else {return}
         FireStoreService.db.collection("User").document(Auth.auth().currentUser!.uid).collection("Scrap").getDocuments() { [self] (querySnapshot, err) in
                     if let err = err {
@@ -96,10 +133,9 @@ class ScrapViewController: UIViewController, UITableViewDataSource, UITableViewD
                             
                             existScrap(docPath: document.documentID){ (result) in
                                 if result{
-                                    self.List.append(Post(uid: uid_db,author: author_db, title: title_db, contents: content_db, isScrap: isScrap_db, date: date_db, pid: document.documentID))
+                                    self.posts.append(Post(uid: uid_db,author: author_db, title: title_db, contents: content_db, isScrap: isScrap_db, date: date_db, pid: document.documentID))
                                     print("잘 넣었음")
-                                    
-                                    self.scrapTableView.reloadData()
+                                    self.reloadTableView()
                                 } else{
                                     FireStoreService.db.collection("User").document(Auth.auth().currentUser!.uid).collection("Scrap").document(document.documentID).delete() { err in
                                         if let err = err {
@@ -109,23 +145,26 @@ class ScrapViewController: UIViewController, UITableViewDataSource, UITableViewD
                                         }
                                     }
                                 }
-                                
                             }
-
                         }
                     }
                 }
         }
+    func reloadTableView() {
+        self.scrapTableView.reloadData()
+        // 🛠 Rx
+        self.relay.accept(self.posts)
+    }
 
     // MARK: - Table view data source
 
      func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         var value : Int
-        if(self.List.count<=0){
+        if(self.posts.count<=0){
             value = 0
         } else {
-            value = self.List.count
+            value = self.posts.count
         }
         
         return value
@@ -144,7 +183,7 @@ class ScrapViewController: UIViewController, UITableViewDataSource, UITableViewD
      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: UITableViewCell = self.scrapTableView.dequeueReusableCell(withIdentifier: "mateCell", for: indexPath)
          
-        if self.List.count > 0 {
+        if self.posts.count > 0 {
             
             // List가 0보다 클때만 데이터 불러오기
             let cellTittle = cell.viewWithTag(3) as! UILabel
@@ -154,12 +193,12 @@ class ScrapViewController: UIViewController, UITableViewDataSource, UITableViewD
             let cellSameLabel = cell.viewWithTag(7) as! UILabel
             let cellSameNumber = cell.viewWithTag(8)!
             let cellSameNumberLabel: UILabel! = cellSameNumber.subviews[0] as! UILabel
-            print(self.List.count)
+            print(self.posts.count)
 
-            cellTittle.text = "\(self.List[indexPath.section].title)"
-            cellContents.text = "\(self.List[indexPath.section].contents)"
-            cellDate.text = "\(self.List[indexPath.section].date)"
-            cellUser.text = "\(self.List[indexPath.section].author)"
+            cellTittle.text = "\(self.posts[indexPath.section].title)"
+            cellContents.text = "\(self.posts[indexPath.section].contents)"
+            cellDate.text = "\(self.posts[indexPath.section].date)"
+            cellUser.text = "\(self.posts[indexPath.section].author)"
             cellSameNumberLabel.text = "홈에서 확인"
             cellSameNumberLabel 
         }
@@ -178,7 +217,7 @@ class ScrapViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     // 당기면 데이터 리로드
      func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-         self.scrapTableView.reloadData()
+         self.reloadTableView()
     }
 
     
@@ -193,7 +232,7 @@ class ScrapViewController: UIViewController, UITableViewDataSource, UITableViewD
             let findMateTableViewIndexPath = scrapTableView.indexPath(for: sender as! UITableViewCell)!
             let VCDest = segue.destination as! ContentsDetailViewController
 
-            VCDest.contentsDetailData = List[findMateTableViewIndexPath.section]
+            VCDest.contentsDetailData = posts[findMateTableViewIndexPath.section]
             
         }
         else {}
