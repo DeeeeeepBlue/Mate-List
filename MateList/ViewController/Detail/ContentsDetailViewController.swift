@@ -18,7 +18,7 @@ import RxCocoa
 
 
 
-class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextViewDelegate, MFMailComposeViewControllerDelegate {
+class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextViewDelegate {
     //MARK: - Properties
     var send_username : String!
     
@@ -190,8 +190,6 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
     /// 게시글 신고하기
     @IBAction func reportButton(_ sender: Any) {
         
-        reportFunc()
-        
         // 게시물 차단하기
         guard let user = Auth.auth().currentUser else {return}
         FireStoreService.db.collection("User").document(user.uid).collection("HatePost").document(contentsDetailData.pid).setData([
@@ -310,7 +308,7 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     //MARK: - Custom Function
-    
+    //MARK: Reply
     func replyDataLoad()  {
         //데이터 불러오기
         self.replyList.removeAll()
@@ -371,7 +369,7 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
             }else{self.check_replyuser.append(true)}
         }
     }
-    
+    //MARK: Other
     func scrapDataLoad(_ escapingHandler : @escaping (Bool) -> ()) {
             //데이터 불러오기
         guard AppDelegate.userAuth != nil else {return }
@@ -428,26 +426,8 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
     /// 테이블뷰 당겼을때 데이터 새로 불러오기
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         self.replyTableView.viewWithTag(4)?.isHidden = true
-//        replyList.removeAll()
         replyDataLoad()
-        
     }
-  
-    /// 메일 에러 메시지
-    func showSendMailErrorAlert() {
-            let sendMailErrorAlert = UIAlertController(title: "메일을 전송 실패", message: "아이폰 이메일 설정을 확인하고 다시 시도해주세요.", preferredStyle: .alert)
-            let confirmAction = UIAlertAction(title: "확인", style: .default) {
-                (action) in
-                print("확인")
-            }
-            sendMailErrorAlert.addAction(confirmAction)
-            self.present(sendMailErrorAlert, animated: true, completion: nil)
-        }
-    
-    /// 메일 보낸 뒤 메일 창 닫기
-    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
-            controller.dismiss(animated: true, completion: nil)
-        }
     
     func habitDataLoad()  {
             //데이터 불러오기
@@ -478,23 +458,7 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
         }
     }
     
-    func reportFunc() {
-        // 이메일 사용가능한지 체크하는 if문
-        if MFMailComposeViewController.canSendMail() {
-            
-            let compseVC = MFMailComposeViewController()
-            compseVC.mailComposeDelegate = self
-            
-            compseVC.setToRecipients(["deeeeeep0122@gmail.com"])
-            compseVC.setSubject("[메이트리스트]게시글 신고")
-            compseVC.setMessageBody("\(contentsDetailData.pid)", isHTML: false)
-            self.present(compseVC, animated: true, completion: nil)
-            
-        }
-        else {
-            self.showSendMailErrorAlert()
-        }
-    }
+
     
     //MARK: - Reply TableView
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -559,7 +523,6 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     func reportReple(docId : String) {
-        reportFunc()
         
         // 게시물 차단하기
         guard let user = Auth.auth().currentUser else {return}
