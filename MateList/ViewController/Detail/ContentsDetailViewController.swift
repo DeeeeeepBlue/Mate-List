@@ -190,13 +190,7 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
     /// 게시글 신고하기
     @IBAction func reportButton(_ sender: Any) {
         guard AppDelegate.userAuth != nil else {
-            let alert = UIAlertController(title: "신고하기", message: "게시글과 사용자를 차단하려면 로그인을 해야합니다.", preferredStyle: UIAlertController.Style.alert)
-            let okAction = UIAlertAction(title: "OK", style: .default) {_ in
-                self.dismiss(animated: true, completion: nil)
-            }
-            alert.addAction(okAction)
-            
-            present(alert, animated: true, completion: nil)
+            reportLoginNeedAlert()
             return
         }
         let alert = UIAlertController(title: "차단", message: "게시글과 작성자를 차단하시겠습니까?", preferredStyle: UIAlertController.Style.alert)
@@ -233,10 +227,45 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
         let indexPath = replyTableView.indexPath(for: cell)
         
         
-        self.reportReple(docId: self.replyList[indexPath!.section].docid)
-        self.replyDataLoad()
+        guard AppDelegate.userAuth != nil else {
+            reportLoginNeedAlert()
+            return
+        }
+        let alert = UIAlertController(title: "차단", message: "게시글과 작성자를 차단하시겠습니까?", preferredStyle: UIAlertController.Style.alert)
+        let okAction = UIAlertAction(title: "차단", style: .destructive) { _ in
+            // 게시물 차단하기
+            guard let user = Auth.auth().currentUser else {return}
+            FireStoreService.db.collection("User").document(user.uid).collection("HateReple").document(self.replyList[indexPath!.section].docid).setData([
+                "docId" : self.replyList[indexPath!.section].docid
+            ])
+            FireStoreService.db.collection("User").document(user.uid).collection("HateUser").document(self.replyList[indexPath!.section].uid).setData([
+                "UserId" : self.contentsDetailData.uid
+            ])
+            
+            self.dismiss(animated: true)
+
+        }
+        let cancelAction = UIAlertAction(title: "취소", style: .cancel)
         
+        alert.addAction(okAction)
+        alert.addAction(cancelAction)
+        
+        present(alert, animated: true, completion: nil)
+       
+        self.replyDataLoad()
     }
+    
+    func reportLoginNeedAlert() {
+        let alert = UIAlertController(title: "신고하기", message: "게시글과 사용자를 차단하려면 로그인을 해야합니다.", preferredStyle: UIAlertController.Style.alert)
+        let okAction = UIAlertAction(title: "OK", style: .default) {_ in
+            self.dismiss(animated: true, completion: nil)
+        }
+        alert.addAction(okAction)
+        
+        present(alert, animated: true, completion: nil)
+    }
+    
+    
     
     //MARK: - LifeCycle
     override func viewWillAppear(_ animated: Bool) {
@@ -547,15 +576,6 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
         return cell
     }
     
-    func reportReple(docId : String) {
-        
-        // 게시물 차단하기
-        guard let user = Auth.auth().currentUser else {return}
-        FireStoreService.db.collection("User").document(user.uid).collection("HateReple").document(docId).setData([
-            "docId" : docId
-        ])
-    
-    }
 
     //MARK: - 화면 전환
     
