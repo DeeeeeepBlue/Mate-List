@@ -187,21 +187,18 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
         
     }
     
-    /// 게시글 신고하기
+    /// 작성자 차단하기
     @IBAction func reportButton(_ sender: Any) {
         guard AppDelegate.userAuth != nil else {
             reportLoginNeedAlert()
             return
         }
-        let alert = UIAlertController(title: "차단", message: "게시글과 작성자를 차단하시겠습니까?", preferredStyle: UIAlertController.Style.alert)
+        let alert = UIAlertController(title: "차단", message: "작성자를 차단하시겠습니까?", preferredStyle: UIAlertController.Style.alert)
         let okAction = UIAlertAction(title: "차단", style: .destructive) { _ in
             // 게시물 차단하기
             guard let user = Auth.auth().currentUser else {return}
-            FireStoreService.db.collection("User").document(user.uid).collection("HatePost").document(self.contentsDetailData.pid).setData([
-                "PostId" : self.contentsDetailData.pid
-            ])
             FireStoreService.db.collection("User").document(user.uid).collection("HateUser").document(self.contentsDetailData.uid).setData([
-                "UserId" : self.contentsDetailData.uid
+                self.contentsDetailData.uid : self.contentsDetailData.uid
             ])
             
             self.navigationController?.popToRootViewController(animated: true)
@@ -231,15 +228,12 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
             reportLoginNeedAlert()
             return
         }
-        let alert = UIAlertController(title: "차단", message: "게시글과 작성자를 차단하시겠습니까?", preferredStyle: UIAlertController.Style.alert)
+        let alert = UIAlertController(title: "차단", message: "작성자를 차단하시겠습니까?", preferredStyle: UIAlertController.Style.alert)
         let okAction = UIAlertAction(title: "차단", style: .destructive) { _ in
-            // 게시물 차단하기
             guard let user = Auth.auth().currentUser else {return}
-            FireStoreService.db.collection("User").document(user.uid).collection("HateReple").document(self.replyList[indexPath!.section].docid).setData([
-                "docId" : self.replyList[indexPath!.section].docid
-            ])
+
             FireStoreService.db.collection("User").document(user.uid).collection("HateUser").document(self.replyList[indexPath!.section].uid).setData([
-                "UserId" : self.contentsDetailData.uid
+                self.replyList[indexPath!.section].uid : self.replyList[indexPath!.section].uid
             ])
             
             self.dismiss(animated: true)
@@ -256,7 +250,7 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     func reportLoginNeedAlert() {
-        let alert = UIAlertController(title: "신고하기", message: "게시글과 사용자를 차단하려면 로그인을 해야합니다.", preferredStyle: UIAlertController.Style.alert)
+        let alert = UIAlertController(title: "차단", message: "사용자를 차단하려면 로그인을 해야합니다.", preferredStyle: UIAlertController.Style.alert)
         let okAction = UIAlertAction(title: "OK", style: .default) {_ in
             self.dismiss(animated: true, completion: nil)
         }
@@ -373,16 +367,13 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
                 
                 for document in querySnapshot!.documents {
                     let value = document.data()
-//                    let reg_db = false
                     let author_db = value["user"] as? String ?? ""
                     let content_db = value["reply"] as? String ?? ""
                     let date_db = value["date"] as? String ?? ""
                     let uid_db = value["uid"] as? String ?? ""
-//                    let isScrap_db = value["isScrap"] as? Bool ?? false
-//                    let findMate = value["findMate"]! as! Bool
-        
+
                     self.replyList.append(Reply(author: author_db, contents: content_db, date: date_db, uid: uid_db, docid: document.documentID))
-//                    print("\(document.documentID) => \(document.data())")
+
                     print("## : \(self.replyList)")
                     
                    
@@ -390,28 +381,28 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
                 self.replyUserCheck()
             }
             
-            self.deleteHateReply()
+            self.deleteHateUser()
         }
         
     }
     
-    func deleteHateReply() {
+    func deleteHateUser() {
         // 차단한 댓글 삭제
         guard let user = Auth.auth().currentUser else {
             self.replyTableView.reloadData()
             return
         }
-        FireStoreService.db.collection("User").document(user.uid).collection("HateReple").getDocuments { querySnapshot, err in
+        FireStoreService.db.collection("User").document(user.uid).collection("HateUser").getDocuments { querySnapshot, err in
             if let err = err {
                 print("차단한 댓글 에러 : \(err)")
             } else{
                 guard let querySnapshot = querySnapshot else {return}
                 for document in querySnapshot.documents{
-                    let hatePid = document.documentID
-                    self.replyList = self.replyList.filter{$0.docid != hatePid }
+                    let hater = document.documentID
+                    self.replyList = self.replyList.filter{$0.uid != hater }
                 }
+                self.replyTableView.reloadData()
             }
-            self.replyTableView.reloadData()
         }
     }
     
@@ -420,7 +411,11 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
         for item in replyList {
             if item.uid != Auth.auth().currentUser?.uid {
                 self.check_replyuser.append(false)
-            }else{self.check_replyuser.append(true)}
+            }
+            else {
+                self.check_replyuser.append(true)
+                
+            }
         }
     }
     //MARK: Other

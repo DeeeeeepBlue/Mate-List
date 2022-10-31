@@ -33,8 +33,6 @@ class FindMateViewController: UIViewController, UITableViewDataSource, UITableVi
         super.viewWillAppear(true)
         getLoginUserSurvey()
         DataLoad()
-        findMateTableView.reloadData()
-        
         
     }
     
@@ -43,7 +41,7 @@ class FindMateViewController: UIViewController, UITableViewDataSource, UITableVi
         super.viewDidLoad()
         self.findMateTableView.delegate = self
         self.findMateTableView.dataSource = self
-        findMateTableView.reloadData()
+    
         setView()
     
     }
@@ -137,22 +135,26 @@ class FindMateViewController: UIViewController, UITableViewDataSource, UITableVi
                     }
                 }
             self.getPostHabitCheck()
-            self.findMateTableView.reloadData()
-        }
-        
-        // 차단한 게시글 삭제
-        guard let user = Auth.auth().currentUser else {return}
-        FireStoreService.db.collection("User").document(user.uid).collection("HatePost").getDocuments { querySnapshot, err in
-            if let err = err {
-                print("차단한 게시글 에러 : \(err)")
-            } else{
-                guard let querySnapshot = querySnapshot else {return}
-                for document in querySnapshot.documents{
-                    let hatePid = document.documentID
-                    self.posts = self.posts.filter{$0.pid != hatePid}
+            // 차단한 게시글 삭제
+            guard let user = Auth.auth().currentUser else {
+                self.findMateTableView.reloadData()
+                return
+            }
+            FireStoreService.db.collection("User").document(user.uid).collection("HateUser").getDocuments { querySnapshot, err in
+                if let err = err {
+                    print("차단한 게시글 에러 : \(err)")
+                } else{
+                    guard let querySnapshot = querySnapshot else {return}
+                    for document in querySnapshot.documents{
+                        let hater = document.documentID
+                        self.posts = self.posts.filter{$0.uid != hater}
+                    }
+                    self.findMateTableView.reloadData()
                 }
             }
         }
+        
+        
         
     }
     
@@ -256,7 +258,8 @@ class FindMateViewController: UIViewController, UITableViewDataSource, UITableVi
                 let cellDate = cell.viewWithTag(5) as! UILabel
                 let cellUser = cell.viewWithTag(6) as! UILabel
 //                print(self.List.count)
-
+                print(posts)
+                print(indexPath)
                 cellTittle.text = "\(self.posts[indexPath.section].title)"
                 cellContents.text = "\(self.posts[indexPath.section].contents)"
                 cellDate.text = "\(self.posts[indexPath.section].date)"
@@ -337,14 +340,6 @@ class FindMateViewController: UIViewController, UITableViewDataSource, UITableVi
 //        tableView.reloadData()
     }
     
-    
-    
-    // 당기면 데이터 리로드
-    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        self.findMateTableView.reloadData()
-        
-    }
-
 
     
     //MARK: - ✅ Scene Change
