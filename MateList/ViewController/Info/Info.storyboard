@@ -81,7 +81,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="문의 하기"/>
                                 <connections>
-                                    <segue destination="ctf-Qr-Qw5" kind="show" id="L2d-cO-rAh"/>
+                                    <action selector="sendMail:" destination="Njf-UX-cJ5" eventType="touchUpInside" id="Xbe-sF-SVI"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IJn-L9-P0R">
@@ -162,7 +162,6 @@
                         <outlet property="accountView" destination="Z7x-dS-sjJ" id="cOl-Gl-lWL"/>
                         <outlet property="btnout" destination="IJn-L9-P0R" id="PJe-3K-ej9"/>
                         <outlet property="emailLabel" destination="KYV-g9-eGr" id="H7l-Nm-6ZL"/>
-                        <outlet property="inquiryButton" destination="VMP-GD-dNn" id="8VD-Bl-UIP"/>
                         <outlet property="loginProviderStackView" destination="zXC-Ca-POB" id="IiV-EF-beu"/>
                         <outlet property="nickLabel" destination="l2y-Az-nTU" id="GcX-z7-nYV"/>
                         <outlet property="signInButton" destination="F32-7j-SFn" id="EOz-Jz-PUX"/>
@@ -181,51 +180,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9In-V7-aPy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="876" y="1477"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="pjn-6V-IOH">
-            <objects>
-                <viewController id="ctf-Qr-Qw5" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="mVg-4Z-W0I">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="838"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="문의 하기" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AQ0-k5-cuk">
-                                <rect key="frame" x="40" y="88" width="97.5" height="31"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="26"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="문의할 내용이 있으시면 아래에 이메일로 연락부탁드립니다." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="45Y-0W-5rd">
-                                <rect key="frame" x="40" y="159" width="334" height="41"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="deeeeeepblue@gmail.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vdu-Nl-YMa">
-                                <rect key="frame" x="40" y="240" width="202" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="TNB-Me-JmH"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="Vdu-Nl-YMa" firstAttribute="leading" secondItem="TNB-Me-JmH" secondAttribute="leading" constant="40" id="24d-7K-G8B"/>
-                            <constraint firstItem="AQ0-k5-cuk" firstAttribute="top" secondItem="TNB-Me-JmH" secondAttribute="top" constant="40" id="4La-MH-h5u"/>
-                            <constraint firstItem="Vdu-Nl-YMa" firstAttribute="top" secondItem="45Y-0W-5rd" secondAttribute="bottom" constant="40" id="K6d-gX-cfT"/>
-                            <constraint firstItem="45Y-0W-5rd" firstAttribute="top" secondItem="AQ0-k5-cuk" secondAttribute="bottom" constant="40" id="ZUZ-Dz-fQM"/>
-                            <constraint firstItem="TNB-Me-JmH" firstAttribute="trailing" secondItem="45Y-0W-5rd" secondAttribute="trailing" constant="40" id="aeh-wo-rNp"/>
-                            <constraint firstItem="45Y-0W-5rd" firstAttribute="leading" secondItem="TNB-Me-JmH" secondAttribute="leading" constant="40" id="kDY-nd-2AO"/>
-                            <constraint firstItem="AQ0-k5-cuk" firstAttribute="leading" secondItem="TNB-Me-JmH" secondAttribute="leading" constant="40" id="lfN-6i-3Qc"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="b0E-S4-90K"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="6BE-Z7-Dqw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="57" y="2193"/>
         </scene>
     </scenes>
     <resources>

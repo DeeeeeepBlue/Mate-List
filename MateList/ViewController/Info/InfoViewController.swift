@@ -15,6 +15,7 @@ import AuthenticationServices
 import CryptoKit
 import RxSwift
 import RxCocoa
+import MessageUI
 
 
 
@@ -23,9 +24,8 @@ let signInConfig =  AppDelegate.fireAuth.signInConfig
 var D_Post_id: [String] = []
 fileprivate var currentNonce: String?
 
-class Info: UIViewController{
+class Info: UIViewController, MFMailComposeViewControllerDelegate{
     //MARK: - Properties
-    @IBOutlet weak var inquiryButton: UIButton!
     @IBOutlet weak var btnout: UIButton!
     @IBOutlet weak var surveyButton: UIButton!
     @IBOutlet weak var LogoutButton: UIButton!
@@ -132,6 +132,9 @@ class Info: UIViewController{
         new_mem_agree=0
     }
     
+    @IBAction func sendMail(_ sender: Any){
+        moveMailView()
+    }
     
     //MARK: - Life Cycle
     
@@ -422,6 +425,43 @@ class Info: UIViewController{
             }
         })
     }
+    
+    //MARK: - 문의하기
+    /// 메일 보낸 뒤 메일 창 닫기
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+            controller.dismiss(animated: true, completion: nil)
+    }
+    
+    func moveMailView() {
+        // 이메일 사용가능한지 체크하는 if문
+        if MFMailComposeViewController.canSendMail() {
+            
+            let compseVC = MFMailComposeViewController()
+            compseVC.mailComposeDelegate = self
+            
+            compseVC.setToRecipients(["deeeeeep0122@gmail.com"])
+            compseVC.setSubject("[메이트리스트] 문의 및 신고")
+            compseVC.setMessageBody("내용 : ", isHTML: false)
+            self.present(compseVC, animated: true, completion: nil)
+            
+        }
+        else {
+            self.showSendMailErrorAlert()
+        }
+    }
+    
+    /// 메일 에러 메시지
+    func showSendMailErrorAlert() {
+            let sendMailErrorAlert = UIAlertController(title: "메일을 전송 실패", message: "아이폰 이메일 설정을 확인하고 다시 시도해주세요.", preferredStyle: .alert)
+            let confirmAction = UIAlertAction(title: "확인", style: .default) {
+                (action) in
+                print("확인")
+            }
+            sendMailErrorAlert.addAction(confirmAction)
+            self.present(sendMailErrorAlert, animated: true, completion: nil)
+    }
+    
+    
     
     //MARK: - UI Set
     /// 닉네임 설정 View 띄우기
