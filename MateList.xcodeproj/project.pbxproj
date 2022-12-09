@@ -32,6 +32,10 @@
 		A60D25A127F72E9600E6A553 /* consent_popup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A60D25A027F72E9600E6A553 /* consent_popup.storyboard */; };
 		A60D25A327F7317700E6A553 /* consent_popup.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60D25A227F7317600E6A553 /* consent_popup.swift */; };
 		A6B5B8202801BE9300D0CF98 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A6B5B81F2801BE9300D0CF98 /* GoogleService-Info.plist */; };
+		BC2B99FF29430F0B0040DE46 /* SampleRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2B99FE29430F0B0040DE46 /* SampleRepository.swift */; };
+		BC2B9A0129430F150040DE46 /* SampleUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2B9A0029430F150040DE46 /* SampleUsecase.swift */; };
+		BC2B9A0329430F220040DE46 /* SampleEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2B9A0229430F220040DE46 /* SampleEntity.swift */; };
+		BC2B9A0529430F2B0040DE46 /* SampleRepositoryInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2B9A0429430F2B0040DE46 /* SampleRepositoryInterface.swift */; };
 		F731B77027D4D56A009670A4 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = F731B76F27D4D56A009670A4 /* FirebaseAnalytics */; };
 		F731B77227D4D56A009670A4 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = F731B77127D4D56A009670A4 /* FirebaseAuth */; };
 		F731B77427D4D56A009670A4 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = F731B77327D4D56A009670A4 /* FirebaseCrashlytics */; };
@@ -81,6 +85,10 @@
 		A60D25A027F72E9600E6A553 /* consent_popup.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = consent_popup.storyboard; sourceTree = "<group>"; };
 		A60D25A227F7317600E6A553 /* consent_popup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = consent_popup.swift; sourceTree = "<group>"; };
 		A6B5B81F2801BE9300D0CF98 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		BC2B99FE29430F0B0040DE46 /* SampleRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleRepository.swift; sourceTree = "<group>"; };
+		BC2B9A0029430F150040DE46 /* SampleUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleUsecase.swift; sourceTree = "<group>"; };
+		BC2B9A0229430F220040DE46 /* SampleEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleEntity.swift; sourceTree = "<group>"; };
+		BC2B9A0429430F2B0040DE46 /* SampleRepositoryInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleRepositoryInterface.swift; sourceTree = "<group>"; };
 		F731B7A127D4FF09009670A4 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		F743792127ABDA8E0053947A /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		F75452E627C7C59900E2DB41 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
@@ -290,6 +298,7 @@
 		BC2B99F429430D090040DE46 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
+				BC2B99FE29430F0B0040DE46 /* SampleRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -297,6 +306,7 @@
 		BC2B99F629430D210040DE46 /* Usecase */ = {
 			isa = PBXGroup;
 			children = (
+				BC2B9A0029430F150040DE46 /* SampleUsecase.swift */,
 			);
 			path = Usecase;
 			sourceTree = "<group>";
@@ -304,6 +314,7 @@
 		BC2B99F729430D260040DE46 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				BC2B9A0229430F220040DE46 /* SampleEntity.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -311,6 +322,7 @@
 		BC2B99F829430D2C0040DE46 /* Repository+Interface */ = {
 			isa = PBXGroup;
 			children = (
+				BC2B9A0429430F2B0040DE46 /* SampleRepositoryInterface.swift */,
 			);
 			path = "Repository+Interface";
 			sourceTree = "<group>";
@@ -484,6 +496,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				0407C0AE28A66642006AFA59 /* GlobalFunctions.swift in Sources */,
+				BC2B9A0529430F2B0040DE46 /* SampleRepositoryInterface.swift in Sources */,
+				BC2B99FF29430F0B0040DE46 /* SampleRepository.swift in Sources */,
 				040AA09927BECE16008F4BF5 /* Comment.swift in Sources */,
 				040AA09727BECDDD008F4BF5 /* HabitCheck.swift in Sources */,
 				3FCF3B4E27F888EC008771B8 /* KeychainItem.swift in Sources */,
@@ -499,10 +513,12 @@
 				F757546D27A4DF1800BFDF9B /* AppDelegate.swift in Sources */,
 				3FB23A5E27D79D3E00B8D071 /* FindMateTableViewCell.swift in Sources */,
 				A60D25A327F7317700E6A553 /* consent_popup.swift in Sources */,
+				BC2B9A0129430F150040DE46 /* SampleUsecase.swift in Sources */,
 				0407C0B128A91A65006AFA59 /* Email.swift in Sources */,
 				F757546F27A4DF1800BFDF9B /* SceneDelegate.swift in Sources */,
 				F7B4F41827D7B4C00045580F /* ServeyInputViewController.swift in Sources */,
 				F7B4F42027D7B7460045580F /* SurveyInputViewCell.swift in Sources */,
+				BC2B9A0329430F220040DE46 /* SampleEntity.swift in Sources */,
 				0444E00227C825A500B49F8B /* ScrapViewController.swift in Sources */,
 				04BB243727ACED960003DA33 /* InfoViewController.swift in Sources */,
 				F7B4F41627D7B4B80045580F /* SurveyViewController.swift in Sources */,
