@@ -269,6 +269,52 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		BC2B99F229430CFE0040DE46 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				BC2B99F829430D2C0040DE46 /* Repository+Interface */,
+				BC2B99F729430D260040DE46 /* Entity */,
+				BC2B99F629430D210040DE46 /* Usecase */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		BC2B99F329430D040040DE46 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				BC2B99F429430D090040DE46 /* Repository */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		BC2B99F429430D090040DE46 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		BC2B99F629430D210040DE46 /* Usecase */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Usecase;
+			sourceTree = "<group>";
+		};
+		BC2B99F729430D260040DE46 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		BC2B99F829430D2C0040DE46 /* Repository+Interface */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Repository+Interface";
+			sourceTree = "<group>";
+		};
 		F711782927C011A600729B52 /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
@@ -276,7 +322,7 @@
 			name = "Recovered References";
 			sourceTree = "<group>";
 		};
-		F7379F2127AD37C000D99CD4 /* ViewController */ = {
+		F7379F2127AD37C000D99CD4 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
 				04718D1A2907CA3400481015 /* NickName */,
@@ -288,7 +334,7 @@
 				044B812028A14DD9002E8851 /* Home */,
 				044B811F28A14DBF002E8851 /* Detail */,
 			);
-			path = ViewController;
+			path = Presentation;
 			sourceTree = "<group>";
 		};
 		F7379F2227AD409D00D99CD4 /* App */ = {
@@ -322,11 +368,13 @@
 			isa = PBXGroup;
 			children = (
 				3FCF3B4927F88552008771B8 /* MateList.entitlements */,
+				BC2B99F329430D040040DE46 /* Data */,
+				BC2B99F229430CFE0040DE46 /* Domain */,
 				F7379F2227AD409D00D99CD4 /* App */,
 				044B812628A14EBD002E8851 /* Resource */,
 				040AA09327BECD53008F4BF5 /* Model */,
 				040C118128F16D2A0012160E /* Network */,
-				F7379F2127AD37C000D99CD4 /* ViewController */,
+				F7379F2127AD37C000D99CD4 /* Presentation */,
 				F757547527A4DF1A00BFDF9B /* Assets.xcassets */,
 				A6B5B81F2801BE9300D0CF98 /* GoogleService-Info.plist */,
 			);
