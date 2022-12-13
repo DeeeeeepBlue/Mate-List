@@ -32,6 +32,8 @@
 		A60D25A127F72E9600E6A553 /* consent_popup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A60D25A027F72E9600E6A553 /* consent_popup.storyboard */; };
 		A60D25A327F7317700E6A553 /* consent_popup.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60D25A227F7317600E6A553 /* consent_popup.swift */; };
 		A6B5B8202801BE9300D0CF98 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A6B5B81F2801BE9300D0CF98 /* GoogleService-Info.plist */; };
+		BC0C02022948433F006B281E /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0C02012948433F006B281E /* Coordinator.swift */; };
+		BC0C020429484384006B281E /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0C020329484384006B281E /* AppCoordinator.swift */; };
 		BC2B99FF29430F0B0040DE46 /* SampleRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2B99FE29430F0B0040DE46 /* SampleRepository.swift */; };
 		BC2B9A0129430F150040DE46 /* SampleUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2B9A0029430F150040DE46 /* SampleUsecase.swift */; };
 		BC2B9A0329430F220040DE46 /* SampleEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2B9A0229430F220040DE46 /* SampleEntity.swift */; };
@@ -85,6 +87,8 @@
 		A60D25A027F72E9600E6A553 /* consent_popup.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = consent_popup.storyboard; sourceTree = "<group>"; };
 		A60D25A227F7317600E6A553 /* consent_popup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = consent_popup.swift; sourceTree = "<group>"; };
 		A6B5B81F2801BE9300D0CF98 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		BC0C02012948433F006B281E /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		BC0C020329484384006B281E /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		BC2B99FE29430F0B0040DE46 /* SampleRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleRepository.swift; sourceTree = "<group>"; };
 		BC2B9A0029430F150040DE46 /* SampleUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleUsecase.swift; sourceTree = "<group>"; };
 		BC2B9A0229430F220040DE46 /* SampleEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleEntity.swift; sourceTree = "<group>"; };
@@ -277,6 +281,23 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		BC0C01FF29484315006B281E /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				BC0C020029484331006B281E /* Protocol */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		BC0C020029484331006B281E /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				BC0C02012948433F006B281E /* Coordinator.swift */,
+				BC0C020329484384006B281E /* AppCoordinator.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
 		BC2B99F229430CFE0040DE46 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
@@ -337,6 +358,7 @@
 		F7379F2127AD37C000D99CD4 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				BC0C01FF29484315006B281E /* Common */,
 				04718D1A2907CA3400481015 /* NickName */,
 				0407C0AC28A63780006AFA59 /* Write */,
 				044B812328A14DFA002E8851 /* Base */,
@@ -515,10 +537,12 @@
 				A60D25A327F7317700E6A553 /* consent_popup.swift in Sources */,
 				BC2B9A0129430F150040DE46 /* SampleUsecase.swift in Sources */,
 				0407C0B128A91A65006AFA59 /* Email.swift in Sources */,
+				BC0C020429484384006B281E /* AppCoordinator.swift in Sources */,
 				F757546F27A4DF1800BFDF9B /* SceneDelegate.swift in Sources */,
 				F7B4F41827D7B4C00045580F /* ServeyInputViewController.swift in Sources */,
 				F7B4F42027D7B7460045580F /* SurveyInputViewCell.swift in Sources */,
 				BC2B9A0329430F220040DE46 /* SampleEntity.swift in Sources */,
+				BC0C02022948433F006B281E /* Coordinator.swift in Sources */,
 				0444E00227C825A500B49F8B /* ScrapViewController.swift in Sources */,
 				04BB243727ACED960003DA33 /* InfoViewController.swift in Sources */,
 				F7B4F41627D7B4B80045580F /* SurveyViewController.swift in Sources */,
