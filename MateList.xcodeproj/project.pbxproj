@@ -22,6 +22,12 @@
 		04718D262907CBA200481015 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 04718D252907CBA200481015 /* RxRelay */; };
 		04718D282907CBA200481015 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 04718D272907CBA200481015 /* RxSwift */; };
 		04718D2C2907CBF600481015 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04718D2B2907CBF600481015 /* TextField.swift */; };
+		049231C0294858960084903D /* FlexLayout in Frameworks */ = {isa = PBXBuildFile; productRef = 049231BF294858960084903D /* FlexLayout */; };
+		049231C429485DB50084903D /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049231C329485DB50084903D /* HomeView.swift */; };
+		049231C629485DBD0084903D /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049231C529485DBD0084903D /* HomeViewModel.swift */; };
+		049231C829485DC70084903D /* HomeViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049231C729485DC70084903D /* HomeViewCell.swift */; };
+		049231CA29487AA10084903D /* WriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049231C929487AA10084903D /* WriteButton.swift */; };
+		049231CC29487AB70084903D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049231CB29487AB70084903D /* HomeViewController.swift */; };
 		04BB243727ACED960003DA33 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BB243627ACED960003DA33 /* InfoViewController.swift */; };
 		3F2245BE27D62763002F29FE /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2245BD27D62763002F29FE /* UIColor.swift */; };
 		3FB23A5E27D79D3E00B8D071 /* FindMateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB23A5D27D79D3E00B8D071 /* FindMateTableViewCell.swift */; };
@@ -77,6 +83,11 @@
 		04718D1B2907CA3400481015 /* NickNameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NickNameViewController.swift; sourceTree = "<group>"; };
 		04718D1C2907CA3400481015 /* NickName.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NickName.storyboard; sourceTree = "<group>"; };
 		04718D2B2907CBF600481015 /* TextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
+		049231C329485DB50084903D /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		049231C529485DBD0084903D /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		049231C729485DC70084903D /* HomeViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewCell.swift; sourceTree = "<group>"; };
+		049231C929487AA10084903D /* WriteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteButton.swift; sourceTree = "<group>"; };
+		049231CB29487AB70084903D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		04BB243627ACED960003DA33 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		3F2245BD27D62763002F29FE /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		3FB23A5D27D79D3E00B8D071 /* FindMateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindMateTableViewCell.swift; sourceTree = "<group>"; };
@@ -124,6 +135,7 @@
 				04718D262907CBA200481015 /* RxRelay in Frameworks */,
 				04718D242907CBA200481015 /* RxCocoa in Frameworks */,
 				F731B77427D4D56A009670A4 /* FirebaseCrashlytics in Frameworks */,
+				049231C0294858960084903D /* FlexLayout in Frameworks */,
 				04718D212907CB3500481015 /* SnapKit in Frameworks */,
 				F731B77027D4D56A009670A4 /* FirebaseAnalytics in Frameworks */,
 				F731B77627D4D56A009670A4 /* FirebaseDatabase in Frameworks */,
@@ -205,6 +217,9 @@
 		044B812028A14DD9002E8851 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				049231CD29487ABB0084903D /* ViewController */,
+				049231C229485DA90084903D /* ViewModel */,
+				049231C129485DA00084903D /* View */,
 				F731B7A127D4FF09009670A4 /* Home.storyboard */,
 				F75452E827C7C5FB00E2DB41 /* FindMateViewController.swift */,
 				3FB23A5D27D79D3E00B8D071 /* FindMateTableViewCell.swift */,
@@ -271,6 +286,32 @@
 				04718D1C2907CA3400481015 /* NickName.storyboard */,
 			);
 			path = NickName;
+			sourceTree = "<group>";
+		};
+		049231C129485DA00084903D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				049231C329485DB50084903D /* HomeView.swift */,
+				049231C729485DC70084903D /* HomeViewCell.swift */,
+				049231C929487AA10084903D /* WriteButton.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		049231C229485DA90084903D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				049231C529485DBD0084903D /* HomeViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		049231CD29487ABB0084903D /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				049231CB29487AB70084903D /* HomeViewController.swift */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		3FCF3B4C27F888C5008771B8 /* Supporting Files */ = {
@@ -443,6 +484,7 @@
 				04718D232907CBA200481015 /* RxCocoa */,
 				04718D252907CBA200481015 /* RxRelay */,
 				04718D272907CBA200481015 /* RxSwift */,
+				049231BF294858960084903D /* FlexLayout */,
 			);
 			productName = checkMate;
 			productReference = F757546927A4DF1800BFDF9B /* MateList.app */;
@@ -478,6 +520,7 @@
 				F731B77C27D4D5A5009670A4 /* XCRemoteSwiftPackageReference "DropDown" */,
 				04718D1F2907CB3500481015 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				04718D222907CBA200481015 /* XCRemoteSwiftPackageReference "RxSwift" */,
+				049231BE294858960084903D /* XCRemoteSwiftPackageReference "FlexLayout" */,
 			);
 			productRefGroup = F757546A27A4DF1800BFDF9B /* Products */;
 			projectDirPath = "";
@@ -519,6 +562,8 @@
 			files = (
 				0407C0AE28A66642006AFA59 /* GlobalFunctions.swift in Sources */,
 				BC2B9A0529430F2B0040DE46 /* SampleRepositoryInterface.swift in Sources */,
+				049231C829485DC70084903D /* HomeViewCell.swift in Sources */,
+				049231CC29487AB70084903D /* HomeViewController.swift in Sources */,
 				BC2B99FF29430F0B0040DE46 /* SampleRepository.swift in Sources */,
 				040AA09927BECE16008F4BF5 /* Comment.swift in Sources */,
 				040AA09727BECDDD008F4BF5 /* HabitCheck.swift in Sources */,
@@ -534,6 +579,7 @@
 				F75452E727C7C59900E2DB41 /* Post.swift in Sources */,
 				F757546D27A4DF1800BFDF9B /* AppDelegate.swift in Sources */,
 				3FB23A5E27D79D3E00B8D071 /* FindMateTableViewCell.swift in Sources */,
+				049231C629485DBD0084903D /* HomeViewModel.swift in Sources */,
 				A60D25A327F7317700E6A553 /* consent_popup.swift in Sources */,
 				BC2B9A0129430F150040DE46 /* SampleUsecase.swift in Sources */,
 				0407C0B128A91A65006AFA59 /* Email.swift in Sources */,
@@ -544,11 +590,13 @@
 				BC2B9A0329430F220040DE46 /* SampleEntity.swift in Sources */,
 				BC0C02022948433F006B281E /* Coordinator.swift in Sources */,
 				0444E00227C825A500B49F8B /* ScrapViewController.swift in Sources */,
+				049231C429485DB50084903D /* HomeView.swift in Sources */,
 				04BB243727ACED960003DA33 /* InfoViewController.swift in Sources */,
 				F7B4F41627D7B4B80045580F /* SurveyViewController.swift in Sources */,
 				040AA09527BECD61008F4BF5 /* User.swift in Sources */,
 				F76B581E27C5380600B6626D /* ContentsDetailViewController.swift in Sources */,
 				040C118328F16D380012160E /* Auth.swift in Sources */,
+				049231CA29487AA10084903D /* WriteButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -787,6 +835,14 @@
 				kind = branch;
 			};
 		};
+		049231BE294858960084903D /* XCRemoteSwiftPackageReference "FlexLayout" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/layoutBox/FlexLayout.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		F731B76E27D4D56A009670A4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -833,6 +889,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 04718D222907CBA200481015 /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxSwift;
+		};
+		049231BF294858960084903D /* FlexLayout */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 049231BE294858960084903D /* XCRemoteSwiftPackageReference "FlexLayout" */;
+			productName = FlexLayout;
 		};
 		F731B76F27D4D56A009670A4 /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
