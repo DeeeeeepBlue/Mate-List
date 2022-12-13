@@ -5,6 +5,11 @@
 //  Created by DOYEON LEE on 2022/12/13.
 //
 
+// main
+// develop
+// feature
+// feature/coordinator
+
 import UIKit
 
 protocol Coordinator: AnyObject {
