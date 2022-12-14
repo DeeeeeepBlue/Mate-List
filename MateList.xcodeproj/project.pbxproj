@@ -16,6 +16,7 @@
 		0444E00227C825A500B49F8B /* ScrapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0444E00127C825A500B49F8B /* ScrapViewController.swift */; };
 		044B812828A172AF002E8851 /* Survey.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7B4F41D27D7B5090045580F /* Survey.storyboard */; };
 		044FA6712949EF1600EA5C78 /* FirebaseNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044FA6702949EF1600EA5C78 /* FirebaseNetwork.swift */; };
+		044FA674294A4C9F00EA5C78 /* RxViewController in Frameworks */ = {isa = PBXBuildFile; productRef = 044FA673294A4C9F00EA5C78 /* RxViewController */; };
 		04718D1D2907CA3400481015 /* NickNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04718D1B2907CA3400481015 /* NickNameViewController.swift */; };
 		04718D1E2907CA3400481015 /* NickName.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04718D1C2907CA3400481015 /* NickName.storyboard */; };
 		04718D212907CB3500481015 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 04718D202907CB3500481015 /* SnapKit */; };
@@ -136,6 +137,7 @@
 			files = (
 				04718D262907CBA200481015 /* RxRelay in Frameworks */,
 				04718D242907CBA200481015 /* RxCocoa in Frameworks */,
+				044FA674294A4C9F00EA5C78 /* RxViewController in Frameworks */,
 				F731B77427D4D56A009670A4 /* FirebaseCrashlytics in Frameworks */,
 				049231C0294858960084903D /* FlexLayout in Frameworks */,
 				04718D212907CB3500481015 /* SnapKit in Frameworks */,
@@ -488,6 +490,7 @@
 				04718D252907CBA200481015 /* RxRelay */,
 				04718D272907CBA200481015 /* RxSwift */,
 				049231BF294858960084903D /* FlexLayout */,
+				044FA673294A4C9F00EA5C78 /* RxViewController */,
 			);
 			productName = checkMate;
 			productReference = F757546927A4DF1800BFDF9B /* MateList.app */;
@@ -524,6 +527,7 @@
 				04718D1F2907CB3500481015 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				04718D222907CBA200481015 /* XCRemoteSwiftPackageReference "RxSwift" */,
 				049231BE294858960084903D /* XCRemoteSwiftPackageReference "FlexLayout" */,
+				044FA672294A4C9F00EA5C78 /* XCRemoteSwiftPackageReference "RxViewController" */,
 			);
 			productRefGroup = F757546A27A4DF1800BFDF9B /* Products */;
 			projectDirPath = "";
@@ -823,6 +827,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		044FA672294A4C9F00EA5C78 /* XCRemoteSwiftPackageReference "RxViewController" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/devxoul/RxViewController.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 		04718D1F2907CB3500481015 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit";
@@ -874,6 +886,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		044FA673294A4C9F00EA5C78 /* RxViewController */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 044FA672294A4C9F00EA5C78 /* XCRemoteSwiftPackageReference "RxViewController" */;
+			productName = RxViewController;
+		};
 		04718D202907CB3500481015 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 04718D1F2907CB3500481015 /* XCRemoteSwiftPackageReference "SnapKit" */;

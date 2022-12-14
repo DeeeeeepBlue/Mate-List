@@ -11,10 +11,9 @@ import RxSwift
 import RxCocoa
 
 protocol HomeViewModelType {
-    
     var fetchList: AnyObserver<Void> { get }
     
-    var posts: Observable<[Post]> { get }
+    var allPosts: Observable<[Post]> { get }
 }
 
 class HomeViewModel: HomeViewModelType {
@@ -23,28 +22,27 @@ class HomeViewModel: HomeViewModelType {
     //MARK: - 실제 사용될 Input
     var fetchList: AnyObserver<Void>
     
-    
     //MARK: - 실제 사용될 Output
-    var posts: Observable<[Post]>
-
+    var allPosts: Observable<[Post]>
     
     //MARK: - Init
     init(firebaseNetwork: Fetchable = FirebaseNetwork()) {
         // Subject
         let fetching = PublishSubject<Void>()
         
-        let fetchPost = BehaviorSubject<[Post]>(value: [])
+        let posts = BehaviorSubject<[Post]>(value: [Post(uid: "G", author: "H", title: "HD", contents: "GH", isScrap: true , date: "S", pid: "G")])
         
         // INPUT
         fetchList = fetching.asObserver()
         
         fetching
-            .flatMap(firebaseNetwork.posts)
-            .subscribe(onNext: fetchPost.onNext)
+            .flatMap(firebaseNetwork.fetchPosts)
+            .map{ $0.map{ Post(uid: $0.uid, author: $0.author, title: $0.title, contents: $0.contents, isScrap: $0.isScrap, date: $0.date, pid: $0.pid) } }
+            .subscribe(onNext: posts.onNext)
             .disposed(by: disposeBag)
             
         // OUTPUT
-        posts = fetchPost
+        allPosts = posts.asObserver()
         
     }
 }

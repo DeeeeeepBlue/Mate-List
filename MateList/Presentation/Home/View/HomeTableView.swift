@@ -18,10 +18,13 @@ final class HomeTableView: UITableView {
     }
     
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: coder)
+        self.configureUI()
     }
 
     func configureUI(){
+        //TODO: border 지우기
+        self.layer.borderWidth = 2.0
         self.register(HomeViewCell.self, forCellReuseIdentifier: HomeViewCell.cellIdentifier)
     }
 }

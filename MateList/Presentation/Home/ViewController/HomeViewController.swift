@@ -7,26 +7,65 @@
 
 import UIKit
 
+import RxSwift
+import RxCocoa
+import RxViewController
 import SnapKit
+
 
 class HomeViewController: UIViewController {
 
     private let homeTableView = HomeTableView()
     private let writeButton = WriteButton()
+    let viewModel: HomeViewModelType
+    
+    
+    private let disposeBag = DisposeBag()
+    
+    init(viewModel: HomeViewModelType = HomeViewModel()){
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        viewModel = HomeViewModel()
+        super.init(coder: aDecoder)
+    }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         style()
         setView()
         setConstraint()
-    }
-    
-    override func loadView(){
-        self.view = homeTableView
+        setBind()
     }
     
     func style() {
+        self.view.backgroundColor = .white
         navigationController?.title = "Mate List"
+        
+    }
+    
+    func setBind() {
+        let firstLoad = rx.viewWillAppear
+            .take(1)
+            .map { _ in () }
+        
+        let reload = homeTableView.refreshControl?.rx
+            .controlEvent(.valueChanged)
+            .map{ _ in } ?? Observable.just(())
+        
+        Observable.merge([firstLoad, reload])
+            .bind(to: viewModel.fetchList)
+            .disposed(by: disposeBag)
+        
+        viewModel.allPosts
+            .bind(to: homeTableView.rx.items(cellIdentifier: HomeViewCell.cellIdentifier, cellType: HomeViewCell.self)){
+                _, post, cell in
+                cell.updateUI(post: post)
+            }
+            .disposed(by: disposeBag)
     }
     
     func setView() {
@@ -36,8 +75,9 @@ class HomeViewController: UIViewController {
     
     func setConstraint() {
         homeTableView.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
+            make.leading.equalTo(view.safeAreaLayoutGuide.snp.leading)
+            make.trailing.equalTo(view.safeAreaLayoutGuide.snp.trailing)
             make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
         }
         

@@ -10,13 +10,15 @@ import Firebase
 import FirebaseAuth
 
 protocol Fetchable {
-    func posts() -> Observable<[Post]>
+    func fetchPosts() -> Observable<[Post]>
 }
 
 class FirebaseNetwork: Fetchable {
-    func posts() -> Observable<[Post]> {
+    func fetchPosts() -> Observable<[Post]> {
         return Observable.create { observer in
+            
             var postItems: [Post] = []
+            
             FireStoreService.db.collection("Post").order(by: "date", descending: true).getDocuments { (querySnapshot, err) in
                 if let err = err {
                     print("Error getting documents: \(err)")
@@ -43,8 +45,10 @@ class FirebaseNetwork: Fetchable {
                                 pid: pid
                             )
                         )
+                       
                     }
                     observer.onNext(postItems)
+                    print(postItems)
                 }
             }
             return Disposables.create()
