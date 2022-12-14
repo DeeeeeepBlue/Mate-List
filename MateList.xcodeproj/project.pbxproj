@@ -15,6 +15,7 @@
 		040C118328F16D380012160E /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040C118228F16D380012160E /* Auth.swift */; };
 		0444E00227C825A500B49F8B /* ScrapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0444E00127C825A500B49F8B /* ScrapViewController.swift */; };
 		044B812828A172AF002E8851 /* Survey.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7B4F41D27D7B5090045580F /* Survey.storyboard */; };
+		044FA6712949EF1600EA5C78 /* FirebaseNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044FA6702949EF1600EA5C78 /* FirebaseNetwork.swift */; };
 		04718D1D2907CA3400481015 /* NickNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04718D1B2907CA3400481015 /* NickNameViewController.swift */; };
 		04718D1E2907CA3400481015 /* NickName.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04718D1C2907CA3400481015 /* NickName.storyboard */; };
 		04718D212907CB3500481015 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 04718D202907CB3500481015 /* SnapKit */; };
@@ -80,6 +81,7 @@
 		040AA09827BECE16008F4BF5 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		040C118228F16D380012160E /* Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Auth.swift; sourceTree = "<group>"; };
 		0444E00127C825A500B49F8B /* ScrapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrapViewController.swift; sourceTree = "<group>"; };
+		044FA6702949EF1600EA5C78 /* FirebaseNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseNetwork.swift; sourceTree = "<group>"; };
 		04718D1B2907CA3400481015 /* NickNameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NickNameViewController.swift; sourceTree = "<group>"; };
 		04718D1C2907CA3400481015 /* NickName.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NickName.storyboard; sourceTree = "<group>"; };
 		04718D2B2907CBF600481015 /* TextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
@@ -302,6 +304,7 @@
 			isa = PBXGroup;
 			children = (
 				049231C529485DBD0084903D /* HomeViewModel.swift */,
+				044FA6702949EF1600EA5C78 /* FirebaseNetwork.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -563,6 +566,7 @@
 				0407C0AE28A66642006AFA59 /* GlobalFunctions.swift in Sources */,
 				BC2B9A0529430F2B0040DE46 /* SampleRepositoryInterface.swift in Sources */,
 				049231C829485DC70084903D /* HomeViewCell.swift in Sources */,
+				044FA6712949EF1600EA5C78 /* FirebaseNetwork.swift in Sources */,
 				049231CC29487AB70084903D /* HomeViewController.swift in Sources */,
 				BC2B99FF29430F0B0040DE46 /* SampleRepository.swift in Sources */,
 				040AA09927BECE16008F4BF5 /* Comment.swift in Sources */,
