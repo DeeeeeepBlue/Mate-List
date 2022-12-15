@@ -30,7 +30,7 @@ class HomeViewModel: HomeViewModelType {
         // Subject
         let fetching = PublishSubject<Void>()
         
-        let posts = BehaviorSubject<[Post]>(value: [Post(uid: "G", author: "H", title: "HD", contents: "GH", isScrap: true , date: "S", pid: "G")])
+        let posts = BehaviorSubject<[Post]>(value: [])
         
         // INPUT
         fetchList = fetching.asObserver()
