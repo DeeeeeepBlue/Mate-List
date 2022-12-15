@@ -44,6 +44,11 @@ class HomeViewController: UIViewController {
     func style() {
         self.view.backgroundColor = .white
         navigationController?.title = "Mate List"
+    
+        // 네비게이션 뒤에 안보이게
+        let navigationBarAppearance = UINavigationBarAppearance()
+            navigationBarAppearance.configureWithTransparentBackground()
+        navigationController?.navigationBar.standardAppearance = navigationBarAppearance
         
     }
     

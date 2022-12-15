@@ -17,7 +17,6 @@ final class WriteButton: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
- 
 }
 
 extension WriteButton {

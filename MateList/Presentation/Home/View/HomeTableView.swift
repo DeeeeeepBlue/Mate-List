@@ -23,8 +23,6 @@ final class HomeTableView: UITableView {
     }
 
     func configureUI(){
-        //TODO: border 지우기
-        self.layer.borderWidth = 2.0
         self.register(HomeViewCell.self, forCellReuseIdentifier: HomeViewCell.cellIdentifier)
     }
 }
