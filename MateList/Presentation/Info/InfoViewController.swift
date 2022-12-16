@@ -79,29 +79,29 @@ class Info: UIViewController, MFMailComposeViewControllerDelegate{
     
     /// 로그인
     @IBAction func googleSignIn(sender: Any) {
-//        if (dataloading){
-//            GIDSignIn.sharedInstance.signIn(with: signInConfig, presenting: self) { user, error in
-//                guard error == nil else { return }
-//                guard let user = user else { return }
-//                
-//               
-//                self.email = user.profile!.email
-//                self.name = user.profile!.name
-//                
-//                user.authentication.do { authentication, error in
-//                    guard error == nil else { return }
-//                    
-//                    guard let authentication = authentication,
-//                          let idToken = authentication.idToken else { return }
-//                    
-//                    // Send ID token to backend (example below).
-//                    let credential = GoogleAuthProvider.credential(withIDToken: idToken,
-//                                                                   accessToken: authentication.accessToken)
-//                    
-//                    self.authSignIn(credential: credential)
-//                }
-//            }
-//        }
+        if (dataloading){
+            GIDSignIn.sharedInstance.signIn(with: signInConfig, presenting: self) { user, error in
+                guard error == nil else { return }
+                guard let user = user else { return }
+                
+               
+                self.email = user.profile!.email
+                self.name = user.profile!.name
+                
+                user.authentication.do { authentication, error in
+                    guard error == nil else { return }
+                    
+                    guard let authentication = authentication,
+                          let idToken = authentication.idToken else { return }
+                    
+                    // Send ID token to backend (example below).
+                    let credential = GoogleAuthProvider.credential(withIDToken: idToken,
+                                                                   accessToken: authentication.accessToken)
+                    
+                    self.authSignIn(credential: credential)
+                }
+            }
+        }
         
     }
     
