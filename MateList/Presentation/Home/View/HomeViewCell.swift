@@ -36,6 +36,13 @@ class HomeViewCell: UITableViewCell {
         self.configureUI()
     }
 }
+//MARK: - Override
+extension HomeViewCell {
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+        selectionStyle = .none
+    }
+}
 
 //MARK: - ConfigureUI
 extension HomeViewCell {
