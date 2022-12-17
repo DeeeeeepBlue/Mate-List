@@ -35,7 +35,7 @@ class HomeViewModel: HomeViewModelType {
     var otherSurveys: Observable<[String:HabitCheck]>
     
     //MARK: - Init
-    init(firebaseNetwork: Fetchable = FirebaseNetwork()) {
+    init(firebaseNetwork: HomeFirebaseUseCaseProtocol = HomeFirebaseUseCase()) {
         // Subject
         let fetchingPost = PublishSubject<Void>()
         let fetchingMySurvey = PublishSubject<Void>()

@@ -1,19 +1,14 @@
 //
-//  FirebaseNetwork.swift
+//  HomeFirebaseUseCase.swift
 //  MateList
 //
-//  Created by 강민규 on 2022/12/14.
+//  Created by 강민규 on 2022/12/18.
 //
+import UIKit
 
 import RxSwift
-import Firebase
-import FirebaseAuth
 
-protocol Fetchable {
-    func fetchPosts() -> Observable<[Post]>
-}
-
-class FirebaseNetwork: Fetchable {
+class HomeFirebaseUseCase: HomeFirebaseUseCaseProtocol {
     func fetchPosts() -> Observable<[Post]> {
         return Observable.create { observer in
             
@@ -55,11 +50,13 @@ class FirebaseNetwork: Fetchable {
     
     func fetchMySurvey() -> Observable<HabitCheck> {
         return Observable.create { observer in
-            guard let appAuth = AppDelegate.userAuth else { return }
+            guard let appAuth = AppDelegate.userAuth else {
+                return Disposables.create()
+            }
             let uid = appAuth.user.uid
-            
+
             let docRef = FireStoreService.db.collection("User").document(uid).collection("HabitCheck").document(uid)
-            
+
             docRef.getDocument { (document, error) in
                 if let document = document, document.exists {
                     //data load success.
@@ -71,29 +68,29 @@ class FirebaseNetwork: Fetchable {
                         let decoder = JSONDecoder()
                         //첫번째 인자 : 해독할 형식(구조체), 두번째 인자 : 해독할 json 데이터
                         let decodeHabitCheck = try decoder.decode(HabitCheck.self, from: data)
-                        
+
                         observer.onNext(decodeHabitCheck)
                     }
                     catch { print("Error when trying to encode book: \(error)") }
 
                     } else { print("Document does not exist") }
                 }
-            
+
             return Disposables.create()
         }
     }
-    
+
     func fetchOtherSurvey(posts: [Post]) -> Observable<[String:HabitCheck]> {
         return Observable.create { observer in
-            
+
             //key is uid
             var habitCheckList : [String:HabitCheck] = [:]
-            
+
             // 한 유저가 여러개 글을 작성해도 한번만 저장되도록 중복 제거
             var writersUidList:[String] = posts.map { $0.uid }
             let writersUidSet = Set(writersUidList)
             writersUidList = Array(writersUidSet)
-            
+
             for checkUid in writersUidList{
                 let docRef = FireStoreService.db.collection("User").document(checkUid).collection("HabitCheck").document(checkUid)
                 docRef.getDocument { (document, error) in
@@ -107,19 +104,19 @@ class FirebaseNetwork: Fetchable {
                             let decoder = JSONDecoder()
                             //첫번째 인자 : 해독할 형식(구조체), 두번째 인자 : 해독할 json 데이터
                             let decodeHabitCheck = try decoder.decode(HabitCheck.self, from: data)
-                            
-                            
+
+
                             habitCheckList[checkUid] = decodeHabitCheck
-                            
+
                         } catch { print("Error when trying to encode book: \(error)") }
-                        
+
                     } else {
                         print("\(checkUid)'s Document does not exist")
                     }
                 }
             }
             observer.onNext(habitCheckList)
-            
+
             return Disposables.create()
         }
     }
