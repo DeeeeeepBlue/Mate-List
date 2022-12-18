@@ -30,7 +30,6 @@ class consent_popup: UIViewController {
             
     @IBAction func agreepopupBtn(_ sender: Any) {
         print("#동의하기")
-        new_mem_agree=1
         self.dismiss(animated: false, completion: nil)  // 사라지게 하기
     }
     
