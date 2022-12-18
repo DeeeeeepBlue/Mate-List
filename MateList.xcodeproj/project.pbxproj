@@ -15,6 +15,14 @@
 		040C118328F16D380012160E /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040C118228F16D380012160E /* Auth.swift */; };
 		0444E00227C825A500B49F8B /* ScrapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0444E00127C825A500B49F8B /* ScrapViewController.swift */; };
 		044B812828A172AF002E8851 /* Survey.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7B4F41D27D7B5090045580F /* Survey.storyboard */; };
+		044FA674294A4C9F00EA5C78 /* RxViewController in Frameworks */ = {isa = PBXBuildFile; productRef = 044FA673294A4C9F00EA5C78 /* RxViewController */; };
+		044FA67E294B768B00EA5C78 /* NotoSansKR-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 044FA678294B768A00EA5C78 /* NotoSansKR-Black.otf */; };
+		044FA67F294B768B00EA5C78 /* NotoSansKR-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 044FA679294B768B00EA5C78 /* NotoSansKR-Medium.otf */; };
+		044FA680294B768B00EA5C78 /* NotoSansKR-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 044FA67A294B768B00EA5C78 /* NotoSansKR-Regular.otf */; };
+		044FA681294B768B00EA5C78 /* NotoSansKR-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 044FA67B294B768B00EA5C78 /* NotoSansKR-Light.otf */; };
+		044FA682294B768B00EA5C78 /* NotoSansKR-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 044FA67C294B768B00EA5C78 /* NotoSansKR-Bold.otf */; };
+		044FA683294B768B00EA5C78 /* NotoSansKR-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 044FA67D294B768B00EA5C78 /* NotoSansKR-Thin.otf */; };
+		044FA685294B7A8C00EA5C78 /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044FA684294B7A8C00EA5C78 /* UIFont.swift */; };
 		04718D1D2907CA3400481015 /* NickNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04718D1B2907CA3400481015 /* NickNameViewController.swift */; };
 		04718D1E2907CA3400481015 /* NickName.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04718D1C2907CA3400481015 /* NickName.storyboard */; };
 		04718D212907CB3500481015 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 04718D202907CB3500481015 /* SnapKit */; };
@@ -22,6 +30,14 @@
 		04718D262907CBA200481015 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 04718D252907CBA200481015 /* RxRelay */; };
 		04718D282907CBA200481015 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 04718D272907CBA200481015 /* RxSwift */; };
 		04718D2C2907CBF600481015 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04718D2B2907CBF600481015 /* TextField.swift */; };
+		049231C0294858960084903D /* FlexLayout in Frameworks */ = {isa = PBXBuildFile; productRef = 049231BF294858960084903D /* FlexLayout */; };
+		049231C429485DB50084903D /* HomeTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049231C329485DB50084903D /* HomeTableView.swift */; };
+		049231C629485DBD0084903D /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049231C529485DBD0084903D /* HomeViewModel.swift */; };
+		049231C829485DC70084903D /* HomeViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049231C729485DC70084903D /* HomeViewCell.swift */; };
+		049231CA29487AA10084903D /* WriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049231C929487AA10084903D /* WriteButton.swift */; };
+		049231CC29487AB70084903D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049231CB29487AB70084903D /* HomeViewController.swift */; };
+		04AD0F19294E632400F141B9 /* HomeFirebaseUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD0F18294E632400F141B9 /* HomeFirebaseUseCase.swift */; };
+		04AD0F1C294E664300F141B9 /* HomeFirebaseUseCaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD0F1B294E664300F141B9 /* HomeFirebaseUseCaseProtocol.swift */; };
 		04BB243727ACED960003DA33 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BB243627ACED960003DA33 /* InfoViewController.swift */; };
 		3F2245BE27D62763002F29FE /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2245BD27D62763002F29FE /* UIColor.swift */; };
 		3FB23A5E27D79D3E00B8D071 /* FindMateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB23A5D27D79D3E00B8D071 /* FindMateTableViewCell.swift */; };
@@ -36,7 +52,6 @@
 		BC0C02022948433F006B281E /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0C02012948433F006B281E /* Coordinator.swift */; };
 		BC0C020429484384006B281E /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0C020329484384006B281E /* AppCoordinator.swift */; };
 		BC2B99FF29430F0B0040DE46 /* SampleRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2B99FE29430F0B0040DE46 /* SampleRepository.swift */; };
-		BC2B9A0129430F150040DE46 /* SampleUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2B9A0029430F150040DE46 /* SampleUsecase.swift */; };
 		BC2B9A0329430F220040DE46 /* SampleEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2B9A0229430F220040DE46 /* SampleEntity.swift */; };
 		BC2B9A0529430F2B0040DE46 /* SampleRepositoryInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2B9A0429430F2B0040DE46 /* SampleRepositoryInterface.swift */; };
 		BCD6AB2F294EC42600FC27AD /* CoordinatorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD6AB2E294EC42600FC27AD /* CoordinatorType.swift */; };
@@ -79,9 +94,23 @@
 		040AA09827BECE16008F4BF5 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		040C118228F16D380012160E /* Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Auth.swift; sourceTree = "<group>"; };
 		0444E00127C825A500B49F8B /* ScrapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrapViewController.swift; sourceTree = "<group>"; };
+		044FA678294B768A00EA5C78 /* NotoSansKR-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "NotoSansKR-Black.otf"; path = "../../../../../../Noto_Sans_KR/NotoSansKR-Black.otf"; sourceTree = "<group>"; };
+		044FA679294B768B00EA5C78 /* NotoSansKR-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "NotoSansKR-Medium.otf"; path = "../../../../../../Noto_Sans_KR/NotoSansKR-Medium.otf"; sourceTree = "<group>"; };
+		044FA67A294B768B00EA5C78 /* NotoSansKR-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "NotoSansKR-Regular.otf"; path = "../../../../../../Noto_Sans_KR/NotoSansKR-Regular.otf"; sourceTree = "<group>"; };
+		044FA67B294B768B00EA5C78 /* NotoSansKR-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "NotoSansKR-Light.otf"; path = "../../../../../../Noto_Sans_KR/NotoSansKR-Light.otf"; sourceTree = "<group>"; };
+		044FA67C294B768B00EA5C78 /* NotoSansKR-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "NotoSansKR-Bold.otf"; path = "../../../../../../Noto_Sans_KR/NotoSansKR-Bold.otf"; sourceTree = "<group>"; };
+		044FA67D294B768B00EA5C78 /* NotoSansKR-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "NotoSansKR-Thin.otf"; path = "../../../../../../Noto_Sans_KR/NotoSansKR-Thin.otf"; sourceTree = "<group>"; };
+		044FA684294B7A8C00EA5C78 /* UIFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
 		04718D1B2907CA3400481015 /* NickNameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NickNameViewController.swift; sourceTree = "<group>"; };
 		04718D1C2907CA3400481015 /* NickName.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NickName.storyboard; sourceTree = "<group>"; };
 		04718D2B2907CBF600481015 /* TextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
+		049231C329485DB50084903D /* HomeTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableView.swift; sourceTree = "<group>"; };
+		049231C529485DBD0084903D /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		049231C729485DC70084903D /* HomeViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewCell.swift; sourceTree = "<group>"; };
+		049231C929487AA10084903D /* WriteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteButton.swift; sourceTree = "<group>"; };
+		049231CB29487AB70084903D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		04AD0F18294E632400F141B9 /* HomeFirebaseUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFirebaseUseCase.swift; sourceTree = "<group>"; };
+		04AD0F1B294E664300F141B9 /* HomeFirebaseUseCaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFirebaseUseCaseProtocol.swift; sourceTree = "<group>"; };
 		04BB243627ACED960003DA33 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		3F2245BD27D62763002F29FE /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		3FB23A5D27D79D3E00B8D071 /* FindMateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindMateTableViewCell.swift; sourceTree = "<group>"; };
@@ -96,7 +125,6 @@
 		BC0C02012948433F006B281E /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		BC0C020329484384006B281E /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		BC2B99FE29430F0B0040DE46 /* SampleRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleRepository.swift; sourceTree = "<group>"; };
-		BC2B9A0029430F150040DE46 /* SampleUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleUsecase.swift; sourceTree = "<group>"; };
 		BC2B9A0229430F220040DE46 /* SampleEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleEntity.swift; sourceTree = "<group>"; };
 		BC2B9A0429430F2B0040DE46 /* SampleRepositoryInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleRepositoryInterface.swift; sourceTree = "<group>"; };
 		BCD6AB2E294EC42600FC27AD /* CoordinatorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorType.swift; sourceTree = "<group>"; };
@@ -133,7 +161,9 @@
 			files = (
 				04718D262907CBA200481015 /* RxRelay in Frameworks */,
 				04718D242907CBA200481015 /* RxCocoa in Frameworks */,
+				044FA674294A4C9F00EA5C78 /* RxViewController in Frameworks */,
 				F731B77427D4D56A009670A4 /* FirebaseCrashlytics in Frameworks */,
+				049231C0294858960084903D /* FlexLayout in Frameworks */,
 				04718D212907CB3500481015 /* SnapKit in Frameworks */,
 				F731B77027D4D56A009670A4 /* FirebaseAnalytics in Frameworks */,
 				F731B77627D4D56A009670A4 /* FirebaseDatabase in Frameworks */,
@@ -151,6 +181,7 @@
 		0407C0AB28A6111D006AFA59 /* extention */ = {
 			isa = PBXGroup;
 			children = (
+				044FA684294B7A8C00EA5C78 /* UIFont.swift */,
 				04718D2B2907CBF600481015 /* TextField.swift */,
 				3F2245BD27D62763002F29FE /* UIColor.swift */,
 			);
@@ -215,6 +246,9 @@
 		044B812028A14DD9002E8851 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				049231CD29487ABB0084903D /* ViewController */,
+				049231C229485DA90084903D /* ViewModel */,
+				049231C129485DA00084903D /* View */,
 				F731B7A127D4FF09009670A4 /* Home.storyboard */,
 				F75452E827C7C5FB00E2DB41 /* FindMateViewController.swift */,
 				3FB23A5D27D79D3E00B8D071 /* FindMateTableViewCell.swift */,
@@ -268,10 +302,24 @@
 		044B812628A14EBD002E8851 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				044FA677294B765400EA5C78 /* Font */,
 				0407C0AF28A91A48006AFA59 /* Constant */,
 				0407C0AB28A6111D006AFA59 /* extention */,
 			);
 			path = Resource;
+			sourceTree = "<group>";
+		};
+		044FA677294B765400EA5C78 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				044FA678294B768A00EA5C78 /* NotoSansKR-Black.otf */,
+				044FA67C294B768B00EA5C78 /* NotoSansKR-Bold.otf */,
+				044FA67B294B768B00EA5C78 /* NotoSansKR-Light.otf */,
+				044FA679294B768B00EA5C78 /* NotoSansKR-Medium.otf */,
+				044FA67A294B768B00EA5C78 /* NotoSansKR-Regular.otf */,
+				044FA67D294B768B00EA5C78 /* NotoSansKR-Thin.otf */,
+			);
+			path = Font;
 			sourceTree = "<group>";
 		};
 		04718D1A2907CA3400481015 /* NickName */ = {
@@ -281,6 +329,48 @@
 				04718D1C2907CA3400481015 /* NickName.storyboard */,
 			);
 			path = NickName;
+			sourceTree = "<group>";
+		};
+		049231C129485DA00084903D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				049231C329485DB50084903D /* HomeTableView.swift */,
+				049231C729485DC70084903D /* HomeViewCell.swift */,
+				049231C929487AA10084903D /* WriteButton.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		049231C229485DA90084903D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				049231C529485DBD0084903D /* HomeViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		049231CD29487ABB0084903D /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				049231CB29487AB70084903D /* HomeViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		04AD0F17294E630400F141B9 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				04AD0F18294E632400F141B9 /* HomeFirebaseUseCase.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		04AD0F1A294E65D000F141B9 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				04AD0F1B294E664300F141B9 /* HomeFirebaseUseCaseProtocol.swift */,
+			);
+			path = Protocol;
 			sourceTree = "<group>";
 		};
 		3FCF3B4C27F888C5008771B8 /* Supporting Files */ = {
@@ -324,7 +414,7 @@
 			children = (
 				BC2B99F829430D2C0040DE46 /* Repository+Interface */,
 				BC2B99F729430D260040DE46 /* Entity */,
-				BC2B99F629430D210040DE46 /* Usecase */,
+				BC2B99F629430D210040DE46 /* UseCase */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -345,12 +435,13 @@
 			path = Repository;
 			sourceTree = "<group>";
 		};
-		BC2B99F629430D210040DE46 /* Usecase */ = {
+		BC2B99F629430D210040DE46 /* UseCase */ = {
 			isa = PBXGroup;
 			children = (
-				BC2B9A0029430F150040DE46 /* SampleUsecase.swift */,
+				04AD0F1A294E65D000F141B9 /* Protocol */,
+				04AD0F17294E630400F141B9 /* Home */,
 			);
-			path = Usecase;
+			path = UseCase;
 			sourceTree = "<group>";
 		};
 		BC2B99F729430D260040DE46 /* Entity */ = {
@@ -474,6 +565,8 @@
 				04718D232907CBA200481015 /* RxCocoa */,
 				04718D252907CBA200481015 /* RxRelay */,
 				04718D272907CBA200481015 /* RxSwift */,
+				049231BF294858960084903D /* FlexLayout */,
+				044FA673294A4C9F00EA5C78 /* RxViewController */,
 			);
 			productName = checkMate;
 			productReference = F757546927A4DF1800BFDF9B /* MateList.app */;
@@ -509,6 +602,8 @@
 				F731B77C27D4D5A5009670A4 /* XCRemoteSwiftPackageReference "DropDown" */,
 				04718D1F2907CB3500481015 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				04718D222907CBA200481015 /* XCRemoteSwiftPackageReference "RxSwift" */,
+				049231BE294858960084903D /* XCRemoteSwiftPackageReference "FlexLayout" */,
+				044FA672294A4C9F00EA5C78 /* XCRemoteSwiftPackageReference "RxViewController" */,
 			);
 			productRefGroup = F757546A27A4DF1800BFDF9B /* Products */;
 			projectDirPath = "";
@@ -527,7 +622,12 @@
 				04718D1E2907CA3400481015 /* NickName.storyboard in Resources */,
 				A6B5B8202801BE9300D0CF98 /* GoogleService-Info.plist in Resources */,
 				F7B4F41C27D7B5030045580F /* SurveyInput.storyboard in Resources */,
+				044FA67E294B768B00EA5C78 /* NotoSansKR-Black.otf in Resources */,
+				044FA683294B768B00EA5C78 /* NotoSansKR-Thin.otf in Resources */,
+				044FA680294B768B00EA5C78 /* NotoSansKR-Regular.otf in Resources */,
 				F731B7A627D4FF09009670A4 /* Home.storyboard in Resources */,
+				044FA682294B768B00EA5C78 /* NotoSansKR-Bold.otf in Resources */,
+				044FA681294B768B00EA5C78 /* NotoSansKR-Light.otf in Resources */,
 				A600678027C7E4AA007C6EF1 /* (null) in Resources */,
 				5A75AE8827D9F2F9001C796C /* Scrap.storyboard in Resources */,
 				F7EEBACD27CF43B9009728AF /* Main.storyboard in Resources */,
@@ -535,6 +635,7 @@
 				3FF0B03C27DA4E2C00CA147A /* Info.storyboard in Resources */,
 				044B812828A172AF002E8851 /* Survey.storyboard in Resources */,
 				F757547927A4DF1A00BFDF9B /* LaunchScreen.storyboard in Resources */,
+				044FA67F294B768B00EA5C78 /* NotoSansKR-Medium.otf in Resources */,
 				F7CDDF0F27D6E96300DB6A30 /* ContentsDetailView.storyboard in Resources */,
 				F757547627A4DF1A00BFDF9B /* Assets.xcassets in Resources */,
 				F7B4F41427D7A55A0045580F /* Write.storyboard in Resources */,
@@ -550,7 +651,10 @@
 			files = (
 				BC0BDC7C294CB6B000B73BE3 /* DefaultAppCoordinator.swift in Sources */,
 				0407C0AE28A66642006AFA59 /* GlobalFunctions.swift in Sources */,
+				04AD0F19294E632400F141B9 /* HomeFirebaseUseCase.swift in Sources */,
 				BC2B9A0529430F2B0040DE46 /* SampleRepositoryInterface.swift in Sources */,
+				049231C829485DC70084903D /* HomeViewCell.swift in Sources */,
+				049231CC29487AB70084903D /* HomeViewController.swift in Sources */,
 				BC2B99FF29430F0B0040DE46 /* SampleRepository.swift in Sources */,
 				040AA09927BECE16008F4BF5 /* Comment.swift in Sources */,
 				040AA09727BECDDD008F4BF5 /* HabitCheck.swift in Sources */,
@@ -567,24 +671,31 @@
 				F75452E727C7C59900E2DB41 /* Post.swift in Sources */,
 				F757546D27A4DF1800BFDF9B /* AppDelegate.swift in Sources */,
 				3FB23A5E27D79D3E00B8D071 /* FindMateTableViewCell.swift in Sources */,
+
+				049231C629485DBD0084903D /* HomeViewModel.swift in Sources */,
+
 				BCD6AB35294ECE5B00FC27AD /* DefaultTabBarCoordinator.swift in Sources */,
 				BCD6AB2F294EC42600FC27AD /* CoordinatorType.swift in Sources */,
+
 				A60D25A327F7317700E6A553 /* consent_popup.swift in Sources */,
-				BC2B9A0129430F150040DE46 /* SampleUsecase.swift in Sources */,
 				0407C0B128A91A65006AFA59 /* Email.swift in Sources */,
 				BC0C020429484384006B281E /* AppCoordinator.swift in Sources */,
 				F757546F27A4DF1800BFDF9B /* SceneDelegate.swift in Sources */,
 				F7B4F41827D7B4C00045580F /* ServeyInputViewController.swift in Sources */,
+				04AD0F1C294E664300F141B9 /* HomeFirebaseUseCaseProtocol.swift in Sources */,
 				F7B4F42027D7B7460045580F /* SurveyInputViewCell.swift in Sources */,
 				BC2B9A0329430F220040DE46 /* SampleEntity.swift in Sources */,
 				BC0C02022948433F006B281E /* Coordinator.swift in Sources */,
 				0444E00227C825A500B49F8B /* ScrapViewController.swift in Sources */,
+				049231C429485DB50084903D /* HomeTableView.swift in Sources */,
 				04BB243727ACED960003DA33 /* InfoViewController.swift in Sources */,
 				F7B4F41627D7B4B80045580F /* SurveyViewController.swift in Sources */,
 				040AA09527BECD61008F4BF5 /* User.swift in Sources */,
+				044FA685294B7A8C00EA5C78 /* UIFont.swift in Sources */,
 				F76B581E27C5380600B6626D /* ContentsDetailViewController.swift in Sources */,
 				BCD6AB31294ECBFB00FC27AD /* TabBarPage.swift in Sources */,
 				040C118328F16D380012160E /* Auth.swift in Sources */,
+				049231CA29487AA10084903D /* WriteButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -807,6 +918,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		044FA672294A4C9F00EA5C78 /* XCRemoteSwiftPackageReference "RxViewController" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/devxoul/RxViewController.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 		04718D1F2907CB3500481015 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit";
@@ -821,6 +940,14 @@
 			requirement = {
 				branch = main;
 				kind = branch;
+			};
+		};
+		049231BE294858960084903D /* XCRemoteSwiftPackageReference "FlexLayout" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/layoutBox/FlexLayout.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
 			};
 		};
 		F731B76E27D4D56A009670A4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
@@ -850,6 +977,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		044FA673294A4C9F00EA5C78 /* RxViewController */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 044FA672294A4C9F00EA5C78 /* XCRemoteSwiftPackageReference "RxViewController" */;
+			productName = RxViewController;
+		};
 		04718D202907CB3500481015 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 04718D1F2907CB3500481015 /* XCRemoteSwiftPackageReference "SnapKit" */;
@@ -869,6 +1001,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 04718D222907CBA200481015 /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxSwift;
+		};
+		049231BF294858960084903D /* FlexLayout */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 049231BE294858960084903D /* XCRemoteSwiftPackageReference "FlexLayout" */;
+			productName = FlexLayout;
 		};
 		F731B76F27D4D56A009670A4 /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
