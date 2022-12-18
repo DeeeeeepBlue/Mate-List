@@ -27,7 +27,7 @@ protocol Coordinator: AnyObject {
 extension Coordinator {
     func finish() {
         childCoordinators.removeAll()
-//        finishDelegate?.coordinatorDidFinish(childCoordinator: self)
+        //        finishDelegate?.coordinatorDidFinish(childCoordinator: self)
     }
     
     func findCoordinator(type: CoordinatorType) -> Coordinator? {
@@ -44,3 +44,4 @@ extension Coordinator {
         }
         return nil
     }
+}
