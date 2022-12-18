@@ -8,7 +8,6 @@
 import Foundation
 
 public struct Reply {
-    
     let author: String
     let contents: String
     let date : String

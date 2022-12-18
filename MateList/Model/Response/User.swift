@@ -8,7 +8,6 @@
 import Foundation
 
 struct User {
-
     let email: String
     let name: String
     let gender: String

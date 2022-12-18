@@ -19,7 +19,6 @@ public struct HabitCheck: Codable {
     let bedtimeSelect : Bool?
     let mbtiSelect : String?
 
-
     enum CodingKeys: String,CodingKey {
         case cleanSelect
         case smokingSelect
