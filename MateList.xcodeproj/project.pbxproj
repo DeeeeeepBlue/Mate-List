@@ -32,12 +32,17 @@
 		A60D25A127F72E9600E6A553 /* consent_popup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A60D25A027F72E9600E6A553 /* consent_popup.storyboard */; };
 		A60D25A327F7317700E6A553 /* consent_popup.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60D25A227F7317600E6A553 /* consent_popup.swift */; };
 		A6B5B8202801BE9300D0CF98 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A6B5B81F2801BE9300D0CF98 /* GoogleService-Info.plist */; };
+		BC0BDC7C294CB6B000B73BE3 /* DefaultAppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0BDC7B294CB6B000B73BE3 /* DefaultAppCoordinator.swift */; };
 		BC0C02022948433F006B281E /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0C02012948433F006B281E /* Coordinator.swift */; };
 		BC0C020429484384006B281E /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0C020329484384006B281E /* AppCoordinator.swift */; };
 		BC2B99FF29430F0B0040DE46 /* SampleRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2B99FE29430F0B0040DE46 /* SampleRepository.swift */; };
 		BC2B9A0129430F150040DE46 /* SampleUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2B9A0029430F150040DE46 /* SampleUsecase.swift */; };
 		BC2B9A0329430F220040DE46 /* SampleEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2B9A0229430F220040DE46 /* SampleEntity.swift */; };
 		BC2B9A0529430F2B0040DE46 /* SampleRepositoryInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2B9A0429430F2B0040DE46 /* SampleRepositoryInterface.swift */; };
+		BCD6AB2F294EC42600FC27AD /* CoordinatorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD6AB2E294EC42600FC27AD /* CoordinatorType.swift */; };
+		BCD6AB31294ECBFB00FC27AD /* TabBarPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD6AB30294ECBFB00FC27AD /* TabBarPage.swift */; };
+		BCD6AB33294ECDA300FC27AD /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD6AB32294ECDA300FC27AD /* TabBarCoordinator.swift */; };
+		BCD6AB35294ECE5B00FC27AD /* DefaultTabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD6AB34294ECE5B00FC27AD /* DefaultTabBarCoordinator.swift */; };
 		F731B77027D4D56A009670A4 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = F731B76F27D4D56A009670A4 /* FirebaseAnalytics */; };
 		F731B77227D4D56A009670A4 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = F731B77127D4D56A009670A4 /* FirebaseAuth */; };
 		F731B77427D4D56A009670A4 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = F731B77327D4D56A009670A4 /* FirebaseCrashlytics */; };
@@ -87,12 +92,17 @@
 		A60D25A027F72E9600E6A553 /* consent_popup.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = consent_popup.storyboard; sourceTree = "<group>"; };
 		A60D25A227F7317600E6A553 /* consent_popup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = consent_popup.swift; sourceTree = "<group>"; };
 		A6B5B81F2801BE9300D0CF98 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		BC0BDC7B294CB6B000B73BE3 /* DefaultAppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultAppCoordinator.swift; sourceTree = "<group>"; };
 		BC0C02012948433F006B281E /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		BC0C020329484384006B281E /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		BC2B99FE29430F0B0040DE46 /* SampleRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleRepository.swift; sourceTree = "<group>"; };
 		BC2B9A0029430F150040DE46 /* SampleUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleUsecase.swift; sourceTree = "<group>"; };
 		BC2B9A0229430F220040DE46 /* SampleEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleEntity.swift; sourceTree = "<group>"; };
 		BC2B9A0429430F2B0040DE46 /* SampleRepositoryInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleRepositoryInterface.swift; sourceTree = "<group>"; };
+		BCD6AB2E294EC42600FC27AD /* CoordinatorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorType.swift; sourceTree = "<group>"; };
+		BCD6AB30294ECBFB00FC27AD /* TabBarPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarPage.swift; sourceTree = "<group>"; };
+		BCD6AB32294ECDA300FC27AD /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
+		BCD6AB34294ECE5B00FC27AD /* DefaultTabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultTabBarCoordinator.swift; sourceTree = "<group>"; };
 		F731B7A127D4FF09009670A4 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		F743792127ABDA8E0053947A /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		F75452E627C7C59900E2DB41 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
@@ -281,10 +291,20 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		BC0C01FF29484315006B281E /* Common */ = {
+		BC0BDC7A294CB67300B73BE3 /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
 				BC0C020029484331006B281E /* Protocol */,
+				BC0BDC7B294CB6B000B73BE3 /* DefaultAppCoordinator.swift */,
+				BCD6AB34294ECE5B00FC27AD /* DefaultTabBarCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		BC0C01FF29484315006B281E /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				BC0BDC7A294CB67300B73BE3 /* Coordinator */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -294,6 +314,7 @@
 			children = (
 				BC0C02012948433F006B281E /* Coordinator.swift */,
 				BC0C020329484384006B281E /* AppCoordinator.swift */,
+				BCD6AB32294ECDA300FC27AD /* TabBarCoordinator.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -346,6 +367,15 @@
 				BC2B9A0429430F2B0040DE46 /* SampleRepositoryInterface.swift */,
 			);
 			path = "Repository+Interface";
+			sourceTree = "<group>";
+		};
+		BCD6AB2D294EC41300FC27AD /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				BCD6AB2E294EC42600FC27AD /* CoordinatorType.swift */,
+				BCD6AB30294ECBFB00FC27AD /* TabBarPage.swift */,
+			);
+			path = Util;
 			sourceTree = "<group>";
 		};
 		F711782927C011A600729B52 /* Recovered References */ = {
@@ -401,6 +431,7 @@
 		F757546B27A4DF1800BFDF9B /* MateList */ = {
 			isa = PBXGroup;
 			children = (
+				BCD6AB2D294EC41300FC27AD /* Util */,
 				3FCF3B4927F88552008771B8 /* MateList.entitlements */,
 				BC2B99F329430D040040DE46 /* Data */,
 				BC2B99F229430CFE0040DE46 /* Domain */,
@@ -517,6 +548,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC0BDC7C294CB6B000B73BE3 /* DefaultAppCoordinator.swift in Sources */,
 				0407C0AE28A66642006AFA59 /* GlobalFunctions.swift in Sources */,
 				BC2B9A0529430F2B0040DE46 /* SampleRepositoryInterface.swift in Sources */,
 				BC2B99FF29430F0B0040DE46 /* SampleRepository.swift in Sources */,
@@ -530,10 +562,13 @@
 				F743792227ABDA8E0053947A /* Data.swift in Sources */,
 				F76B582427C5380600B6626D /* WriteViewController.swift in Sources */,
 				3F2245BE27D62763002F29FE /* UIColor.swift in Sources */,
+				BCD6AB33294ECDA300FC27AD /* TabBarCoordinator.swift in Sources */,
 				04718D1D2907CA3400481015 /* NickNameViewController.swift in Sources */,
 				F75452E727C7C59900E2DB41 /* Post.swift in Sources */,
 				F757546D27A4DF1800BFDF9B /* AppDelegate.swift in Sources */,
 				3FB23A5E27D79D3E00B8D071 /* FindMateTableViewCell.swift in Sources */,
+				BCD6AB35294ECE5B00FC27AD /* DefaultTabBarCoordinator.swift in Sources */,
+				BCD6AB2F294EC42600FC27AD /* CoordinatorType.swift in Sources */,
 				A60D25A327F7317700E6A553 /* consent_popup.swift in Sources */,
 				BC2B9A0129430F150040DE46 /* SampleUsecase.swift in Sources */,
 				0407C0B128A91A65006AFA59 /* Email.swift in Sources */,
@@ -548,6 +583,7 @@
 				F7B4F41627D7B4B80045580F /* SurveyViewController.swift in Sources */,
 				040AA09527BECD61008F4BF5 /* User.swift in Sources */,
 				F76B581E27C5380600B6626D /* ContentsDetailViewController.swift in Sources */,
+				BCD6AB31294ECBFB00FC27AD /* TabBarPage.swift in Sources */,
 				040C118328F16D380012160E /* Auth.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
