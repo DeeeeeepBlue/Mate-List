@@ -48,6 +48,9 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
     var contentsDetailData: Post!
     var userHabitCheck: HabitCheck?
     
+    // TODO: currentData 이거 이동시킨거임
+    var currentData: Post!
+    
     //MARK: - IBAction
     @IBAction func ScrapButton(_ sender: Any) {
         guard Auth.auth().currentUser != nil else {
