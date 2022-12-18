@@ -8,9 +8,6 @@
 import Foundation
 
 struct UserViewModel {
-    let email: String
-    let name: String
-    let gender: String
-    let age: String
+    let user: User
     let habitCheck: HabitCheck
 }
