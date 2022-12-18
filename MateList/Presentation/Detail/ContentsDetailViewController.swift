@@ -46,6 +46,7 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
     var viewHeight : CGFloat = 0
     var ref: DocumentReference? = nil
     var contentsDetailData: Post!
+    var userHabitCheck: HabitCheck?
     
     //MARK: - IBAction
     @IBAction func ScrapButton(_ sender: Any) {
@@ -301,7 +302,7 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
     //MARK: - Set Function
     func setData() {
           currentData = contentsDetailData
-          userHabitCheck.removeAll()
+          userHabitCheck = nil
           
           scrapDataLoad{ (result) in
               print("*클로저 실행\(result)")
@@ -498,8 +499,8 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
                     let bedtimeSelect_db = value["bedtimeSelect"] as? Bool ?? false
                     let mbtiSelect_db = value["mbtiSelect"] as? String ?? ""
                     
-                    userHabitCheck.removeAll()
-                    userHabitCheck.append(HabitCheck(cleanSelect: cleanSelect_db, smokingSelect: smokingSelect_db, gameSelect: gameSelect_db, snoringSelect: snoringSelect_db, griding_teethSelect: griding_TeethSelect_db, callSelect: callSelect_db, eatSelect: eatSelect_db, curfewSelect: curfewSelect_db, bedtimeSelect: bedtimeSelect_db, mbtiSelect: mbtiSelect_db))
+                    self.userHabitCheck = nil
+                    self.userHabitCheck = HabitCheck(cleanSelect: cleanSelect_db, smokingSelect: smokingSelect_db, gameSelect: gameSelect_db, snoringSelect: snoringSelect_db, griding_teethSelect: griding_TeethSelect_db, callSelect: callSelect_db, eatSelect: eatSelect_db, curfewSelect: curfewSelect_db, bedtimeSelect: bedtimeSelect_db, mbtiSelect: mbtiSelect_db)
                 }
     
        
@@ -581,7 +582,7 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
             let VCDest = segue.destination as! SurveyViewController
             VCDest.surveyView_user_id=send_username
             guard userHabitCheck != nil else {return}
-            VCDest.surveyView_cont = userHabitCheck[0]
+            VCDest.surveyView_cont = userHabitCheck
 
         }
         else {}
