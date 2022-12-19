@@ -23,6 +23,14 @@
 		044FA682294B768B00EA5C78 /* NotoSansKR-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 044FA67C294B768B00EA5C78 /* NotoSansKR-Bold.otf */; };
 		044FA683294B768B00EA5C78 /* NotoSansKR-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 044FA67D294B768B00EA5C78 /* NotoSansKR-Thin.otf */; };
 		044FA685294B7A8C00EA5C78 /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044FA684294B7A8C00EA5C78 /* UIFont.swift */; };
+		046F1A63294F10DF00B28371 /* HomeDefaultUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046F1A62294F10DF00B28371 /* HomeDefaultUseCase.swift */; };
+		046F1A65294F110800B28371 /* HomeDefaultUseCaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046F1A64294F110800B28371 /* HomeDefaultUseCaseProtocol.swift */; };
+		046F1A69294F2FC400B28371 /* User+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046F1A68294F2FC400B28371 /* User+ViewModel.swift */; };
+		046F1A6B294F313900B28371 /* Post+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046F1A6A294F313900B28371 /* Post+ViewModel.swift */; };
+		046F1A72294F39E700B28371 /* DefaultFirestoreRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046F1A71294F39E700B28371 /* DefaultFirestoreRepository.swift */; };
+		046F1A74294F39F900B28371 /* FirestoreRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046F1A73294F39F900B28371 /* FirestoreRepository.swift */; };
+		046F1A77294F834D00B28371 /* SampleConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046F1A76294F834D00B28371 /* SampleConstant.swift */; };
+		046F1A79294FB42A00B28371 /* SampleRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046F1A78294FB42A00B28371 /* SampleRepo.swift */; };
 		04718D1D2907CA3400481015 /* NickNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04718D1B2907CA3400481015 /* NickNameViewController.swift */; };
 		04718D1E2907CA3400481015 /* NickName.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04718D1C2907CA3400481015 /* NickName.storyboard */; };
 		04718D212907CB3500481015 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 04718D202907CB3500481015 /* SnapKit */; };
@@ -36,8 +44,6 @@
 		049231C829485DC70084903D /* HomeViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049231C729485DC70084903D /* HomeViewCell.swift */; };
 		049231CA29487AA10084903D /* WriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049231C929487AA10084903D /* WriteButton.swift */; };
 		049231CC29487AB70084903D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049231CB29487AB70084903D /* HomeViewController.swift */; };
-		04AD0F19294E632400F141B9 /* HomeFirebaseUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD0F18294E632400F141B9 /* HomeFirebaseUseCase.swift */; };
-		04AD0F1C294E664300F141B9 /* HomeFirebaseUseCaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD0F1B294E664300F141B9 /* HomeFirebaseUseCaseProtocol.swift */; };
 		04BB243727ACED960003DA33 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BB243627ACED960003DA33 /* InfoViewController.swift */; };
 		3F2245BE27D62763002F29FE /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2245BD27D62763002F29FE /* UIColor.swift */; };
 		3FB23A5E27D79D3E00B8D071 /* FindMateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB23A5D27D79D3E00B8D071 /* FindMateTableViewCell.swift */; };
@@ -51,8 +57,6 @@
 		BC0BDC7C294CB6B000B73BE3 /* DefaultAppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0BDC7B294CB6B000B73BE3 /* DefaultAppCoordinator.swift */; };
 		BC0C02022948433F006B281E /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0C02012948433F006B281E /* Coordinator.swift */; };
 		BC0C020429484384006B281E /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0C020329484384006B281E /* AppCoordinator.swift */; };
-		BC2B99FF29430F0B0040DE46 /* SampleRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2B99FE29430F0B0040DE46 /* SampleRepository.swift */; };
-		BC2B9A0329430F220040DE46 /* SampleEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2B9A0229430F220040DE46 /* SampleEntity.swift */; };
 		BC2B9A0529430F2B0040DE46 /* SampleRepositoryInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2B9A0429430F2B0040DE46 /* SampleRepositoryInterface.swift */; };
 		BCD6AB2F294EC42600FC27AD /* CoordinatorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD6AB2E294EC42600FC27AD /* CoordinatorType.swift */; };
 		BCD6AB31294ECBFB00FC27AD /* TabBarPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD6AB30294ECBFB00FC27AD /* TabBarPage.swift */; };
@@ -66,7 +70,6 @@
 		F731B77B27D4D581009670A4 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = F731B77A27D4D581009670A4 /* GoogleSignIn */; };
 		F731B77E27D4D5A5009670A4 /* DropDown in Frameworks */ = {isa = PBXBuildFile; productRef = F731B77D27D4D5A5009670A4 /* DropDown */; };
 		F731B7A627D4FF09009670A4 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F731B7A127D4FF09009670A4 /* Home.storyboard */; };
-		F743792227ABDA8E0053947A /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = F743792127ABDA8E0053947A /* Data.swift */; };
 		F75452E727C7C59900E2DB41 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75452E627C7C59900E2DB41 /* Post.swift */; };
 		F75452E927C7C5FB00E2DB41 /* FindMateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75452E827C7C5FB00E2DB41 /* FindMateViewController.swift */; };
 		F757546D27A4DF1800BFDF9B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F757546C27A4DF1800BFDF9B /* AppDelegate.swift */; };
@@ -101,6 +104,14 @@
 		044FA67C294B768B00EA5C78 /* NotoSansKR-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "NotoSansKR-Bold.otf"; path = "../../../../../../Noto_Sans_KR/NotoSansKR-Bold.otf"; sourceTree = "<group>"; };
 		044FA67D294B768B00EA5C78 /* NotoSansKR-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "NotoSansKR-Thin.otf"; path = "../../../../../../Noto_Sans_KR/NotoSansKR-Thin.otf"; sourceTree = "<group>"; };
 		044FA684294B7A8C00EA5C78 /* UIFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
+		046F1A62294F10DF00B28371 /* HomeDefaultUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDefaultUseCase.swift; sourceTree = "<group>"; };
+		046F1A64294F110800B28371 /* HomeDefaultUseCaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDefaultUseCaseProtocol.swift; sourceTree = "<group>"; };
+		046F1A68294F2FC400B28371 /* User+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+ViewModel.swift"; sourceTree = "<group>"; };
+		046F1A6A294F313900B28371 /* Post+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Post+ViewModel.swift"; sourceTree = "<group>"; };
+		046F1A71294F39E700B28371 /* DefaultFirestoreRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultFirestoreRepository.swift; sourceTree = "<group>"; };
+		046F1A73294F39F900B28371 /* FirestoreRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreRepository.swift; sourceTree = "<group>"; };
+		046F1A76294F834D00B28371 /* SampleConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleConstant.swift; sourceTree = "<group>"; };
+		046F1A78294FB42A00B28371 /* SampleRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleRepo.swift; sourceTree = "<group>"; };
 		04718D1B2907CA3400481015 /* NickNameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NickNameViewController.swift; sourceTree = "<group>"; };
 		04718D1C2907CA3400481015 /* NickName.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NickName.storyboard; sourceTree = "<group>"; };
 		04718D2B2907CBF600481015 /* TextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
@@ -109,8 +120,6 @@
 		049231C729485DC70084903D /* HomeViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewCell.swift; sourceTree = "<group>"; };
 		049231C929487AA10084903D /* WriteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteButton.swift; sourceTree = "<group>"; };
 		049231CB29487AB70084903D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		04AD0F18294E632400F141B9 /* HomeFirebaseUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFirebaseUseCase.swift; sourceTree = "<group>"; };
-		04AD0F1B294E664300F141B9 /* HomeFirebaseUseCaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFirebaseUseCaseProtocol.swift; sourceTree = "<group>"; };
 		04BB243627ACED960003DA33 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		3F2245BD27D62763002F29FE /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		3FB23A5D27D79D3E00B8D071 /* FindMateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindMateTableViewCell.swift; sourceTree = "<group>"; };
@@ -124,15 +133,12 @@
 		BC0BDC7B294CB6B000B73BE3 /* DefaultAppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultAppCoordinator.swift; sourceTree = "<group>"; };
 		BC0C02012948433F006B281E /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		BC0C020329484384006B281E /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
-		BC2B99FE29430F0B0040DE46 /* SampleRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleRepository.swift; sourceTree = "<group>"; };
-		BC2B9A0229430F220040DE46 /* SampleEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleEntity.swift; sourceTree = "<group>"; };
 		BC2B9A0429430F2B0040DE46 /* SampleRepositoryInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleRepositoryInterface.swift; sourceTree = "<group>"; };
 		BCD6AB2E294EC42600FC27AD /* CoordinatorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorType.swift; sourceTree = "<group>"; };
 		BCD6AB30294ECBFB00FC27AD /* TabBarPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarPage.swift; sourceTree = "<group>"; };
 		BCD6AB32294ECDA300FC27AD /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
 		BCD6AB34294ECE5B00FC27AD /* DefaultTabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultTabBarCoordinator.swift; sourceTree = "<group>"; };
 		F731B7A127D4FF09009670A4 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
-		F743792127ABDA8E0053947A /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		F75452E627C7C59900E2DB41 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		F75452E827C7C5FB00E2DB41 /* FindMateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindMateViewController.swift; sourceTree = "<group>"; };
 		F757546927A4DF1800BFDF9B /* MateList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MateList.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -205,22 +211,10 @@
 			path = Constant;
 			sourceTree = "<group>";
 		};
-		0407C0B228A92980006AFA59 /* Data */ = {
-			isa = PBXGroup;
-			children = (
-				F743792127ABDA8E0053947A /* Data.swift */,
-			);
-			path = Data;
-			sourceTree = "<group>";
-		};
 		040AA09327BECD53008F4BF5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				0407C0B228A92980006AFA59 /* Data */,
-				040AA09427BECD61008F4BF5 /* User.swift */,
-				040AA09627BECDDD008F4BF5 /* HabitCheck.swift */,
-				040AA09827BECE16008F4BF5 /* Comment.swift */,
-				F75452E627C7C59900E2DB41 /* Post.swift */,
+				046F1A67294F137900B28371 /* UI+ViewModel */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -322,6 +316,59 @@
 			path = Font;
 			sourceTree = "<group>";
 		};
+		046F1A66294F136F00B28371 /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				040AA09427BECD61008F4BF5 /* User.swift */,
+				040AA09627BECDDD008F4BF5 /* HabitCheck.swift */,
+				040AA09827BECE16008F4BF5 /* Comment.swift */,
+				F75452E627C7C59900E2DB41 /* Post.swift */,
+			);
+			path = Response;
+			sourceTree = "<group>";
+		};
+		046F1A67294F137900B28371 /* UI+ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				046F1A68294F2FC400B28371 /* User+ViewModel.swift */,
+				046F1A6A294F313900B28371 /* Post+ViewModel.swift */,
+			);
+			path = "UI+ViewModel";
+			sourceTree = "<group>";
+		};
+		046F1A6E294F39B400B28371 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				046F1A70294F39C600B28371 /* Protocol */,
+				046F1A71294F39E700B28371 /* DefaultFirestoreRepository.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		046F1A6F294F39BA00B28371 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				046F1A78294FB42A00B28371 /* SampleRepo.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		046F1A70294F39C600B28371 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				046F1A73294F39F900B28371 /* FirestoreRepository.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		046F1A75294F3B3800B28371 /* Constant */ = {
+			isa = PBXGroup;
+			children = (
+				046F1A76294F834D00B28371 /* SampleConstant.swift */,
+			);
+			path = Constant;
+			sourceTree = "<group>";
+		};
 		04718D1A2907CA3400481015 /* NickName */ = {
 			isa = PBXGroup;
 			children = (
@@ -360,7 +407,7 @@
 		04AD0F17294E630400F141B9 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				04AD0F18294E632400F141B9 /* HomeFirebaseUseCase.swift */,
+				046F1A62294F10DF00B28371 /* HomeDefaultUseCase.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -368,7 +415,7 @@
 		04AD0F1A294E65D000F141B9 /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
-				04AD0F1B294E664300F141B9 /* HomeFirebaseUseCaseProtocol.swift */,
+				046F1A64294F110800B28371 /* HomeDefaultUseCaseProtocol.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -430,7 +477,8 @@
 		BC2B99F429430D090040DE46 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
-				BC2B99FE29430F0B0040DE46 /* SampleRepository.swift */,
+				046F1A6F294F39BA00B28371 /* Home */,
+				046F1A6E294F39B400B28371 /* Common */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -447,7 +495,7 @@
 		BC2B99F729430D260040DE46 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
-				BC2B9A0229430F220040DE46 /* SampleEntity.swift */,
+				046F1A66294F136F00B28371 /* Response */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -463,6 +511,7 @@
 		BCD6AB2D294EC41300FC27AD /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				046F1A75294F3B3800B28371 /* Constant */,
 				BCD6AB2E294EC42600FC27AD /* CoordinatorType.swift */,
 				BCD6AB30294ECBFB00FC27AD /* TabBarPage.swift */,
 			);
@@ -522,15 +571,15 @@
 		F757546B27A4DF1800BFDF9B /* MateList */ = {
 			isa = PBXGroup;
 			children = (
-				BCD6AB2D294EC41300FC27AD /* Util */,
 				3FCF3B4927F88552008771B8 /* MateList.entitlements */,
-				BC2B99F329430D040040DE46 /* Data */,
-				BC2B99F229430CFE0040DE46 /* Domain */,
 				F7379F2227AD409D00D99CD4 /* App */,
+				F7379F2127AD37C000D99CD4 /* Presentation */,
+				BC2B99F229430CFE0040DE46 /* Domain */,
 				044B812628A14EBD002E8851 /* Resource */,
 				040AA09327BECD53008F4BF5 /* Model */,
+				BC2B99F329430D040040DE46 /* Data */,
 				040C118128F16D2A0012160E /* Network */,
-				F7379F2127AD37C000D99CD4 /* Presentation */,
+				BCD6AB2D294EC41300FC27AD /* Util */,
 				F757547527A4DF1A00BFDF9B /* Assets.xcassets */,
 				A6B5B81F2801BE9300D0CF98 /* GoogleService-Info.plist */,
 			);
@@ -651,40 +700,39 @@
 			files = (
 				BC0BDC7C294CB6B000B73BE3 /* DefaultAppCoordinator.swift in Sources */,
 				0407C0AE28A66642006AFA59 /* GlobalFunctions.swift in Sources */,
-				04AD0F19294E632400F141B9 /* HomeFirebaseUseCase.swift in Sources */,
+				046F1A79294FB42A00B28371 /* SampleRepo.swift in Sources */,
 				BC2B9A0529430F2B0040DE46 /* SampleRepositoryInterface.swift in Sources */,
 				049231C829485DC70084903D /* HomeViewCell.swift in Sources */,
 				049231CC29487AB70084903D /* HomeViewController.swift in Sources */,
-				BC2B99FF29430F0B0040DE46 /* SampleRepository.swift in Sources */,
 				040AA09927BECE16008F4BF5 /* Comment.swift in Sources */,
+				046F1A69294F2FC400B28371 /* User+ViewModel.swift in Sources */,
 				040AA09727BECDDD008F4BF5 /* HabitCheck.swift in Sources */,
 				3FCF3B4E27F888EC008771B8 /* KeychainItem.swift in Sources */,
 				F75452E927C7C5FB00E2DB41 /* FindMateViewController.swift in Sources */,
+				046F1A77294F834D00B28371 /* SampleConstant.swift in Sources */,
 				04718D2C2907CBF600481015 /* TextField.swift in Sources */,
 				F7B4F41A27D7B4CD0045580F /* SurveyViewCell.swift in Sources */,
 				F76B581527C5378100B6626D /* DetailTextView.swift in Sources */,
-				F743792227ABDA8E0053947A /* Data.swift in Sources */,
 				F76B582427C5380600B6626D /* WriteViewController.swift in Sources */,
 				3F2245BE27D62763002F29FE /* UIColor.swift in Sources */,
 				BCD6AB33294ECDA300FC27AD /* TabBarCoordinator.swift in Sources */,
 				04718D1D2907CA3400481015 /* NickNameViewController.swift in Sources */,
 				F75452E727C7C59900E2DB41 /* Post.swift in Sources */,
 				F757546D27A4DF1800BFDF9B /* AppDelegate.swift in Sources */,
+				046F1A72294F39E700B28371 /* DefaultFirestoreRepository.swift in Sources */,
 				3FB23A5E27D79D3E00B8D071 /* FindMateTableViewCell.swift in Sources */,
-
 				049231C629485DBD0084903D /* HomeViewModel.swift in Sources */,
-
 				BCD6AB35294ECE5B00FC27AD /* DefaultTabBarCoordinator.swift in Sources */,
+				046F1A65294F110800B28371 /* HomeDefaultUseCaseProtocol.swift in Sources */,
 				BCD6AB2F294EC42600FC27AD /* CoordinatorType.swift in Sources */,
-
 				A60D25A327F7317700E6A553 /* consent_popup.swift in Sources */,
+				046F1A6B294F313900B28371 /* Post+ViewModel.swift in Sources */,
 				0407C0B128A91A65006AFA59 /* Email.swift in Sources */,
 				BC0C020429484384006B281E /* AppCoordinator.swift in Sources */,
 				F757546F27A4DF1800BFDF9B /* SceneDelegate.swift in Sources */,
 				F7B4F41827D7B4C00045580F /* ServeyInputViewController.swift in Sources */,
-				04AD0F1C294E664300F141B9 /* HomeFirebaseUseCaseProtocol.swift in Sources */,
+				046F1A63294F10DF00B28371 /* HomeDefaultUseCase.swift in Sources */,
 				F7B4F42027D7B7460045580F /* SurveyInputViewCell.swift in Sources */,
-				BC2B9A0329430F220040DE46 /* SampleEntity.swift in Sources */,
 				BC0C02022948433F006B281E /* Coordinator.swift in Sources */,
 				0444E00227C825A500B49F8B /* ScrapViewController.swift in Sources */,
 				049231C429485DB50084903D /* HomeTableView.swift in Sources */,
@@ -692,6 +740,7 @@
 				F7B4F41627D7B4B80045580F /* SurveyViewController.swift in Sources */,
 				040AA09527BECD61008F4BF5 /* User.swift in Sources */,
 				044FA685294B7A8C00EA5C78 /* UIFont.swift in Sources */,
+				046F1A74294F39F900B28371 /* FirestoreRepository.swift in Sources */,
 				F76B581E27C5380600B6626D /* ContentsDetailViewController.swift in Sources */,
 				BCD6AB31294ECBFB00FC27AD /* TabBarPage.swift in Sources */,
 				040C118328F16D380012160E /* Auth.swift in Sources */,
