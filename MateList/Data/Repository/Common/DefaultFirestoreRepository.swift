@@ -10,45 +10,24 @@ import UIKit
 import RxSwift
 
 class DefaultFirestoreRepository : FirestoreRepository {
-    func fetchPosts() -> Observable<[Post]> {
+    
+    // MARK: - 게시글 들고오기
+    func fetchData() -> Observable<[String:Any]> {
         return Observable.create { observer in
-            
-            var postItems: [Post] = []
-            
             FireStoreService.db.collection("Post").order(by: "date", descending: true).getDocuments { (querySnapshot, err) in
                 if let err = err {
                     print("Error getting documents: \(err)")
                 } else {
                     for document in querySnapshot!.documents {
-                        let value = document.data()
-                        
-                        let uid = value["uid"] as? String ?? "noID"
-                        let author = value["user"] as? String ?? "noAuthor"
-                        let title = value["title"] as? String ?? "noTitle"
-                        let content = value["contents"] as? String ?? "noContent"
-                        let date = value["date"] as? String ?? "noDate"
-                        let isScrap = value["isScrap"] as? Bool ?? false
-                        let pid = document.documentID
-                        
-                        postItems.append(
-                            Post(
-                                uid: uid,
-                                author: author,
-                                title: title,
-                                contents: content,
-                                isScrap: isScrap,
-                                date: date,
-                                pid: pid
-                            )
-                        )
+                        let data = document.data()
+                        observer.onNext(data)
                     }
-                    observer.onNext(postItems)
                 }
             }
             return Disposables.create()
         }
     }
-    
+    //MARK: - 내 설문조사 가져오기
     func fetchMySurvey() -> Observable<HabitCheck> {
         return Observable.create { observer in
             guard let appAuth = AppDelegate.userAuth else {
@@ -81,7 +60,7 @@ class DefaultFirestoreRepository : FirestoreRepository {
         }
     }
 
-    
+    // MARK: - 다른 사람들 설문조사 들고오기
     func fetchOtherSurvey(posts: [Post]) -> Observable<[String:HabitCheck]> {
         return Observable.create { observer in
 
