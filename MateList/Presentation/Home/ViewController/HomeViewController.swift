@@ -22,13 +22,13 @@ class HomeViewController: UIViewController {
     
     private let disposeBag = DisposeBag()
     
-    init(viewModel: HomeViewModelType = HomeViewModel()){
-        self.viewModel = viewModel
+    init(homeViewModel: HomeViewModelType){
+        self.viewModel = homeViewModel
         super.init(nibName: nil, bundle: nil)
     }
     
     required init?(coder aDecoder: NSCoder) {
-        viewModel = HomeViewModel()
+        self.viewModel = HomeViewModel(homeUseCase: HomeDefaultUseCase(firestoreRepository: DefaultFirestoreRepository()))
         super.init(coder: aDecoder)
     }
 
@@ -54,7 +54,6 @@ class HomeViewController: UIViewController {
     
     func setBind() {
         let firstLoad = rx.viewWillAppear
-            .take(1)
             .map { _ in () }
         
         let reload = homeTableView.refreshControl?.rx
@@ -62,7 +61,7 @@ class HomeViewController: UIViewController {
             .map{ _ in } ?? Observable.just(())
         
         Observable.merge([firstLoad, reload])
-            .bind(to: viewModel.fetchList)
+            .bind(to: viewModel.appear)
             .disposed(by: disposeBag)
         
         viewModel.allPosts
