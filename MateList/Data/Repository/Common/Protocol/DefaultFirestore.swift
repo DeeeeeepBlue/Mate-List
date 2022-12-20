@@ -7,7 +7,7 @@
 
 import RxSwift
 
-protocol FirestoreRepository {
+protocol DefaultFirestore {
     func fetchData() -> Observable<[String:Any]> 
     func fetchMySurvey() -> Observable<HabitCheck>
     func fetchOtherSurvey(posts: [Post]) -> Observable<[String:HabitCheck]>

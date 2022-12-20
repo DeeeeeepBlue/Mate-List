@@ -9,7 +9,7 @@ import UIKit
 
 import RxSwift
 
-class DefaultFirestoreRepository : FirestoreRepository {
+class DefaultFirestoreRepository : DefaultFirestore {
     
     // MARK: - 게시글 들고오기
     func fetchData() -> Observable<[String:Any]> {

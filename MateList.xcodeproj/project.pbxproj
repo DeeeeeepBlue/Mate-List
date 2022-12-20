@@ -28,7 +28,7 @@
 		046F1A69294F2FC400B28371 /* User+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046F1A68294F2FC400B28371 /* User+ViewModel.swift */; };
 		046F1A6B294F313900B28371 /* Post+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046F1A6A294F313900B28371 /* Post+ViewModel.swift */; };
 		046F1A72294F39E700B28371 /* DefaultFirestoreRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046F1A71294F39E700B28371 /* DefaultFirestoreRepository.swift */; };
-		046F1A74294F39F900B28371 /* FirestoreRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046F1A73294F39F900B28371 /* FirestoreRepository.swift */; };
+		046F1A74294F39F900B28371 /* DefaultFirestore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046F1A73294F39F900B28371 /* DefaultFirestore.swift */; };
 		046F1A77294F834D00B28371 /* SampleConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046F1A76294F834D00B28371 /* SampleConstant.swift */; };
 		046F1A79294FB42A00B28371 /* SampleRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046F1A78294FB42A00B28371 /* SampleRepo.swift */; };
 		04718D1D2907CA3400481015 /* NickNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04718D1B2907CA3400481015 /* NickNameViewController.swift */; };
@@ -109,7 +109,7 @@
 		046F1A68294F2FC400B28371 /* User+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+ViewModel.swift"; sourceTree = "<group>"; };
 		046F1A6A294F313900B28371 /* Post+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Post+ViewModel.swift"; sourceTree = "<group>"; };
 		046F1A71294F39E700B28371 /* DefaultFirestoreRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultFirestoreRepository.swift; sourceTree = "<group>"; };
-		046F1A73294F39F900B28371 /* FirestoreRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreRepository.swift; sourceTree = "<group>"; };
+		046F1A73294F39F900B28371 /* DefaultFirestore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultFirestore.swift; sourceTree = "<group>"; };
 		046F1A76294F834D00B28371 /* SampleConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleConstant.swift; sourceTree = "<group>"; };
 		046F1A78294FB42A00B28371 /* SampleRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleRepo.swift; sourceTree = "<group>"; };
 		04718D1B2907CA3400481015 /* NickNameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NickNameViewController.swift; sourceTree = "<group>"; };
@@ -356,7 +356,7 @@
 		046F1A70294F39C600B28371 /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
-				046F1A73294F39F900B28371 /* FirestoreRepository.swift */,
+				046F1A73294F39F900B28371 /* DefaultFirestore.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -740,7 +740,7 @@
 				F7B4F41627D7B4B80045580F /* SurveyViewController.swift in Sources */,
 				040AA09527BECD61008F4BF5 /* User.swift in Sources */,
 				044FA685294B7A8C00EA5C78 /* UIFont.swift in Sources */,
-				046F1A74294F39F900B28371 /* FirestoreRepository.swift in Sources */,
+				046F1A74294F39F900B28371 /* DefaultFirestore.swift in Sources */,
 				F76B581E27C5380600B6626D /* ContentsDetailViewController.swift in Sources */,
 				BCD6AB31294ECBFB00FC27AD /* TabBarPage.swift in Sources */,
 				040C118328F16D380012160E /* Auth.swift in Sources */,
