@@ -10,9 +10,10 @@ import Foundation
 
 public struct Post {
     let pid : String
-    var uid : String
+    let uid : String
     let title: String
     let contents: String
-    var isScrap : Bool
     let date : String
+    let isScrap : Bool
+    let findMate: Bool
 }
