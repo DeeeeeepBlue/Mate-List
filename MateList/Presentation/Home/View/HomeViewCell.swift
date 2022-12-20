@@ -52,7 +52,7 @@ extension HomeViewCell {
         self.titleLabel.text = post.title
         self.contentLabel.text = post.contents
         self.dateLabel.text = post.date
-        self.userLabel.text = post.author
+        self.userLabel.text = post.uid
     }
     
     private func configureUI() {

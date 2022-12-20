@@ -25,12 +25,12 @@
 		044FA685294B7A8C00EA5C78 /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044FA684294B7A8C00EA5C78 /* UIFont.swift */; };
 		046F1A63294F10DF00B28371 /* HomeDefaultUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046F1A62294F10DF00B28371 /* HomeDefaultUseCase.swift */; };
 		046F1A65294F110800B28371 /* HomeDefaultUseCaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046F1A64294F110800B28371 /* HomeDefaultUseCaseProtocol.swift */; };
-		046F1A69294F2FC400B28371 /* User+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046F1A68294F2FC400B28371 /* User+ViewModel.swift */; };
-		046F1A6B294F313900B28371 /* Post+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046F1A6A294F313900B28371 /* Post+ViewModel.swift */; };
 		046F1A72294F39E700B28371 /* DefaultFirestoreRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046F1A71294F39E700B28371 /* DefaultFirestoreRepository.swift */; };
 		046F1A74294F39F900B28371 /* DefaultFirestore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046F1A73294F39F900B28371 /* DefaultFirestore.swift */; };
 		046F1A77294F834D00B28371 /* SampleConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046F1A76294F834D00B28371 /* SampleConstant.swift */; };
 		046F1A79294FB42A00B28371 /* SampleRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046F1A78294FB42A00B28371 /* SampleRepo.swift */; };
+		046F1A7D29515C7500B28371 /* IDFirestoreRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046F1A7C29515C7400B28371 /* IDFirestoreRepository.swift */; };
+		046F1A7F29515C7F00B28371 /* IDFirestore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046F1A7E29515C7F00B28371 /* IDFirestore.swift */; };
 		04718D1D2907CA3400481015 /* NickNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04718D1B2907CA3400481015 /* NickNameViewController.swift */; };
 		04718D1E2907CA3400481015 /* NickName.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04718D1C2907CA3400481015 /* NickName.storyboard */; };
 		04718D212907CB3500481015 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 04718D202907CB3500481015 /* SnapKit */; };
@@ -106,12 +106,12 @@
 		044FA684294B7A8C00EA5C78 /* UIFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
 		046F1A62294F10DF00B28371 /* HomeDefaultUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDefaultUseCase.swift; sourceTree = "<group>"; };
 		046F1A64294F110800B28371 /* HomeDefaultUseCaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDefaultUseCaseProtocol.swift; sourceTree = "<group>"; };
-		046F1A68294F2FC400B28371 /* User+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+ViewModel.swift"; sourceTree = "<group>"; };
-		046F1A6A294F313900B28371 /* Post+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Post+ViewModel.swift"; sourceTree = "<group>"; };
 		046F1A71294F39E700B28371 /* DefaultFirestoreRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultFirestoreRepository.swift; sourceTree = "<group>"; };
 		046F1A73294F39F900B28371 /* DefaultFirestore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultFirestore.swift; sourceTree = "<group>"; };
 		046F1A76294F834D00B28371 /* SampleConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleConstant.swift; sourceTree = "<group>"; };
 		046F1A78294FB42A00B28371 /* SampleRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleRepo.swift; sourceTree = "<group>"; };
+		046F1A7C29515C7400B28371 /* IDFirestoreRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDFirestoreRepository.swift; sourceTree = "<group>"; };
+		046F1A7E29515C7F00B28371 /* IDFirestore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDFirestore.swift; sourceTree = "<group>"; };
 		04718D1B2907CA3400481015 /* NickNameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NickNameViewController.swift; sourceTree = "<group>"; };
 		04718D1C2907CA3400481015 /* NickName.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NickName.storyboard; sourceTree = "<group>"; };
 		04718D2B2907CBF600481015 /* TextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
@@ -209,14 +209,6 @@
 				0407C0B028A91A65006AFA59 /* Email.swift */,
 			);
 			path = Constant;
-			sourceTree = "<group>";
-		};
-		040AA09327BECD53008F4BF5 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				046F1A67294F137900B28371 /* UI+ViewModel */,
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		040C118128F16D2A0012160E /* Network */ = {
@@ -327,20 +319,12 @@
 			path = Response;
 			sourceTree = "<group>";
 		};
-		046F1A67294F137900B28371 /* UI+ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				046F1A68294F2FC400B28371 /* User+ViewModel.swift */,
-				046F1A6A294F313900B28371 /* Post+ViewModel.swift */,
-			);
-			path = "UI+ViewModel";
-			sourceTree = "<group>";
-		};
 		046F1A6E294F39B400B28371 /* Common */ = {
 			isa = PBXGroup;
 			children = (
 				046F1A70294F39C600B28371 /* Protocol */,
 				046F1A71294F39E700B28371 /* DefaultFirestoreRepository.swift */,
+				046F1A7C29515C7400B28371 /* IDFirestoreRepository.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -357,6 +341,7 @@
 			isa = PBXGroup;
 			children = (
 				046F1A73294F39F900B28371 /* DefaultFirestore.swift */,
+				046F1A7E29515C7F00B28371 /* IDFirestore.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -576,7 +561,6 @@
 				F7379F2127AD37C000D99CD4 /* Presentation */,
 				BC2B99F229430CFE0040DE46 /* Domain */,
 				044B812628A14EBD002E8851 /* Resource */,
-				040AA09327BECD53008F4BF5 /* Model */,
 				BC2B99F329430D040040DE46 /* Data */,
 				040C118128F16D2A0012160E /* Network */,
 				BCD6AB2D294EC41300FC27AD /* Util */,
@@ -704,11 +688,12 @@
 				BC2B9A0529430F2B0040DE46 /* SampleRepositoryInterface.swift in Sources */,
 				049231C829485DC70084903D /* HomeViewCell.swift in Sources */,
 				049231CC29487AB70084903D /* HomeViewController.swift in Sources */,
+				046F1A7D29515C7500B28371 /* IDFirestoreRepository.swift in Sources */,
 				040AA09927BECE16008F4BF5 /* Comment.swift in Sources */,
-				046F1A69294F2FC400B28371 /* User+ViewModel.swift in Sources */,
 				040AA09727BECDDD008F4BF5 /* HabitCheck.swift in Sources */,
 				3FCF3B4E27F888EC008771B8 /* KeychainItem.swift in Sources */,
 				F75452E927C7C5FB00E2DB41 /* FindMateViewController.swift in Sources */,
+				046F1A7F29515C7F00B28371 /* IDFirestore.swift in Sources */,
 				046F1A77294F834D00B28371 /* SampleConstant.swift in Sources */,
 				04718D2C2907CBF600481015 /* TextField.swift in Sources */,
 				F7B4F41A27D7B4CD0045580F /* SurveyViewCell.swift in Sources */,
@@ -726,7 +711,6 @@
 				046F1A65294F110800B28371 /* HomeDefaultUseCaseProtocol.swift in Sources */,
 				BCD6AB2F294EC42600FC27AD /* CoordinatorType.swift in Sources */,
 				A60D25A327F7317700E6A553 /* consent_popup.swift in Sources */,
-				046F1A6B294F313900B28371 /* Post+ViewModel.swift in Sources */,
 				0407C0B128A91A65006AFA59 /* Email.swift in Sources */,
 				BC0C020429484384006B281E /* AppCoordinator.swift in Sources */,
 				F757546F27A4DF1800BFDF9B /* SceneDelegate.swift in Sources */,

@@ -59,7 +59,7 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
         }
         scrapDataLoad{ [self] (result) in
             if result {
-                contentsDetailData.isScrap = false
+                //contentsDetailData.isScrap = false
                 self.navigationItem.rightBarButtonItem?.image = UIImage(systemName: "star")
                 FireStoreService.db.collection("User").document(Auth.auth().currentUser!.uid).collection("Scrap").document(contentsDetailData.pid).delete() { err in
                     if let err = err {
@@ -69,13 +69,13 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
                     }
                 }
             }else{
-                contentsDetailData.isScrap = true
+                //contentsDetailData.isScrap = true
                 self.navigationItem.rightBarButtonItem?.image = UIImage(systemName: "star.fill")
                 FireStoreService.db.collection("User").document(Auth.auth().currentUser!.uid).collection("Scrap").document(contentsDetailData.pid).setData([
                     "contents" : contentsDetailData.contents,
                     "title" :  contentsDetailData.title,
                     "uid" : contentsDetailData.uid,
-                    "user" : contentsDetailData.author,
+                    "user" : contentsDetailData.uid,
                     "date" : getDate(),
                     "findMate" : false,
                     "isScrap" : contentsDetailData.isScrap
@@ -174,7 +174,7 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
         
         if replyList.count > 0 {
             // 댓글의 문서 id 삭제
-            FireStoreService.db.collection("Post").document(contentsDetailData.pid).collection("Comment").document(replyList[indexPath!.section].docid).delete() { err in
+            FireStoreService.db.collection("Post").document(contentsDetailData.pid).collection("Comment").document(replyList[indexPath!.section].cid).delete() { err in
                 if let err = err {
                     print("Error removing document: \(err)")
                 } else {
@@ -343,7 +343,7 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
         replyTableView.dataSource = self
         
 
-        userLabel.text = contentsDetailData.author
+        userLabel.text = contentsDetailData.uid
         send_username =  userLabel.text
         userLabel.textAlignment = .right
         userLabel.sizeToFit()
@@ -371,12 +371,13 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
                 
                 for document in querySnapshot!.documents {
                     let value = document.data()
-                    let author_db = value["user"] as? String ?? ""
-                    let content_db = value["reply"] as? String ?? ""
-                    let date_db = value["date"] as? String ?? ""
-                    let uid_db = value["uid"] as? String ?? ""
+                    let contents = value["contents"] as? String ?? ""
+                    let date = value["date"] as? String ?? ""
+                    let uid = value["uid"] as? String ?? "nilUID"
+                    let pid = value["pid"] as? String ?? "nilPID"
+                    let cid = document.documentID
 
-                    self.replyList.append(Comment(author: author_db, contents: content_db, date: date_db, uid: uid_db, docid: document.documentID))
+                    self.replyList.append(Comment(uid: uid, pid: pid, cid: cid, contents: contents, date: date))
 
                     print("## : \(self.replyList)")
                     
@@ -548,7 +549,7 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
         
         if replyList.count > 0{
             // 텍스트 크기 자동조절
-            userLabel.text = self.replyList[indexPath.section].author
+            userLabel.text = self.replyList[indexPath.section].uid
             userLabel.sizeToFit()
             contentsText.text = self.replyList[indexPath.section].contents
             contentsText.sizeToFit()

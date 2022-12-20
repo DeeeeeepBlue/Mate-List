@@ -123,17 +123,18 @@ class ScrapViewController: UIViewController, UITableViewDataSource, UITableViewD
                         for document in querySnapshot!.documents {
                            // print(document.data())
                             let value = document.data()
-                            let uid_db = value["uid"] as? String ?? "글이 없습니다."
-                            let author_db = value["user"] as? String ?? "글이 없습니다."
-                            let title_db = value["title"] as? String ?? "글이 없습니다."
-                            let content_db = value["contents"] as? String ?? "글이 없습니다."
-                            let date_db = value["date"] as? String ?? "글이 없습니다."
-                            let isScrap_db = value["isScrap"] as? Bool ?? false
-                            
+                            let pid = document.documentID
+                            let uid = value["uid"] as? String ?? "글이 없습니다."
+                            let author = value["user"] as? String ?? "글이 없습니다."
+                            let title = value["title"] as? String ?? "글이 없습니다."
+                            let contents = value["contents"] as? String ?? "글이 없습니다."
+                            let date = value["date"] as? String ?? "글이 없습니다."
+                            let isScrap = value["isScrap"] as? Bool ?? false
+                            let findMate = value["findMate"] as? Bool ?? false
                             
                             existScrap(docPath: document.documentID){ (result) in
                                 if result{
-                                    self.posts.append(Post(uid: uid_db,author: author_db, title: title_db, contents: content_db, isScrap: isScrap_db, date: date_db, pid: document.documentID))
+                                    self.posts.append(Post(pid: pid, uid: uid, title: title, contents: contents, date: date, isScrap: isScrap, findMate: findMate ))
                                     print("잘 넣었음")
                                     self.reloadTableView()
                                 } else{
@@ -198,7 +199,7 @@ class ScrapViewController: UIViewController, UITableViewDataSource, UITableViewD
             cellTittle.text = "\(self.posts[indexPath.section].title)"
             cellContents.text = "\(self.posts[indexPath.section].contents)"
             cellDate.text = "\(self.posts[indexPath.section].date)"
-            cellUser.text = "\(self.posts[indexPath.section].author)"
+            cellUser.text = "\(self.posts[indexPath.section].uid)"
             cellSameNumberLabel.text = "홈에서 확인"
             cellSameNumberLabel 
         }
