@@ -34,28 +34,30 @@ class HomeDefaultUseCase: HomeDefaultUseCaseProtocol {
     
     func posts() -> Observable<[Post]> {
         
+        var pid: String = "initPid"
         var uid: String = "initID"
-        var author: String = "initAuthor"
+        var user: String = "initUser"
         var title: String = "initTitle"
         var contents: String = "initContents"
-        var isScrap: Bool = false
         var date: String = "initDate"
-        var pid: String = "initPid"
+        var isScrap: Bool = false
+        var findMate: Bool = false
         
         return Observable.create { observer in
-            let data = self.firestoreRepository.fetchData()
+            let data = self.firestoreRepository.fetchPost()
             var items: [Post] = []
             data
                 .subscribe(onNext: { data in
                     pid = data["pid"] as? String ?? "noPid"
                     uid = data["uid"] as? String ?? "noID"
-                    author = data["user"] as? String ?? "noAuthor"
+                    user = data["user"] as? String ?? "noUser"
                     title = data["title"] as? String ?? "noTitle"
                     contents = data["contents"] as? String ?? "noContent"
-                    isScrap = data["isScrap"] as? Bool ?? false
                     date = data["date"] as? String ?? "noDate"
+                    isScrap = data["isScrap"] as? Bool ?? false
+                    findMate = data["findMate"] as? Bool ?? false
                     
-                    items.append(Post(pid: pid, uid: uid, author: author, title: title, contents: contents, isScrap: isScrap, date: date))
+                    items.append(Post(pid: pid, uid: uid, title: title, contents: contents, date: date, isScrap: isScrap, findMate: findMate))
                     observer.onNext(items)
                 })
                 .disposed(by: self.disposeBag)
