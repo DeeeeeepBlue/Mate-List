@@ -40,7 +40,7 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
     
     var lef: DatabaseReference!
     var List : [Post] = []
-    var replyList: [Reply] = []
+    var replyList: [Comment] = []
     var scrapFlag = false
     var check_replyuser : [Bool] = []
     var viewHeight : CGFloat = 0
@@ -376,7 +376,7 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
                     let date_db = value["date"] as? String ?? ""
                     let uid_db = value["uid"] as? String ?? ""
 
-                    self.replyList.append(Reply(author: author_db, contents: content_db, date: date_db, uid: uid_db, docid: document.documentID))
+                    self.replyList.append(Comment(author: author_db, contents: content_db, date: date_db, uid: uid_db, docid: document.documentID))
 
                     print("## : \(self.replyList)")
                     

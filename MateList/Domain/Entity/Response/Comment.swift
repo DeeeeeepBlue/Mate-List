@@ -7,10 +7,10 @@
 
 import Foundation
 
-public struct Reply {
-    let author: String
+public struct Comment {
+    let uid: String
+    let pid: String
+    let cid: String
     let contents: String
     let date : String
-    let uid : String
-    let docid : String
 }

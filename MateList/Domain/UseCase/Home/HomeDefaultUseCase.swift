@@ -47,14 +47,15 @@ class HomeDefaultUseCase: HomeDefaultUseCaseProtocol {
             var items: [Post] = []
             data
                 .subscribe(onNext: { data in
+                    pid = data["pid"] as? String ?? "noPid"
                     uid = data["uid"] as? String ?? "noID"
                     author = data["user"] as? String ?? "noAuthor"
                     title = data["title"] as? String ?? "noTitle"
                     contents = data["contents"] as? String ?? "noContent"
                     isScrap = data["isScrap"] as? Bool ?? false
                     date = data["date"] as? String ?? "noDate"
-                    pid = data["pid"] as? String ?? "noPid"
-                    items.append(Post(uid: uid, author: author, title: title, contents: contents, isScrap: isScrap, date: date, pid: pid))
+                    
+                    items.append(Post(pid: pid, uid: uid, author: author, title: title, contents: contents, isScrap: isScrap, date: date))
                     observer.onNext(items)
                 })
                 .disposed(by: self.disposeBag)

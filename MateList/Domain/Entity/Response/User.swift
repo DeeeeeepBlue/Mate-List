@@ -8,8 +8,10 @@
 import Foundation
 
 struct User {
+    let uid: String
     let email: String
     let name: String
     let gender: String
     let age: String
+    let habit: HabitCheck
 }
