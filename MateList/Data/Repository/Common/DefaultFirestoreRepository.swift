@@ -12,7 +12,7 @@ import RxSwift
 class DefaultFirestoreRepository : DefaultFirestore {
     
     // MARK: - 게시글 들고오기
-    func fetchData() -> Observable<[String:Any]> {
+    func fetchPost() -> Observable<[String:Any]> {
         return Observable.create { observer in
             FireStoreService.db.collection("Post").order(by: "date", descending: true).getDocuments { (querySnapshot, err) in
                 if let err = err {
