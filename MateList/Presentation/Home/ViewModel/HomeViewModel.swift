@@ -38,7 +38,6 @@ class HomeViewModel: HomeViewModelType {
         
         viewAppear
             .flatMap(homeUseCase.posts)
-            .map{ $0.map{ Post(uid: $0.uid, author: $0.author, title: $0.title, contents: $0.contents, isScrap: $0.isScrap, date: $0.date, pid: $0.pid) } }
             .subscribe(onNext: posts.onNext)
             .disposed(by: disposeBag)
         
