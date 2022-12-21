@@ -9,5 +9,4 @@ import RxSwift
 
 protocol HomeDefaultUseCaseProtocol {
     func posts() -> Observable<[Post]>
-    func calculatingFit(mySurvey: HabitCheck, otherSurvey: HabitCheck) -> Int
 }
