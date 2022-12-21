@@ -1,5 +1,5 @@
 //
-//  HomeViewCell.swift
+//  HomeCell.swift
 //  MateList
 //
 //  Created by 강민규 on 2022/12/13.
@@ -12,7 +12,8 @@ import SnapKit
 
 class HomeCell: UITableViewCell {
     
-    var viewModel: HomeCell
+    var viewModel: HomeCellViewModel
+    var disposeBag = DisposeBag()
     
     // MARK: - Properties
     static var cellIdentifier = "thisIsHome"
@@ -30,13 +31,15 @@ class HomeCell: UITableViewCell {
     
     // MARK: - Init
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        self.viewModel = HomeCell()
+        self.viewModel = HomeCellViewModel()
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.configureUI()
+        self.bind()
+
     }
 
     required init?(coder aDecoder: NSCoder) {
-        self.viewModel = HomeCell()
+        self.viewModel = HomeCellViewModel()
         super.init(coder: aDecoder)
         self.configureUI()
     }
@@ -52,12 +55,35 @@ extension HomeCell {
 //MARK: - ConfigureUI
 extension HomeCell {
     func updateUI(post: Post) {
-        self.matchLabel.text = "나와의 적합도"
-        self.matchPercentLabel.text = "100%"
-        self.titleLabel.text = post.title
-        self.contentLabel.text = post.contents
-        self.dateLabel.text = post.date
-        self.userLabel.text = post.uid
+        // 적합도
+        self.matchLabel.text = "적합도"
+        
+        // ViewModel에 post 넘기기
+        viewModel.post
+            .onNext(post)
+    }
+    
+    private func bind() {
+
+        viewModel.matchPercent
+            .bind(to: self.matchPercentLabel.rx.text)
+            .disposed(by: disposeBag)
+        
+        viewModel.title
+            .bind(to: self.titleLabel.rx.text)
+            .disposed(by: disposeBag)
+        
+        viewModel.contents
+            .bind(to: self.contentLabel.rx.text)
+            .disposed(by: disposeBag)
+        
+        viewModel.date
+            .bind(to: self.dateLabel.rx.text)
+            .disposed(by: disposeBag)
+        
+        viewModel.user
+            .bind(to: self.userLabel.rx.text)
+            .disposed(by: disposeBag)
     }
     
     private func configureUI() {
