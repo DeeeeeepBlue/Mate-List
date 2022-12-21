@@ -31,6 +31,11 @@
 		046F1A79294FB42A00B28371 /* SampleRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046F1A78294FB42A00B28371 /* SampleRepo.swift */; };
 		046F1A7D29515C7500B28371 /* IDFirestoreRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046F1A7C29515C7400B28371 /* IDFirestoreRepository.swift */; };
 		046F1A7F29515C7F00B28371 /* IDFirestore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046F1A7E29515C7F00B28371 /* IDFirestore.swift */; };
+		046F1A832951A51D00B28371 /* HomeCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046F1A822951A51D00B28371 /* HomeCellViewModel.swift */; };
+		046F1A852951A6F000B28371 /* HomeCellUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046F1A842951A6F000B28371 /* HomeCellUseCase.swift */; };
+		046F1A872951A70E00B28371 /* HomeCellUseCaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046F1A862951A70E00B28371 /* HomeCellUseCaseProtocol.swift */; };
+		046F1A8A2951CEE800B28371 /* IDFirestoreUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046F1A892951CEE800B28371 /* IDFirestoreUseCase.swift */; };
+		046F1A8C2951CEF600B28371 /* IDFirestoreUseCaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046F1A8B2951CEF600B28371 /* IDFirestoreUseCaseProtocol.swift */; };
 		04718D1D2907CA3400481015 /* NickNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04718D1B2907CA3400481015 /* NickNameViewController.swift */; };
 		04718D1E2907CA3400481015 /* NickName.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04718D1C2907CA3400481015 /* NickName.storyboard */; };
 		04718D212907CB3500481015 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 04718D202907CB3500481015 /* SnapKit */; };
@@ -41,7 +46,7 @@
 		049231C0294858960084903D /* FlexLayout in Frameworks */ = {isa = PBXBuildFile; productRef = 049231BF294858960084903D /* FlexLayout */; };
 		049231C429485DB50084903D /* HomeTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049231C329485DB50084903D /* HomeTableView.swift */; };
 		049231C629485DBD0084903D /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049231C529485DBD0084903D /* HomeViewModel.swift */; };
-		049231C829485DC70084903D /* HomeViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049231C729485DC70084903D /* HomeViewCell.swift */; };
+		049231C829485DC70084903D /* HomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049231C729485DC70084903D /* HomeCell.swift */; };
 		049231CA29487AA10084903D /* WriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049231C929487AA10084903D /* WriteButton.swift */; };
 		049231CC29487AB70084903D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049231CB29487AB70084903D /* HomeViewController.swift */; };
 		04BB243727ACED960003DA33 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BB243627ACED960003DA33 /* InfoViewController.swift */; };
@@ -112,12 +117,17 @@
 		046F1A78294FB42A00B28371 /* SampleRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleRepo.swift; sourceTree = "<group>"; };
 		046F1A7C29515C7400B28371 /* IDFirestoreRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDFirestoreRepository.swift; sourceTree = "<group>"; };
 		046F1A7E29515C7F00B28371 /* IDFirestore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDFirestore.swift; sourceTree = "<group>"; };
+		046F1A822951A51D00B28371 /* HomeCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCellViewModel.swift; sourceTree = "<group>"; };
+		046F1A842951A6F000B28371 /* HomeCellUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCellUseCase.swift; sourceTree = "<group>"; };
+		046F1A862951A70E00B28371 /* HomeCellUseCaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCellUseCaseProtocol.swift; sourceTree = "<group>"; };
+		046F1A892951CEE800B28371 /* IDFirestoreUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDFirestoreUseCase.swift; sourceTree = "<group>"; };
+		046F1A8B2951CEF600B28371 /* IDFirestoreUseCaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDFirestoreUseCaseProtocol.swift; sourceTree = "<group>"; };
 		04718D1B2907CA3400481015 /* NickNameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NickNameViewController.swift; sourceTree = "<group>"; };
 		04718D1C2907CA3400481015 /* NickName.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NickName.storyboard; sourceTree = "<group>"; };
 		04718D2B2907CBF600481015 /* TextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		049231C329485DB50084903D /* HomeTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableView.swift; sourceTree = "<group>"; };
 		049231C529485DBD0084903D /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
-		049231C729485DC70084903D /* HomeViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewCell.swift; sourceTree = "<group>"; };
+		049231C729485DC70084903D /* HomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCell.swift; sourceTree = "<group>"; };
 		049231C929487AA10084903D /* WriteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteButton.swift; sourceTree = "<group>"; };
 		049231CB29487AB70084903D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		04BB243627ACED960003DA33 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
@@ -354,6 +364,14 @@
 			path = Constant;
 			sourceTree = "<group>";
 		};
+		046F1A882951CEC800B28371 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				046F1A892951CEE800B28371 /* IDFirestoreUseCase.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		04718D1A2907CA3400481015 /* NickName */ = {
 			isa = PBXGroup;
 			children = (
@@ -367,7 +385,7 @@
 			isa = PBXGroup;
 			children = (
 				049231C329485DB50084903D /* HomeTableView.swift */,
-				049231C729485DC70084903D /* HomeViewCell.swift */,
+				049231C729485DC70084903D /* HomeCell.swift */,
 				049231C929487AA10084903D /* WriteButton.swift */,
 			);
 			path = View;
@@ -377,6 +395,7 @@
 			isa = PBXGroup;
 			children = (
 				049231C529485DBD0084903D /* HomeViewModel.swift */,
+				046F1A822951A51D00B28371 /* HomeCellViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -393,6 +412,7 @@
 			isa = PBXGroup;
 			children = (
 				046F1A62294F10DF00B28371 /* HomeDefaultUseCase.swift */,
+				046F1A842951A6F000B28371 /* HomeCellUseCase.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -401,6 +421,8 @@
 			isa = PBXGroup;
 			children = (
 				046F1A64294F110800B28371 /* HomeDefaultUseCaseProtocol.swift */,
+				046F1A862951A70E00B28371 /* HomeCellUseCaseProtocol.swift */,
+				046F1A8B2951CEF600B28371 /* IDFirestoreUseCaseProtocol.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -472,6 +494,7 @@
 			isa = PBXGroup;
 			children = (
 				04AD0F1A294E65D000F141B9 /* Protocol */,
+				046F1A882951CEC800B28371 /* Common */,
 				04AD0F17294E630400F141B9 /* Home */,
 			);
 			path = UseCase;
@@ -684,13 +707,15 @@
 			files = (
 				BC0BDC7C294CB6B000B73BE3 /* DefaultAppCoordinator.swift in Sources */,
 				0407C0AE28A66642006AFA59 /* GlobalFunctions.swift in Sources */,
+				046F1A872951A70E00B28371 /* HomeCellUseCaseProtocol.swift in Sources */,
 				046F1A79294FB42A00B28371 /* SampleRepo.swift in Sources */,
 				BC2B9A0529430F2B0040DE46 /* SampleRepositoryInterface.swift in Sources */,
-				049231C829485DC70084903D /* HomeViewCell.swift in Sources */,
+				049231C829485DC70084903D /* HomeCell.swift in Sources */,
 				049231CC29487AB70084903D /* HomeViewController.swift in Sources */,
 				046F1A7D29515C7500B28371 /* IDFirestoreRepository.swift in Sources */,
 				040AA09927BECE16008F4BF5 /* Comment.swift in Sources */,
 				040AA09727BECDDD008F4BF5 /* HabitCheck.swift in Sources */,
+				046F1A8A2951CEE800B28371 /* IDFirestoreUseCase.swift in Sources */,
 				3FCF3B4E27F888EC008771B8 /* KeychainItem.swift in Sources */,
 				F75452E927C7C5FB00E2DB41 /* FindMateViewController.swift in Sources */,
 				046F1A7F29515C7F00B28371 /* IDFirestore.swift in Sources */,
@@ -712,6 +737,7 @@
 				BCD6AB2F294EC42600FC27AD /* CoordinatorType.swift in Sources */,
 				A60D25A327F7317700E6A553 /* consent_popup.swift in Sources */,
 				0407C0B128A91A65006AFA59 /* Email.swift in Sources */,
+				046F1A8C2951CEF600B28371 /* IDFirestoreUseCaseProtocol.swift in Sources */,
 				BC0C020429484384006B281E /* AppCoordinator.swift in Sources */,
 				F757546F27A4DF1800BFDF9B /* SceneDelegate.swift in Sources */,
 				F7B4F41827D7B4C00045580F /* ServeyInputViewController.swift in Sources */,
@@ -720,12 +746,14 @@
 				BC0C02022948433F006B281E /* Coordinator.swift in Sources */,
 				0444E00227C825A500B49F8B /* ScrapViewController.swift in Sources */,
 				049231C429485DB50084903D /* HomeTableView.swift in Sources */,
+				046F1A832951A51D00B28371 /* HomeCellViewModel.swift in Sources */,
 				04BB243727ACED960003DA33 /* InfoViewController.swift in Sources */,
 				F7B4F41627D7B4B80045580F /* SurveyViewController.swift in Sources */,
 				040AA09527BECD61008F4BF5 /* User.swift in Sources */,
 				044FA685294B7A8C00EA5C78 /* UIFont.swift in Sources */,
 				046F1A74294F39F900B28371 /* DefaultFirestore.swift in Sources */,
 				F76B581E27C5380600B6626D /* ContentsDetailViewController.swift in Sources */,
+				046F1A852951A6F000B28371 /* HomeCellUseCase.swift in Sources */,
 				BCD6AB31294ECBFB00FC27AD /* TabBarPage.swift in Sources */,
 				040C118328F16D380012160E /* Auth.swift in Sources */,
 				049231CA29487AA10084903D /* WriteButton.swift in Sources */,

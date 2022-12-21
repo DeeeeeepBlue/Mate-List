@@ -65,7 +65,7 @@ class HomeViewController: UIViewController {
             .disposed(by: disposeBag)
         
         viewModel.allPosts
-            .bind(to: homeTableView.rx.items(cellIdentifier: HomeViewCell.cellIdentifier, cellType: HomeViewCell.self)){
+            .bind(to: homeTableView.rx.items(cellIdentifier: HomeCell.cellIdentifier, cellType: HomeCell.self)){
                 _, post, cell in
                 cell.updateUI(post: post)
             }
