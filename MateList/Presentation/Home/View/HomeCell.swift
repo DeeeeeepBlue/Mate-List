@@ -10,7 +10,10 @@ import UIKit
 import RxSwift
 import SnapKit
 
-class HomeViewCell: UITableViewCell {
+class HomeCell: UITableViewCell {
+    
+    var viewModel: HomeCell
+    
     // MARK: - Properties
     static var cellIdentifier = "thisIsHome"
     
@@ -27,17 +30,19 @@ class HomeViewCell: UITableViewCell {
     
     // MARK: - Init
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        self.viewModel = HomeCell()
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.configureUI()
     }
 
     required init?(coder aDecoder: NSCoder) {
+        self.viewModel = HomeCell()
         super.init(coder: aDecoder)
         self.configureUI()
     }
 }
 //MARK: - Override
-extension HomeViewCell {
+extension HomeCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         selectionStyle = .none
@@ -45,7 +50,7 @@ extension HomeViewCell {
 }
 
 //MARK: - ConfigureUI
-extension HomeViewCell {
+extension HomeCell {
     func updateUI(post: Post) {
         self.matchLabel.text = "나와의 적합도"
         self.matchPercentLabel.text = "100%"
@@ -124,7 +129,7 @@ extension HomeViewCell {
 }
 
 //MARK: - Create func
-private extension HomeViewCell {
+private extension HomeCell {
     func createLabel(size: CGFloat, family: UIFont.Family = .regular) -> UILabel {
         let label = UILabel()
         label.font = .notoSans(size: size, family: family)
