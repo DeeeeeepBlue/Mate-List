@@ -27,38 +27,6 @@ class DefaultFirestoreRepository : DefaultFirestore {
             return Disposables.create()
         }
     }
-    //MARK: - 내 설문조사 가져오기
-    func fetchMySurvey() -> Observable<HabitCheck> {
-        return Observable.create { observer in
-            guard let appAuth = AppDelegate.userAuth else {
-                return Disposables.create()
-            }
-            
-            let uid = appAuth.user.uid
-            let docRef = FireStoreService.db.collection("User").document(uid).collection("HabitCheck").document(uid)
-
-            docRef.getDocument { (document, error) in
-                if let document = document, document.exists {
-                    //data load success.
-                    do {
-                        //딕셔너리 -> json객체 -> HabitCheck 객체 순으로 변환
-                        let docData = document.data()!//딕셔너리 형 반환
-                        //json 객체로 변환. withJSONObject 인자엔 Array, Dictionary 등 넣어주면 됨.
-                        let data = try! JSONSerialization.data(withJSONObject: docData, options: [])
-                        let decoder = JSONDecoder()
-                        //첫번째 인자 : 해독할 형식(구조체), 두번째 인자 : 해독할 json 데이터
-                        let decodeHabitCheck = try decoder.decode(HabitCheck.self, from: data)
-
-                        observer.onNext(decodeHabitCheck)
-                    }
-                    catch { print("Error when trying to encode book: \(error)") }
-
-                    } else { print("Document does not exist") }
-                }
-
-            return Disposables.create()
-        }
-    }
 
     // MARK: - 다른 사람들 설문조사 들고오기
     func fetchOtherSurvey(posts: [Post]) -> Observable<[String:HabitCheck]> {
