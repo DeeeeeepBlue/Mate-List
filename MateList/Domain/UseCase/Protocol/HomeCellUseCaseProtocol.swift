@@ -8,5 +8,5 @@
 import RxSwift
 
 protocol HomeCellUseCaseProtocol{
-    static func calculatingFit(mySurvey: HabitCheck, otherSurvey: HabitCheck) -> Observable<Int>
+    static func calculatingFit(mySurvey: HabitCheck, otherSurvey: HabitCheck) -> Int
 }
