@@ -31,8 +31,8 @@ class HomeCellViewModel: HomeCellViewModelProtocol {
     var user: Observable<String>
     
     init() {
-        let postSubject = BehaviorSubject<Post>(value: Post(pid: "nil", uid: "nil", title: "nil", contents: "nil", date: "nil", isScrap: false, findMate: false))
-        
+        let postSubject = PublishSubject<Post>()
+
         let myHabit: Observable<HabitCheck>
         let otherHabit: Observable<HabitCheck>
         
@@ -45,10 +45,14 @@ class HomeCellViewModel: HomeCellViewModelProtocol {
             .map{ $0.uid }
             .flatMap{ IDFirestoreUseCase.getHabitCheck(uid: $0)}
 
-        // FIXME: 퍼센트 로직 세우기
-        matchPercent = postSubject
-            .map{_ in "수정 필요"}
-        
+        // ???: 퍼센트가 될 때도 있고 안될 때도 있음
+        matchPercent = Observable
+            .zip(myHabit, otherHabit,resultSelector: { myHabit, otherHabit in
+                return HomeCellUseCase.calculatingFit(mySurvey: myHabit, otherSurvey: otherHabit)
+            })
+            .map{"\($0)%"}
+            .debug()
+            
         post = postSubject.asObserver()
          
         title = postSubject
