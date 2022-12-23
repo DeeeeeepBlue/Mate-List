@@ -87,10 +87,6 @@ extension HomeCell {
     }
     
     private func configureUI() {
-        self.contentView.snp.makeConstraints { make in
-            make.top.leading.trailing.equalToSuperview()
-            make.height.equalTo(120)
-        }
         
         // AddView
         self.topConatiner.addArrangedSubview(matchLabel)
