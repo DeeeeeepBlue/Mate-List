@@ -36,7 +36,6 @@ class HomeCellViewModel: HomeCellViewModelProtocol {
         let myHabit: Observable<HabitCheck>
         let otherHabit: Observable<HabitCheck>
         
-        // !!!: 사용하지 않은 Observable 소스
         myHabit = IDFirestoreUseCase
             .getMyUID()
             .flatMap{ IDFirestoreUseCase.getHabitCheck(uid: $0) }
@@ -45,7 +44,7 @@ class HomeCellViewModel: HomeCellViewModelProtocol {
             .map{ $0.uid }
             .flatMap{ IDFirestoreUseCase.getHabitCheck(uid: $0)}
 
-        // ???: 퍼센트가 될 때도 있고 안될 때도 있음
+        // ???: 이상한 셀에 적합도를 넣어줌.
         matchPercent = Observable
             .zip(myHabit, otherHabit,resultSelector: { myHabit, otherHabit in
                 return HomeCellUseCase.calculatingFit(mySurvey: myHabit, otherSurvey: otherHabit)
