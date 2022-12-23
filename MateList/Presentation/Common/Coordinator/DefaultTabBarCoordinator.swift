@@ -8,37 +8,37 @@
 import Foundation
 import UIKit
 
-class DefaultTabBarCoordinator: TabBarCoordinator {
-    var tabBarController: UITabBarController
-    var navigationController: UINavigationController
-    var childCoordinators: [Coordinator]
-    var type: CoordinatorType
-    
-    required init(_ navigationController: UINavigationController) {
-        self.navigationController = navigationController
-        self.type = CoordinatorType.tab
-        self.tabBarController = UITabBarController()
-    }
-    
-    func selectPage(_ page: TabBarPage) {
-        <#code#>
-    }
-    
-    func setSelectedIndex(_ index: Int) {
-        <#code#>
-    }
-    
-    func getCurrentPage() -> TabBarPage {
-        <#code#>
-    }
-    
-
-    
-    func start() {
-        <#code#>
-    }
-    
-
-    
-    
-}
+//class DefaultTabBarCoordinator: DefaultTabBarCoordinator {
+//    var tabBarController: UITabBarController
+//    var navigationController: UINavigationController
+//    var childCoordinators: [Coordinator]
+//    var type: CoordinatorType
+//
+//    required init(_ navigationController: UINavigationController) {
+//        self.navigationController = navigationController
+//        self.type = CoordinatorType.tab
+//        self.tabBarController = UITabBarController()
+//    }
+//
+//    func selectPage(_ page: TabBarPage) {
+//        <#code#>
+//    }
+//
+//    func setSelectedIndex(_ index: Int) {
+//        <#code#>
+//    }
+//
+//    func getCurrentPage() -> TabBarPage {
+//        <#code#>
+//    }
+//
+//
+//
+//    func start() {
+//        <#code#>
+//    }
+//
+//
+//
+//
+//}
