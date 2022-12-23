@@ -65,6 +65,7 @@ class DefaultFirestoreRepository : DefaultFirestore {
                 }
             }
             observer.onNext(habitCheckList)
+            observer.onCompleted()
 
             return Disposables.create()
         }

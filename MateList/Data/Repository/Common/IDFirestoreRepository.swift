@@ -24,8 +24,7 @@ class IDFirestoreRepository: IDFirestore {
                             let data = document.data()
                             let name = data["NickName"]
                             observer.onNext(name as! String)
-                        } else {
-                            print("현재 유저가 없음")
+                            observer.onCompleted()
                         }
                     }
                 }
@@ -52,6 +51,7 @@ class IDFirestoreRepository: IDFirestore {
                         let decodeHabitCheck = try decoder.decode(HabitCheck.self, from: data)
 
                         observer.onNext(decodeHabitCheck)
+                        observer.onCompleted()
                     }
                     catch {
                         print("Error when trying to encode book: \(error)")
@@ -70,6 +70,7 @@ class IDFirestoreRepository: IDFirestore {
             if let currentUser = Auth.auth().currentUser {
                 let uid = currentUser.uid
                 observer.onNext(uid)
+                observer.onCompleted()
             } else {
                 observer.onNext("jV0gO04mvSVQQQWQtCBcHOGedDA3")
             }
