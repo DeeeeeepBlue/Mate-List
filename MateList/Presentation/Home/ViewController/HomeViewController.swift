@@ -17,7 +17,8 @@ class HomeViewController: UIViewController {
 
     private let homeTableView = HomeTableView()
     private let writeButton = WriteButton()
-    var viewModel: HomeViewModelType?
+    // TODO: Coordinator에서 인스턴스화하는 방법으로 고치기
+    var viewModel: HomeViewModelType = HomeViewModel(homeUseCase: HomeDefaultUseCase(firestoreRepository: DefaultFirestoreRepository()))
     
     
     private let disposeBag = DisposeBag()
@@ -51,10 +52,10 @@ class HomeViewController: UIViewController {
             .map{ _ in } ?? Observable.just(())
         
         Observable.merge([firstLoad, reload])
-            .bind(to: viewModel!.appear)
+            .bind(to: viewModel.appear )
             .disposed(by: disposeBag)
         
-        viewModel?.allPosts
+        viewModel.allPosts
             .bind(to: homeTableView.rx.items(cellIdentifier: HomeCell.cellIdentifier, cellType: HomeCell.self)){
                 _, post, cell in
                 cell.updateUI(post: post)

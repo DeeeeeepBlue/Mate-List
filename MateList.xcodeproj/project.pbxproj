@@ -16,12 +16,6 @@
 		0444E00227C825A500B49F8B /* ScrapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0444E00127C825A500B49F8B /* ScrapViewController.swift */; };
 		044B812828A172AF002E8851 /* Survey.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7B4F41D27D7B5090045580F /* Survey.storyboard */; };
 		044FA674294A4C9F00EA5C78 /* RxViewController in Frameworks */ = {isa = PBXBuildFile; productRef = 044FA673294A4C9F00EA5C78 /* RxViewController */; };
-		044FA67E294B768B00EA5C78 /* NotoSansKR-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 044FA678294B768A00EA5C78 /* NotoSansKR-Black.otf */; };
-		044FA67F294B768B00EA5C78 /* NotoSansKR-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 044FA679294B768B00EA5C78 /* NotoSansKR-Medium.otf */; };
-		044FA680294B768B00EA5C78 /* NotoSansKR-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 044FA67A294B768B00EA5C78 /* NotoSansKR-Regular.otf */; };
-		044FA681294B768B00EA5C78 /* NotoSansKR-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 044FA67B294B768B00EA5C78 /* NotoSansKR-Light.otf */; };
-		044FA682294B768B00EA5C78 /* NotoSansKR-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 044FA67C294B768B00EA5C78 /* NotoSansKR-Bold.otf */; };
-		044FA683294B768B00EA5C78 /* NotoSansKR-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 044FA67D294B768B00EA5C78 /* NotoSansKR-Thin.otf */; };
 		044FA685294B7A8C00EA5C78 /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044FA684294B7A8C00EA5C78 /* UIFont.swift */; };
 		046F1A63294F10DF00B28371 /* HomeDefaultUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046F1A62294F10DF00B28371 /* HomeDefaultUseCase.swift */; };
 		046F1A65294F110800B28371 /* HomeDefaultUseCaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046F1A64294F110800B28371 /* HomeDefaultUseCaseProtocol.swift */; };
@@ -105,12 +99,6 @@
 		040AA09827BECE16008F4BF5 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		040C118228F16D380012160E /* Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Auth.swift; sourceTree = "<group>"; };
 		0444E00127C825A500B49F8B /* ScrapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrapViewController.swift; sourceTree = "<group>"; };
-		044FA678294B768A00EA5C78 /* NotoSansKR-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "NotoSansKR-Black.otf"; path = "../../../../../../Noto_Sans_KR/NotoSansKR-Black.otf"; sourceTree = "<group>"; };
-		044FA679294B768B00EA5C78 /* NotoSansKR-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "NotoSansKR-Medium.otf"; path = "../../../../../../Noto_Sans_KR/NotoSansKR-Medium.otf"; sourceTree = "<group>"; };
-		044FA67A294B768B00EA5C78 /* NotoSansKR-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "NotoSansKR-Regular.otf"; path = "../../../../../../Noto_Sans_KR/NotoSansKR-Regular.otf"; sourceTree = "<group>"; };
-		044FA67B294B768B00EA5C78 /* NotoSansKR-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "NotoSansKR-Light.otf"; path = "../../../../../../Noto_Sans_KR/NotoSansKR-Light.otf"; sourceTree = "<group>"; };
-		044FA67C294B768B00EA5C78 /* NotoSansKR-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "NotoSansKR-Bold.otf"; path = "../../../../../../Noto_Sans_KR/NotoSansKR-Bold.otf"; sourceTree = "<group>"; };
-		044FA67D294B768B00EA5C78 /* NotoSansKR-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "NotoSansKR-Thin.otf"; path = "../../../../../../Noto_Sans_KR/NotoSansKR-Thin.otf"; sourceTree = "<group>"; };
 		044FA684294B7A8C00EA5C78 /* UIFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
 		046F1A62294F10DF00B28371 /* HomeDefaultUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDefaultUseCase.swift; sourceTree = "<group>"; };
 		046F1A64294F110800B28371 /* HomeDefaultUseCaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDefaultUseCaseProtocol.swift; sourceTree = "<group>"; };
@@ -305,24 +293,10 @@
 		044B812628A14EBD002E8851 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				044FA677294B765400EA5C78 /* Font */,
 				0407C0AF28A91A48006AFA59 /* Constant */,
 				0407C0AB28A6111D006AFA59 /* extention */,
 			);
 			path = Resource;
-			sourceTree = "<group>";
-		};
-		044FA677294B765400EA5C78 /* Font */ = {
-			isa = PBXGroup;
-			children = (
-				044FA678294B768A00EA5C78 /* NotoSansKR-Black.otf */,
-				044FA67C294B768B00EA5C78 /* NotoSansKR-Bold.otf */,
-				044FA67B294B768B00EA5C78 /* NotoSansKR-Light.otf */,
-				044FA679294B768B00EA5C78 /* NotoSansKR-Medium.otf */,
-				044FA67A294B768B00EA5C78 /* NotoSansKR-Regular.otf */,
-				044FA67D294B768B00EA5C78 /* NotoSansKR-Thin.otf */,
-			);
-			path = Font;
 			sourceTree = "<group>";
 		};
 		046F1A66294F136F00B28371 /* Response */ = {
@@ -703,12 +677,7 @@
 				04718D1E2907CA3400481015 /* NickName.storyboard in Resources */,
 				A6B5B8202801BE9300D0CF98 /* GoogleService-Info.plist in Resources */,
 				F7B4F41C27D7B5030045580F /* SurveyInput.storyboard in Resources */,
-				044FA67E294B768B00EA5C78 /* NotoSansKR-Black.otf in Resources */,
-				044FA683294B768B00EA5C78 /* NotoSansKR-Thin.otf in Resources */,
-				044FA680294B768B00EA5C78 /* NotoSansKR-Regular.otf in Resources */,
 				F731B7A627D4FF09009670A4 /* Home.storyboard in Resources */,
-				044FA682294B768B00EA5C78 /* NotoSansKR-Bold.otf in Resources */,
-				044FA681294B768B00EA5C78 /* NotoSansKR-Light.otf in Resources */,
 				A600678027C7E4AA007C6EF1 /* (null) in Resources */,
 				5A75AE8827D9F2F9001C796C /* Scrap.storyboard in Resources */,
 				F7EEBACD27CF43B9009728AF /* Main.storyboard in Resources */,
@@ -716,7 +685,6 @@
 				3FF0B03C27DA4E2C00CA147A /* Info.storyboard in Resources */,
 				044B812828A172AF002E8851 /* Survey.storyboard in Resources */,
 				F757547927A4DF1A00BFDF9B /* LaunchScreen.storyboard in Resources */,
-				044FA67F294B768B00EA5C78 /* NotoSansKR-Medium.otf in Resources */,
 				F7CDDF0F27D6E96300DB6A30 /* ContentsDetailView.storyboard in Resources */,
 				F757547627A4DF1A00BFDF9B /* Assets.xcassets in Resources */,
 				F7B4F41427D7A55A0045580F /* Write.storyboard in Resources */,
@@ -733,7 +701,6 @@
 				BC0BDC7C294CB6B000B73BE3 /* DefaultAppCoordinator.swift in Sources */,
 				0407C0AE28A66642006AFA59 /* GlobalFunctions.swift in Sources */,
 				BCD6AB38294F1E6400FC27AD /* DefaultHomeCoordinator.swift in Sources */,
-				04AD0F19294E632400F141B9 /* HomeFirebaseUseCase.swift in Sources */,
 				046F1A872951A70E00B28371 /* HomeCellUseCaseProtocol.swift in Sources */,
 				046F1A79294FB42A00B28371 /* SampleRepo.swift in Sources */,
 				BC2B9A0529430F2B0040DE46 /* SampleRepositoryInterface.swift in Sources */,
