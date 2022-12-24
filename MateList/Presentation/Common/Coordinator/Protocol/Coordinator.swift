@@ -13,21 +13,21 @@
 import UIKit
 
 protocol Coordinator: AnyObject {
-//    var finishDelegate: CoordinatorFinishDelegate? { get set }
+    var finishDelegate: CoordinatorFinishDelegate? { get set }
     var navigationController: UINavigationController { get set }
     var childCoordinators: [Coordinator] { get set }
     var type: CoordinatorType { get }
+    init(_ navigationController: UINavigationController)
     func start()
     func finish()
     func findCoordinator(type: CoordinatorType) -> Coordinator?
-    
-    init(_ navigationController: UINavigationController)
 }
 
 extension Coordinator {
+    
     func finish() {
         childCoordinators.removeAll()
-        //        finishDelegate?.coordinatorDidFinish(childCoordinator: self)
+        finishDelegate?.coordinatorDidFinish(childCoordinator: self)
     }
     
     func findCoordinator(type: CoordinatorType) -> Coordinator? {
