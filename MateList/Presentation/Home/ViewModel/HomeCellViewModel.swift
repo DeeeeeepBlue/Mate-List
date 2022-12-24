@@ -46,8 +46,7 @@ class HomeCellViewModel: HomeCellViewModelProtocol {
             .flatMap{ IDFirestoreUseCase.getHabitCheck(uid: $0)}
             .debug()
 
-        // ???:
-        이상한 셀에 적합도를 넣어줌.
+        // ???: 이상한 셀에 적합도를 넣어줌.
         matchPercent = Observable
             .zip(myHabit, otherHabit,resultSelector: { myHabit, otherHabit in
                 return HomeCellUseCase.calculatingFit(mySurvey: myHabit, otherSurvey: otherHabit)
