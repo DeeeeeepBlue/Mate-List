@@ -1,5 +1,5 @@
 //
-//  HomeViewCell.swift
+//  HomeCell.swift
 //  MateList
 //
 //  Created by 강민규 on 2022/12/13.
@@ -10,7 +10,11 @@ import UIKit
 import RxSwift
 import SnapKit
 
-class HomeViewCell: UITableViewCell {
+class HomeCell: UITableViewCell {
+    
+    var viewModel: HomeCellViewModel
+    var disposeBag = DisposeBag()
+    
     // MARK: - Properties
     static var cellIdentifier = "thisIsHome"
     
@@ -27,17 +31,21 @@ class HomeViewCell: UITableViewCell {
     
     // MARK: - Init
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        self.viewModel = HomeCellViewModel()
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.configureUI()
+        self.bind()
+
     }
 
     required init?(coder aDecoder: NSCoder) {
+        self.viewModel = HomeCellViewModel()
         super.init(coder: aDecoder)
         self.configureUI()
     }
 }
 //MARK: - Override
-extension HomeViewCell {
+extension HomeCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         selectionStyle = .none
@@ -45,14 +53,37 @@ extension HomeViewCell {
 }
 
 //MARK: - ConfigureUI
-extension HomeViewCell {
+extension HomeCell {
     func updateUI(post: Post) {
-        self.matchLabel.text = "나와의 적합도"
-        self.matchPercentLabel.text = "100%"
-        self.titleLabel.text = post.title
-        self.contentLabel.text = post.contents
-        self.dateLabel.text = post.date
-        self.userLabel.text = post.author
+        // 적합도
+        self.matchLabel.text = "적합도"
+        
+        // ViewModel에 post 넘기기
+        viewModel.post
+            .onNext(post)
+    }
+    
+    private func bind() {
+
+        viewModel.matchPercent
+            .bind(to: self.matchPercentLabel.rx.text)
+            .disposed(by: disposeBag)
+        
+        viewModel.title
+            .bind(to: self.titleLabel.rx.text)
+            .disposed(by: disposeBag)
+        
+        viewModel.contents
+            .bind(to: self.contentLabel.rx.text)
+            .disposed(by: disposeBag)
+        
+        viewModel.date
+            .bind(to: self.dateLabel.rx.text)
+            .disposed(by: disposeBag)
+        
+        viewModel.user
+            .bind(to: self.userLabel.rx.text)
+            .disposed(by: disposeBag)
     }
     
     private func configureUI() {
@@ -124,7 +155,7 @@ extension HomeViewCell {
 }
 
 //MARK: - Create func
-private extension HomeViewCell {
+private extension HomeCell {
     func createLabel(size: CGFloat, family: UIFont.Family = .regular) -> UILabel {
         let label = UILabel()
         label.font = .notoSans(size: size, family: family)

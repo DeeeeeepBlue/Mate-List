@@ -40,12 +40,16 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
     
     var lef: DatabaseReference!
     var List : [Post] = []
-    var replyList: [Reply] = []
+    var replyList: [Comment] = []
     var scrapFlag = false
     var check_replyuser : [Bool] = []
     var viewHeight : CGFloat = 0
     var ref: DocumentReference? = nil
     var contentsDetailData: Post!
+    var userHabitCheck: HabitCheck?
+    
+    // TODO: currentData 이거 이동시킨거임
+    var currentData: Post!
     
     //MARK: - IBAction
     @IBAction func ScrapButton(_ sender: Any) {
@@ -55,7 +59,7 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
         }
         scrapDataLoad{ [self] (result) in
             if result {
-                contentsDetailData.isScrap = false
+                //contentsDetailData.isScrap = false
                 self.navigationItem.rightBarButtonItem?.image = UIImage(systemName: "star")
                 FireStoreService.db.collection("User").document(Auth.auth().currentUser!.uid).collection("Scrap").document(contentsDetailData.pid).delete() { err in
                     if let err = err {
@@ -65,13 +69,13 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
                     }
                 }
             }else{
-                contentsDetailData.isScrap = true
+                //contentsDetailData.isScrap = true
                 self.navigationItem.rightBarButtonItem?.image = UIImage(systemName: "star.fill")
                 FireStoreService.db.collection("User").document(Auth.auth().currentUser!.uid).collection("Scrap").document(contentsDetailData.pid).setData([
                     "contents" : contentsDetailData.contents,
                     "title" :  contentsDetailData.title,
                     "uid" : contentsDetailData.uid,
-                    "user" : contentsDetailData.author,
+                    "user" : contentsDetailData.uid,
                     "date" : getDate(),
                     "findMate" : false,
                     "isScrap" : contentsDetailData.isScrap
@@ -170,7 +174,7 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
         
         if replyList.count > 0 {
             // 댓글의 문서 id 삭제
-            FireStoreService.db.collection("Post").document(contentsDetailData.pid).collection("Comment").document(replyList[indexPath!.section].docid).delete() { err in
+            FireStoreService.db.collection("Post").document(contentsDetailData.pid).collection("Comment").document(replyList[indexPath!.section].cid).delete() { err in
                 if let err = err {
                     print("Error removing document: \(err)")
                 } else {
@@ -301,7 +305,7 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
     //MARK: - Set Function
     func setData() {
           currentData = contentsDetailData
-          userHabitCheck.removeAll()
+          userHabitCheck = nil
           
           scrapDataLoad{ (result) in
               print("*클로저 실행\(result)")
@@ -339,7 +343,7 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
         replyTableView.dataSource = self
         
 
-        userLabel.text = contentsDetailData.author
+        userLabel.text = contentsDetailData.uid
         send_username =  userLabel.text
         userLabel.textAlignment = .right
         userLabel.sizeToFit()
@@ -367,12 +371,13 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
                 
                 for document in querySnapshot!.documents {
                     let value = document.data()
-                    let author_db = value["user"] as? String ?? ""
-                    let content_db = value["reply"] as? String ?? ""
-                    let date_db = value["date"] as? String ?? ""
-                    let uid_db = value["uid"] as? String ?? ""
+                    let contents = value["contents"] as? String ?? ""
+                    let date = value["date"] as? String ?? ""
+                    let uid = value["uid"] as? String ?? "nilUID"
+                    let pid = value["pid"] as? String ?? "nilPID"
+                    let cid = document.documentID
 
-                    self.replyList.append(Reply(author: author_db, contents: content_db, date: date_db, uid: uid_db, docid: document.documentID))
+                    self.replyList.append(Comment(uid: uid, pid: pid, cid: cid, contents: contents, date: date))
 
                     print("## : \(self.replyList)")
                     
@@ -498,8 +503,8 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
                     let bedtimeSelect_db = value["bedtimeSelect"] as? Bool ?? false
                     let mbtiSelect_db = value["mbtiSelect"] as? String ?? ""
                     
-                    userHabitCheck.removeAll()
-                    userHabitCheck.append(HabitCheck(cleanSelect: cleanSelect_db, smokingSelect: smokingSelect_db, gameSelect: gameSelect_db, snoringSelect: snoringSelect_db, griding_teethSelect: griding_TeethSelect_db, callSelect: callSelect_db, eatSelect: eatSelect_db, curfewSelect: curfewSelect_db, bedtimeSelect: bedtimeSelect_db, mbtiSelect: mbtiSelect_db))
+                    self.userHabitCheck = nil
+                    self.userHabitCheck = HabitCheck(cleanSelect: cleanSelect_db, smokingSelect: smokingSelect_db, gameSelect: gameSelect_db, snoringSelect: snoringSelect_db, griding_teethSelect: griding_TeethSelect_db, callSelect: callSelect_db, eatSelect: eatSelect_db, curfewSelect: curfewSelect_db, bedtimeSelect: bedtimeSelect_db, mbtiSelect: mbtiSelect_db)
                 }
     
        
@@ -544,7 +549,7 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
         
         if replyList.count > 0{
             // 텍스트 크기 자동조절
-            userLabel.text = self.replyList[indexPath.section].author
+            userLabel.text = self.replyList[indexPath.section].uid
             userLabel.sizeToFit()
             contentsText.text = self.replyList[indexPath.section].contents
             contentsText.sizeToFit()
@@ -581,7 +586,7 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
             let VCDest = segue.destination as! SurveyViewController
             VCDest.surveyView_user_id=send_username
             guard userHabitCheck != nil else {return}
-            VCDest.surveyView_cont = userHabitCheck[0]
+            VCDest.surveyView_cont = userHabitCheck
 
         }
         else {}

@@ -15,6 +15,16 @@ import FirebaseDatabase
 class ServeyInputViewController: UIViewController,UITableViewDelegate,UITableViewDataSource{
 
     var selectedCountry: String?
+    var cleanSelect : String = ""
+    var smokingSelect : Bool = false
+    var gameSelect : Bool = false
+    var snoringSelect : Bool = false
+    var griding_teethSelect : Bool = false
+    var callSelect : Bool = false
+    var eatSelect : Bool = false
+    var curfewSelect : Bool = false
+    var bedtimeSelect : Bool = false
+    var mbtiSelect : String = ""
 
     @IBOutlet weak var regbutton: UILabel!
     

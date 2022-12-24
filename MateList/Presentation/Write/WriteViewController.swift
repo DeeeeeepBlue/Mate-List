@@ -32,17 +32,6 @@ class WriteViewController: UIViewController, UITextViewDelegate {
         let titleText = tittleTextField.text
         let contentText = contentTextView.text
         
-        // 텍스트 필드의 입력된 내용을 변수로 지정
-        var newWriting: contents {
-            contents(author: "상윤", tittle: titleText!, contents: contentText!)
-        }
-        
-        // 제목과 내용에 글이 있을때, 리스트에 변수를 추가
-        if !contentText!.trimmingCharacters(in: .whitespacesAndNewlines)
-            .isEmpty || !titleText!.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
-            findMateData.append(newWriting)
-        }
-        else {}
         
         // Firestore에 데이터 올리는 코드
         if contentText!.trimmingCharacters(in: .whitespacesAndNewlines)
