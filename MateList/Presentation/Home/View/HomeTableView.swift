@@ -23,6 +23,6 @@ final class HomeTableView: UITableView {
     }
 
     func configureUI(){
-        self.register(HomeViewCell.self, forCellReuseIdentifier: HomeViewCell.cellIdentifier)
+        self.register(HomeCell.self, forCellReuseIdentifier: HomeCell.cellIdentifier)
     }
 }

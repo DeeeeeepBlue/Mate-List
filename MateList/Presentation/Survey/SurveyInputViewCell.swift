@@ -30,23 +30,23 @@ class SurveyInputViewCell: UITableViewCell {
             backView.backgroundColor=UIColor.white
         }
         
-        if myLabel.text == "흡연"{
-            smokingSelect = check
-        } else if myLabel.text == "게임"{
-            gameSelect=check
-        }else if myLabel.text == "코골이"{
-            snoringSelect=check
-        }else if myLabel.text == "이갈이"{
-            griding_teethSelect=check
-        }else if myLabel.text == "방에서 통화"{
-            callSelect=check
-        }else if myLabel.text == "방에서 음식섭취"{
-            eatSelect=check
-        }else if myLabel.text == "귀가 시간(11시 이후)"{
-            curfewSelect=check
-        }else if myLabel.text == "취침 시간(12시 이후)"{
-            bedtimeSelect=check
-        }
+//        if myLabel.text == "흡연"{
+//            smokingSelect = check
+//        } else if myLabel.text == "게임"{
+//            gameSelect = check
+//        }else if myLabel.text == "코골이"{
+//            snoringSelect = check
+//        }else if myLabel.text == "이갈이"{
+//            griding_teethSelect=check
+//        }else if myLabel.text == "방에서 통화"{
+//            callSelect=check
+//        }else if myLabel.text == "방에서 음식섭취"{
+//            eatSelect=check
+//        }else if myLabel.text == "귀가 시간(11시 이후)"{
+//            curfewSelect=check
+//        }else if myLabel.text == "취침 시간(12시 이후)"{
+//            bedtimeSelect=check
+//        }
         
     }
     
@@ -102,12 +102,12 @@ class SurveyInputViewCell: UITableViewCell {
             
             //선택한 Item을 TextField에 넣어준다.
             self!.btnSelect.setTitle(item, for: .normal)
-            
-            if self!.myLabel.text == "청소주기"{
-                cleanSelect=item
-            } else if self!.myLabel.text == "mbti"{
-                mbtiSelect=item
-            }
+//            
+//            if self!.myLabel.text == "청소주기"{
+//                cleanSelect=item
+//            } else if self!.myLabel.text == "mbti"{
+//                mbtiSelect=item
+//            }
         }
         
         

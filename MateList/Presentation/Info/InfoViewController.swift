@@ -36,6 +36,8 @@ class Info: UIViewController, MFMailComposeViewControllerDelegate{
     @IBOutlet weak var loginProviderStackView: UIStackView!
     @IBOutlet weak var socialLabel: UILabel!
     let authorizationButton = ASAuthorizationAppleIDButton()
+    var new_mem_agree = 0
+
     
     var Member_email : [String]=[]
     var dataloading = false

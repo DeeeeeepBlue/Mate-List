@@ -124,14 +124,16 @@ class FindMateViewController: UIViewController, UITableViewDataSource, UITableVi
                     for document in querySnapshot!.documents {
                         let value = document.data()
 
-                        let uid_db = value["uid"] as? String ?? "글이 없습니다."
-                        let author_db = value["user"] as? String ?? "글이 없습니다."
-                        let title_db = value["title"] as? String ?? "글이 없습니다."
-                        let content_db = value["contents"] as? String ?? "글이 없습니다."
-                        let date_db = value["date"] as? String ?? "글이 없습니다."
-                        let isScrap_db = value["isScrap"] as? Bool ?? false
+                        let pid = document.documentID
+                        let uid = value["uid"] as? String ?? "글이 없습니다."
+                        let author = value["user"] as? String ?? "글이 없습니다."
+                        let title = value["title"] as? String ?? "글이 없습니다."
+                        let contents = value["contents"] as? String ?? "글이 없습니다."
+                        let date = value["date"] as? String ?? "글이 없습니다."
+                        let isScrap = value["isScrap"] as? Bool ?? false
+                        let findMate = value["findMate"] as? Bool ?? false
 
-                        self.posts.append(Post(uid: uid_db, author: author_db, title: title_db, contents: content_db, isScrap: isScrap_db, date: date_db, pid: document.documentID))
+                        self.posts.append(Post(pid: pid, uid: uid, title: title, contents: contents, date: date, isScrap: isScrap, findMate: findMate))
                     }
                 }
             self.getPostHabitCheck()
@@ -263,7 +265,7 @@ class FindMateViewController: UIViewController, UITableViewDataSource, UITableVi
                 cellTittle.text = "\(self.posts[indexPath.section].title)"
                 cellContents.text = "\(self.posts[indexPath.section].contents)"
                 cellDate.text = "\(self.posts[indexPath.section].date)"
-                cellUser.text = "\(self.posts[indexPath.section].author)"
+                cellUser.text = "\(self.posts[indexPath.section].uid)"
             
             
             /** 📌 적합도 계산 UI넣기 */
@@ -301,7 +303,7 @@ class FindMateViewController: UIViewController, UITableViewDataSource, UITableVi
                 
                 //TODO: loginUserSurvey = nil Bug
                 // fitness 계산
-                let fitnessValue = loginUserSurvey != nil ? habitCheckList[self.posts[indexPath.section].uid]?.calculatingFit(otherSurvey: loginUserSurvey!) : 0
+                let fitnessValue = 0
                 
                 // 적합도 값 넣기
                 fitnessText.text = "\(fitnessValue ?? 0)%"
