@@ -17,20 +17,10 @@ class HomeViewController: UIViewController {
 
     private let homeTableView = HomeTableView()
     private let writeButton = WriteButton()
-    let viewModel: HomeViewModelType
+    var viewModel: HomeViewModelType?
     
     
     private let disposeBag = DisposeBag()
-    
-    init(homeViewModel: HomeViewModelType){
-        self.viewModel = homeViewModel
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        self.viewModel = HomeViewModel(homeUseCase: HomeDefaultUseCase(firestoreRepository: DefaultFirestoreRepository()))
-        super.init(coder: aDecoder)
-    }
 
     
     override func viewDidLoad() {
@@ -61,10 +51,10 @@ class HomeViewController: UIViewController {
             .map{ _ in } ?? Observable.just(())
         
         Observable.merge([firstLoad, reload])
-            .bind(to: viewModel.appear)
+            .bind(to: viewModel!.appear)
             .disposed(by: disposeBag)
         
-        viewModel.allPosts
+        viewModel?.allPosts
             .bind(to: homeTableView.rx.items(cellIdentifier: HomeCell.cellIdentifier, cellType: HomeCell.self)){
                 _, post, cell in
                 cell.updateUI(post: post)

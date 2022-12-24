@@ -14,18 +14,17 @@ class DefaultHomeCoordinator: HomeCoordinator {
     var navigationController: UINavigationController
     var homeViewController: HomeViewController
     var childCoordinators: [Coordinator] = []
-    var type: CoordinatorType
+    var type: CoordinatorType = .home
     
     required init(_ navigationController: UINavigationController) {
         self.navigationController = navigationController
-        
-        // 디폴트 값으로 설정하면 안되나??
         self.homeViewController = HomeViewController()
-        self.type = CoordinatorType.home
-        
+        // Usecase 주입
+        homeViewController.viewModel = HomeViewModel(homeUseCase: HomeDefaultUseCase(firestoreRepository: DefaultFirestoreRepository()))
     }
     
     func start() {
+        
         self.navigationController.pushViewController(self.homeViewController, animated: true)
     }
 }
