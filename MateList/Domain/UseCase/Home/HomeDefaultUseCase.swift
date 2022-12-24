@@ -21,10 +21,9 @@ class HomeDefaultUseCase: HomeDefaultUseCaseProtocol {
 
     }
     
-    func posts() -> Observable<[Post]> {
+    func transPost() -> Observable<Post> {
         var pid: String = "initPid"
         var uid: String = "initID"
-        var user: String = "initUser"
         var title: String = "initTitle"
         var contents: String = "initContents"
         var date: String = "initDate"
@@ -33,22 +32,33 @@ class HomeDefaultUseCase: HomeDefaultUseCaseProtocol {
         
         return Observable.create { observer in
             let data = self.firestoreRepository.fetchPost()
-            var items: [Post] = []
+            
             data
                 .subscribe(onNext: { data in
                     pid = data["pid"] as? String ?? "noPid"
                     uid = data["uid"] as? String ?? "noID"
-                    user = data["user"] as? String ?? "noUser"
                     title = data["title"] as? String ?? "noTitle"
                     contents = data["contents"] as? String ?? "noContent"
                     date = data["date"] as? String ?? "noDate"
                     isScrap = data["isScrap"] as? Bool ?? false
                     findMate = data["findMate"] as? Bool ?? false
                     
-                    items.append(Post(pid: pid, uid: uid, title: title, contents: contents, date: date, isScrap: isScrap, findMate: findMate))
-                    observer.onNext(items)
+                   let post = Post(pid: pid, uid: uid, title: title, contents: contents, date: date, isScrap: isScrap, findMate: findMate)
+                    
+                    observer.onNext(post)
                 })
                 .disposed(by: self.disposeBag)
+            return Disposables.create()
+        }
+    }
+    
+    func posts() -> Observable<[Post]> {
+        return Observable.create { observer in
+            var items: [Post] = []
+            self.transPost().subscribe { post in
+                items.append(post)
+                observer.onNext(items)
+            }
             return Disposables.create()
         }
     }

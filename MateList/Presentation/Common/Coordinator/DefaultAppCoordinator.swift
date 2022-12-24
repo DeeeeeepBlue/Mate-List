@@ -1,30 +1,30 @@
+////
+////  AppCoordinator.swift
+////  MateList
+////
+////  Created by DOYEON LEE on 2022/12/16.
+////
 //
-//  AppCoordinator.swift
-//  MateList
+//import Foundation
+//import UIKit
 //
-//  Created by DOYEON LEE on 2022/12/16.
+//class DefaultAppCoordinator: AppCoordinator {
 //
-
-import Foundation
-import UIKit
-
-class DefaultAppCoordinator: AppCoordinator {
-
-    var navigationController: UINavigationController
-    var childCoordinators: [Coordinator]
-    var type: CoordinatorType
-    
-    func start() {
-        <#code#>
-    }
-    
-    func showMainFlow() {
-        <#code#>
-    }
-    
-    required init(_ navigationController: UINavigationController) {
-        self.navigationController = navigationController
-        self.type = CoordinatorType.home
-    }
-    
-}
+//    var navigationController: UINavigationController
+//    var childCoordinators: [Coordinator]
+//    var type: CoordinatorType
+//    
+//    func start() {
+//        <#code#>
+//    }
+//    
+//    func showMainFlow() {
+//        <#code#>
+//    }
+//    
+//    required init(_ navigationController: UINavigationController) {
+//        self.navigationController = navigationController
+//        self.type = CoordinatorType.home
+//    }
+//    
+//}
