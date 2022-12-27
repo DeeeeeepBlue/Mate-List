@@ -31,6 +31,8 @@
 		0458E3E1295AEC92002C1A4A /* NickNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0458E3E0295AEC92002C1A4A /* NickNameView.swift */; };
 		0458E3E3295B15FB002C1A4A /* AgreeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0458E3E2295B15FB002C1A4A /* AgreeView.swift */; };
 		0458E3E7295B169D002C1A4A /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0458E3E6295B169D002C1A4A /* SettingViewController.swift */; };
+		0458E3EB295B19B6002C1A4A /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0458E3EA295B19B6002C1A4A /* BaseView.swift */; };
+		0458E3ED295B19BE002C1A4A /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0458E3EC295B19BE002C1A4A /* BaseViewController.swift */; };
 		046F1A63294F10DF00B28371 /* HomeDefaultUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046F1A62294F10DF00B28371 /* HomeDefaultUseCase.swift */; };
 		046F1A65294F110800B28371 /* HomeDefaultUseCaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046F1A64294F110800B28371 /* HomeDefaultUseCaseProtocol.swift */; };
 		046F1A72294F39E700B28371 /* DefaultFirestoreRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046F1A71294F39E700B28371 /* DefaultFirestoreRepository.swift */; };
@@ -116,6 +118,8 @@
 		0458E3E0295AEC92002C1A4A /* NickNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NickNameView.swift; sourceTree = "<group>"; };
 		0458E3E2295B15FB002C1A4A /* AgreeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgreeView.swift; sourceTree = "<group>"; };
 		0458E3E6295B169D002C1A4A /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		0458E3EA295B19B6002C1A4A /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
+		0458E3EC295B19BE002C1A4A /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		046F1A62294F10DF00B28371 /* HomeDefaultUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDefaultUseCase.swift; sourceTree = "<group>"; };
 		046F1A64294F110800B28371 /* HomeDefaultUseCaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDefaultUseCaseProtocol.swift; sourceTree = "<group>"; };
 		046F1A71294F39E700B28371 /* DefaultFirestoreRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultFirestoreRepository.swift; sourceTree = "<group>"; };
@@ -276,6 +280,8 @@
 		044B812328A14DFA002E8851 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				0458E3E9295B1999002C1A4A /* View */,
+				0458E3E8295B198C002C1A4A /* ViewController */,
 				F757547727A4DF1A00BFDF9B /* LaunchScreen.storyboard */,
 				F7EEBACC27CF43B9009728AF /* Main.storyboard */,
 				0407C0AD28A66642006AFA59 /* GlobalFunctions.swift */,
@@ -352,6 +358,22 @@
 				0458E3DE295AEC2F002C1A4A /* SignInButtonView.swift */,
 				0458E3E0295AEC92002C1A4A /* NickNameView.swift */,
 				0458E3E2295B15FB002C1A4A /* AgreeView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0458E3E8295B198C002C1A4A /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				0458E3EC295B19BE002C1A4A /* BaseViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		0458E3E9295B1999002C1A4A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0458E3EA295B19B6002C1A4A /* BaseView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -801,6 +823,7 @@
 				0458E3DD295AEC0D002C1A4A /* MyProfileView.swift in Sources */,
 				046F1A63294F10DF00B28371 /* HomeDefaultUseCase.swift in Sources */,
 				F7B4F42027D7B7460045580F /* SurveyInputViewCell.swift in Sources */,
+				0458E3ED295B19BE002C1A4A /* BaseViewController.swift in Sources */,
 				BC0C02022948433F006B281E /* Coordinator.swift in Sources */,
 				0444E00227C825A500B49F8B /* ScrapViewController.swift in Sources */,
 				049231C429485DB50084903D /* HomeTableView.swift in Sources */,
@@ -816,6 +839,7 @@
 				F76B581E27C5380600B6626D /* ContentsDetailViewController.swift in Sources */,
 				046F1A852951A6F000B28371 /* HomeCellUseCase.swift in Sources */,
 				BCD6AB31294ECBFB00FC27AD /* TabBarPage.swift in Sources */,
+				0458E3EB295B19B6002C1A4A /* BaseView.swift in Sources */,
 				040C118328F16D380012160E /* Auth.swift in Sources */,
 				049231CA29487AA10084903D /* WriteButton.swift in Sources */,
 			);
