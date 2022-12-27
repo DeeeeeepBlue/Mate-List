@@ -82,6 +82,8 @@ class Info: UIViewController, MFMailComposeViewControllerDelegate{
     /// 로그인
     @IBAction func googleSignIn(sender: Any) {
 //        if (dataloading){
+//            //TODO: 로그인 고치기
+//            // https://developers.google.com/identity/sign-in/ios/sign-in
 //            GIDSignIn.sharedInstance.signIn(with: signInConfig, presenting: self) { user, error in
 //                guard error == nil else { return }
 //                guard let user = user else { return }
