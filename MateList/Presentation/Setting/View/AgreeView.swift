@@ -9,7 +9,7 @@ import UIKit
 
 final class AgreeView: BaseView {
     override func configureUI() {
-        print()
+        self.backgroundColor = .green
     }
     
     override func bind() {

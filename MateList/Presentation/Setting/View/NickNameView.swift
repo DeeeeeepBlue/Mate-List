@@ -9,7 +9,7 @@ import UIKit
 
 final class NickNameView: BaseView {
     override func configureUI() {
-        print()
+        self.backgroundColor = .brown
     }
     
     override func bind() {

@@ -9,7 +9,7 @@ import UIKit
 
 final class MyProfileView: BaseView {
     override func configureUI() {
-        print()
+        self.backgroundColor = .red
     }
     
     override func bind() {

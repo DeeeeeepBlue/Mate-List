@@ -32,7 +32,10 @@ class SettingViewController: BaseViewController {
     }
     
     override func setView() {
-        
+        self.view.addSubview(myProfileView)
+        self.view.addSubview(signInButtonView)
+        self.view.addSubview(nickNameView)
+        self.view.addSubview(agreeView)
     }
     
     override func setConstraint() {
