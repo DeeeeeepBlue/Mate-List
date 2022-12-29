@@ -15,6 +15,16 @@ class SettingViewController: BaseViewController {
         // Do any additional setup after loading the view.
     }
     
+    override func style() {
+        super.style()
+        
+        navigationController?.title = "Mate List"
+        
+        let navigationBarAppearance = UINavigationBarAppearance()
+            navigationBarAppearance.configureWithTransparentBackground()
+        navigationController?.navigationBar.standardAppearance = navigationBarAppearance
+    }
+    
     override func setView() {
         
     }

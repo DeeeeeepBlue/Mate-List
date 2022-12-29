@@ -289,7 +289,7 @@
 			path = Base;
 			sourceTree = "<group>";
 		};
-		044B812428A14E13002E8851 /* Info */ = {
+		044B812428A14E13002E8851 /* Setting */ = {
 			isa = PBXGroup;
 			children = (
 				0458E3B329581EED002C1A4A /* View */,
@@ -302,7 +302,7 @@
 				A60D25A027F72E9600E6A553 /* consent_popup.storyboard */,
 				0458E3BC2959E406002C1A4A /* Refactoring.md */,
 			);
-			path = Info;
+			path = Setting;
 			sourceTree = "<group>";
 		};
 		044B812528A14E18002E8851 /* Survey */ = {
@@ -619,7 +619,7 @@
 				0407C0AC28A63780006AFA59 /* Write */,
 				044B812328A14DFA002E8851 /* Base */,
 				044B812528A14E18002E8851 /* Survey */,
-				044B812428A14E13002E8851 /* Info */,
+				044B812428A14E13002E8851 /* Setting */,
 				044B812128A14DE5002E8851 /* Scrap */,
 				044B812028A14DD9002E8851 /* Home */,
 				044B811F28A14DBF002E8851 /* Detail */,
