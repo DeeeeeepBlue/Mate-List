@@ -8,7 +8,13 @@
 import UIKit
 
 class SettingViewController: BaseViewController {
-
+    //MARK: - Properties
+    private let myProfileView = MyProfileView()
+    private let signInButtonView = SignInButtonView()
+    private let nickNameView = NickNameView()
+    private let agreeView = AgreeView()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -18,7 +24,7 @@ class SettingViewController: BaseViewController {
     override func style() {
         super.style()
         
-        navigationController?.title = "Mate List"
+        navigationController?.title = "내 정보"
         
         let navigationBarAppearance = UINavigationBarAppearance()
             navigationBarAppearance.configureWithTransparentBackground()
