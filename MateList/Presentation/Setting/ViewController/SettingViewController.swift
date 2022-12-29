@@ -7,6 +7,9 @@
 
 import UIKit
 
+import SnapKit
+import RxSwift
+
 class SettingViewController: BaseViewController {
     //MARK: - Properties
     private let myProfileView = MyProfileView()
