@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class DefaultScrapCoordinator{
+class DefaultScrapCoordinator: Coordinator{
     
     weak var finishDelegate: CoordinatorFinishDelegate?
     var navigationController: UINavigationController
@@ -17,8 +17,11 @@ class DefaultScrapCoordinator{
     var type: CoordinatorType = .home
     
     required init(_ navigationController: UINavigationController) {
+        // 아직 스토리보드로 작동중이라 다음 코드 사용
         self.navigationController = navigationController
-        self.scrapViewController = ScrapViewController()
+        //        self.scrapViewController = ScrapViewController()
+        self.scrapViewController = UIStoryboard(name: "Scrap", bundle: nil)
+            .instantiateViewController(withIdentifier: "scrapStoryboard") as! ScrapViewController
     }
     
     func start() {

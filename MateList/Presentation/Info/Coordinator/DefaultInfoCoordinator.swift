@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class DefaultInfoCoordinator{
+class DefaultInfoCoordinator: Coordinator{
     
     weak var finishDelegate: CoordinatorFinishDelegate?
     var navigationController: UINavigationController
@@ -19,6 +19,10 @@ class DefaultInfoCoordinator{
     required init(_ navigationController: UINavigationController) {
         self.navigationController = navigationController
         self.infoViewController = Info()
+        // 아직 스토리보드로 작동중이라 다음 코드 사용
+//        self.navigationController = navigationController
+        self.infoViewController = UIStoryboard(name: "Info", bundle: nil)
+            .instantiateViewController(withIdentifier: "infoStoryboard") as! Info
     }
     
     func start() {
