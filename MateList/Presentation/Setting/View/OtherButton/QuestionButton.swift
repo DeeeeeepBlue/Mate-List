@@ -9,7 +9,9 @@ import UIKit
 
 final class QuestionButton: BaseView {
     override func configureUI() {
-        self.backgroundColor = .black
+        self.backgroundColor = .white
+        self.layer.cornerRadius = 5
+        self.layer.borderWidth = 1
     }
     
     override func bind() {

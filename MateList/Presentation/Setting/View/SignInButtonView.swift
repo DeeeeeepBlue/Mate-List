@@ -9,7 +9,9 @@ import UIKit
 
 final class SignInButtonView: BaseView {
     override func configureUI() {
-        self.backgroundColor = .blue
+        self.backgroundColor = .white
+        self.layer.cornerRadius = 5
+        self.layer.borderWidth = 1
     }
     
     override func bind() {

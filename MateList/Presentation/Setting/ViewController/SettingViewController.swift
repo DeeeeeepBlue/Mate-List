@@ -50,45 +50,45 @@ class SettingViewController: BaseViewController {
     
     override func setConstraint() {
         myProfileView.snp.makeConstraints { make in
-            make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(20)
-            make.leading.equalToSuperview().inset(16)
-            make.trailing.equalToSuperview().inset(16)
+            make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(12)
+            make.leading.equalToSuperview().inset(12)
+            make.trailing.equalToSuperview().inset(12)
             make.height.equalTo(200)
         }
         
         surveyButton.snp.makeConstraints { make in
-            make.top.equalTo(myProfileView.snp.bottom).offset(20)
-            make.leading.equalToSuperview().inset(16)
-            make.trailing.equalToSuperview().inset(16)
-            make.height.equalTo(60)
+            make.top.equalTo(myProfileView.snp.bottom).offset(12)
+            make.leading.equalToSuperview().inset(12)
+            make.trailing.equalToSuperview().inset(12)
+            make.height.equalTo(50)
         }
         
         signInButtonView.snp.makeConstraints { make in
-            make.top.equalTo(surveyButton.snp.bottom).offset(20)
-            make.leading.equalToSuperview().inset(16)
-            make.trailing.equalToSuperview().inset(16)
-            make.height.equalTo(60)
+            make.top.equalTo(surveyButton.snp.bottom).offset(12)
+            make.leading.equalToSuperview().inset(12)
+            make.trailing.equalToSuperview().inset(12)
+            make.height.equalTo(150)
         }
         
         signOutButton.snp.makeConstraints { make in
-            make.top.equalTo(signInButtonView.snp.bottom).offset(20)
-            make.leading.equalToSuperview().inset(16)
-            make.trailing.equalToSuperview().inset(16)
-            make.height.equalTo(60)
+            make.top.equalTo(signInButtonView.snp.bottom).offset(12)
+            make.leading.equalToSuperview().inset(12)
+            make.trailing.equalToSuperview().inset(12)
+            make.height.equalTo(50)
         }
         
         quitButton.snp.makeConstraints { make in
-            make.top.equalTo(signOutButton.snp.bottom).offset(20)
-            make.leading.equalToSuperview().inset(16)
-            make.trailing.equalToSuperview().inset(16)
-            make.height.equalTo(60)
+            make.top.equalTo(signOutButton.snp.bottom).offset(12)
+            make.leading.equalToSuperview().inset(12)
+            make.trailing.equalToSuperview().inset(12)
+            make.height.equalTo(50)
         }
         
         questionButton.snp.makeConstraints { make in
-            make.top.equalTo(quitButton.snp.bottom).offset(20)
-            make.leading.equalToSuperview().inset(16)
-            make.trailing.equalToSuperview().inset(16)
-            make.height.equalTo(60)
+            make.top.equalTo(quitButton.snp.bottom).offset(12)
+            make.leading.equalToSuperview().inset(12)
+            make.trailing.equalToSuperview().inset(12)
+            make.height.equalTo(50)
         }
     }
     
