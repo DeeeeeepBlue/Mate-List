@@ -215,14 +215,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0407C0AB28A6111D006AFA59 /* extention */ = {
+		0407C0AB28A6111D006AFA59 /* Extention */ = {
 			isa = PBXGroup;
 			children = (
 				044FA684294B7A8C00EA5C78 /* UIFont.swift */,
 				04718D2B2907CBF600481015 /* TextField.swift */,
 				3F2245BD27D62763002F29FE /* UIColor.swift */,
 			);
-			path = extention;
+			path = Extention;
 			sourceTree = "<group>";
 		};
 		0407C0AC28A63780006AFA59 /* Write */ = {
@@ -328,7 +328,7 @@
 			isa = PBXGroup;
 			children = (
 				0407C0AF28A91A48006AFA59 /* Constant */,
-				0407C0AB28A6111D006AFA59 /* extention */,
+				0407C0AB28A6111D006AFA59 /* Extention */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
