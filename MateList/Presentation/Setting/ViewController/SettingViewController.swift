@@ -13,9 +13,13 @@ import RxSwift
 class SettingViewController: BaseViewController {
     //MARK: - Properties
     private let myProfileView = MyProfileView()
+    private let surveyButton = SurveyButton()
+    private let questionButton = QuestionButton()
+    private let signOutButton = SignOutButton()
+    private let quitButton = QuitButton()
     private let signInButtonView = SignInButtonView()
+    
     private let nickNameView = NickNameView()
-    private let agreeView = AgreeView()
     
     
     override func viewDidLoad() {
@@ -37,12 +41,55 @@ class SettingViewController: BaseViewController {
     override func setView() {
         self.view.addSubview(myProfileView)
         self.view.addSubview(signInButtonView)
-        self.view.addSubview(nickNameView)
-        self.view.addSubview(agreeView)
+        self.view.addSubview(surveyButton)
+        self.view.addSubview(questionButton)
+        self.view.addSubview(signOutButton)
+        self.view.addSubview(quitButton)
+        
     }
     
     override func setConstraint() {
+        myProfileView.snp.makeConstraints { make in
+            make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(20)
+            make.leading.equalToSuperview().inset(16)
+            make.trailing.equalToSuperview().inset(16)
+            make.height.equalTo(200)
+        }
         
+        surveyButton.snp.makeConstraints { make in
+            make.top.equalTo(myProfileView.snp.bottom).offset(20)
+            make.leading.equalToSuperview().inset(16)
+            make.trailing.equalToSuperview().inset(16)
+            make.height.equalTo(60)
+        }
+        
+        signInButtonView.snp.makeConstraints { make in
+            make.top.equalTo(surveyButton.snp.bottom).offset(20)
+            make.leading.equalToSuperview().inset(16)
+            make.trailing.equalToSuperview().inset(16)
+            make.height.equalTo(60)
+        }
+        
+        signOutButton.snp.makeConstraints { make in
+            make.top.equalTo(signInButtonView.snp.bottom).offset(20)
+            make.leading.equalToSuperview().inset(16)
+            make.trailing.equalToSuperview().inset(16)
+            make.height.equalTo(60)
+        }
+        
+        quitButton.snp.makeConstraints { make in
+            make.top.equalTo(signOutButton.snp.bottom).offset(20)
+            make.leading.equalToSuperview().inset(16)
+            make.trailing.equalToSuperview().inset(16)
+            make.height.equalTo(60)
+        }
+        
+        questionButton.snp.makeConstraints { make in
+            make.top.equalTo(quitButton.snp.bottom).offset(20)
+            make.leading.equalToSuperview().inset(16)
+            make.trailing.equalToSuperview().inset(16)
+            make.height.equalTo(60)
+        }
     }
     
     override func setBind() {

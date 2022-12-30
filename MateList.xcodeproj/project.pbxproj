@@ -29,10 +29,13 @@
 		0458E3DD295AEC0D002C1A4A /* MyProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0458E3DC295AEC0D002C1A4A /* MyProfileView.swift */; };
 		0458E3DF295AEC2F002C1A4A /* SignInButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0458E3DE295AEC2F002C1A4A /* SignInButtonView.swift */; };
 		0458E3E1295AEC92002C1A4A /* NickNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0458E3E0295AEC92002C1A4A /* NickNameView.swift */; };
-		0458E3E3295B15FB002C1A4A /* AgreeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0458E3E2295B15FB002C1A4A /* AgreeView.swift */; };
 		0458E3E7295B169D002C1A4A /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0458E3E6295B169D002C1A4A /* SettingViewController.swift */; };
 		0458E3EB295B19B6002C1A4A /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0458E3EA295B19B6002C1A4A /* BaseView.swift */; };
 		0458E3ED295B19BE002C1A4A /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0458E3EC295B19BE002C1A4A /* BaseViewController.swift */; };
+		0458E3F0295EF76B002C1A4A /* SurveyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0458E3EF295EF76B002C1A4A /* SurveyButton.swift */; };
+		0458E3F2295EF88F002C1A4A /* QuestionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0458E3F1295EF88F002C1A4A /* QuestionButton.swift */; };
+		0458E3F4295EF89D002C1A4A /* SignOutButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0458E3F3295EF89D002C1A4A /* SignOutButton.swift */; };
+		0458E3F6295EF8B6002C1A4A /* QuitButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0458E3F5295EF8B6002C1A4A /* QuitButton.swift */; };
 		046F1A63294F10DF00B28371 /* HomeDefaultUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046F1A62294F10DF00B28371 /* HomeDefaultUseCase.swift */; };
 		046F1A65294F110800B28371 /* HomeDefaultUseCaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046F1A64294F110800B28371 /* HomeDefaultUseCaseProtocol.swift */; };
 		046F1A72294F39E700B28371 /* DefaultFirestoreRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046F1A71294F39E700B28371 /* DefaultFirestoreRepository.swift */; };
@@ -116,10 +119,13 @@
 		0458E3DC295AEC0D002C1A4A /* MyProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileView.swift; sourceTree = "<group>"; };
 		0458E3DE295AEC2F002C1A4A /* SignInButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInButtonView.swift; sourceTree = "<group>"; };
 		0458E3E0295AEC92002C1A4A /* NickNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NickNameView.swift; sourceTree = "<group>"; };
-		0458E3E2295B15FB002C1A4A /* AgreeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgreeView.swift; sourceTree = "<group>"; };
 		0458E3E6295B169D002C1A4A /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		0458E3EA295B19B6002C1A4A /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		0458E3EC295B19BE002C1A4A /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		0458E3EF295EF76B002C1A4A /* SurveyButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyButton.swift; sourceTree = "<group>"; };
+		0458E3F1295EF88F002C1A4A /* QuestionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionButton.swift; sourceTree = "<group>"; };
+		0458E3F3295EF89D002C1A4A /* SignOutButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignOutButton.swift; sourceTree = "<group>"; };
+		0458E3F5295EF8B6002C1A4A /* QuitButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitButton.swift; sourceTree = "<group>"; };
 		046F1A62294F10DF00B28371 /* HomeDefaultUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDefaultUseCase.swift; sourceTree = "<group>"; };
 		046F1A64294F110800B28371 /* HomeDefaultUseCaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDefaultUseCaseProtocol.swift; sourceTree = "<group>"; };
 		046F1A71294F39E700B28371 /* DefaultFirestoreRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultFirestoreRepository.swift; sourceTree = "<group>"; };
@@ -354,10 +360,10 @@
 		0458E3B329581EED002C1A4A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				0458E3EE295EF6E7002C1A4A /* OtherButton */,
 				0458E3DC295AEC0D002C1A4A /* MyProfileView.swift */,
 				0458E3DE295AEC2F002C1A4A /* SignInButtonView.swift */,
 				0458E3E0295AEC92002C1A4A /* NickNameView.swift */,
-				0458E3E2295B15FB002C1A4A /* AgreeView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -376,6 +382,17 @@
 				0458E3EA295B19B6002C1A4A /* BaseView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		0458E3EE295EF6E7002C1A4A /* OtherButton */ = {
+			isa = PBXGroup;
+			children = (
+				0458E3EF295EF76B002C1A4A /* SurveyButton.swift */,
+				0458E3F1295EF88F002C1A4A /* QuestionButton.swift */,
+				0458E3F3295EF89D002C1A4A /* SignOutButton.swift */,
+				0458E3F5295EF8B6002C1A4A /* QuitButton.swift */,
+			);
+			path = OtherButton;
 			sourceTree = "<group>";
 		};
 		046F1A66294F136F00B28371 /* Response */ = {
@@ -803,11 +820,11 @@
 				3F2245BE27D62763002F29FE /* UIColor.swift in Sources */,
 				BCD6AB33294ECDA300FC27AD /* TabBarCoordinator.swift in Sources */,
 				04718D1D2907CA3400481015 /* NickNameViewController.swift in Sources */,
-				0458E3E3295B15FB002C1A4A /* AgreeView.swift in Sources */,
 				0458E3DF295AEC2F002C1A4A /* SignInButtonView.swift in Sources */,
 				F75452E727C7C59900E2DB41 /* Post.swift in Sources */,
 				F757546D27A4DF1800BFDF9B /* AppDelegate.swift in Sources */,
 				046F1A72294F39E700B28371 /* DefaultFirestoreRepository.swift in Sources */,
+				0458E3F6295EF8B6002C1A4A /* QuitButton.swift in Sources */,
 				3FB23A5E27D79D3E00B8D071 /* FindMateTableViewCell.swift in Sources */,
 				049231C629485DBD0084903D /* HomeViewModel.swift in Sources */,
 				BCD6AB35294ECE5B00FC27AD /* DefaultTabBarCoordinator.swift in Sources */,
@@ -817,6 +834,7 @@
 				0407C0B128A91A65006AFA59 /* Email.swift in Sources */,
 				046F1A8C2951CEF600B28371 /* IDFirestoreUseCaseProtocol.swift in Sources */,
 				BC0C020429484384006B281E /* AppCoordinator.swift in Sources */,
+				0458E3F2295EF88F002C1A4A /* QuestionButton.swift in Sources */,
 				BCB0FFA829552A9000A1115A /* CoordinatorFinishDelegate.swift in Sources */,
 				F757546F27A4DF1800BFDF9B /* SceneDelegate.swift in Sources */,
 				F7B4F41827D7B4C00045580F /* ServeyInputViewController.swift in Sources */,
@@ -831,6 +849,7 @@
 				0458E3B729581EFF002C1A4A /* SampleViewModel.swift in Sources */,
 				04BB243727ACED960003DA33 /* InfoViewController.swift in Sources */,
 				F7B4F41627D7B4B80045580F /* SurveyViewController.swift in Sources */,
+				0458E3F0295EF76B002C1A4A /* SurveyButton.swift in Sources */,
 				0458E3BB29581F13002C1A4A /* SampleCoordinator.swift in Sources */,
 				BC9A4925295025FC00E1D9C8 /* HomeCoordinator.swift in Sources */,
 				040AA09527BECD61008F4BF5 /* User.swift in Sources */,
@@ -840,6 +859,7 @@
 				046F1A852951A6F000B28371 /* HomeCellUseCase.swift in Sources */,
 				BCD6AB31294ECBFB00FC27AD /* TabBarPage.swift in Sources */,
 				0458E3EB295B19B6002C1A4A /* BaseView.swift in Sources */,
+				0458E3F4295EF89D002C1A4A /* SignOutButton.swift in Sources */,
 				040C118328F16D380012160E /* Auth.swift in Sources */,
 				049231CA29487AA10084903D /* WriteButton.swift in Sources */,
 			);
