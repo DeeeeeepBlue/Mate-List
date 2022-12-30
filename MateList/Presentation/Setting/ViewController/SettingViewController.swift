@@ -53,7 +53,7 @@ class SettingViewController: BaseViewController {
             make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(12)
             make.leading.equalToSuperview().inset(12)
             make.trailing.equalToSuperview().inset(12)
-            make.height.equalTo(200)
+            make.height.equalTo(100)
         }
         
         surveyButton.snp.makeConstraints { make in
