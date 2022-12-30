@@ -36,6 +36,7 @@
 		0458E3F2295EF88F002C1A4A /* QuestionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0458E3F1295EF88F002C1A4A /* QuestionButton.swift */; };
 		0458E3F4295EF89D002C1A4A /* SignOutButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0458E3F3295EF89D002C1A4A /* SignOutButton.swift */; };
 		0458E3F6295EF8B6002C1A4A /* QuitButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0458E3F5295EF8B6002C1A4A /* QuitButton.swift */; };
+		0458E3F8295F1E3D002C1A4A /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0458E3F7295F1E3D002C1A4A /* UIView.swift */; };
 		046F1A63294F10DF00B28371 /* HomeDefaultUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046F1A62294F10DF00B28371 /* HomeDefaultUseCase.swift */; };
 		046F1A65294F110800B28371 /* HomeDefaultUseCaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046F1A64294F110800B28371 /* HomeDefaultUseCaseProtocol.swift */; };
 		046F1A72294F39E700B28371 /* DefaultFirestoreRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046F1A71294F39E700B28371 /* DefaultFirestoreRepository.swift */; };
@@ -126,6 +127,7 @@
 		0458E3F1295EF88F002C1A4A /* QuestionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionButton.swift; sourceTree = "<group>"; };
 		0458E3F3295EF89D002C1A4A /* SignOutButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignOutButton.swift; sourceTree = "<group>"; };
 		0458E3F5295EF8B6002C1A4A /* QuitButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitButton.swift; sourceTree = "<group>"; };
+		0458E3F7295F1E3D002C1A4A /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		046F1A62294F10DF00B28371 /* HomeDefaultUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDefaultUseCase.swift; sourceTree = "<group>"; };
 		046F1A64294F110800B28371 /* HomeDefaultUseCaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDefaultUseCaseProtocol.swift; sourceTree = "<group>"; };
 		046F1A71294F39E700B28371 /* DefaultFirestoreRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultFirestoreRepository.swift; sourceTree = "<group>"; };
@@ -221,6 +223,7 @@
 				044FA684294B7A8C00EA5C78 /* UIFont.swift */,
 				04718D2B2907CBF600481015 /* TextField.swift */,
 				3F2245BD27D62763002F29FE /* UIColor.swift */,
+				0458E3F7295F1E3D002C1A4A /* UIView.swift */,
 			);
 			path = Extention;
 			sourceTree = "<group>";
@@ -859,6 +862,7 @@
 				046F1A852951A6F000B28371 /* HomeCellUseCase.swift in Sources */,
 				BCD6AB31294ECBFB00FC27AD /* TabBarPage.swift in Sources */,
 				0458E3EB295B19B6002C1A4A /* BaseView.swift in Sources */,
+				0458E3F8295F1E3D002C1A4A /* UIView.swift in Sources */,
 				0458E3F4295EF89D002C1A4A /* SignOutButton.swift in Sources */,
 				040C118328F16D380012160E /* Auth.swift in Sources */,
 				049231CA29487AA10084903D /* WriteButton.swift in Sources */,
