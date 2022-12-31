@@ -19,10 +19,11 @@ final class MyProfileView: BaseView {
         self.layer.cornerRadius = 5
         self.layer.borderWidth = 1
         
-        nameTitleLabel.backgroundColor = .red
         nameLabel.backgroundColor = .blue
-        emailTitleLabel.backgroundColor = .gray
         emailLabel.backgroundColor = .green
+        
+        nameTitleLabel.text = "이름"
+        emailTitleLabel.text = "이메일"
         
         self.addSubview(nameTitleLabel)
         self.addSubview(nameLabel)
