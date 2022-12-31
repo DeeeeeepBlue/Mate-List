@@ -67,7 +67,7 @@ class SettingViewController: BaseViewController {
             make.top.equalTo(surveyButton.snp.bottom).offset(12)
             make.leading.equalToSuperview().inset(12)
             make.trailing.equalToSuperview().inset(12)
-            make.height.equalTo(150)
+            make.height.equalTo(120)
         }
         
         signOutButton.snp.makeConstraints { make in
