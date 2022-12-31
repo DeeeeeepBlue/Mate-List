@@ -17,7 +17,7 @@ protocol MyProfileViewModelProtocol {
 }
 
 class MyProfileViewModel: MyProfileViewModelProtocol {
-    var fetchUser: AnyObserver<User> 
+    var fetchUser: AnyObserver<User>
     
     var name: Observable<String>
     var email: Observable<String>
