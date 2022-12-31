@@ -17,7 +17,6 @@
 		044B812828A172AF002E8851 /* Survey.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7B4F41D27D7B5090045580F /* Survey.storyboard */; };
 		044FA674294A4C9F00EA5C78 /* RxViewController in Frameworks */ = {isa = PBXBuildFile; productRef = 044FA673294A4C9F00EA5C78 /* RxViewController */; };
 		044FA685294B7A8C00EA5C78 /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044FA684294B7A8C00EA5C78 /* UIFont.swift */; };
-		0458E3B729581EFF002C1A4A /* SampleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0458E3B629581EFF002C1A4A /* SampleViewModel.swift */; };
 		0458E3BB29581F13002C1A4A /* SampleCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0458E3BA29581F13002C1A4A /* SampleCoordinator.swift */; };
 		0458E3CB295A00A3002C1A4A /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 0458E3CA295A00A3002C1A4A /* FirebaseAnalytics */; };
 		0458E3CD295A00A3002C1A4A /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 0458E3CC295A00A3002C1A4A /* FirebaseAuth */; };
@@ -37,6 +36,8 @@
 		0458E3F4295EF89D002C1A4A /* SignOutButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0458E3F3295EF89D002C1A4A /* SignOutButton.swift */; };
 		0458E3F6295EF8B6002C1A4A /* QuitButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0458E3F5295EF8B6002C1A4A /* QuitButton.swift */; };
 		0458E3F8295F1E3D002C1A4A /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0458E3F7295F1E3D002C1A4A /* UIView.swift */; };
+		0458E3FA2960809D002C1A4A /* MyProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0458E3F92960809D002C1A4A /* MyProfileViewModel.swift */; };
+		0458E3FD296083BA002C1A4A /* Dummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0458E3FC296083BA002C1A4A /* Dummy.swift */; };
 		046F1A63294F10DF00B28371 /* HomeDefaultUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046F1A62294F10DF00B28371 /* HomeDefaultUseCase.swift */; };
 		046F1A65294F110800B28371 /* HomeDefaultUseCaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046F1A64294F110800B28371 /* HomeDefaultUseCaseProtocol.swift */; };
 		046F1A72294F39E700B28371 /* DefaultFirestoreRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046F1A71294F39E700B28371 /* DefaultFirestoreRepository.swift */; };
@@ -114,7 +115,6 @@
 		040C118228F16D380012160E /* Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Auth.swift; sourceTree = "<group>"; };
 		0444E00127C825A500B49F8B /* ScrapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrapViewController.swift; sourceTree = "<group>"; };
 		044FA684294B7A8C00EA5C78 /* UIFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
-		0458E3B629581EFF002C1A4A /* SampleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleViewModel.swift; sourceTree = "<group>"; };
 		0458E3BA29581F13002C1A4A /* SampleCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleCoordinator.swift; sourceTree = "<group>"; };
 		0458E3BC2959E406002C1A4A /* Refactoring.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Refactoring.md; sourceTree = "<group>"; };
 		0458E3DC295AEC0D002C1A4A /* MyProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileView.swift; sourceTree = "<group>"; };
@@ -128,6 +128,8 @@
 		0458E3F3295EF89D002C1A4A /* SignOutButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignOutButton.swift; sourceTree = "<group>"; };
 		0458E3F5295EF8B6002C1A4A /* QuitButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitButton.swift; sourceTree = "<group>"; };
 		0458E3F7295F1E3D002C1A4A /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		0458E3F92960809D002C1A4A /* MyProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileViewModel.swift; sourceTree = "<group>"; };
+		0458E3FC296083BA002C1A4A /* Dummy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dummy.swift; sourceTree = "<group>"; };
 		046F1A62294F10DF00B28371 /* HomeDefaultUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDefaultUseCase.swift; sourceTree = "<group>"; };
 		046F1A64294F110800B28371 /* HomeDefaultUseCaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDefaultUseCaseProtocol.swift; sourceTree = "<group>"; };
 		046F1A71294F39E700B28371 /* DefaultFirestoreRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultFirestoreRepository.swift; sourceTree = "<group>"; };
@@ -355,7 +357,7 @@
 		0458E3B229581EE8002C1A4A /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				0458E3B629581EFF002C1A4A /* SampleViewModel.swift */,
+				0458E3F92960809D002C1A4A /* MyProfileViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -396,6 +398,14 @@
 				0458E3F5295EF8B6002C1A4A /* QuitButton.swift */,
 			);
 			path = OtherButton;
+			sourceTree = "<group>";
+		};
+		0458E3FB2960827A002C1A4A /* Dummy */ = {
+			isa = PBXGroup;
+			children = (
+				0458E3FC296083BA002C1A4A /* Dummy.swift */,
+			);
+			path = Dummy;
 			sourceTree = "<group>";
 		};
 		046F1A66294F136F00B28371 /* Response */ = {
@@ -547,6 +557,7 @@
 		BC2B99F229430CFE0040DE46 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				0458E3FB2960827A002C1A4A /* Dummy */,
 				BC2B99F829430D2C0040DE46 /* Repository+Interface */,
 				BC2B99F729430D260040DE46 /* Entity */,
 				BC2B99F629430D210040DE46 /* UseCase */,
@@ -802,6 +813,7 @@
 				0407C0AE28A66642006AFA59 /* GlobalFunctions.swift in Sources */,
 				BCD6AB38294F1E6400FC27AD /* DefaultHomeCoordinator.swift in Sources */,
 				046F1A872951A70E00B28371 /* HomeCellUseCaseProtocol.swift in Sources */,
+				0458E3FA2960809D002C1A4A /* MyProfileViewModel.swift in Sources */,
 				0458E3E7295B169D002C1A4A /* SettingViewController.swift in Sources */,
 				046F1A79294FB42A00B28371 /* SampleRepo.swift in Sources */,
 				BC2B9A0529430F2B0040DE46 /* SampleRepositoryInterface.swift in Sources */,
@@ -813,6 +825,7 @@
 				046F1A8A2951CEE800B28371 /* IDFirestoreUseCase.swift in Sources */,
 				3FCF3B4E27F888EC008771B8 /* KeychainItem.swift in Sources */,
 				0458E3E1295AEC92002C1A4A /* NickNameView.swift in Sources */,
+				0458E3FD296083BA002C1A4A /* Dummy.swift in Sources */,
 				F75452E927C7C5FB00E2DB41 /* FindMateViewController.swift in Sources */,
 				046F1A7F29515C7F00B28371 /* IDFirestore.swift in Sources */,
 				046F1A77294F834D00B28371 /* SampleConstant.swift in Sources */,
@@ -849,7 +862,6 @@
 				0444E00227C825A500B49F8B /* ScrapViewController.swift in Sources */,
 				049231C429485DB50084903D /* HomeTableView.swift in Sources */,
 				046F1A832951A51D00B28371 /* HomeCellViewModel.swift in Sources */,
-				0458E3B729581EFF002C1A4A /* SampleViewModel.swift in Sources */,
 				04BB243727ACED960003DA33 /* InfoViewController.swift in Sources */,
 				F7B4F41627D7B4B80045580F /* SurveyViewController.swift in Sources */,
 				0458E3F0295EF76B002C1A4A /* SurveyButton.swift in Sources */,
