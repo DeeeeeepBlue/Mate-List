@@ -8,7 +8,7 @@
 import Foundation
 
 class Dummy {
-    let mingyu: User = User(
+    static let mingyu: User = User(
         uid: "2019010869",
         email: "mgo8434kk@gmail.com",
         name: "강민규",
