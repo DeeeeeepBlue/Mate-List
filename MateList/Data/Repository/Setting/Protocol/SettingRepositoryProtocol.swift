@@ -8,7 +8,7 @@
 import FirebaseAuth
 
 protocol SettingRepositoryProtocol {
-    func googleCredential() -> AuthCredential
+    //func googleCredential() -> AuthCredential
     //func appleCredential() -> AuthCredential
     func authSignIn(credential: AuthCredential)
     func registUser(user: User)
