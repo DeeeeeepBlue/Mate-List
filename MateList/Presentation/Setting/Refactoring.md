@@ -20,8 +20,13 @@
   
 ## Function
 - 구글 로그인
+    - 구글 로그인 후 Auth로 넘겨주기 () -> AuthCredential
+    - 공통 auth 로그인 (credential: AuthCredential)
+    - 파이어베이스 등록 (user: User)
 - 애플 로그인
-- Auth 로그인
+    - apple 함수를 통해 credential auth로 넘겨주기 -> AuthCredential
+    - 공통 auth 로그인 (credential: AuthCredential)
+    - 파이어 베이스 등록 (user: User)
 - 로그아웃 
 - 회원 탈퇴
     - 스크랩 삭제

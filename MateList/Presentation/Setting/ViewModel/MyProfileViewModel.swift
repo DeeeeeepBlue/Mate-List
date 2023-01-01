@@ -25,6 +25,7 @@ class MyProfileViewModel: MyProfileViewModelProtocol {
     init() {
         let fetching = BehaviorSubject<User>(value: Dummy.mingyu)
         
+        //TODO: 로그인 성공 후 값 들고 온거 확인하면 값 넘겨주는 로직 생성.
         fetchUser = fetching.asObserver()
         
         name = fetching

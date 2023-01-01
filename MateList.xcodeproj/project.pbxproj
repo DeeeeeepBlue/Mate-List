@@ -15,6 +15,7 @@
 		040C118328F16D380012160E /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040C118228F16D380012160E /* Auth.swift */; };
 		043912BC2961F04F0005597F /* SettingRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043912BB2961F04F0005597F /* SettingRepository.swift */; };
 		043912BE2961F06E0005597F /* MyProfileUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043912BD2961F06E0005597F /* MyProfileUseCase.swift */; };
+		043912C12961FD220005597F /* SettingRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043912C02961FD220005597F /* SettingRepositoryProtocol.swift */; };
 		0444E00227C825A500B49F8B /* ScrapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0444E00127C825A500B49F8B /* ScrapViewController.swift */; };
 		044B812828A172AF002E8851 /* Survey.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7B4F41D27D7B5090045580F /* Survey.storyboard */; };
 		044FA674294A4C9F00EA5C78 /* RxViewController in Frameworks */ = {isa = PBXBuildFile; productRef = 044FA673294A4C9F00EA5C78 /* RxViewController */; };
@@ -131,6 +132,7 @@
 		040C118228F16D380012160E /* Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Auth.swift; sourceTree = "<group>"; };
 		043912BB2961F04F0005597F /* SettingRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingRepository.swift; sourceTree = "<group>"; };
 		043912BD2961F06E0005597F /* MyProfileUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileUseCase.swift; sourceTree = "<group>"; };
+		043912C02961FD220005597F /* SettingRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingRepositoryProtocol.swift; sourceTree = "<group>"; };
 		0444E00127C825A500B49F8B /* ScrapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrapViewController.swift; sourceTree = "<group>"; };
 		044FA684294B7A8C00EA5C78 /* UIFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
 		0458E3BA29581F13002C1A4A /* SampleCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleCoordinator.swift; sourceTree = "<group>"; };
@@ -295,9 +297,18 @@
 		043912BA2961F0310005597F /* Setting */ = {
 			isa = PBXGroup;
 			children = (
+				043912BF2961FD120005597F /* Protocol */,
 				043912BB2961F04F0005597F /* SettingRepository.swift */,
 			);
 			path = Setting;
+			sourceTree = "<group>";
+		};
+		043912BF2961FD120005597F /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				043912C02961FD220005597F /* SettingRepositoryProtocol.swift */,
+			);
+			path = Protocol;
 			sourceTree = "<group>";
 		};
 		044B811F28A14DBF002E8851 /* Detail */ = {
@@ -967,6 +978,7 @@
 				F757546D27A4DF1800BFDF9B /* AppDelegate.swift in Sources */,
 				046F1A72294F39E700B28371 /* DefaultFirestoreRepository.swift in Sources */,
 				0458E3F6295EF8B6002C1A4A /* QuitButton.swift in Sources */,
+				043912C12961FD220005597F /* SettingRepositoryProtocol.swift in Sources */,
 				3FB23A5E27D79D3E00B8D071 /* FindMateTableViewCell.swift in Sources */,
 				049231C629485DBD0084903D /* HomeViewModel.swift in Sources */,
 				BCD6AB35294ECE5B00FC27AD /* DefaultTabBarCoordinator.swift in Sources */,
