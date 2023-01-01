@@ -40,6 +40,8 @@
 		0458E3FD296083BA002C1A4A /* Dummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0458E3FC296083BA002C1A4A /* Dummy.swift */; };
 		0458E4052960A9C4002C1A4A /* MateListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0458E4042960A9C4002C1A4A /* MateListTests.swift */; };
 		0458E40E2960ACBC002C1A4A /* SampleUseCaseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0458E40D2960ACBC002C1A4A /* SampleUseCaseTest.swift */; };
+		0458E411296127FD002C1A4A /* MyProfileViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0458E410296127FD002C1A4A /* MyProfileViewModelTests.swift */; };
+		0458E41229612CDB002C1A4A /* MyProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0458E3F92960809D002C1A4A /* MyProfileViewModel.swift */; };
 		046F1A63294F10DF00B28371 /* HomeDefaultUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046F1A62294F10DF00B28371 /* HomeDefaultUseCase.swift */; };
 		046F1A65294F110800B28371 /* HomeDefaultUseCaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046F1A64294F110800B28371 /* HomeDefaultUseCaseProtocol.swift */; };
 		046F1A72294F39E700B28371 /* DefaultFirestoreRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046F1A71294F39E700B28371 /* DefaultFirestoreRepository.swift */; };
@@ -145,6 +147,7 @@
 		0458E4022960A9C4002C1A4A /* MateListTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MateListTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0458E4042960A9C4002C1A4A /* MateListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MateListTests.swift; sourceTree = "<group>"; };
 		0458E40D2960ACBC002C1A4A /* SampleUseCaseTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleUseCaseTest.swift; sourceTree = "<group>"; };
+		0458E410296127FD002C1A4A /* MyProfileViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileViewModelTests.swift; sourceTree = "<group>"; };
 		046F1A62294F10DF00B28371 /* HomeDefaultUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDefaultUseCase.swift; sourceTree = "<group>"; };
 		046F1A64294F110800B28371 /* HomeDefaultUseCaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDefaultUseCaseProtocol.swift; sourceTree = "<group>"; };
 		046F1A71294F39E700B28371 /* DefaultFirestoreRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultFirestoreRepository.swift; sourceTree = "<group>"; };
@@ -450,9 +453,18 @@
 		0458E40C2960AC93002C1A4A /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				0458E40F29612614002C1A4A /* Setting */,
 				0458E4042960A9C4002C1A4A /* MateListTests.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		0458E40F29612614002C1A4A /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				0458E410296127FD002C1A4A /* MyProfileViewModelTests.swift */,
+			);
+			path = Setting;
 			sourceTree = "<group>";
 		};
 		046F1A66294F136F00B28371 /* Response */ = {
@@ -888,8 +900,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0458E41229612CDB002C1A4A /* MyProfileViewModel.swift in Sources */,
 				0458E4052960A9C4002C1A4A /* MateListTests.swift in Sources */,
 				0458E40E2960ACBC002C1A4A /* SampleUseCaseTest.swift in Sources */,
+				0458E411296127FD002C1A4A /* MyProfileViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
