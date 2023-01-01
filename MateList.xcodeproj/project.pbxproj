@@ -13,6 +13,8 @@
 		040AA09727BECDDD008F4BF5 /* HabitCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040AA09627BECDDD008F4BF5 /* HabitCheck.swift */; };
 		040AA09927BECE16008F4BF5 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040AA09827BECE16008F4BF5 /* Comment.swift */; };
 		040C118328F16D380012160E /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040C118228F16D380012160E /* Auth.swift */; };
+		043912BC2961F04F0005597F /* SettingRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043912BB2961F04F0005597F /* SettingRepository.swift */; };
+		043912BE2961F06E0005597F /* MyProfileUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043912BD2961F06E0005597F /* MyProfileUseCase.swift */; };
 		0444E00227C825A500B49F8B /* ScrapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0444E00127C825A500B49F8B /* ScrapViewController.swift */; };
 		044B812828A172AF002E8851 /* Survey.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7B4F41D27D7B5090045580F /* Survey.storyboard */; };
 		044FA674294A4C9F00EA5C78 /* RxViewController in Frameworks */ = {isa = PBXBuildFile; productRef = 044FA673294A4C9F00EA5C78 /* RxViewController */; };
@@ -127,6 +129,8 @@
 		040AA09627BECDDD008F4BF5 /* HabitCheck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitCheck.swift; sourceTree = "<group>"; };
 		040AA09827BECE16008F4BF5 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		040C118228F16D380012160E /* Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Auth.swift; sourceTree = "<group>"; };
+		043912BB2961F04F0005597F /* SettingRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingRepository.swift; sourceTree = "<group>"; };
+		043912BD2961F06E0005597F /* MyProfileUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileUseCase.swift; sourceTree = "<group>"; };
 		0444E00127C825A500B49F8B /* ScrapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrapViewController.swift; sourceTree = "<group>"; };
 		044FA684294B7A8C00EA5C78 /* UIFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
 		0458E3BA29581F13002C1A4A /* SampleCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleCoordinator.swift; sourceTree = "<group>"; };
@@ -278,6 +282,22 @@
 				040C118228F16D380012160E /* Auth.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		043912B92961F0250005597F /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				043912BD2961F06E0005597F /* MyProfileUseCase.swift */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		043912BA2961F0310005597F /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				043912BB2961F04F0005597F /* SettingRepository.swift */,
+			);
+			path = Setting;
 			sourceTree = "<group>";
 		};
 		044B811F28A14DBF002E8851 /* Detail */ = {
@@ -635,6 +655,7 @@
 		BC2B99F429430D090040DE46 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
+				043912BA2961F0310005597F /* Setting */,
 				046F1A6F294F39BA00B28371 /* Home */,
 				046F1A6E294F39B400B28371 /* Common */,
 			);
@@ -644,6 +665,7 @@
 		BC2B99F629430D210040DE46 /* UseCase */ = {
 			isa = PBXGroup;
 			children = (
+				043912B92961F0250005597F /* Setting */,
 				04AD0F1A294E65D000F141B9 /* Protocol */,
 				046F1A882951CEC800B28371 /* Common */,
 				04AD0F17294E630400F141B9 /* Home */,
@@ -919,12 +941,14 @@
 				0458E3E7295B169D002C1A4A /* SettingViewController.swift in Sources */,
 				046F1A79294FB42A00B28371 /* SampleRepo.swift in Sources */,
 				BC2B9A0529430F2B0040DE46 /* SampleRepositoryInterface.swift in Sources */,
+				043912BC2961F04F0005597F /* SettingRepository.swift in Sources */,
 				049231C829485DC70084903D /* HomeCell.swift in Sources */,
 				049231CC29487AB70084903D /* HomeViewController.swift in Sources */,
 				046F1A7D29515C7500B28371 /* IDFirestoreRepository.swift in Sources */,
 				040AA09927BECE16008F4BF5 /* Comment.swift in Sources */,
 				040AA09727BECDDD008F4BF5 /* HabitCheck.swift in Sources */,
 				046F1A8A2951CEE800B28371 /* IDFirestoreUseCase.swift in Sources */,
+				043912BE2961F06E0005597F /* MyProfileUseCase.swift in Sources */,
 				3FCF3B4E27F888EC008771B8 /* KeychainItem.swift in Sources */,
 				0458E3E1295AEC92002C1A4A /* NickNameView.swift in Sources */,
 				0458E3FD296083BA002C1A4A /* Dummy.swift in Sources */,
