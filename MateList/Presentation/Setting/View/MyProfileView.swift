@@ -19,8 +19,6 @@ final class MyProfileView: BaseView {
         self.layer.cornerRadius = 5
         self.layer.borderWidth = 1
         
-        nameLabel.backgroundColor = .blue
-        emailLabel.backgroundColor = .green
         
         nameTitleLabel.text = "이름"
         emailTitleLabel.text = "이메일"

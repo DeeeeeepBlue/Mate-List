@@ -11,12 +11,13 @@ import Firebase
 import AuthenticationServices
 import FirebaseCore
 import FirebaseFirestore
+import RxSwift
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     //public static var user: GIDGoogleUser!
-    public static var userAuth : AuthDataResult?
+    public static var userAuth = BehaviorSubject<AuthDataResult?>(value: nil)
     public static var fireAuth = FireAuth()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {

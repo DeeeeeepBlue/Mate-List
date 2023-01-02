@@ -25,7 +25,7 @@ class SettingRepository: SettingRepositoryProtocol {
                 print("Firebase sign in error: \(error)")
                 return
             } else {
-                AppDelegate.userAuth = authResult
+                AppDelegate.userAuth.onNext(authResult)
             }
         }
     }

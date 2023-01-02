@@ -8,31 +8,35 @@
 import UIKit
 
 import RxSwift
+import FirebaseAuth
 
 protocol MyProfileViewModelProtocol {
-    var fetchUser: AnyObserver<User> { get }
-    
     var name: Observable<String> { get }
     var email: Observable<String> { get }
 }
 
 class MyProfileViewModel: MyProfileViewModelProtocol {
-    var fetchUser: AnyObserver<User>
-    
+    var disposeBag = DisposeBag()
     var name: Observable<String>
     var email: Observable<String>
     
-    init() {
-        let fetching = BehaviorSubject<User>(value: Dummy.mingyu)
+    
+    init(myProfileUseCase: MyProfileUseCaseProtocol) {
+        let checking = BehaviorSubject<Bool>(value: false)
         
-        //TODO: 로그인 성공 후 값 들고 온거 확인하면 값 넘겨주는 로직 생성.
-        fetchUser = fetching.asObserver()
+        AppDelegate.userAuth
+            .map{ $0 != nil }
+            .bind(onNext: checking.onNext)
         
-        name = fetching
-            .map { $0.name }
+        name = checking
+            .flatMap { _ in myProfileUseCase.name}
         
+        email = checking
+            .flatMap { _ in myProfileUseCase.email}
         
-        email = fetching
-            .map { $0.email }
+        myProfileUseCase.isCurrentUser()
+        myProfileUseCase.currentUserName()
+        myProfileUseCase.currentUserEmail()
+    
     }
 }

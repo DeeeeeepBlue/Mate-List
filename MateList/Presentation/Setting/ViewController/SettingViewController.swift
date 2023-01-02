@@ -18,6 +18,7 @@ import GoogleSignIn
 class SettingViewController: BaseViewController {
     //MARK: - Properties
     private let repository = SettingRepository()
+    private let viewModel = MyProfileViewModel(myProfileUseCase: MyProfileUseCase())
     
     private let myProfileView = MyProfileView()
     private let surveyButton = SurveyButton()
@@ -101,6 +102,12 @@ class SettingViewController: BaseViewController {
     }
     
     override func setBind() {
+        
+        viewModel.name
+            .bind(to: myProfileView.nameLabel.rx.text)
+        
+        viewModel.email
+            .bind(to: myProfileView.emailLabel.rx.text)
         
         signInButtonView.authorizationButton.rx
             .controlEvent(.touchUpInside)
