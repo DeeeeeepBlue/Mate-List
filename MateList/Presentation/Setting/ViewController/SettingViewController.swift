@@ -78,8 +78,15 @@ class SettingViewController: BaseViewController {
             make.height.equalTo(120)
         }
         
-        signOutButton.snp.makeConstraints { make in
+        questionButton.snp.makeConstraints { make in
             make.top.equalTo(signInButtonView.snp.bottom).offset(12)
+            make.leading.equalToSuperview().inset(12)
+            make.trailing.equalToSuperview().inset(12)
+            make.height.equalTo(50)
+        }
+        
+        signOutButton.snp.makeConstraints { make in
+            make.top.equalTo(questionButton.snp.bottom).offset(12)
             make.leading.equalToSuperview().inset(12)
             make.trailing.equalToSuperview().inset(12)
             make.height.equalTo(50)
@@ -87,13 +94,6 @@ class SettingViewController: BaseViewController {
         
         quitButton.snp.makeConstraints { make in
             make.top.equalTo(signOutButton.snp.bottom).offset(12)
-            make.leading.equalToSuperview().inset(12)
-            make.trailing.equalToSuperview().inset(12)
-            make.height.equalTo(50)
-        }
-        
-        questionButton.snp.makeConstraints { make in
-            make.top.equalTo(quitButton.snp.bottom).offset(12)
             make.leading.equalToSuperview().inset(12)
             make.trailing.equalToSuperview().inset(12)
             make.height.equalTo(50)
