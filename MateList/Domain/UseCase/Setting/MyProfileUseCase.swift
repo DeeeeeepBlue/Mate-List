@@ -29,14 +29,20 @@ class MyProfileUseCase: MyProfileUseCaseProtocol {
     
     func currentUserName() {
         AppDelegate.userAuth.subscribe(onNext: { result in
-            guard let result = result else { return }
+            guard let result = result else {
+                self.name.onNext("이름 없음")
+                return
+            }
             self.name.onNext(result.user.displayName ?? "이름 없음")
         })
     }
     
     func currentUserEmail() {
         AppDelegate.userAuth.subscribe(onNext: { result in
-            guard let result = result else { return }
+            guard let result = result else {
+                self.email.onNext("이메일 없음")
+                return
+            }
             self.email.onNext(result.user.email ?? "이메일 없음")
         })
     }

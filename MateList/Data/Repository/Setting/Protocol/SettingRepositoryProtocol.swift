@@ -11,5 +11,6 @@ protocol SettingRepositoryProtocol {
     //func googleCredential() -> AuthCredential
     //func appleCredential() -> AuthCredential
     func authSignIn(credential: AuthCredential)
+    func authSignOut()
     func registUser(user: User)
 }

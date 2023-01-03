@@ -6,6 +6,8 @@
 //
 
 import FirebaseAuth
+import GoogleSignIn
+import RxSwift
 
 class SettingRepository: SettingRepositoryProtocol {
     /* TODO: SettingVC에 있는 SignIn 로직 리팩토링 고려
@@ -27,6 +29,20 @@ class SettingRepository: SettingRepositoryProtocol {
             } else {
                 AppDelegate.userAuth.onNext(authResult)
             }
+        }
+    }
+    
+    func authSignOut() {
+        let firebaseAuth = Auth.auth()
+        do {
+            try firebaseAuth.signOut()
+            GIDSignIn.sharedInstance.disconnect{ error in
+                guard error == nil else { return }
+                AppDelegate.userAuth
+                    .onNext(nil)
+            }
+        } catch let signOutError as NSError {
+            print("Error signing out: %@", signOutError)
         }
     }
     

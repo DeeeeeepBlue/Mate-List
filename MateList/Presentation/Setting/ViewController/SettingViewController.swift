@@ -13,6 +13,7 @@ import FirebaseAuth
 import SnapKit
 import RxSwift
 import RxCocoa
+import RxGesture
 import GoogleSignIn
 
 class SettingViewController: BaseViewController {
@@ -123,6 +124,14 @@ class SettingViewController: BaseViewController {
             .controlEvent(.touchUpInside)
             .bind {
                 self.startSignInWithGoogleFlow()
+            }
+            .disposed(by: disposeBag)
+        
+        signOutButton.rx
+            .tapGesture()
+            .when(.recognized)
+            .bind { _ in
+                self.repository.authSignOut()
             }
             .disposed(by: disposeBag)
         
