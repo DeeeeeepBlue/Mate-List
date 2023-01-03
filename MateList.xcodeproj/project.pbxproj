@@ -13,6 +13,11 @@
 		040AA09727BECDDD008F4BF5 /* HabitCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040AA09627BECDDD008F4BF5 /* HabitCheck.swift */; };
 		040AA09927BECE16008F4BF5 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040AA09827BECE16008F4BF5 /* Comment.swift */; };
 		040C118328F16D380012160E /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040C118228F16D380012160E /* Auth.swift */; };
+		042D64372964AD6A005A8FC4 /* SurveyButtonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042D64362964AD6A005A8FC4 /* SurveyButtonViewModel.swift */; };
+		042D64392964AD79005A8FC4 /* QuestionButtonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042D64382964AD79005A8FC4 /* QuestionButtonViewModel.swift */; };
+		042D643B2964AD85005A8FC4 /* SignOutButtonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042D643A2964AD85005A8FC4 /* SignOutButtonViewModel.swift */; };
+		042D643D2964AD8F005A8FC4 /* QuitButtonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042D643C2964AD8F005A8FC4 /* QuitButtonViewModel.swift */; };
+		042D64402964B4E0005A8FC4 /* RxGesture in Frameworks */ = {isa = PBXBuildFile; productRef = 042D643F2964B4E0005A8FC4 /* RxGesture */; };
 		043912BC2961F04F0005597F /* SettingRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043912BB2961F04F0005597F /* SettingRepository.swift */; };
 		043912BE2961F06E0005597F /* MyProfileUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043912BD2961F06E0005597F /* MyProfileUseCase.swift */; };
 		043912C12961FD220005597F /* SettingRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043912C02961FD220005597F /* SettingRepositoryProtocol.swift */; };
@@ -130,6 +135,10 @@
 		040AA09627BECDDD008F4BF5 /* HabitCheck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitCheck.swift; sourceTree = "<group>"; };
 		040AA09827BECE16008F4BF5 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		040C118228F16D380012160E /* Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Auth.swift; sourceTree = "<group>"; };
+		042D64362964AD6A005A8FC4 /* SurveyButtonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyButtonViewModel.swift; sourceTree = "<group>"; };
+		042D64382964AD79005A8FC4 /* QuestionButtonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionButtonViewModel.swift; sourceTree = "<group>"; };
+		042D643A2964AD85005A8FC4 /* SignOutButtonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignOutButtonViewModel.swift; sourceTree = "<group>"; };
+		042D643C2964AD8F005A8FC4 /* QuitButtonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitButtonViewModel.swift; sourceTree = "<group>"; };
 		043912BB2961F04F0005597F /* SettingRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingRepository.swift; sourceTree = "<group>"; };
 		043912BD2961F06E0005597F /* MyProfileUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileUseCase.swift; sourceTree = "<group>"; };
 		043912C02961FD220005597F /* SettingRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingRepositoryProtocol.swift; sourceTree = "<group>"; };
@@ -237,6 +246,7 @@
 				044FA674294A4C9F00EA5C78 /* RxViewController in Frameworks */,
 				0458E3CF295A00A3002C1A4A /* FirebaseCrashlytics in Frameworks */,
 				0458E3D1295A00A3002C1A4A /* FirebaseDatabase in Frameworks */,
+				042D64402964B4E0005A8FC4 /* RxGesture in Frameworks */,
 				049231C0294858960084903D /* FlexLayout in Frameworks */,
 				04718D212907CB3500481015 /* SnapKit in Frameworks */,
 				F731B77E27D4D5A5009670A4 /* DropDown in Frameworks */,
@@ -284,6 +294,17 @@
 				040C118228F16D380012160E /* Auth.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		042D642D2964ACA1005A8FC4 /* OtherButton */ = {
+			isa = PBXGroup;
+			children = (
+				042D64362964AD6A005A8FC4 /* SurveyButtonViewModel.swift */,
+				042D64382964AD79005A8FC4 /* QuestionButtonViewModel.swift */,
+				042D643A2964AD85005A8FC4 /* SignOutButtonViewModel.swift */,
+				042D643C2964AD8F005A8FC4 /* QuitButtonViewModel.swift */,
+			);
+			path = OtherButton;
 			sourceTree = "<group>";
 		};
 		043912B92961F0250005597F /* Setting */ = {
@@ -413,6 +434,7 @@
 		0458E3B229581EE8002C1A4A /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				042D642D2964ACA1005A8FC4 /* OtherButton */,
 				0458E3F92960809D002C1A4A /* MyProfileViewModel.swift */,
 			);
 			path = ViewModel;
@@ -845,6 +867,7 @@
 				0458E3D2295A00A3002C1A4A /* FirebaseFirestore */,
 				0458E3D4295A00A3002C1A4A /* FirebaseStorage */,
 				0458E3DA295A0487002C1A4A /* GoogleSignIn */,
+				042D643F2964B4E0005A8FC4 /* RxGesture */,
 			);
 			productName = checkMate;
 			productReference = F757546927A4DF1800BFDF9B /* MateList.app */;
@@ -886,6 +909,7 @@
 				044FA672294A4C9F00EA5C78 /* XCRemoteSwiftPackageReference "RxViewController" */,
 				0458E3C9295A00A3002C1A4A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				0458E3D9295A0487002C1A4A /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
+				042D643E2964B4E0005A8FC4 /* XCRemoteSwiftPackageReference "RxGesture" */,
 			);
 			productRefGroup = F757546A27A4DF1800BFDF9B /* Products */;
 			projectDirPath = "";
@@ -946,6 +970,7 @@
 			files = (
 				BC0BDC7C294CB6B000B73BE3 /* DefaultAppCoordinator.swift in Sources */,
 				0407C0AE28A66642006AFA59 /* GlobalFunctions.swift in Sources */,
+				042D64392964AD79005A8FC4 /* QuestionButtonViewModel.swift in Sources */,
 				BCD6AB38294F1E6400FC27AD /* DefaultHomeCoordinator.swift in Sources */,
 				046F1A872951A70E00B28371 /* HomeCellUseCaseProtocol.swift in Sources */,
 				0458E3FA2960809D002C1A4A /* MyProfileViewModel.swift in Sources */,
@@ -963,6 +988,7 @@
 				3FCF3B4E27F888EC008771B8 /* KeychainItem.swift in Sources */,
 				0458E3E1295AEC92002C1A4A /* NickNameView.swift in Sources */,
 				0458E3FD296083BA002C1A4A /* Dummy.swift in Sources */,
+				042D643B2964AD85005A8FC4 /* SignOutButtonViewModel.swift in Sources */,
 				F75452E927C7C5FB00E2DB41 /* FindMateViewController.swift in Sources */,
 				046F1A7F29515C7F00B28371 /* IDFirestore.swift in Sources */,
 				046F1A77294F834D00B28371 /* SampleConstant.swift in Sources */,
@@ -981,6 +1007,8 @@
 				043912C12961FD220005597F /* SettingRepositoryProtocol.swift in Sources */,
 				3FB23A5E27D79D3E00B8D071 /* FindMateTableViewCell.swift in Sources */,
 				049231C629485DBD0084903D /* HomeViewModel.swift in Sources */,
+				042D643D2964AD8F005A8FC4 /* QuitButtonViewModel.swift in Sources */,
+				042D64372964AD6A005A8FC4 /* SurveyButtonViewModel.swift in Sources */,
 				BCD6AB35294ECE5B00FC27AD /* DefaultTabBarCoordinator.swift in Sources */,
 				046F1A65294F110800B28371 /* HomeDefaultUseCaseProtocol.swift in Sources */,
 				BCD6AB2F294EC42600FC27AD /* CoordinatorType.swift in Sources */,
@@ -1295,6 +1323,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		042D643E2964B4E0005A8FC4 /* XCRemoteSwiftPackageReference "RxGesture" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RxSwiftCommunity/RxGesture.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 		044FA672294A4C9F00EA5C78 /* XCRemoteSwiftPackageReference "RxViewController" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/devxoul/RxViewController.git";
@@ -1354,6 +1390,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		042D643F2964B4E0005A8FC4 /* RxGesture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 042D643E2964B4E0005A8FC4 /* XCRemoteSwiftPackageReference "RxGesture" */;
+			productName = RxGesture;
+		};
 		044FA673294A4C9F00EA5C78 /* RxViewController */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 044FA672294A4C9F00EA5C78 /* XCRemoteSwiftPackageReference "RxViewController" */;
