@@ -21,6 +21,7 @@ class SettingViewController: BaseViewController {
     private let disposeBag = DisposeBag()
     private let repository = SettingRepository()
     private let viewModel = MyProfileViewModel(myProfileUseCase: MyProfileUseCase())
+    private let quitButtonViewModel = QuitButtonViewModel()
     
     private let myProfileView = MyProfileView()
     private let surveyButton = SurveyButton()
@@ -134,6 +135,12 @@ class SettingViewController: BaseViewController {
                 self.repository.authSignOut()
             }
             .disposed(by: disposeBag)
+        
+        quitButton.rx
+            .tapGesture()
+            .when(.recognized)
+            .map{_ in }
+            .bind(to: quitButtonViewModel.tapButton)
         
         AppDelegate.userAuth
             .compactMap{$0 == nil}

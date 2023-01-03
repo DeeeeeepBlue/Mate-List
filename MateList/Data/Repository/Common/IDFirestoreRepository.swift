@@ -12,7 +12,7 @@ import FirebaseAuth
 
 class IDFirestoreRepository: IDFirestore {
     // MARK: Check
-    static func isExistUser(uid: String) -> Observable<Bool> {
+    func isExistUser(uid: String) -> Observable<Bool> {
         return Observable.create { observer in
             FireStoreService.db.collection("User").whereField("uid", isEqualTo: uid).getDocuments { (querySnapshot, err) in
                 guard let documents = querySnapshot?.documents else { return }
@@ -24,7 +24,7 @@ class IDFirestoreRepository: IDFirestore {
         }
     }
     
-    static func isBlackUser(uid: String) -> Observable<Bool> {
+    func isBlackUser(uid: String) -> Observable<Bool> {
         return Observable.create { observer in
             FireStoreService.db.collection("BlackList").whereField(uid, isEqualTo: true).getDocuments() { (querySnapshot, err) in
                 if let err = err {
@@ -40,7 +40,7 @@ class IDFirestoreRepository: IDFirestore {
     }
     
     // MARK: Delete
-    static func deleteAllPost(uid: String) {
+    func deleteAllPost(uid: String) {
         var userPostsID: [String] = []
         FireStoreService.db.collection("Post").whereField("uid", isEqualTo: uid).getDocuments() {(querySnapshot, err) in
             if let err = err {
@@ -64,7 +64,7 @@ class IDFirestoreRepository: IDFirestore {
         }
     }
     
-    static func deleteAllScrap(uid: String) {
+    func deleteAllScrap(uid: String) {
         FireStoreService.db.collection("User").document(uid).collection("Scrap").getDocuments() {(querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
@@ -82,7 +82,7 @@ class IDFirestoreRepository: IDFirestore {
         }
     }
     
-    static func deleteAllHabit(uid: String) {
+    func deleteAllHabit(uid: String) {
         FireStoreService.db.collection("User").document(uid).collection("HabitCheck").getDocuments() {(querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
@@ -100,7 +100,7 @@ class IDFirestoreRepository: IDFirestore {
         }
     }
     
-    static func deleteUser(uid: String) {
+     func deleteUser(uid: String) {
         FireStoreService.db.collection("User").document(uid).delete() { err in
             if let err = err {
                 print("Error removing document: \(err)")
