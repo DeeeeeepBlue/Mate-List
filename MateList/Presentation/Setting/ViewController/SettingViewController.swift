@@ -17,6 +17,7 @@ import GoogleSignIn
 
 class SettingViewController: BaseViewController {
     //MARK: - Properties
+    private let disposeBag = DisposeBag()
     private let repository = SettingRepository()
     private let viewModel = MyProfileViewModel(myProfileUseCase: MyProfileUseCase())
     
@@ -105,21 +106,35 @@ class SettingViewController: BaseViewController {
         
         viewModel.name
             .bind(to: myProfileView.nameLabel.rx.text)
+            .disposed(by: disposeBag)
         
         viewModel.email
             .bind(to: myProfileView.emailLabel.rx.text)
+            .disposed(by: disposeBag)
         
         signInButtonView.authorizationButton.rx
             .controlEvent(.touchUpInside)
             .bind {
                 self.startSignInWithAppleFlow()
             }
+            .disposed(by: disposeBag)
         
         signInButtonView.googleButton.rx
             .controlEvent(.touchUpInside)
             .bind {
                 self.startSignInWithGoogleFlow()
             }
+            .disposed(by: disposeBag)
+        
+        AppDelegate.userAuth
+            .compactMap{$0 == nil}
+            .bind(to: self.signOutButton.rx.isHidden)
+            .disposed(by: disposeBag)
+        
+        AppDelegate.userAuth
+            .compactMap{$0 == nil}
+            .bind(to: self.quitButton.rx.isHidden)
+            .disposed(by: disposeBag)
     }
 
 }
