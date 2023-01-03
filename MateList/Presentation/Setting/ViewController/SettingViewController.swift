@@ -20,7 +20,7 @@ class SettingViewController: BaseViewController {
     //MARK: - Properties
     private let disposeBag = DisposeBag()
     private let repository = SettingRepository()
-    private let viewModel = MyProfileViewModel(myProfileUseCase: MyProfileUseCase())
+    private let viewModel = MyProfileViewModel(myProfileUseCase: MyProfileUseCase(),repository: SettingRepository())
     private let quitButtonViewModel = QuitButtonViewModel()
     
     private let myProfileView = MyProfileView()

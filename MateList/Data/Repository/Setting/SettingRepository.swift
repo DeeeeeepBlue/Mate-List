@@ -50,7 +50,7 @@ class SettingRepository: SettingRepositoryProtocol {
         FireStoreService.db.collection("User").document(user.uid).setData([
             "user" : user.name,
             "email" : user.email,
-            "gender" : user.gender,
+            //"gender" : user.gender,
             "uid" : user.uid,
             // TODO: 닉네임 대체방안 필요(모델 수정)
             "NickName" : user.name

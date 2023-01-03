@@ -12,12 +12,13 @@ protocol IDFirestore {
     static func habitCheck(uid: String) -> Observable<HabitCheck>
     static func myUID() -> Observable<String>
     
-    static func isExistUser(uid: String) -> Observable<Bool>
-    static func isBlackUser(uid: String) -> Observable<Bool>
     
-    static func deleteAllPost(uid: String)
-    static func deleteAllScrap(uid: String)
-    static func deleteAllHabit(uid: String)
-    static func deleteUser(uid: String)
+    func isExistUser(uid: String) -> Observable<Bool>
+    func isBlackUser(uid: String) -> Observable<Bool>
+    
+    func deleteAllPost(uid: String)
+    func deleteAllScrap(uid: String)
+    func deleteAllHabit(uid: String)
+    func deleteUser(uid: String)
     
 }

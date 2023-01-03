@@ -21,12 +21,19 @@ class MyProfileViewModel: MyProfileViewModelProtocol {
     var email: Observable<String>
     
     
-    init(myProfileUseCase: MyProfileUseCaseProtocol) {
-        let checking = BehaviorSubject<Bool>(value: false)
+    init(myProfileUseCase: MyProfileUseCaseProtocol, repository: SettingRepositoryProtocol) {
+        let checking = BehaviorSubject<User>(value: Dummy.mingyu)
         
         AppDelegate.userAuth
-            .map{ $0 != nil }
+            .map {
+                guard let data = $0 else { return Dummy.mingyu }
+                return User(uid: data.user.uid, email: data.user.email!, name: data.user.displayName!, gender: "No", age: "No", habit: HabitCheck(cleanSelect: "", smokingSelect: false, gameSelect: false, snoringSelect: false, griding_teethSelect: false, callSelect: false, eatSelect: false, curfewSelect: false, bedtimeSelect: false, mbtiSelect: ""))}
             .bind(onNext: checking.onNext)
+        
+        _ = checking
+            .subscribe(onNext: { user in
+                repository.registUser(user: user)
+            })
         
         name = checking
             .flatMap { _ in myProfileUseCase.name}
