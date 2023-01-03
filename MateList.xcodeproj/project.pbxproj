@@ -15,7 +15,6 @@
 		040C118328F16D380012160E /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040C118228F16D380012160E /* Auth.swift */; };
 		042D64372964AD6A005A8FC4 /* SurveyButtonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042D64362964AD6A005A8FC4 /* SurveyButtonViewModel.swift */; };
 		042D64392964AD79005A8FC4 /* QuestionButtonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042D64382964AD79005A8FC4 /* QuestionButtonViewModel.swift */; };
-		042D643B2964AD85005A8FC4 /* SignOutButtonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042D643A2964AD85005A8FC4 /* SignOutButtonViewModel.swift */; };
 		042D643D2964AD8F005A8FC4 /* QuitButtonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042D643C2964AD8F005A8FC4 /* QuitButtonViewModel.swift */; };
 		042D64402964B4E0005A8FC4 /* RxGesture in Frameworks */ = {isa = PBXBuildFile; productRef = 042D643F2964B4E0005A8FC4 /* RxGesture */; };
 		043912BC2961F04F0005597F /* SettingRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043912BB2961F04F0005597F /* SettingRepository.swift */; };
@@ -137,7 +136,6 @@
 		040C118228F16D380012160E /* Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Auth.swift; sourceTree = "<group>"; };
 		042D64362964AD6A005A8FC4 /* SurveyButtonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyButtonViewModel.swift; sourceTree = "<group>"; };
 		042D64382964AD79005A8FC4 /* QuestionButtonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionButtonViewModel.swift; sourceTree = "<group>"; };
-		042D643A2964AD85005A8FC4 /* SignOutButtonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignOutButtonViewModel.swift; sourceTree = "<group>"; };
 		042D643C2964AD8F005A8FC4 /* QuitButtonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitButtonViewModel.swift; sourceTree = "<group>"; };
 		043912BB2961F04F0005597F /* SettingRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingRepository.swift; sourceTree = "<group>"; };
 		043912BD2961F06E0005597F /* MyProfileUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileUseCase.swift; sourceTree = "<group>"; };
@@ -301,7 +299,6 @@
 			children = (
 				042D64362964AD6A005A8FC4 /* SurveyButtonViewModel.swift */,
 				042D64382964AD79005A8FC4 /* QuestionButtonViewModel.swift */,
-				042D643A2964AD85005A8FC4 /* SignOutButtonViewModel.swift */,
 				042D643C2964AD8F005A8FC4 /* QuitButtonViewModel.swift */,
 			);
 			path = OtherButton;
@@ -988,7 +985,6 @@
 				3FCF3B4E27F888EC008771B8 /* KeychainItem.swift in Sources */,
 				0458E3E1295AEC92002C1A4A /* NickNameView.swift in Sources */,
 				0458E3FD296083BA002C1A4A /* Dummy.swift in Sources */,
-				042D643B2964AD85005A8FC4 /* SignOutButtonViewModel.swift in Sources */,
 				F75452E927C7C5FB00E2DB41 /* FindMateViewController.swift in Sources */,
 				046F1A7F29515C7F00B28371 /* IDFirestore.swift in Sources */,
 				046F1A77294F834D00B28371 /* SampleConstant.swift in Sources */,
