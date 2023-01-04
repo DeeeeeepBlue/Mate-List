@@ -11,13 +11,12 @@ import Firebase
 import AuthenticationServices
 import FirebaseCore
 import FirebaseFirestore
-import RxSwift
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     //public static var user: GIDGoogleUser!
-    public static var userAuth = BehaviorSubject<AuthDataResult?>(value: nil)
+    public static var userAuth : AuthDataResult?
     public static var fireAuth = FireAuth()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -30,6 +29,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         AppDelegate.fireAuth.signOut()
         
+        /// 🍎 Apple login
+//        let appleIDProvider = ASAuthorizationAppleIDProvider()
+//        appleIDProvider.getCredentialState(forUserID: KeychainItem.currentUserIdentifier) { (credentialState, error) in
+//            switch credentialState {
+//            case .authorized:
+//
+//                break // The Apple ID credential is valid.
+//            case .revoked, .notFound:
+//                // The Apple ID credential is either revoked or was not found, so show the sign-in UI.
+//                DispatchQueue.main.async {
+////                    self.window?.rootViewController?.showLoginViewController()
+//                }
+//            default:
+//                break
+//            }
+//        }
+
         
         return true
     }
