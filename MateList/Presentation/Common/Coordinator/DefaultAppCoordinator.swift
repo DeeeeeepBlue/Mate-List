@@ -22,21 +22,21 @@ class DefaultAppCoordinator: AppCoordinator {
     }
     
     func start() {
-        showMainFlow()
+        showTabBarFlow()
     }
     
-    func showMainFlow() {
-        let homeCoordinator = DefaultHomeCoordinator(self.navigationController)
-        homeCoordinator.finishDelegate = self
-        homeCoordinator.start()
-        childCoordinators.append(homeCoordinator)
+    func showTabBarFlow() {
+        let tabBarCoordinator = DefaultTabBarCoordinator(self.navigationController)
+        tabBarCoordinator.finishDelegate = self
+        tabBarCoordinator.start()
+        childCoordinators.append(tabBarCoordinator)
     }
-    
+
 }
 
 extension DefaultAppCoordinator: CoordinatorFinishDelegate {
     func coordinatorDidFinish(childCoordinator: Coordinator) {
-        // 자식 뷰를 삭제하는 델리게이트 (자식 -> 부모 접근 -> 부모에서 자식 삭제)
+        // 자식 뷰를 삭제하는 델리게이트 메모리에서 해제되도록 childCoordinators에서 삭제 후 pop
         self.childCoordinators = self.childCoordinators
             .filter({ $0.type != childCoordinator.type })
         childCoordinator.navigationController.popToRootViewController(animated: true)
