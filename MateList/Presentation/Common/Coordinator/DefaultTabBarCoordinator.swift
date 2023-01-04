@@ -63,7 +63,7 @@ class DefaultTabBarCoordinator: TabBarCoordinator {
     /// 탭바 스타일 지정 및 초기화
     private func configureTabBarController(with tabViewControllers: [UIViewController]) {
         // TabBar의 VC 지정
-        self.tabBarController.setViewControllers(tabViewControllers, animated: true)
+        self.tabBarController.setViewControllers(tabViewControllers, animated: false)
         // home의 index로 TabBar Index 세팅
         self.tabBarController.selectedIndex = TabBarPage.home.toInt()
         // TabBar 스타일 지정
@@ -71,7 +71,7 @@ class DefaultTabBarCoordinator: TabBarCoordinator {
         self.tabBarController.tabBar.backgroundColor = .systemBackground
         self.tabBarController.tabBar.tintColor = UIColor.black
         
-        // VC 붙이기
+        // 화면에 추가
         self.navigationController.pushViewController(self.tabBarController, animated: true)
     }
     

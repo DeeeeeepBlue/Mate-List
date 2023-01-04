@@ -23,12 +23,12 @@
                     <rect key="frame" x="0.0" y="0.0" width="414" height="51"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xWA-ct-dyf">
-                            <rect key="frame" x="5" y="8.3333333333333321" width="75" height="34.333333333333343"/>
+                            <rect key="frame" x="5" y="8.5" width="75" height="34"/>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="plain" title="Button"/>
                         </button>
                         <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="DE0-VO-A1Z">
-                            <rect key="frame" x="85" y="-2.6666666666666679" width="324" height="56.333333333333343"/>
+                            <rect key="frame" x="85" y="-2.5" width="324" height="56"/>
                             <textInputTraits key="textInputTraits"/>
                         </searchBar>
                     </subviews>
