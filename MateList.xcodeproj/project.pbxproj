@@ -14,7 +14,6 @@
 		040AA09927BECE16008F4BF5 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040AA09827BECE16008F4BF5 /* Comment.swift */; };
 		040C118328F16D380012160E /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040C118228F16D380012160E /* Auth.swift */; };
 		042D64372964AD6A005A8FC4 /* SurveyButtonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042D64362964AD6A005A8FC4 /* SurveyButtonViewModel.swift */; };
-		042D64392964AD79005A8FC4 /* QuestionButtonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042D64382964AD79005A8FC4 /* QuestionButtonViewModel.swift */; };
 		042D643D2964AD8F005A8FC4 /* QuitButtonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042D643C2964AD8F005A8FC4 /* QuitButtonViewModel.swift */; };
 		042D64402964B4E0005A8FC4 /* RxGesture in Frameworks */ = {isa = PBXBuildFile; productRef = 042D643F2964B4E0005A8FC4 /* RxGesture */; };
 		043912BC2961F04F0005597F /* SettingRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043912BB2961F04F0005597F /* SettingRepository.swift */; };
@@ -141,7 +140,6 @@
 		040AA09827BECE16008F4BF5 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		040C118228F16D380012160E /* Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Auth.swift; sourceTree = "<group>"; };
 		042D64362964AD6A005A8FC4 /* SurveyButtonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyButtonViewModel.swift; sourceTree = "<group>"; };
-		042D64382964AD79005A8FC4 /* QuestionButtonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionButtonViewModel.swift; sourceTree = "<group>"; };
 		042D643C2964AD8F005A8FC4 /* QuitButtonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitButtonViewModel.swift; sourceTree = "<group>"; };
 		043912BB2961F04F0005597F /* SettingRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingRepository.swift; sourceTree = "<group>"; };
 		043912BD2961F06E0005597F /* MyProfileUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileUseCase.swift; sourceTree = "<group>"; };
@@ -310,7 +308,6 @@
 			isa = PBXGroup;
 			children = (
 				042D64362964AD6A005A8FC4 /* SurveyButtonViewModel.swift */,
-				042D64382964AD79005A8FC4 /* QuestionButtonViewModel.swift */,
 				042D643C2964AD8F005A8FC4 /* QuitButtonViewModel.swift */,
 			);
 			path = OtherButton;
@@ -1048,7 +1045,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				0407C0AE28A66642006AFA59 /* GlobalFunctions.swift in Sources */,
-				042D64392964AD79005A8FC4 /* QuestionButtonViewModel.swift in Sources */,
 				BCD6AB38294F1E6400FC27AD /* DefaultHomeCoordinator.swift in Sources */,
 				BC1900A1296550CC00A65F1E /* ServeyInputViewController.swift in Sources */,
 				046F1A872951A70E00B28371 /* HomeCellUseCaseProtocol.swift in Sources */,

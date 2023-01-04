@@ -8,8 +8,9 @@
 import UIKit
 import AuthenticationServices
 import CryptoKit
-import FirebaseAuth
+import MessageUI
 
+import FirebaseAuth
 import SnapKit
 import RxSwift
 import RxCocoa
@@ -113,6 +114,13 @@ class SettingViewController: BaseViewController {
         viewModel.email
             .bind(to: myProfileView.emailLabel.rx.text)
             .disposed(by: disposeBag)
+        
+        questionButton.rx
+            .tapGesture()
+            .when(.recognized)
+            .bind { _ in
+                self.moveMailView()
+            }
         
         signInButtonView.authorizationButton.rx
             .controlEvent(.touchUpInside)
@@ -285,5 +293,41 @@ extension SettingViewController {
                 self.repository.authSignIn(credential: credential)
             }
         }
+    }
+}
+
+//MARK: - 문의하기
+extension SettingViewController: MFMailComposeViewControllerDelegate {
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+            controller.dismiss(animated: true, completion: nil)
+    }
+    
+    func moveMailView() {
+        // 이메일 사용가능한지 체크하는 if문
+        if MFMailComposeViewController.canSendMail() {
+
+            let compseVC = MFMailComposeViewController()
+            compseVC.mailComposeDelegate = self
+
+            compseVC.setToRecipients(["deeeeeep0122@gmail.com"])
+            compseVC.setSubject("[메이트리스트] 문의 및 신고")
+            compseVC.setMessageBody("내용 : ", isHTML: false)
+            self.present(compseVC, animated: true, completion: nil)
+
+        }
+        else {
+            self.showSendMailErrorAlert()
+        }
+    }
+
+    /// 메일 에러 메시지
+    func showSendMailErrorAlert() {
+            let sendMailErrorAlert = UIAlertController(title: "메일을 전송 실패", message: "아이폰 이메일 설정을 확인하고 다시 시도해주세요.", preferredStyle: .alert)
+            let confirmAction = UIAlertAction(title: "확인", style: .default) {
+                (action) in
+                print("확인")
+            }
+            sendMailErrorAlert.addAction(confirmAction)
+            self.present(sendMailErrorAlert, animated: true, completion: nil)
     }
 }
