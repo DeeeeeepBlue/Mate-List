@@ -582,14 +582,14 @@ class ContentsDetailViewController: UIViewController, UITableViewDelegate, UITab
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         
-        if segue.identifier == "surveyView" {
-            let VCDest = segue.destination as! SurveyViewController
-            VCDest.surveyView_user_id=send_username
-            guard userHabitCheck != nil else {return}
-            VCDest.surveyView_cont = userHabitCheck
-
-        }
-        else {}
+//        if segue.identifier == "surveyView" {
+//            let VCDest = segue.destination as! SurveyViewController
+//            VCDest.surveyView_user_id=send_username
+//            guard userHabitCheck != nil else {return}
+//            VCDest.surveyView_cont = userHabitCheck
+//
+//        }
+//        else {}
     }
     
     // MARK: - 키보드 세팅
