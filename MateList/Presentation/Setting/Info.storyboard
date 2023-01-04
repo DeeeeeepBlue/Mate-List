@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Njf-UX-cJ5">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+    </dependencies>
+    <scenes>
+        <!--내정보-->
+        <scene sceneID="xkl-5Z-K2a">
+            <objects>
+                <viewController id="Njf-UX-cJ5" customClass="SettingViewController" customModule="MateList" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="person" catalog="system" selectedImage="person.fill" id="jMA-Zq-gw9"/>
+                    <navigationItem key="navigationItem" title="내정보" id="Krg-RS-WdG"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4rC-3g-cUd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="56.521739130434788" y="1495.9821428571429"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="person" catalog="system" width="128" height="121"/>
+        <image name="person.fill" catalog="system" width="128" height="120"/>
+    </resources>
+</document>
