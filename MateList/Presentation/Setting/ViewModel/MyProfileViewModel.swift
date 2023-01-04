@@ -22,10 +22,10 @@ class MyProfileViewModel: MyProfileViewModelProtocol {
     
     
     init(myProfileUseCase: MyProfileUseCaseProtocol, repository: SettingRepositoryProtocol) {
-        let checking = BehaviorSubject<User>(value: Dummy.mingyu)
+        let checking = BehaviorSubject<User?>(value: nil)
         
         AppDelegate.userAuth
-            .filter{ $0 != nil }
+            .compactMap{ $0 }
             .map{ User(uid: $0?.user.uid ?? "err",
                        email: $0?.user.email ?? "err",
                        name: $0?.user.displayName ?? "err",
@@ -46,6 +46,7 @@ class MyProfileViewModel: MyProfileViewModelProtocol {
             .bind(onNext: checking.onNext)
         
         _ = checking
+            .compactMap{ $0 }
             .subscribe(onNext: { user in
                 repository.registUser(user: user)
             })
