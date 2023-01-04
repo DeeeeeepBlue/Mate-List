@@ -231,9 +231,9 @@ class ScrapViewController: UIViewController, UITableViewDataSource, UITableViewD
         if segue.identifier == "detailSegue" {
             
             let findMateTableViewIndexPath = scrapTableView.indexPath(for: sender as! UITableViewCell)!
-            let VCDest = segue.destination as! ContentsDetailViewController
-
-            VCDest.contentsDetailData = posts[findMateTableViewIndexPath.section]
+//            let VCDest = segue.destination as! ContentsDetailViewController
+//
+//            VCDest.contentsDetailData = posts[findMateTableViewIndexPath.section]
             
         }
         else {}

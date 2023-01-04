@@ -345,21 +345,21 @@ class FindMateViewController: UIViewController, UITableViewDataSource, UITableVi
 
     
     //MARK: - ✅ Scene Change
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        if segue.identifier == "detailSegue" {
-            
-            let findMateTableViewIndexPath = findMateTableView.indexPath(for: sender as! UITableViewCell)!
-            let VCDest = segue.destination as! ContentsDetailViewController
-
-            if posts.count > 0 {
-                VCDest.contentsDetailData = posts[findMateTableViewIndexPath.section]
-            }
-
-        }
-        else {}
-    }
-    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        
+//        if segue.identifier == "detailSegue" {
+//            
+//            let findMateTableViewIndexPath = findMateTableView.indexPath(for: sender as! UITableViewCell)!
+//            let VCDest = segue.destination as! ContentsDetailViewController
+//
+//            if posts.count > 0 {
+//                VCDest.contentsDetailData = posts[findMateTableViewIndexPath.section]
+//            }
+//
+//        }
+//        else {}
+//    }
+//    
     // MARK: - ✅ v2.0.0때 마저 구현
     //    func setFilterButton(){
     //        self.filterButton.layer.cornerRadius = self.filterButton.frame.height/2
