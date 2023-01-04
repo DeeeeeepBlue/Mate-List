@@ -9,7 +9,7 @@
         <!--내정보-->
         <scene sceneID="xkl-5Z-K2a">
             <objects>
-                <viewController id="Njf-UX-cJ5" customClass="SettingViewController" customModule="MateList" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="infoStoryboard" id="Njf-UX-cJ5" customClass="SettingViewController" customModule="MateList" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="person" catalog="system" selectedImage="person.fill" id="jMA-Zq-gw9"/>
                     <navigationItem key="navigationItem" title="내정보" id="Krg-RS-WdG"/>
                 </viewController>
