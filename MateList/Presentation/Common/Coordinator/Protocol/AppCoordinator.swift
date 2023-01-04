@@ -8,6 +8,5 @@
 import Foundation
 
 protocol AppCoordinator: Coordinator {
-    func showTabBarFlow()
-//    func showMainFlow()
+    func showMainFlow()
 }
