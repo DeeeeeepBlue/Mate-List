@@ -8,5 +8,5 @@
 import Foundation
 
 protocol DetailCoordinator: Coordinator {
-    var detailViewController: DetailViewController { get set }
+    var detailViewController: DetailViewController { get }
 }

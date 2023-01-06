@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class DefaultDetailCoordinatore: DetailCoordinator {
+class DefaultDetailCoordinator: DetailCoordinator {
     
     var finishDelegate: CoordinatorFinishDelegate?
     var navigationController: UINavigationController
@@ -21,13 +21,16 @@ class DefaultDetailCoordinatore: DetailCoordinator {
         self.detailViewController = DetailViewController()
         // Usecase 주입
         
-        
-        
     }
     
     func start() {
-        
+        self.navigationController.pushViewController(self.detailViewController, animated: true)
     }
-    
-    
+}
+
+extension DefaultDetailCoordinator: CoordinatorFinishDelegate {
+    func coordinatorDidFinish(childCoordinator: Coordinator) {
+        self.childCoordinators = self.childCoordinators.filter({$0.type != childCoordinator.type})
+        childCoordinator.navigationController.popToRootViewController(animated: true)
+    }
 }
