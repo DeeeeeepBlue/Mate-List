@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+class TopTitleView: BaseView {
+    override func configureUI() {
+        self.backgroundColor = .red
+    }
+}

@@ -349,9 +349,9 @@
 			isa = PBXGroup;
 			children = (
 				042D64602966A425005A8FC4 /* CommentCell.swift */,
+				042D646C29685A58005A8FC4 /* CommentTableView.swift */,
 				042D646829685A39005A8FC4 /* TopTitleView.swift */,
 				042D646A29685A43005A8FC4 /* MiddleView.swift */,
-				042D646C29685A58005A8FC4 /* CommentTableView.swift */,
 				042D646E29685A5F005A8FC4 /* InputView.swift */,
 				042D647029685A6A005A8FC4 /* ReportButton.swift */,
 				042D647229685A74005A8FC4 /* DeleteButton.swift */,

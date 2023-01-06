@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+class BottomInputView: BaseView {
+    override func configureUI() {
+        self.backgroundColor = .blue
+    }
+}

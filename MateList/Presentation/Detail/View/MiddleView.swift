@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+class MiddleView: BaseView {
+    override func configureUI() {
+        self.backgroundColor = .yellow
+    }
+}
