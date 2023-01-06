@@ -20,6 +20,13 @@
 		042D645F2966A3EE005A8FC4 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042D645E2966A3EE005A8FC4 /* DetailViewController.swift */; };
 		042D64612966A425005A8FC4 /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042D64602966A425005A8FC4 /* CommentCell.swift */; };
 		042D64632966A448005A8FC4 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042D64622966A448005A8FC4 /* DetailViewModel.swift */; };
+		042D646629681E81005A8FC4 /* DetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042D646529681E81005A8FC4 /* DetailCoordinator.swift */; };
+		042D646929685A39005A8FC4 /* TopTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042D646829685A39005A8FC4 /* TopTitleView.swift */; };
+		042D646B29685A43005A8FC4 /* MiddleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042D646A29685A43005A8FC4 /* MiddleView.swift */; };
+		042D646D29685A58005A8FC4 /* CommentTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042D646C29685A58005A8FC4 /* CommentTableView.swift */; };
+		042D646F29685A5F005A8FC4 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042D646E29685A5F005A8FC4 /* InputView.swift */; };
+		042D647129685A6A005A8FC4 /* ReportButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042D647029685A6A005A8FC4 /* ReportButton.swift */; };
+		042D647329685A74005A8FC4 /* DeleteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042D647229685A74005A8FC4 /* DeleteButton.swift */; };
 		043912BC2961F04F0005597F /* SettingRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043912BB2961F04F0005597F /* SettingRepository.swift */; };
 		043912BE2961F06E0005597F /* MyProfileUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043912BD2961F06E0005597F /* MyProfileUseCase.swift */; };
 		043912C12961FD220005597F /* SettingRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043912C02961FD220005597F /* SettingRepositoryProtocol.swift */; };
@@ -149,6 +156,14 @@
 		042D645E2966A3EE005A8FC4 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		042D64602966A425005A8FC4 /* CommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
 		042D64622966A448005A8FC4 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
+		042D646529681E81005A8FC4 /* DetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCoordinator.swift; sourceTree = "<group>"; };
+		042D646729682172005A8FC4 /* RefactoringDetail.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = RefactoringDetail.md; sourceTree = "<group>"; };
+		042D646829685A39005A8FC4 /* TopTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopTitleView.swift; sourceTree = "<group>"; };
+		042D646A29685A43005A8FC4 /* MiddleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiddleView.swift; sourceTree = "<group>"; };
+		042D646C29685A58005A8FC4 /* CommentTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTableView.swift; sourceTree = "<group>"; };
+		042D646E29685A5F005A8FC4 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
+		042D647029685A6A005A8FC4 /* ReportButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportButton.swift; sourceTree = "<group>"; };
+		042D647229685A74005A8FC4 /* DeleteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteButton.swift; sourceTree = "<group>"; };
 		043912BB2961F04F0005597F /* SettingRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingRepository.swift; sourceTree = "<group>"; };
 		043912BD2961F06E0005597F /* MyProfileUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileUseCase.swift; sourceTree = "<group>"; };
 		043912C02961FD220005597F /* SettingRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingRepositoryProtocol.swift; sourceTree = "<group>"; };
@@ -324,6 +339,7 @@
 		042D64582966A39D005A8FC4 /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
+				042D646429681E6D005A8FC4 /* Protocol */,
 				042D64592966A3B9005A8FC4 /* DefaultDetailCoordinator.swift */,
 			);
 			path = Coordinator;
@@ -333,6 +349,12 @@
 			isa = PBXGroup;
 			children = (
 				042D64602966A425005A8FC4 /* CommentCell.swift */,
+				042D646829685A39005A8FC4 /* TopTitleView.swift */,
+				042D646A29685A43005A8FC4 /* MiddleView.swift */,
+				042D646C29685A58005A8FC4 /* CommentTableView.swift */,
+				042D646E29685A5F005A8FC4 /* InputView.swift */,
+				042D647029685A6A005A8FC4 /* ReportButton.swift */,
+				042D647229685A74005A8FC4 /* DeleteButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -351,6 +373,14 @@
 				042D645E2966A3EE005A8FC4 /* DetailViewController.swift */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		042D646429681E6D005A8FC4 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				042D646529681E81005A8FC4 /* DetailCoordinator.swift */,
+			);
+			path = Protocol;
 			sourceTree = "<group>";
 		};
 		043912B92961F0250005597F /* Setting */ = {
@@ -388,6 +418,7 @@
 				F76B581227C5378100B6626D /* DetailTextView.swift */,
 				F76B581727C5380600B6626D /* ContentsDetailViewController.swift */,
 				F7CDDF0E27D6E96300DB6A30 /* ContentsDetailView.storyboard */,
+				042D646729682172005A8FC4 /* RefactoringDetail.md */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -1091,6 +1122,7 @@
 				0407C0AE28A66642006AFA59 /* GlobalFunctions.swift in Sources */,
 				BCD6AB38294F1E6400FC27AD /* DefaultHomeCoordinator.swift in Sources */,
 				BC1900A1296550CC00A65F1E /* ServeyInputViewController.swift in Sources */,
+				042D647129685A6A005A8FC4 /* ReportButton.swift in Sources */,
 				042D64612966A425005A8FC4 /* CommentCell.swift in Sources */,
 				046F1A872951A70E00B28371 /* HomeCellUseCaseProtocol.swift in Sources */,
 				0458E3FA2960809D002C1A4A /* MyProfileViewModel.swift in Sources */,
@@ -1101,6 +1133,7 @@
 				BC19004D29654E0400A65F1E /* TabBarCoordinator.swift in Sources */,
 				043912BC2961F04F0005597F /* SettingRepository.swift in Sources */,
 				049231C829485DC70084903D /* HomeCell.swift in Sources */,
+				042D646F29685A5F005A8FC4 /* InputView.swift in Sources */,
 				049231CC29487AB70084903D /* HomeViewController.swift in Sources */,
 				046F1A7D29515C7500B28371 /* IDFirestoreRepository.swift in Sources */,
 				040AA09927BECE16008F4BF5 /* Comment.swift in Sources */,
@@ -1111,6 +1144,7 @@
 				BC19007829654E6B00A65F1E /* ScrapViewController.swift in Sources */,
 				BC1900A4296550CC00A65F1E /* SurveyTableView.swift in Sources */,
 				0458E3E1295AEC92002C1A4A /* NickNameView.swift in Sources */,
+				042D646929685A39005A8FC4 /* TopTitleView.swift in Sources */,
 				BC1900A6296550CC00A65F1E /* SurveyTableViewCell.swift in Sources */,
 				BC1900A8296550CC00A65F1E /* SurveyViewCell.swift in Sources */,
 				0458E3FD296083BA002C1A4A /* Dummy.swift in Sources */,
@@ -1126,6 +1160,7 @@
 				04718D1D2907CA3400481015 /* NickNameViewController.swift in Sources */,
 				0458E3DF295AEC2F002C1A4A /* SignInButtonView.swift in Sources */,
 				F75452E727C7C59900E2DB41 /* Post.swift in Sources */,
+				042D646D29685A58005A8FC4 /* CommentTableView.swift in Sources */,
 				F757546D27A4DF1800BFDF9B /* AppDelegate.swift in Sources */,
 				046F1A72294F39E700B28371 /* DefaultFirestoreRepository.swift in Sources */,
 				0458E3F6295EF8B6002C1A4A /* QuitButton.swift in Sources */,
@@ -1151,12 +1186,14 @@
 				BC1900A3296550CC00A65F1E /* SurveyInputViewCell.swift in Sources */,
 				BC19004E29654E0400A65F1E /* CoordinatorFinishDelegate.swift in Sources */,
 				0458E3ED295B19BE002C1A4A /* BaseViewController.swift in Sources */,
+				042D646629681E81005A8FC4 /* DetailCoordinator.swift in Sources */,
 				049231C429485DB50084903D /* HomeTableView.swift in Sources */,
 				046F1A832951A51D00B28371 /* HomeCellViewModel.swift in Sources */,
 				04BB243727ACED960003DA33 /* InfoViewController.swift in Sources */,
 				0458E3F0295EF76B002C1A4A /* SurveyButton.swift in Sources */,
 				BC9A4925295025FC00E1D9C8 /* HomeCoordinator.swift in Sources */,
 				BC19004C29654E0400A65F1E /* AppCoordinator.swift in Sources */,
+				042D647329685A74005A8FC4 /* DeleteButton.swift in Sources */,
 				040AA09527BECD61008F4BF5 /* User.swift in Sources */,
 				044FA685294B7A8C00EA5C78 /* UIFont.swift in Sources */,
 				046F1A74294F39F900B28371 /* DefaultFirestore.swift in Sources */,
@@ -1167,6 +1204,7 @@
 				BC19007629654E6B00A65F1E /* DefaultScrapCoordinator.swift in Sources */,
 				0458E3F8295F1E3D002C1A4A /* UIView.swift in Sources */,
 				0458E3F4295EF89D002C1A4A /* SignOutButton.swift in Sources */,
+				042D646B29685A43005A8FC4 /* MiddleView.swift in Sources */,
 				042D64632966A448005A8FC4 /* DetailViewModel.swift in Sources */,
 				040C118328F16D380012160E /* Auth.swift in Sources */,
 				BC1900AC296550F200A65F1E /* TabBarPage.swift in Sources */,
