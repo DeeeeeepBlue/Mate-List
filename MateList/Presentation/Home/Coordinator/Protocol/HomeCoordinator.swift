@@ -9,4 +9,5 @@ import Foundation
 
 protocol HomeCoordinator: Coordinator {
     var homeViewController: HomeViewController { get set }
+    func showDetailFlow()
 }

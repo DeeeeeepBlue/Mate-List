@@ -16,6 +16,8 @@ class HomeDefaultUseCase: HomeDefaultUseCaseProtocol {
     let disposeBag: DisposeBag = DisposeBag()
     let firestoreRepository : DefaultFirestoreRepository
 
+    var allPosts = BehaviorSubject<[Post]>(value: [])
+    
     init(firestoreRepository: DefaultFirestoreRepository) {
         self.firestoreRepository = firestoreRepository
 

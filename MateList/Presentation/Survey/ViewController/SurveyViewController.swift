@@ -20,7 +20,7 @@ class SurveyViewController: UIViewController {
     private let surveyTableView = SurveyTableView()
     private let writeButton = WriteButton()
     // TODO: Coordinator에서 인스턴스화하는 방법으로 고치기
-    var viewModel: HomeViewModelType = HomeViewModel(homeUseCase: HomeDefaultUseCase(firestoreRepository: DefaultFirestoreRepository()))
+    var viewModel: HomeViewModel?
     
     
     private let disposeBag = DisposeBag()
