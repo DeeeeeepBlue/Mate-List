@@ -24,6 +24,7 @@ class DefaultDetailCoordinator: DetailCoordinator {
     }
     
     func start() {
+        self.detailViewController.hidesBottomBarWhenPushed = true
         self.navigationController.pushViewController(self.detailViewController, animated: true)
     }
 }

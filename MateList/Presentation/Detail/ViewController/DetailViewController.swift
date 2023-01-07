@@ -24,13 +24,6 @@ class DetailViewController: BaseViewController {
     
     override func style() {
         super.style()
-        
-        navigationController?.title = "글 쓰기"
-        
-        let navigationBarAppearance = UINavigationBarAppearance()
-            navigationBarAppearance.configureWithTransparentBackground()
-        navigationController?.navigationBar.standardAppearance = navigationBarAppearance
-        
     }
     
     override func setView() {
@@ -55,7 +48,7 @@ class DetailViewController: BaseViewController {
         bottomInputView.snp.makeConstraints { make in
             make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom)
             make.leading.trailing.equalToSuperview()
-            make.height.equalTo(30)
+            make.height.equalTo(50)
         }
     }
     
