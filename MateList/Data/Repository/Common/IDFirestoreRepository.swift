@@ -9,7 +9,6 @@ import Foundation
 import RxSwift
 import FirebaseAuth
 
-
 class IDFirestoreRepository: IDFirestore {
     // MARK: Check
     func isExistUser(uid: String) -> Observable<Bool> {
