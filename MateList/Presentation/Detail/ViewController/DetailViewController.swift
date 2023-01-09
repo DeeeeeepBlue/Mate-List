@@ -36,13 +36,13 @@ class DetailViewController: BaseViewController {
         topTitleView.snp.makeConstraints { make in
             make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top)
             make.leading.trailing.equalToSuperview()
-            make.height.equalTo(100)
+            make.height.equalTo(80)
         }
         
         middleView.snp.makeConstraints { make in
             make.top.equalTo(topTitleView.snp.bottom)
             make.leading.trailing.equalToSuperview()
-            make.height.equalTo(300)
+            make.height.equalTo(200)
         }
         
         bottomInputView.snp.makeConstraints { make in
