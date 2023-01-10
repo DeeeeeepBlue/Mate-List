@@ -77,6 +77,7 @@
 		04718D282907CBA200481015 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 04718D272907CBA200481015 /* RxSwift */; };
 		04718D2C2907CBF600481015 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04718D2B2907CBF600481015 /* TextField.swift */; };
 		0488BB24296C7C820013AB75 /* HabitCheckButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0488BB23296C7C820013AB75 /* HabitCheckButton.swift */; };
+		0488BB26296D08DC0013AB75 /* CommentCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0488BB25296D08DC0013AB75 /* CommentCellViewModel.swift */; };
 		049231C0294858960084903D /* FlexLayout in Frameworks */ = {isa = PBXBuildFile; productRef = 049231BF294858960084903D /* FlexLayout */; };
 		049231C429485DB50084903D /* HomeTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049231C329485DB50084903D /* HomeTableView.swift */; };
 		049231C629485DBD0084903D /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049231C529485DBD0084903D /* HomeViewModel.swift */; };
@@ -204,6 +205,7 @@
 		04718D1C2907CA3400481015 /* NickName.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NickName.storyboard; sourceTree = "<group>"; };
 		04718D2B2907CBF600481015 /* TextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		0488BB23296C7C820013AB75 /* HabitCheckButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitCheckButton.swift; sourceTree = "<group>"; };
+		0488BB25296D08DC0013AB75 /* CommentCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCellViewModel.swift; sourceTree = "<group>"; };
 		049231C329485DB50084903D /* HomeTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableView.swift; sourceTree = "<group>"; };
 		049231C529485DBD0084903D /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		049231C729485DC70084903D /* HomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCell.swift; sourceTree = "<group>"; };
@@ -366,6 +368,7 @@
 			isa = PBXGroup;
 			children = (
 				042D64622966A448005A8FC4 /* DetailViewModel.swift */,
+				0488BB25296D08DC0013AB75 /* CommentCellViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1147,6 +1150,7 @@
 				BC19007829654E6B00A65F1E /* ScrapViewController.swift in Sources */,
 				BC1900A4296550CC00A65F1E /* SurveyTableView.swift in Sources */,
 				0458E3E1295AEC92002C1A4A /* NickNameView.swift in Sources */,
+				0488BB26296D08DC0013AB75 /* CommentCellViewModel.swift in Sources */,
 				042D646929685A39005A8FC4 /* TopTitleView.swift in Sources */,
 				BC1900A6296550CC00A65F1E /* SurveyTableViewCell.swift in Sources */,
 				BC1900A8296550CC00A65F1E /* SurveyViewCell.swift in Sources */,

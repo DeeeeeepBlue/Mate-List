@@ -14,6 +14,7 @@ class DetailViewController: BaseViewController {
     private let topTitleView = TopTitleView()
     private let middleView = MiddleView()
     private let bottomInputView = BottomInputView()
+    private let commentTableView = CommentTableView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +31,7 @@ class DetailViewController: BaseViewController {
         self.view.addSubview(topTitleView)
         self.view.addSubview(middleView)
         self.view.addSubview(bottomInputView)
+        self.view.addSubview(commentTableView)
     }
     
     override func setConstraint() {
@@ -43,6 +45,12 @@ class DetailViewController: BaseViewController {
             make.top.equalTo(topTitleView.snp.bottom)
             make.leading.trailing.equalToSuperview()
             make.height.equalTo(200)
+        }
+        
+        commentTableView.snp.makeConstraints { make in
+            make.top.equalTo(middleView.snp.bottom)
+            make.leading.trailing.equalToSuperview().inset(12)
+            make.bottom.equalTo(bottomInputView.snp.top).offset(-12)
         }
         
         bottomInputView.snp.makeConstraints { make in
