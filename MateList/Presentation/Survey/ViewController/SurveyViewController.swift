@@ -76,10 +76,5 @@ class SurveyViewController: UIViewController {
             make.trailing.equalTo(view.safeAreaLayoutGuide.snp.trailing)
             make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
         }
-        
-        writeButton.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
-            make.bottom.equalTo(view.layoutMarginsGuide.snp.bottom).inset(10)
-        }
     }
 }

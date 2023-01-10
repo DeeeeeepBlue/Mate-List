@@ -27,7 +27,7 @@ class MyProfileViewModel: MyProfileViewModelProtocol {
         AppDelegate.userAuth
             .map {
                 guard let data = $0 else { return Dummy.mingyu }
-                return User(uid: data.user.uid, email: data.user.email!, name: data.user.displayName!, gender: "No", age: "No", habit: HabitCheck(cleanSelect: "", smokingSelect: false, gameSelect: false, snoringSelect: false, griding_teethSelect: false, callSelect: false, eatSelect: false, curfewSelect: false, bedtimeSelect: false, mbtiSelect: ""))}
+                return User(uid: data.user.uid, email: data.user.email!, name: data.user.displayName ?? "err" , gender: "No", age: "No", habit: HabitCheck(cleanSelect: "", smokingSelect: false, gameSelect: false, snoringSelect: false, griding_teethSelect: false, callSelect: false, eatSelect: false, curfewSelect: false, bedtimeSelect: false, mbtiSelect: ""))}
             .bind(onNext: checking.onNext)
         
         _ = checking

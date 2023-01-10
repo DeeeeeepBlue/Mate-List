@@ -24,8 +24,15 @@ class DefaultHomeCoordinator: HomeCoordinator {
     }
     
     func start() {
-        
         self.navigationController.pushViewController(self.homeViewController, animated: true)
+    }
+    
+    // ⚠️ 임시
+    func startSurveyFlow(){
+        let surveyCoordinator = DefaultSurveyCoordinator(self.navigationController)
+        surveyCoordinator.finishDelegate = self
+        self.childCoordinators.append(surveyCoordinator)
+        surveyCoordinator.start()
     }
 }
 

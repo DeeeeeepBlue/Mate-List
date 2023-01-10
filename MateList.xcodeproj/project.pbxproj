@@ -104,6 +104,8 @@
 		BC1900AA296550CC00A65F1E /* SurveyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1900A0296550CC00A65F1E /* SurveyViewController.swift */; };
 		BC1900AC296550F200A65F1E /* TabBarPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1900AB296550F200A65F1E /* TabBarPage.swift */; };
 		BC2B9A0529430F2B0040DE46 /* SampleRepositoryInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2B9A0429430F2B0040DE46 /* SampleRepositoryInterface.swift */; };
+		BC2F8410296BFC6B004F6203 /* SurveyCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2F840F296BFC6B004F6203 /* SurveyCoordinator.swift */; };
+		BC2F8413296BFCA4004F6203 /* DefaultSurveyCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2F8412296BFCA4004F6203 /* DefaultSurveyCoordinator.swift */; };
 		BC9A4925295025FC00E1D9C8 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC9A4924295025FC00E1D9C8 /* HomeCoordinator.swift */; };
 		BCD6AB2F294EC42600FC27AD /* CoordinatorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD6AB2E294EC42600FC27AD /* CoordinatorType.swift */; };
 		BCD6AB38294F1E6400FC27AD /* DefaultHomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD6AB37294F1E6400FC27AD /* DefaultHomeCoordinator.swift */; };
@@ -218,6 +220,8 @@
 		BC1900A0296550CC00A65F1E /* SurveyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SurveyViewController.swift; sourceTree = "<group>"; };
 		BC1900AB296550F200A65F1E /* TabBarPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarPage.swift; sourceTree = "<group>"; };
 		BC2B9A0429430F2B0040DE46 /* SampleRepositoryInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleRepositoryInterface.swift; sourceTree = "<group>"; };
+		BC2F840F296BFC6B004F6203 /* SurveyCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyCoordinator.swift; sourceTree = "<group>"; };
+		BC2F8412296BFCA4004F6203 /* DefaultSurveyCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultSurveyCoordinator.swift; sourceTree = "<group>"; };
 		BC9A4924295025FC00E1D9C8 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
 		BCD6AB2E294EC42600FC27AD /* CoordinatorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorType.swift; sourceTree = "<group>"; };
 		BCD6AB37294F1E6400FC27AD /* DefaultHomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultHomeCoordinator.swift; sourceTree = "<group>"; };
@@ -723,6 +727,8 @@
 		BC190094296550CC00A65F1E /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
+				BC2F8412296BFCA4004F6203 /* DefaultSurveyCoordinator.swift */,
+				BC2F8411296BFC89004F6203 /* Protocol */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -800,6 +806,14 @@
 				BC2B9A0429430F2B0040DE46 /* SampleRepositoryInterface.swift */,
 			);
 			path = "Repository+Interface";
+			sourceTree = "<group>";
+		};
+		BC2F8411296BFC89004F6203 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				BC2F840F296BFC6B004F6203 /* SurveyCoordinator.swift */,
+			);
+			path = Protocol;
 			sourceTree = "<group>";
 		};
 		BC9A4923295025EE00E1D9C8 /* Protocol */ = {
@@ -1063,6 +1077,7 @@
 				049231CC29487AB70084903D /* HomeViewController.swift in Sources */,
 				046F1A7D29515C7500B28371 /* IDFirestoreRepository.swift in Sources */,
 				040AA09927BECE16008F4BF5 /* Comment.swift in Sources */,
+				BC2F8410296BFC6B004F6203 /* SurveyCoordinator.swift in Sources */,
 				040AA09727BECDDD008F4BF5 /* HabitCheck.swift in Sources */,
 				046F1A8A2951CEE800B28371 /* IDFirestoreUseCase.swift in Sources */,
 				043912BE2961F06E0005597F /* MyProfileUseCase.swift in Sources */,
@@ -1111,6 +1126,7 @@
 				049231C429485DB50084903D /* HomeTableView.swift in Sources */,
 				046F1A832951A51D00B28371 /* HomeCellViewModel.swift in Sources */,
 				04BB243727ACED960003DA33 /* InfoViewController.swift in Sources */,
+				BC2F8413296BFCA4004F6203 /* DefaultSurveyCoordinator.swift in Sources */,
 				0458E3F0295EF76B002C1A4A /* SurveyButton.swift in Sources */,
 				BC9A4925295025FC00E1D9C8 /* HomeCoordinator.swift in Sources */,
 				BC19004C29654E0400A65F1E /* AppCoordinator.swift in Sources */,
