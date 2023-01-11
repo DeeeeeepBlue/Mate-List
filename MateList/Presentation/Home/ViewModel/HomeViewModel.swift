@@ -11,6 +11,7 @@ import RxSwift
 import RxCocoa
 
 class HomeViewModel {
+    
     let disposeBag = DisposeBag()
     private weak var coordinator: HomeCoordinator?
     private let homeUseCase: HomeDefaultUseCaseProtocol
@@ -42,9 +43,10 @@ class HomeViewModel {
             .disposed(by: disposeBag)
         
         input.cellTapEvent
-            .subscribe { indexPath in
-                self.coordinator?.showDetailFlow()
-            }
+            .subscribe(onNext: { indexPath in
+                let post = self.homeUseCase.items[indexPath.row]
+                self.coordinator?.showDetailFlow(postData: post)
+            })
             .disposed(by: disposeBag)
     }
     

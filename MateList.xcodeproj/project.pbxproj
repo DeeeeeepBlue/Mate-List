@@ -27,6 +27,7 @@
 		042D646F29685A5F005A8FC4 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042D646E29685A5F005A8FC4 /* InputView.swift */; };
 		042D647129685A6A005A8FC4 /* ReportButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042D647029685A6A005A8FC4 /* ReportButton.swift */; };
 		042D647329685A74005A8FC4 /* DeleteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042D647229685A74005A8FC4 /* DeleteButton.swift */; };
+		04383B51296D419300C20294 /* DefaultDetailUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04383B50296D419300C20294 /* DefaultDetailUseCase.swift */; };
 		043912BC2961F04F0005597F /* SettingRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043912BB2961F04F0005597F /* SettingRepository.swift */; };
 		043912BE2961F06E0005597F /* MyProfileUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043912BD2961F06E0005597F /* MyProfileUseCase.swift */; };
 		043912C12961FD220005597F /* SettingRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043912C02961FD220005597F /* SettingRepositoryProtocol.swift */; };
@@ -166,6 +167,7 @@
 		042D646E29685A5F005A8FC4 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		042D647029685A6A005A8FC4 /* ReportButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportButton.swift; sourceTree = "<group>"; };
 		042D647229685A74005A8FC4 /* DeleteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteButton.swift; sourceTree = "<group>"; };
+		04383B50296D419300C20294 /* DefaultDetailUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultDetailUseCase.swift; sourceTree = "<group>"; };
 		043912BB2961F04F0005597F /* SettingRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingRepository.swift; sourceTree = "<group>"; };
 		043912BD2961F06E0005597F /* MyProfileUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileUseCase.swift; sourceTree = "<group>"; };
 		043912C02961FD220005597F /* SettingRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingRepositoryProtocol.swift; sourceTree = "<group>"; };
@@ -387,6 +389,14 @@
 				042D646529681E81005A8FC4 /* DetailCoordinator.swift */,
 			);
 			path = Protocol;
+			sourceTree = "<group>";
+		};
+		04383B4F296D417700C20294 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				04383B50296D419300C20294 /* DefaultDetailUseCase.swift */,
+			);
+			path = Detail;
 			sourceTree = "<group>";
 		};
 		043912B92961F0250005597F /* Setting */ = {
@@ -856,6 +866,7 @@
 		BC2B99F629430D210040DE46 /* UseCase */ = {
 			isa = PBXGroup;
 			children = (
+				04383B4F296D417700C20294 /* Detail */,
 				043912B92961F0250005597F /* Setting */,
 				04AD0F1A294E65D000F141B9 /* Protocol */,
 				046F1A882951CEC800B28371 /* Common */,
@@ -1151,6 +1162,7 @@
 				BC1900A4296550CC00A65F1E /* SurveyTableView.swift in Sources */,
 				0458E3E1295AEC92002C1A4A /* NickNameView.swift in Sources */,
 				0488BB26296D08DC0013AB75 /* CommentCellViewModel.swift in Sources */,
+				04383B51296D419300C20294 /* DefaultDetailUseCase.swift in Sources */,
 				042D646929685A39005A8FC4 /* TopTitleView.swift in Sources */,
 				BC1900A6296550CC00A65F1E /* SurveyTableViewCell.swift in Sources */,
 				BC1900A8296550CC00A65F1E /* SurveyViewCell.swift in Sources */,

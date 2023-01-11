@@ -9,5 +9,5 @@ import Foundation
 
 protocol HomeCoordinator: Coordinator {
     var homeViewController: HomeViewController { get set }
-    func showDetailFlow()
+    func showDetailFlow(postData: Post?)
 }

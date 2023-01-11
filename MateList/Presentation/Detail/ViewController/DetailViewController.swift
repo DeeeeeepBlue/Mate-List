@@ -11,6 +11,8 @@ import SnapKit
 
 class DetailViewController: BaseViewController {
     //MARK: - Properties
+    var viewModel: DetailViewModel?
+    
     private let topTitleView = TopTitleView()
     private let middleView = MiddleView()
     private let bottomInputView = BottomInputView()

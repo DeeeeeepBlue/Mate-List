@@ -17,6 +17,7 @@ class HomeDefaultUseCase: HomeDefaultUseCaseProtocol {
     let firestoreRepository : DefaultFirestoreRepository
 
     var allPosts = BehaviorSubject<[Post]>(value: [])
+    var items: [Post] = []
     
     init(firestoreRepository: DefaultFirestoreRepository) {
         self.firestoreRepository = firestoreRepository
@@ -35,7 +36,6 @@ class HomeDefaultUseCase: HomeDefaultUseCaseProtocol {
         
         return Observable.create { observer in
             let data = self.firestoreRepository.fetchPost()
-            var items: [Post] = []
             data
                 .subscribe(onNext: { data in
                     pid = data["pid"] as? String ?? "noPid"
@@ -47,8 +47,8 @@ class HomeDefaultUseCase: HomeDefaultUseCaseProtocol {
                     isScrap = data["isScrap"] as? Bool ?? false
                     findMate = data["findMate"] as? Bool ?? false
                     
-                    items.append(Post(pid: pid, uid: uid, title: title, contents: contents, date: date, isScrap: isScrap, findMate: findMate))
-                    observer.onNext(items)
+                    self.items.append(Post(pid: pid, uid: uid, title: title, contents: contents, date: date, isScrap: isScrap, findMate: findMate))
+                    observer.onNext(self.items)
                 })
                 .disposed(by: self.disposeBag)
             return Disposables.create()

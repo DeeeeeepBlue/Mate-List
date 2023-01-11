@@ -31,11 +31,11 @@ class DefaultHomeCoordinator: HomeCoordinator {
         self.navigationController.pushViewController(self.homeViewController, animated: true)
     }
     
-    func showDetailFlow() {
+    func showDetailFlow(postData: Post?) {
         let detailCoordinator = DefaultDetailCoordinator(self.navigationController)
         detailCoordinator.finishDelegate = self
         self.childCoordinators.append(detailCoordinator)
-        detailCoordinator.start()
+        detailCoordinator.start(with: postData)
     }
     
 }

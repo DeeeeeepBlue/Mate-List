@@ -8,5 +8,6 @@
 import Foundation
 
 protocol DetailCoordinator: Coordinator {
-    var detailViewController: DetailViewController { get }
+    func start(with postData: Post?)
+
 }

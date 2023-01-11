@@ -6,3 +6,12 @@
 //
 
 import Foundation
+
+class DetailViewModel {
+    
+    private let detailUseCase: DefaultDetailUseCase
+    
+    init(detailUseCase: DefaultDetailUseCase) {
+        self.detailUseCase = detailUseCase
+    }
+}
