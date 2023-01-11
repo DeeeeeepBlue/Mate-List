@@ -26,8 +26,4 @@ final class SignOutButton: BaseView {
             make.top.trailing.leading.bottom.equalToSuperview().inset(12)
         }
     }
-    
-    override func bind() {
-        print()
-    }
 }

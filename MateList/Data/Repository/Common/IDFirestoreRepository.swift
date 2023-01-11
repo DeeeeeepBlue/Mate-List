@@ -123,8 +123,6 @@ class IDFirestoreRepository: IDFirestore {
                             let data = document.data()
                             let name = data["NickName"]
                             observer.onNext(name as! String)
-                        } else {
-                            print("현재 유저가 없음")
                         }
                     }
                 }
@@ -156,8 +154,6 @@ class IDFirestoreRepository: IDFirestore {
                         print("Error when trying to encode book: \(error)")
                     }
 
-                } else {
-                    print("Document does not exist")
                 }
             }
             return Disposables.create()

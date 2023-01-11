@@ -45,8 +45,4 @@ final class SignInButtonView: BaseView {
             make.height.equalTo(30)
         }
     }
-    
-    override func bind() {
-        print()
-    }
 }
