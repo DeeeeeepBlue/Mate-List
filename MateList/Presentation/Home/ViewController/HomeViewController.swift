@@ -43,13 +43,11 @@ class HomeViewController: UIViewController {
     func setBind() {
         let firstLoad = rx.viewWillAppear
             .map { _ in () }
+            .asObservable()
         
-        let reload = homeTableView.refreshControl?.rx
-            .controlEvent(.valueChanged)
-            .map{ _ in } ?? Observable.just(())
         
         let input = HomeViewModel.Input(
-            appear: Observable.merge([firstLoad, reload]).asObservable(),
+            appear: firstLoad,
             cellTapEvent: homeTableView.rx.itemSelected.asObservable()
         )
         

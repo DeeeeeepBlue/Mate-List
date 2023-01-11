@@ -13,7 +13,7 @@ import RxSwift
 // MARK: - Private
 
 class HomeDefaultUseCase: HomeDefaultUseCaseProtocol {
-    let disposeBag: DisposeBag = DisposeBag()
+    var disposeBag: DisposeBag = DisposeBag()
     let firestoreRepository : DefaultFirestoreRepository
 
     var allPosts = BehaviorSubject<[Post]>(value: [])
@@ -34,6 +34,8 @@ class HomeDefaultUseCase: HomeDefaultUseCaseProtocol {
         var isScrap: Bool = false
         var findMate: Bool = false
         
+        itemsClear()
+        
         return Observable.create { observer in
             let data = self.firestoreRepository.fetchPost()
             data
@@ -53,5 +55,9 @@ class HomeDefaultUseCase: HomeDefaultUseCaseProtocol {
                 .disposed(by: self.disposeBag)
             return Disposables.create()
         }
+    }
+    
+    func itemsClear() {
+        items = []
     }
 }
