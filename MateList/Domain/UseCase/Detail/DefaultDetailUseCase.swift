@@ -10,17 +10,27 @@ import Foundation
 import RxSwift
 
 class DefaultDetailUseCase {
+    var disposeBag = DisposeBag()
+    private var post: Post
     
-    var post: Post
-    var detailData = BehaviorSubject<Post>(value: Dummy.dummyPost)
+    
+    var userName = PublishSubject<String>()
     
     init(post: Post) {
         self.post = post
-        printPost()
+    }
+
+    func fetchUserName() -> Observable<String>{
+        let userUID = self.post.uid
+        let userName = IDFirestoreRepository.userName(uid: userUID)
+        return userName
     }
     
-    func printPost() {
-        print(post)
+    func fetchPostData() -> Observable<Post> {
+        return Observable.create { observer in
+            observer.onNext(self.post)
+            
+            return Disposables.create()
+        }
     }
-    
 }

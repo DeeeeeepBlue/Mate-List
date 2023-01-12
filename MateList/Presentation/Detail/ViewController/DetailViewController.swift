@@ -8,10 +8,13 @@
 import UIKit
 
 import SnapKit
+import RxViewController
+import RxSwift
 
 class DetailViewController: BaseViewController {
     //MARK: - Properties
     var viewModel: DetailViewModel?
+    var disposeBag = DisposeBag()
     
     private let topTitleView = TopTitleView()
     private let middleView = MiddleView()
@@ -63,7 +66,35 @@ class DetailViewController: BaseViewController {
     }
     
     override func setBind() {
+        let firstLoad = rx.viewWillAppear
+            .map { _ in () }
+            .asObservable()
+        
+        let input = DetailViewModel.Input(
+            appear: firstLoad
+        )
+        
+        let output = self.viewModel?.transform(from: input)
+        
+        self.bindView(output: output)
+    }
+    
+    func bindView(output: DetailViewModel.Output?) {
+        output?.userText
+            .bind(to: topTitleView.userLabel.rx.text)
+            .disposed(by: disposeBag)
+        
+        output?.contentsText
+            .bind(to: middleView.contentTextField.rx.text)
+            .disposed(by: disposeBag)
+        
+        output?.dateText
+            .bind(to: middleView.dateLabel.rx.text)
+            .disposed(by: disposeBag)
+        
+        output?.titleText
+            .bind(to: topTitleView.titleLabel.rx.text)
+            .disposed(by: disposeBag)
         
     }
-
 }
