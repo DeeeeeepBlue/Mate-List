@@ -31,7 +31,7 @@ class DefaultDetailCoordinator: DetailCoordinator {
     }
     
     func createUseCase(with postData: Post) -> DefaultDetailUseCase {
-        return DefaultDetailUseCase(post: postData)
+        return DefaultDetailUseCase(post: postData, detailRepository: DetailRepository())
     }
 }
 

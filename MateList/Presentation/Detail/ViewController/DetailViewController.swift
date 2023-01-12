@@ -96,5 +96,11 @@ class DetailViewController: BaseViewController {
             .bind(to: topTitleView.titleLabel.rx.text)
             .disposed(by: disposeBag)
         
+        output?.allComments
+            .bind(to: commentTableView.rx.items(cellIdentifier: CommentCell.cellIdentifier, cellType: CommentCell.self)){
+                _, comment, cell in
+                cell.updateUI(comment: comment)
+            }
+            .disposed(by: disposeBag)
     }
 }

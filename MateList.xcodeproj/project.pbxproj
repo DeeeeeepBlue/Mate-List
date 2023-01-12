@@ -86,6 +86,7 @@
 		049231CA29487AA10084903D /* WriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049231C929487AA10084903D /* WriteButton.swift */; };
 		049231CC29487AB70084903D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049231CB29487AB70084903D /* HomeViewController.swift */; };
 		04BB243727ACED960003DA33 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BB243627ACED960003DA33 /* InfoViewController.swift */; };
+		04D1B3DF2970580B00C265DB /* DetailRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D1B3DE2970580B00C265DB /* DetailRepository.swift */; };
 		3F2245BE27D62763002F29FE /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2245BD27D62763002F29FE /* UIColor.swift */; };
 		3FB23A5E27D79D3E00B8D071 /* FindMateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB23A5D27D79D3E00B8D071 /* FindMateTableViewCell.swift */; };
 		3FCF3B4E27F888EC008771B8 /* KeychainItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCF3B4D27F888EC008771B8 /* KeychainItem.swift */; };
@@ -214,6 +215,7 @@
 		049231C929487AA10084903D /* WriteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteButton.swift; sourceTree = "<group>"; };
 		049231CB29487AB70084903D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		04BB243627ACED960003DA33 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
+		04D1B3DE2970580B00C265DB /* DetailRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRepository.swift; sourceTree = "<group>"; };
 		3F2245BD27D62763002F29FE /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		3FB23A5D27D79D3E00B8D071 /* FindMateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindMateTableViewCell.swift; sourceTree = "<group>"; };
 		3FCF3B4927F88552008771B8 /* MateList.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MateList.entitlements; sourceTree = "<group>"; };
@@ -697,6 +699,14 @@
 			path = Protocol;
 			sourceTree = "<group>";
 		};
+		04D1B3DD297057F500C265DB /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				04D1B3DE2970580B00C265DB /* DetailRepository.swift */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
 		3FCF3B4C27F888C5008771B8 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -856,6 +866,7 @@
 		BC2B99F429430D090040DE46 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
+				04D1B3DD297057F500C265DB /* Detail */,
 				043912BA2961F0310005597F /* Setting */,
 				046F1A6F294F39BA00B28371 /* Home */,
 				046F1A6E294F39B400B28371 /* Common */,
@@ -1140,6 +1151,7 @@
 				BCD6AB38294F1E6400FC27AD /* DefaultHomeCoordinator.swift in Sources */,
 				BC1900A1296550CC00A65F1E /* ServeyInputViewController.swift in Sources */,
 				042D647129685A6A005A8FC4 /* ReportButton.swift in Sources */,
+				04D1B3DF2970580B00C265DB /* DetailRepository.swift in Sources */,
 				042D64612966A425005A8FC4 /* CommentCell.swift in Sources */,
 				046F1A872951A70E00B28371 /* HomeCellUseCaseProtocol.swift in Sources */,
 				0458E3FA2960809D002C1A4A /* MyProfileViewModel.swift in Sources */,

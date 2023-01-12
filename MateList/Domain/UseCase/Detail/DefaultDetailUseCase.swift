@@ -12,12 +12,41 @@ import RxSwift
 class DefaultDetailUseCase {
     var disposeBag = DisposeBag()
     private var post: Post
+    var detailRepository: DetailRepository
     
-    
+    var allComments = BehaviorSubject<[Comment]>(value: [])
     var userName = PublishSubject<String>()
+    var commentsItems: [Comment] = []
     
-    init(post: Post) {
+    init(post: Post, detailRepository: DetailRepository) {
         self.post = post
+        self.detailRepository = detailRepository
+    }
+    
+    func fetchComments(pid: String) -> Observable<[Comment]> {
+        var uid: String = "initID"
+        var cid: String = "initCID"
+        var contents: String = "initContents"
+        var date: String = "initDate"
+    
+        return Observable.create { observer in
+            self.detailRepository.fetchComments(pid: pid)
+                .subscribe(onNext: { data in
+                    cid = data["cid"] as? String ?? "noCID"
+                    uid = data["uid"] as? String ?? "noID"
+                    //TODO: Reply -> Contents로 수정하는게 어떨까
+                    contents = data["reply"] as? String ?? "noContent"
+                    date = data["date"] as? String ?? "noDate"
+                    
+                    
+                    self.commentsItems.append(Comment(uid: uid, pid: pid, cid: cid, contents: contents, date: date))
+                    print(self.commentsItems)
+                    observer.onNext(self.commentsItems)
+                })
+                .disposed(by: self.disposeBag)
+
+            return Disposables.create()
+        }
     }
 
     func fetchUserName() -> Observable<String>{
@@ -32,5 +61,9 @@ class DefaultDetailUseCase {
             
             return Disposables.create()
         }
+    }
+    
+    func pid() -> String {
+        return post.pid
     }
 }

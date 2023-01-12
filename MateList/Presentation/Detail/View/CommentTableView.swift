@@ -15,6 +15,7 @@ final class CommentTableView: UITableView {
     override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: style)
         self.configureUI()
+        self.delegate = self
     }
     
     required init?(coder: NSCoder) {
@@ -23,6 +24,12 @@ final class CommentTableView: UITableView {
     }
 
     func configureUI(){
-        self.register(HomeCell.self, forCellReuseIdentifier: CommentCell.cellIdentifier)
+        self.register(CommentCell.self, forCellReuseIdentifier: CommentCell.cellIdentifier)
+    }
+}
+
+extension CommentTableView: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
     }
 }

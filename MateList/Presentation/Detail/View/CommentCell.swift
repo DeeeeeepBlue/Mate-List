@@ -8,11 +8,15 @@
 import UIKit
 
 import SnapKit
+import RxSwift
 
 class CommentCell: UITableViewCell {
     //MARK: - Properties
+    var disposeBag = DisposeBag()
     var viewModel: CommentCellViewModel
     static var cellIdentifier = "thisIsDetail"
+    
+    private(set) lazy var baseView: UIView = UIView()
     
     private(set) lazy var topContainer = UIView()
     private(set) lazy var userLabel = self.createLabel(size: 14)
@@ -28,7 +32,7 @@ class CommentCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.configureUI()
         self.bind()
-
+        
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -41,14 +45,19 @@ class CommentCell: UITableViewCell {
 //MARK: - Configure UI
 extension CommentCell {
     func configureUI() {
-        self.addSubview(topContainer)
+        self.addSubview(baseView)
+        
+        baseView.snp.makeConstraints { make in
+            make.top.leading.trailing.bottom.equalToSuperview()
+        }
+        
+        self.baseView.addSubview(topContainer)
+        self.baseView.addSubview(contentsLabel)
+        self.baseView.addSubview(dateLabel)
+        
         topContainer.addSubview(userLabel)
         topContainer.addSubview(deleteButton)
         topContainer.addSubview(reportButton)
-        
-        self.addSubview(contentsLabel)
-        self.addSubview(dateLabel)
-        
         
         userLabel.snp.makeConstraints { make in
             make.top.leading.equalToSuperview().inset(12)
@@ -71,20 +80,44 @@ extension CommentCell {
         contentsLabel.snp.makeConstraints { make in
             make.top.equalTo(topContainer.snp.bottom)
             make.trailing.leading.equalToSuperview().inset(12)
-            make.height.equalTo(60)
+            make.height.equalTo(20)
         }
         
         dateLabel.snp.makeConstraints { make in
-            make.top.equalTo(contentsLabel.snp.bottom).inset(12)
+            make.top.equalTo(contentsLabel.snp.bottom).offset(12)
             make.trailing.leading.equalToSuperview().inset(12)
         }
       
+    }
+}
+//MARK: - UpdateUI
+extension CommentCell {
+    func updateUI(comment: Comment) {
+        viewModel.comment
+            .onNext(comment)
     }
 }
 
 //MARK: - Bind
 extension CommentCell {
     func bind() {
+        viewModel.user
+            .bind(to: self.userLabel.rx.text)
+            .disposed(by: disposeBag)
         
+        viewModel.date
+            .bind(to: self.dateLabel.rx.text)
+            .disposed(by: disposeBag)
+        
+        viewModel.contents
+            .bind(to: self.contentsLabel.rx.text)
+            .disposed(by: disposeBag)
+    }
+}
+//MARK: - Override
+extension CommentCell {
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+        selectionStyle = .none
     }
 }

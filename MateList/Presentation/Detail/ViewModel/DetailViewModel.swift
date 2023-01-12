@@ -22,6 +22,8 @@ class DetailViewModel {
     }
     
     struct Output {
+        var allComments = BehaviorSubject<[Comment]>(value: [])
+        
         var userText = BehaviorSubject<String>(value: "작성자")
         var titleText = BehaviorSubject<String>(value: "제목")
         var contentsText = BehaviorSubject<String>(value: "내용")
@@ -38,6 +40,16 @@ class DetailViewModel {
             .flatMap(detailUseCase.fetchUserName)
             .subscribe(onNext: self.detailUseCase.userName.onNext)
             .disposed(by: disposeBag)
+        
+        input.appear
+            .flatMap { _ in
+                let pid = self.detailUseCase.pid()
+                return self.detailUseCase.fetchComments(pid: pid)
+            }
+            .subscribe(onNext: self.detailUseCase.allComments.onNext)
+            .disposed(by: disposeBag)
+            
+        
         
     }
     
@@ -57,6 +69,8 @@ class DetailViewModel {
                 output.contentsText.onNext(post.contents)
             })
             .disposed(by: disposeBag)
+        
+        output.allComments = self.detailUseCase.allComments
         
         return output
     }
