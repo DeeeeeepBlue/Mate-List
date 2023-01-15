@@ -20,7 +20,8 @@ class DetailViewController: BaseViewController {
     private let middleView = MiddleView()
     private let bottomInputView = BottomInputView()
     private let commentTableView = CommentTableView()
-
+    private let scrapButton = ScrapButton()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -37,6 +38,7 @@ class DetailViewController: BaseViewController {
         self.view.addSubview(middleView)
         self.view.addSubview(bottomInputView)
         self.view.addSubview(commentTableView)
+        self.navigationItem.rightBarButtonItem = scrapButton.barButton()
     }
     
     override func setConstraint() {

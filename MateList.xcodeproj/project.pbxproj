@@ -13,6 +13,7 @@
 		040AA09727BECDDD008F4BF5 /* HabitCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040AA09627BECDDD008F4BF5 /* HabitCheck.swift */; };
 		040AA09927BECE16008F4BF5 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040AA09827BECE16008F4BF5 /* Comment.swift */; };
 		040C118328F16D380012160E /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040C118228F16D380012160E /* Auth.swift */; };
+		040CA11829743D60006444F7 /* ScrapButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040CA11729743D60006444F7 /* ScrapButton.swift */; };
 		042D64372964AD6A005A8FC4 /* SurveyButtonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042D64362964AD6A005A8FC4 /* SurveyButtonViewModel.swift */; };
 		042D643D2964AD8F005A8FC4 /* QuitButtonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042D643C2964AD8F005A8FC4 /* QuitButtonViewModel.swift */; };
 		042D64402964B4E0005A8FC4 /* RxGesture in Frameworks */ = {isa = PBXBuildFile; productRef = 042D643F2964B4E0005A8FC4 /* RxGesture */; };
@@ -154,6 +155,7 @@
 		040AA09627BECDDD008F4BF5 /* HabitCheck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitCheck.swift; sourceTree = "<group>"; };
 		040AA09827BECE16008F4BF5 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		040C118228F16D380012160E /* Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Auth.swift; sourceTree = "<group>"; };
+		040CA11729743D60006444F7 /* ScrapButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrapButton.swift; sourceTree = "<group>"; };
 		042D64362964AD6A005A8FC4 /* SurveyButtonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyButtonViewModel.swift; sourceTree = "<group>"; };
 		042D643C2964AD8F005A8FC4 /* QuitButtonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitButtonViewModel.swift; sourceTree = "<group>"; };
 		042D64592966A3B9005A8FC4 /* DefaultDetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultDetailCoordinator.swift; sourceTree = "<group>"; };
@@ -364,6 +366,7 @@
 				042D647029685A6A005A8FC4 /* ReportButton.swift */,
 				042D647229685A74005A8FC4 /* DeleteButton.swift */,
 				0488BB23296C7C820013AB75 /* HabitCheckButton.swift */,
+				040CA11729743D60006444F7 /* ScrapButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1148,6 +1151,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0407C0AE28A66642006AFA59 /* GlobalFunctions.swift in Sources */,
+				040CA11829743D60006444F7 /* ScrapButton.swift in Sources */,
 				BCD6AB38294F1E6400FC27AD /* DefaultHomeCoordinator.swift in Sources */,
 				BC1900A1296550CC00A65F1E /* ServeyInputViewController.swift in Sources */,
 				042D647129685A6A005A8FC4 /* ReportButton.swift in Sources */,
