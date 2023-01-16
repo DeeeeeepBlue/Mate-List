@@ -11,7 +11,7 @@ import SnapKit
 
 class SurveyTableViewCell: UITableViewCell {
     
-    var viewModel: HomeCellViewModel
+    var viewModel: SurveyCellViewModel
     var disposeBag = DisposeBag()
     
     // MARK: - Properties
@@ -24,7 +24,7 @@ class SurveyTableViewCell: UITableViewCell {
     
     // MARK: - Init
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        self.viewModel = HomeCellViewModel()
+        self.viewModel = SurveyCellViewModel()
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.configureUI()
         self.bind()
@@ -32,7 +32,7 @@ class SurveyTableViewCell: UITableViewCell {
     }
 
     required init?(coder aDecoder: NSCoder) {
-        self.viewModel = HomeCellViewModel()
+        self.viewModel = SurveyCellViewModel()
         super.init(coder: aDecoder)
         self.configureUI()
     }
@@ -47,17 +47,17 @@ extension SurveyTableViewCell {
 
 //MARK: - ConfigureUI
 extension SurveyTableViewCell {
-    func updateUI(post: Post) {
+    func updateUI(question: String) {
 //        // ViewModel에 post 넘기기
-//        viewModel.post
-//            .onNext(post)
+        viewModel.question
+            .onNext(question)
     }
     
     private func bind() {
 
-//        viewModel.matchPercent
-//            .bind(to: self.matchPercentLabel.rx.text)
-//            .disposed(by: disposeBag)
+        viewModel.question
+            .bind(to: self.question.rx.text)
+            .disposed(by: disposeBag)
 //
 //        viewModel.title
 //            .bind(to: self.titleLabel.rx.text)

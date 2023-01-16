@@ -17,12 +17,13 @@ import SnapKit
 
 class SurveyViewController: UIViewController {
 
+    // UI
     private let surveyTableView = SurveyTableView()
-    private let writeButton = WriteButton()
-    // TODO: Coordinator에서 인스턴스화하는 방법으로 고치기
-    var viewModel: HomeViewModelType = HomeViewModel(homeUseCase: HomeDefaultUseCase(firestoreRepository: DefaultFirestoreRepository()))
     
+    // ViewModel: Coordinator에서 인스턴스화하는 방법으로 고치기
+    var viewModel: SurveyViewModel = SurveyViewModel()
     
+    // Rx
     private let disposeBag = DisposeBag()
 
     
@@ -35,8 +36,8 @@ class SurveyViewController: UIViewController {
     }
     
     func setStyle() {
-        self.view.backgroundColor = .white
-        navigationController?.title = "Mate List"
+        self.view.backgroundColor = .systemBackground
+//        navigationController?.title = "Mate List"
     
         // 네비게이션 뒤에 안보이게
         let navigationBarAppearance = UINavigationBarAppearance()
@@ -57,12 +58,12 @@ class SurveyViewController: UIViewController {
 //            .bind(to: viewModel.appear )
 //            .disposed(by: disposeBag)
 //
-//        viewModel.allPosts
-//            .bind(to: homeTableView.rx.items(cellIdentifier: HomeCell.cellIdentifier, cellType: HomeCell.self)){
-//                _, post, cell in
-//                cell.updateUI(post: post)
-//            }
-//            .disposed(by: disposeBag)
+        viewModel.questions
+            .bind(to: surveyTableView.rx.items(cellIdentifier: SurveyTableViewCell.cellIdentifier, cellType: SurveyTableViewCell.self)){
+                _, question, cell in
+                cell.updateUI(question: question.toKrQuestion())
+            }
+            .disposed(by: disposeBag)
     }
     
     func setView() {
