@@ -12,7 +12,7 @@
         <!--MATE LIST-->
         <scene sceneID="R5B-ta-fRD">
             <objects>
-                <viewController id="eVG-3V-8vd" customClass="HomeViewController" customModule="MateList" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="eVG-3V-8vd" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" title="MATE LIST" id="yGT-Vx-z1k"/>
                     <connections>
                         <segue destination="Qcz-m6-JZR" kind="show" identifier="writeSegue" id="TRr-L9-y5A"/>

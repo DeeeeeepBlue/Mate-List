@@ -57,8 +57,4 @@ final class MyProfileView: BaseView {
             make.trailing.equalToSuperview().offset(-12)
         }
     }
-    
-    override func bind() {
-        print()
-    }
 }

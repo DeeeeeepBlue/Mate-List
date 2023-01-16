@@ -15,6 +15,7 @@ protocol QuitButtonViewModelProtocol {
 class QuitButtonViewModel: QuitButtonViewModelProtocol {
     private let disposeBag = DisposeBag()
     private let idRepository = IDFirestoreRepository()
+    private let settingRepository = SettingRepository()
     var tapButton: AnyObserver<Void>
     
     
@@ -38,7 +39,10 @@ class QuitButtonViewModel: QuitButtonViewModelProtocol {
                 self.idRepository.deleteAllPost(uid: uid)
                 self.idRepository.deleteAllScrap(uid: uid)
                 self.idRepository.deleteUser(uid: uid)
+                
+                self.settingRepository.authSignOut()
             })
+            .disposed(by: disposeBag)
                        
         
     }

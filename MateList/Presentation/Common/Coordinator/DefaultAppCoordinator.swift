@@ -17,6 +17,7 @@ class DefaultAppCoordinator: AppCoordinator {
     
     required init(_ navigationController: UINavigationController) {
         self.navigationController = navigationController
+        navigationController.setNavigationBarHidden(true, animated: true)
         self.childCoordinators = []
         self.type = CoordinatorType.home
     }

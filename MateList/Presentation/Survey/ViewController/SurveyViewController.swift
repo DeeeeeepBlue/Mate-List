@@ -19,7 +19,7 @@ class SurveyViewController: UIViewController {
 
     // UI
     private let surveyTableView = SurveyTableView()
-    
+
     // ViewModel: Coordinator에서 인스턴스화하는 방법으로 고치기
     var viewModel: SurveyViewModel = SurveyViewModel()
     

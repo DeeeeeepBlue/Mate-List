@@ -24,8 +24,4 @@ final class QuestionButton: BaseView {
             make.top.trailing.leading.bottom.equalToSuperview().inset(12)
         }
     }
-    
-    override func bind() {
-        print()
-    }
 }
