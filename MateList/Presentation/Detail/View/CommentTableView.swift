@@ -1,8 +1,8 @@
 //
-//  HomeView.swift
+//  CommentTableView.swift
 //  MateList
 //
-//  Created by 강민규 on 2022/12/13.
+//  Created by 강민규 on 2023/01/06.
 //
 
 import UIKit
@@ -10,11 +10,12 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-final class HomeTableView: UITableView {
+final class CommentTableView: UITableView {
     
     override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: style)
         self.configureUI()
+        self.delegate = self
     }
     
     required init?(coder: NSCoder) {
@@ -23,11 +24,12 @@ final class HomeTableView: UITableView {
     }
 
     func configureUI(){
-        self.register(HomeCell.self, forCellReuseIdentifier: HomeCell.cellIdentifier)
+        self.register(CommentCell.self, forCellReuseIdentifier: CommentCell.cellIdentifier)
     }
 }
-extension HomeTableView: UITableViewDelegate {
+
+extension CommentTableView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 120
+        return 100
     }
 }

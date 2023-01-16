@@ -20,13 +20,24 @@ class DefaultHomeCoordinator: HomeCoordinator {
         self.navigationController = navigationController
         self.homeViewController = HomeViewController()
         // Usecase 주입
-        homeViewController.viewModel = HomeViewModel(homeUseCase: HomeDefaultUseCase(firestoreRepository: DefaultFirestoreRepository()))
+        homeViewController.viewModel = HomeViewModel(coordinator: self,
+                                                     homeUseCase: HomeDefaultUseCase(
+                                                        firestoreRepository: DefaultFirestoreRepository()
+                                                        )
+                                                    )
     }
     
     func start() {
-        
         self.navigationController.pushViewController(self.homeViewController, animated: true)
     }
+    
+    func showDetailFlow(postData: Post?) {
+        let detailCoordinator = DefaultDetailCoordinator(self.navigationController)
+        detailCoordinator.finishDelegate = self
+        self.childCoordinators.append(detailCoordinator)
+        detailCoordinator.start(with: postData)
+    }
+    
 }
 
 extension DefaultHomeCoordinator: CoordinatorFinishDelegate {

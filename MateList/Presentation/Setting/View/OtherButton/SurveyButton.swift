@@ -27,9 +27,5 @@ final class SurveyButton: BaseView {
         }
         
     }
-    
-    override func bind() {
-        print()
-    }
 }
 

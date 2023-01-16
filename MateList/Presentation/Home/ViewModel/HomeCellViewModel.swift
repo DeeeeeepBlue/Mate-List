@@ -50,7 +50,6 @@ class HomeCellViewModel: HomeCellViewModelProtocol {
                 return HomeCellUseCase.calculatingFit(mySurvey: myHabit, otherSurvey: otherHabit)
             })
             .map{"\($0)%"}
-            .debug()
             
         post = postSubject.asObserver()
          

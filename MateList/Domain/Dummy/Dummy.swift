@@ -27,4 +27,13 @@ class Dummy {
             mbtiSelect: "ISTJ"
         )
     )
+    
+    static let dummyPost: Post = Post(pid: "Pid",
+                                      uid: "Uid",
+                                      title: "룸메이트 구합니다.",
+                                      contents: "룸메이트 구해요~",
+                                      date: "2022/01/01",
+                                      isScrap: false,
+                                      findMate: false
+                                    )
 }

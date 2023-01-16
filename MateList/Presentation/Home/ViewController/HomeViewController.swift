@@ -12,13 +12,16 @@ import RxCocoa
 import RxViewController
 import SnapKit
 
-
 class HomeViewController: UIViewController {
 
     private let homeTableView = HomeTableView()
     private let writeButton = WriteButton()
-    // TODO: Coordinator에서 인스턴스화하는 방법으로 고치기
-    var viewModel: HomeViewModelType = HomeViewModel(homeUseCase: HomeDefaultUseCase(firestoreRepository: DefaultFirestoreRepository()))
+    private func dummyFunc(event: Event<Any>) {
+        
+    }
+    
+    // TODO: Coordinator에서 인스턴스화하는 방법으로 고치기 // 옵셔널 고치기
+    var viewModel: HomeViewModel?
     
     
     private let disposeBag = DisposeBag()
@@ -34,33 +37,30 @@ class HomeViewController: UIViewController {
     
     func style() {
         self.view.backgroundColor = .white
-        navigationController?.title = "홈"
-    
-        // 네비게이션 뒤에 안보이게
-        let navigationBarAppearance = UINavigationBarAppearance()
-            navigationBarAppearance.configureWithTransparentBackground()
-        navigationController?.navigationBar.standardAppearance = navigationBarAppearance
-        
+        self.navigationController?.navigationBar.topItem?.title = "Mate-List"
     }
     
     func setBind() {
         let firstLoad = rx.viewWillAppear
             .map { _ in () }
+            .asObservable()
         
-        let reload = homeTableView.refreshControl?.rx
-            .controlEvent(.valueChanged)
-            .map{ _ in } ?? Observable.just(())
         
-        Observable.merge([firstLoad, reload])
-            .bind(to: viewModel.appear )
-            .disposed(by: disposeBag)
+        let input = HomeViewModel.Input(
+            appear: firstLoad,
+            cellTapEvent: homeTableView.rx.itemSelected.asObservable()
+        )
         
-        viewModel.allPosts
+        let output = self.viewModel?.transform(from: input, disposeBag: disposeBag)
+        
+        output?.allPosts
             .bind(to: homeTableView.rx.items(cellIdentifier: HomeCell.cellIdentifier, cellType: HomeCell.self)){
                 _, post, cell in
                 cell.updateUI(post: post)
             }
             .disposed(by: disposeBag)
+        
+        
     }
     
     func setView() {
