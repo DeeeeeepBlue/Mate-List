@@ -31,13 +31,22 @@ class DefaultHomeCoordinator: HomeCoordinator {
         self.navigationController.pushViewController(self.homeViewController, animated: true)
     }
     
+
+    // ⚠️ 임시
+    func startSurveyFlow(){
+        let surveyCoordinator = DefaultSurveyCoordinator(self.navigationController)
+        surveyCoordinator.finishDelegate = self
+        self.childCoordinators.append(surveyCoordinator)
+        surveyCoordinator.start()
+    }
+
     func showDetailFlow(postData: Post?) {
         let detailCoordinator = DefaultDetailCoordinator(self.navigationController)
         detailCoordinator.finishDelegate = self
         self.childCoordinators.append(detailCoordinator)
         detailCoordinator.start(with: postData)
     }
-    
+
 }
 
 extension DefaultHomeCoordinator: CoordinatorFinishDelegate {
