@@ -8,9 +8,10 @@
 import UIKit
 
 import SnapKit
+import RxSwift
 
 class ReportButton: BaseView {
-    private let button: UIButton = {
+    private(set) lazy var button: UIButton = {
         let button = UIButton()
         let image = UIImage(systemName: "light.beacon.max")
         button.setImage(image, for: .normal)

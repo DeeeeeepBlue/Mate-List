@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 
 class DeleteButton: BaseView {
-    private let button: UIButton = {
+    private(set) lazy var button: UIButton = {
         let button = UIButton()
         button.setTitle("삭제", for: .normal)
         button.setTitleColor(.red, for: .normal)
