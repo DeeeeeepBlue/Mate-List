@@ -37,7 +37,7 @@ class HomeDefaultUseCase: HomeDefaultUseCaseProtocol {
         itemsClear()
         
         return Observable.create { observer in
-            let data = self.firestoreRepository.fetchPost()
+            let data = self.firestoreRepository.fetchPosts()
             data
                 .subscribe(onNext: { data in
                     pid = data["pid"] as? String ?? "noPid"

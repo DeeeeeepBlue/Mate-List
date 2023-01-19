@@ -8,7 +8,7 @@
 import Foundation
 
 
-public struct Post {
+public struct Post: Codable {
     let pid : String
     let uid : String
     let title: String

@@ -19,11 +19,13 @@ class DetailViewModel {
     
     struct Input {
         var appear: Observable<Void>
+        var tapScrap: Observable<Void>
     }
     
     struct Output {
         var allComments = BehaviorSubject<[Comment]>(value: [])
         
+        var scrapFill = PublishSubject<Bool>()
         var userText = BehaviorSubject<String>(value: "작성자")
         var titleText = BehaviorSubject<String>(value: "제목")
         var contentsText = BehaviorSubject<String>(value: "내용")
@@ -49,7 +51,20 @@ class DetailViewModel {
             .subscribe(onNext: self.detailUseCase.allComments.onNext)
             .disposed(by: disposeBag)
             
-        
+        input.appear
+            .flatMap(detailUseCase.isScrap)
+            .subscribe(onNext: self.detailUseCase.scrapState.onNext)
+            .disposed(by: disposeBag)
+            
+        // 탭 발생 시 onNext 실행
+        input.tapScrap
+            .flatMap(detailUseCase.isScrap)
+            .map{ isScrap in
+                self.detailUseCase.scrapDataSetting(scraped: isScrap)
+                return !isScrap
+            }
+            .subscribe(onNext: self.detailUseCase.scrapState.onNext)
+            .disposed(by: disposeBag)
         
     }
     
@@ -70,8 +85,31 @@ class DetailViewModel {
             })
             .disposed(by: disposeBag)
         
+        detailUseCase.scrapState
+            .subscribe(onNext: { bool in
+                output.scrapFill.onNext(bool)
+            })
+            .disposed(by: disposeBag)
+        
         output.allComments = self.detailUseCase.allComments
         
         return output
     }
+    
+    func reportPostUser() {
+        detailUseCase.reportPostUser()
+    }
+    
+    func reportUser(uid: String) {
+        detailUseCase.reportUser(reportUid: uid)
+    }
+    
+    func deleteComment(pid: String, cid: String) {
+        detailUseCase.deleteComment(pid: pid, cid: cid)
+    }
+    
+    func deletePost() {
+        detailUseCase.deletePost()
+    }
+
 }
