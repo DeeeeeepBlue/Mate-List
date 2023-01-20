@@ -10,10 +10,10 @@ import UIKit
 import SnapKit
 
 class ScrapButton: BaseView {
-    private let button: UIButton = {
+    var button: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(systemName: "star"), for: .normal)
-        button.tintColor = .yellow
+        button.tintColor = .black
         return button
     }()
     

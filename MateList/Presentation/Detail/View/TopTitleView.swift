@@ -12,8 +12,8 @@ import SnapKit
 class TopTitleView: BaseView {
     private(set) lazy var userLabel = self.createLabel(size: 14)
     private(set) lazy var titleLabel = self.createLabel(size: 18,family: .bold)
-    private let reportButton = ReportButton()
-    private let deleteButton = DeleteButton()
+    private(set) lazy var reportButton = ReportButton()
+    private(set) lazy var deleteButton = DeleteButton()
     
     override func configureUI() {
         self.addSubview(userLabel)

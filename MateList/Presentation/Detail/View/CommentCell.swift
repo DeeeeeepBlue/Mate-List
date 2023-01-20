@@ -45,7 +45,7 @@ class CommentCell: UITableViewCell {
 //MARK: - Configure UI
 extension CommentCell {
     func configureUI() {
-        self.addSubview(baseView)
+        self.contentView.addSubview(baseView)
         
         baseView.snp.makeConstraints { make in
             make.top.leading.trailing.bottom.equalToSuperview()
@@ -119,5 +119,10 @@ extension CommentCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         selectionStyle = .none
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+           disposeBag = DisposeBag()
     }
 }

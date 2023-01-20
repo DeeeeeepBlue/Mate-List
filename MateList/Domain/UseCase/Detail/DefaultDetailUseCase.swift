@@ -8,12 +8,15 @@
 import Foundation
 
 import RxSwift
+import UIKit
 
 class DefaultDetailUseCase {
+    //MARK: 프로퍼티
     var disposeBag = DisposeBag()
     private var post: Post
     var detailRepository: DetailRepository
     
+    var scrapState = PublishSubject<Bool>()
     var allComments = BehaviorSubject<[Comment]>(value: [])
     var userName = PublishSubject<String>()
     var commentsItems: [Comment] = []
@@ -61,6 +64,55 @@ class DefaultDetailUseCase {
             
             return Disposables.create()
         }
+    }
+    
+    
+    func reportPostUser() {
+        var myUid: String
+        var reportUid: String
+        
+        myUid = IDFirestoreRepository.myUIDString()
+        reportUid = post.uid
+        
+        IDFirestoreRepository.reportUser(myUid: myUid, reportUid: reportUid)
+    }
+    
+    func reportUser(reportUid: String) {
+        var myUid: String
+        
+        myUid = IDFirestoreRepository.myUIDString()
+        
+        IDFirestoreRepository.reportUser(myUid: myUid, reportUid: reportUid)
+    }
+    
+    func deletePost() {
+        detailRepository.deletePost(pid: post.pid)
+    }
+    
+    func deleteComment(pid: String, cid: String) {
+        detailRepository.deleteComment(pid: pid, cid: cid)
+    }
+    
+    
+    
+    func scrapDataSetting(scraped: Bool) {
+        let uid = IDFirestoreRepository.myUIDString()
+        let pid = post.pid
+        // 현재 유저가 스크랩 했는가?
+        if scraped {
+            // 스크랩을 삭제한다.
+            self.detailRepository.deleteScrap(uid: uid, pid: pid)
+        }
+        else {
+            // 스크랩을 추가한다.
+            self.detailRepository.registerScrap(uid: uid ,pid: pid, post: self.post)
+        }
+    }
+    
+    func isScrap() -> Observable<Bool> {
+        let myUID = IDFirestoreRepository.myUIDString()
+        return detailRepository.isScrap(uid: myUID, pid: post.pid)
+            
     }
     
     func pid() -> String {

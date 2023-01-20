@@ -110,6 +110,36 @@ class IDFirestoreRepository: IDFirestore {
     }
     
     // MARK: Read
+    // Pid로 게시글 들고오기
+    static func fetchPost(pid: String) -> Observable<Post> {
+        return Observable.create { observer in
+            let docRef = FireStoreService.db.collection("Post").document(pid)
+            
+            docRef.getDocument { (document, error) in
+                if let document = document, document.exists {
+                    //data load success.
+                    do {
+                        //딕셔너리 -> json객체 -> HabitCheck 객체 순으로 변환
+                        let docData = document.data()!//딕셔너리 형 반환
+                        //json 객체로 변환. withJSONObject 인자엔 Array, Dictionary 등 넣어주면 됨.
+                        let data = try! JSONSerialization.data(withJSONObject: docData, options: [])
+                        let decoder = JSONDecoder()
+                        //첫번째 인자 : 해독할 형식(구조체), 두번째 인자 : 해독할 json 데이터
+                        let decodePost = try decoder.decode(Post.self, from: data)
+
+                        observer.onNext(decodePost)
+                    }
+                    catch {
+                        print("Error when trying to encode book: \(error)")
+                    }
+
+                }
+            }
+            
+            return Disposables.create()
+        }
+    }
+    
     static func userName(uid: String) -> Observable<String> {
         return Observable.create { observer in
             let docRef = FireStoreService.db.collection("User")
@@ -170,5 +200,22 @@ class IDFirestoreRepository: IDFirestore {
             }
             return Disposables.create()
         }
+    }
+    
+    //TODO: 나중에 고치기 
+    static func myUIDString() -> String {
+        if let currentUser = Auth.auth().currentUser {
+            let uid = currentUser.uid
+            return uid
+        } else {
+            return "jV0gO04mvSVQQQWQtCBcHOGedDA3"
+        }
+    }
+    
+    
+    static func reportUser(myUid: String, reportUid: String) {
+        FireStoreService.db.collection("User").document(myUid).collection("HateUser").document(reportUid).setData([
+            reportUid : reportUid
+        ])
     }
 }

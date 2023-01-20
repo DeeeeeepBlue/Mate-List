@@ -11,7 +11,7 @@ protocol IDFirestore {
     static func userName(uid: String) -> Observable<String>
     static func habitCheck(uid: String) -> Observable<HabitCheck>
     static func myUID() -> Observable<String>
-    
+    static func fetchPost(pid: String) -> Observable<Post>
     
     func isExistUser(uid: String) -> Observable<Bool>
     func isBlackUser(uid: String) -> Observable<Bool>
