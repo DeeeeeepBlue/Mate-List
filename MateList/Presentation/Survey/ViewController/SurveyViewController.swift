@@ -50,18 +50,18 @@ class SurveyViewController: UIViewController {
 //        let firstLoad = rx.viewWillAppear
 //            .map { _ in () }
 //
-//        let reload = homeTableView.refreshControl?.rx
+//        let reload = surveyTableView.refreshControl?.rx
 //            .controlEvent(.valueChanged)
 //            .map{ _ in } ?? Observable.just(())
 //
 //        Observable.merge([firstLoad, reload])
 //            .bind(to: viewModel.appear )
 //            .disposed(by: disposeBag)
-//
+
         viewModel.questions
             .bind(to: surveyTableView.rx.items(cellIdentifier: SurveyTableViewCell.cellIdentifier, cellType: SurveyTableViewCell.self)){
-                _, question, cell in
-                cell.updateUI(question: question.toKrQuestion())
+                index, question, cell in
+                cell.updateUI(question: question.toKrQuestion(), questionNumber: index)
             }
             .disposed(by: disposeBag)
     }

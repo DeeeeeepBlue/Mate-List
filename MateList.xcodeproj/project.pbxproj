@@ -116,7 +116,7 @@
 		BC1900A8296550CC00A65F1E /* SurveyViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC19009D296550CC00A65F1E /* SurveyViewCell.swift */; };
 		BC1900A9296550CC00A65F1E /* SurveyInput.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC19009E296550CC00A65F1E /* SurveyInput.storyboard */; };
 		BC1900AA296550CC00A65F1E /* SurveyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1900A0296550CC00A65F1E /* SurveyViewController.swift */; };
-		BC1900AC296550F200A65F1E /* TabBarPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1900AB296550F200A65F1E /* TabBarPage.swift */; };
+		BC1900AC296550F200A65F1E /* TabBarItemType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1900AB296550F200A65F1E /* TabBarItemType.swift */; };
 		BC2B9A0529430F2B0040DE46 /* SampleRepositoryInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2B9A0429430F2B0040DE46 /* SampleRepositoryInterface.swift */; };
 		BC2F8410296BFC6B004F6203 /* SurveyCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2F840F296BFC6B004F6203 /* SurveyCoordinator.swift */; };
 		BC2F8413296BFCA4004F6203 /* DefaultSurveyCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2F8412296BFCA4004F6203 /* DefaultSurveyCoordinator.swift */; };
@@ -124,6 +124,7 @@
 		BC2F841A296D6E63004F6203 /* SurveyQuestionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2F8419296D6E63004F6203 /* SurveyQuestionType.swift */; };
 		BC2F841C296D756B004F6203 /* SurveyCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2F841B296D756B004F6203 /* SurveyCellViewModel.swift */; };
 		BC9A4925295025FC00E1D9C8 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC9A4924295025FC00E1D9C8 /* HomeCoordinator.swift */; };
+		BCD4D9422979A0B50016839A /* Inject in Frameworks */ = {isa = PBXBuildFile; productRef = BCD4D9412979A0B50016839A /* Inject */; };
 		BCD6AB2F294EC42600FC27AD /* CoordinatorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD6AB2E294EC42600FC27AD /* CoordinatorType.swift */; };
 		BCD6AB38294F1E6400FC27AD /* DefaultHomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD6AB37294F1E6400FC27AD /* DefaultHomeCoordinator.swift */; };
 		F731B77E27D4D5A5009670A4 /* DropDown in Frameworks */ = {isa = PBXBuildFile; productRef = F731B77D27D4D5A5009670A4 /* DropDown */; };
@@ -250,7 +251,7 @@
 		BC19009D296550CC00A65F1E /* SurveyViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SurveyViewCell.swift; sourceTree = "<group>"; };
 		BC19009E296550CC00A65F1E /* SurveyInput.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SurveyInput.storyboard; sourceTree = "<group>"; };
 		BC1900A0296550CC00A65F1E /* SurveyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SurveyViewController.swift; sourceTree = "<group>"; };
-		BC1900AB296550F200A65F1E /* TabBarPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarPage.swift; sourceTree = "<group>"; };
+		BC1900AB296550F200A65F1E /* TabBarItemType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarItemType.swift; sourceTree = "<group>"; };
 		BC2B9A0429430F2B0040DE46 /* SampleRepositoryInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleRepositoryInterface.swift; sourceTree = "<group>"; };
 		BC2F840F296BFC6B004F6203 /* SurveyCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyCoordinator.swift; sourceTree = "<group>"; };
 		BC2F8412296BFCA4004F6203 /* DefaultSurveyCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultSurveyCoordinator.swift; sourceTree = "<group>"; };
@@ -291,6 +292,7 @@
 				04718D262907CBA200481015 /* RxRelay in Frameworks */,
 				0458E3D3295A00A3002C1A4A /* FirebaseFirestore in Frameworks */,
 				0458E3CD295A00A3002C1A4A /* FirebaseAuth in Frameworks */,
+				BCD4D9422979A0B50016839A /* Inject in Frameworks */,
 				04718D242907CBA200481015 /* RxCocoa in Frameworks */,
 				044FA674294A4C9F00EA5C78 /* RxViewController in Frameworks */,
 				0458E3CF295A00A3002C1A4A /* FirebaseCrashlytics in Frameworks */,
@@ -642,7 +644,7 @@
 			isa = PBXGroup;
 			children = (
 				BCD6AB2E294EC42600FC27AD /* CoordinatorType.swift */,
-				BC1900AB296550F200A65F1E /* TabBarPage.swift */,
+				BC1900AB296550F200A65F1E /* TabBarItemType.swift */,
 				046F1A76294F834D00B28371 /* SampleConstant.swift */,
 				BC2F8419296D6E63004F6203 /* SurveyQuestionType.swift */,
 			);
@@ -1078,6 +1080,7 @@
 				0458E3D4295A00A3002C1A4A /* FirebaseStorage */,
 				0458E3DA295A0487002C1A4A /* GoogleSignIn */,
 				042D643F2964B4E0005A8FC4 /* RxGesture */,
+				BCD4D9412979A0B50016839A /* Inject */,
 			);
 			productName = checkMate;
 			productReference = F757546927A4DF1800BFDF9B /* MateList.app */;
@@ -1120,6 +1123,7 @@
 				0458E3C9295A00A3002C1A4A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				0458E3D9295A0487002C1A4A /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 				042D643E2964B4E0005A8FC4 /* XCRemoteSwiftPackageReference "RxGesture" */,
+				BCD4D9402979A0B50016839A /* XCRemoteSwiftPackageReference "Inject" */,
 			);
 			productRefGroup = F757546A27A4DF1800BFDF9B /* Products */;
 			projectDirPath = "";
@@ -1275,7 +1279,7 @@
 				042D646B29685A43005A8FC4 /* MiddleView.swift in Sources */,
 				042D64632966A448005A8FC4 /* DetailViewModel.swift in Sources */,
 				040C118328F16D380012160E /* Auth.swift in Sources */,
-				BC1900AC296550F200A65F1E /* TabBarPage.swift in Sources */,
+				BC1900AC296550F200A65F1E /* TabBarItemType.swift in Sources */,
 				BC19007529654E6B00A65F1E /* ScrapViewModel.swift in Sources */,
 				049231CA29487AA10084903D /* WriteButton.swift in Sources */,
 			);
@@ -1611,6 +1615,14 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		BCD4D9402979A0B50016839A /* XCRemoteSwiftPackageReference "Inject" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/krzysztofzablocki/Inject.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		F731B77C27D4D5A5009670A4 /* XCRemoteSwiftPackageReference "DropDown" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/AssistoLab/DropDown.git";
@@ -1691,6 +1703,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 049231BE294858960084903D /* XCRemoteSwiftPackageReference "FlexLayout" */;
 			productName = FlexLayout;
+		};
+		BCD4D9412979A0B50016839A /* Inject */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BCD4D9402979A0B50016839A /* XCRemoteSwiftPackageReference "Inject" */;
+			productName = Inject;
 		};
 		F731B77D27D4D5A5009670A4 /* DropDown */ = {
 			isa = XCSwiftPackageProductDependency;

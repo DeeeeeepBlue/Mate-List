@@ -9,8 +9,10 @@ import RxSwift
 
 class SurveyCellViewModel {
     var question: PublishSubject<String>
+    var questionNumber: PublishSubject<Int>
     
     init() {
         self.question = PublishSubject()
+        self.questionNumber = PublishSubject()
     }
 }

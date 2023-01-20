@@ -21,7 +21,7 @@ class HomeViewController: UIViewController {
     var viewModel: HomeViewModel?
     
     
-    private let disposeBag = DisposeBag()
+    private var disposeBag = DisposeBag()
 
     
     override func viewDidLoad() {
@@ -31,6 +31,7 @@ class HomeViewController: UIViewController {
         setConstraint()
         setBind()
     }
+
     
     func style() {
         self.view.backgroundColor = .white
@@ -54,6 +55,7 @@ class HomeViewController: UIViewController {
             .bind(to: homeTableView.rx.items(cellIdentifier: HomeCell.cellIdentifier, cellType: HomeCell.self)){
                 _, post, cell in
                 cell.updateUI(post: post)
+                cell.disposeBag = DisposeBag()
             }
             .disposed(by: disposeBag)
         

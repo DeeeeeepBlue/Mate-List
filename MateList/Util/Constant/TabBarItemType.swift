@@ -5,9 +5,7 @@
 //  Created by DOYEON LEE on 2022/12/18.
 //
 
-import Foundation
-
-enum TabBarPage: String, CaseIterable {
+enum TabBarItemType: String, CaseIterable {
     case home, scrap, info
     
     init?(index: Int) {
