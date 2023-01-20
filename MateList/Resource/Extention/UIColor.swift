@@ -119,5 +119,6 @@ extension UIColor {
     
     //MARK: 자주 쓰는 색
     class var mainGrey : UIColor { UIColor(rgb: 0xE5E5E5) }
+    class var mainblue : UIColor { UIColor(rgb: 0x4C81E9) }
 
 }

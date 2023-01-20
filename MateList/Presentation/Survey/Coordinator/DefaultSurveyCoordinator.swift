@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import Inject
 
 class DefaultSurveyCoordinator: SurveyCoordinator {
     
@@ -19,10 +20,12 @@ class DefaultSurveyCoordinator: SurveyCoordinator {
     required init(_ navigationController: UINavigationController) {
         self.navigationController = navigationController
         self.surveyViewController = SurveyViewController()
+
     }
     
     func start() {
-        self.navigationController.pushViewController(self.surveyViewController, animated: true)
+        // ⚠️ Inject 사용중
+        self.navigationController.pushViewController(Inject.ViewControllerHost(SurveyViewController()), animated: true)
     }
 }
 

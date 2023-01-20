@@ -9,8 +9,8 @@ import Foundation
 import UIKit
 
 protocol TabBarCoordinator: Coordinator {
-    var tabBarController: UITabBarController {get set}
-    func selectPage(_ page: TabBarPage)
+    var tabBarController: UITabBarController { get set }
+    func selectPage(_ page: TabBarItemType)
     func setSelectedIndex(_ index: Int)
-    func getCurrentPage() -> TabBarPage?
+    func getCurrentPage() -> TabBarItemType?
 }

@@ -11,6 +11,8 @@ import RxSwift
 class SurveyViewModel {
     let questions: Observable<[SurveyQuestionType]> = Observable.just(SurveyQuestionType.allCases)
     
+    let answers: Observable<[Bool]> = Observable.just(Array(repeating: false, count: SurveyQuestionType.allCases.count))
+    
     init(){
         bind()
     }

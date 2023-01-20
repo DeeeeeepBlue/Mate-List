@@ -44,6 +44,13 @@ class HomeCell: UITableViewCell {
         self.viewModel = HomeCellViewModel()
         super.init(coder: aDecoder)
         self.configureUI()
+        self.bind()
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        self.disposeBag = DisposeBag()
+        
     }
 }
 //MARK: - Override
@@ -86,6 +93,7 @@ extension HomeCell {
         viewModel.user
             .bind(to: self.userLabel.rx.text)
             .disposed(by: disposeBag)
+
     }
     
     private func configureUI() {
