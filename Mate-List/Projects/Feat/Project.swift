@@ -5,7 +5,9 @@ let project = Project(
     name: "Feat",
     organizationName: "com.ognam",
     options: .options(automaticSchemesOptions: .enabled()),
-    packages: [],
+    packages: [
+        
+    ],
     targets: [
         Project.target(
             name: "Feat",

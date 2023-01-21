@@ -5,13 +5,22 @@ let project = Project(
     name: "Application",
     organizationName: "com.ognam",
     options: .options(automaticSchemesOptions: .enabled()),
-    packages: [],
+    packages: [
+        .rxSwift,
+        .googleSignIn,
+        .firebase
+    ],
     targets: [
         Project.target(
             name: "Application",
             product: .app,
             sources: "Sources/**",
-            resources: "Resources/**"
+            resources: "Resources/**",
+            dependencies: [
+                .rxSwift,
+                .googleSignIn,
+                .firebaseAuth
+            ]
         )
     ]
 )

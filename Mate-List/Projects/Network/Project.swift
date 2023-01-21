@@ -5,13 +5,28 @@ let project = Project(
     name: "Network",
     organizationName: "com.ognam",
     options: .options(automaticSchemesOptions: .enabled()),
-    packages: [],
+    packages: [
+        .snapKit,
+        .rxSwift,
+        .rxGesture,
+        .rxViewController,
+        .firebase,
+        .googleSignIn
+    ],
     targets: [
         Project.target(
             name: "Network",
             product: .app,
             sources: "Sources/**",
-            resources: "Resources/**"
+            resources: "Resources/**",
+            dependencies: [
+                .rxSwift,
+                .googleSignIn,
+                .firebaseAuth,
+                .firebaseStorage,
+                .firebaseDatabase,
+                .firebaseFirestore
+            ]
         )
     ]
 )

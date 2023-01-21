@@ -5,13 +5,28 @@ let project = Project(
     name: "FeatSurvey",
     organizationName: "com.ognam",
     options: .options(automaticSchemesOptions: .enabled()),
-    packages: [],
+    packages: [
+        .snapKit,
+        .rxSwift,
+        .rxGesture,
+        .rxViewController,
+        .inject
+    ],
     targets: [
         Project.target(
             name: "FeatSurvey",
             product: .app,
             sources: "Sources/**",
-            resources: "Resources/**"
+            resources: "Resources/**",
+            dependencies: [
+                .snapKit,
+                .rxSwift,
+                .rxGesture,
+                .rxViewController,
+                .rxCocoa,
+                .rxRelay,
+                .inject
+            ]
         )
     ]
 )
