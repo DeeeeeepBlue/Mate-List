@@ -7,6 +7,8 @@
 
 import UIKit
 
+import SnapKit
+
 extension UIView {
     func createLabel(size: CGFloat, family: UIFont.Family = .regular) -> UILabel {
         let label = UILabel()

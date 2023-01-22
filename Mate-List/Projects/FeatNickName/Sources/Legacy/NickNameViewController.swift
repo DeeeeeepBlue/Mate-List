@@ -12,6 +12,9 @@ import FirebaseAuth
 import RxCocoa
 import RxSwift
 
+import Util
+import Core
+
 class NickNameViewController: UIViewController {
     //MARK: - Properties
     let disposeBag = DisposeBag()
@@ -73,42 +76,42 @@ class NickNameViewController: UIViewController {
         
         checkButton.rx.tap
             .bind{
-                FireStoreService.db.collection("User").whereField("NickName", isEqualTo: str).addSnapshotListener { (querySnapshot, err) in
-                    guard let documents = querySnapshot?.documents else {
-                        print("Error!!!!! : \(err!)")
-                        return
-                    }
-                    let vari = documents.map{$0["NickName"]!}
-                    print(type(of: vari), vari)
-                    if vari.isEmpty{
-                        DispatchQueue.main.async {
-                            self.checkLb.text = "사용 가능한 닉네임입니다."
-                            self.checkLb.textColor = .green
-                        }
-                        flag = true
-                        
-                    } else {
-                        DispatchQueue.main.async {
-                            self.checkLb.text = "사용 불가능한 닉네임입니다."
-                            self.checkLb.textColor = .red
-                        }
-                        flag = false
-                    }
-                }
+//                FireStoreService.db.collection("User").whereField("NickName", isEqualTo: str).addSnapshotListener { (querySnapshot, err) in
+//                    guard let documents = querySnapshot?.documents else {
+//                        print("Error!!!!! : \(err!)")
+//                        return
+//                    }
+//                    let vari = documents.map{$0["NickName"]!}
+//                    print(type(of: vari), vari)
+//                    if vari.isEmpty{
+//                        DispatchQueue.main.async {
+//                            self.checkLb.text = "사용 가능한 닉네임입니다."
+//                            self.checkLb.textColor = .green
+//                        }
+//                        flag = true
+//
+//                    } else {
+//                        DispatchQueue.main.async {
+//                            self.checkLb.text = "사용 불가능한 닉네임입니다."
+//                            self.checkLb.textColor = .red
+//                        }
+//                        flag = false
+//                    }
+//                }
             }
         
         finButton.rx.tap
             .bind{
                 //TODO: Firebase에 닉네임 설정
-                if flag {
-                    FireStoreService.db.collection("User").document(Auth.auth().currentUser!.uid).setData(["NickName" : str], merge: true)
-                    self.dismiss(animated: true)
-                } else {
-                    let alert = UIAlertController(title: "닉네임 설정", message: "닉네임을 다시 확인해주세요.", preferredStyle: UIAlertController.Style.alert)
-                    let okAction = UIAlertAction(title: "OK", style: .default) {_ in
-                    }
-                    alert.addAction(okAction)
-                }
+//                if flag {
+//                    FireStoreService.db.collection("User").document(Auth.auth().currentUser!.uid).setData(["NickName" : str], merge: true)
+//                    self.dismiss(animated: true)
+//                } else {
+//                    let alert = UIAlertController(title: "닉네임 설정", message: "닉네임을 다시 확인해주세요.", preferredStyle: UIAlertController.Style.alert)
+//                    let okAction = UIAlertAction(title: "OK", style: .default) {_ in
+//                    }
+//                    alert.addAction(okAction)
+//                }
             }
         
     }

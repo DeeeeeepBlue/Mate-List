@@ -11,9 +11,17 @@ let project = Project(
     targets: [
         Project.target(
             name: "Feat",
-            product: .app,
+            product: .framework,
             sources: "Sources/**",
-            resources: "Resources/**"
+            resources: "Resources/**",
+            dependencies: [
+                .featHome,
+                .featScrap,
+                .featDetail,
+                .featSetting,
+                .featNickName,
+                .featSurvey
+            ]
         )
     ]
 )

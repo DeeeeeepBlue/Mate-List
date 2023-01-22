@@ -1,7 +1,26 @@
 import ProjectDescription
 
+//MARK: Project 템플릿
 extension Project {
-    
+    public static func framework(
+        name: String,
+        organizationName: String,
+        options: Options,
+        package: [Package],
+        target: [Target]
+    ) -> Project {
+        
+        return Project(name: name,
+                       organizationName: organizationName,
+                       options: options,
+                       packages: package,
+                       targets: target
+        )
+    }
+}
+
+//MARK: Target 템플릿
+extension Project {
     public static func target(
         name: String,
         product: Product,
@@ -9,9 +28,7 @@ extension Project {
         sources: SourceFilesList,
         resources: ResourceFileElements? = nil,
         dependencies: [TargetDependency] = [],
-        scripts: [TargetScript] = [],
-        baseSettings: ProjectDescription.SettingsDictionary = [:],
-        coreDataModels: [CoreDataModel] = []
+        scripts: [TargetScript] = []
     ) -> Target {
         return Target (
             name: name,
@@ -22,18 +39,9 @@ extension Project {
             sources: sources,
             resources: resources,
             scripts: scripts,
-            dependencies: dependencies,
-            settings: .settings(
-                base: [
-                    "OTHER_LDFLAGS": "$(inherited)"
-                ],
-                configurations: [],
-                defaultSettings: .recommended(excluding: [
-                    "TARGETED_DEVICE_FAMILY",
-                    "SWIFT_ACTIVE_COMPILATION_CONDITIONS"
-                ])
-            ),
-            coreDataModels: coreDataModels
+            dependencies: dependencies
         )
     }
+    
+    
 }

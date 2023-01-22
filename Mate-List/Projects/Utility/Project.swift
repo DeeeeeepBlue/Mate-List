@@ -2,7 +2,7 @@ import ProjectDescription
 import ProjectDescriptionHelpers
 
 let project = Project(
-    name: "Util",
+    name: "Utility",
     organizationName: "com.ognam",
     options: .options(automaticSchemesOptions: .enabled()),
     packages: [
@@ -11,12 +11,13 @@ let project = Project(
     ],
     targets: [
         Project.target(
-            name: "Util",
-            product: .app,
+            name: "Utility",
+            product: .framework,
             sources: "Sources/**",
             resources: "Resources/**",
             dependencies: [
                 .firebaseAuth,
+                .firebaseFirestore,
                 .googleSignIn
             ]
         )

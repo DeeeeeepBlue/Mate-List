@@ -1,5 +1,31 @@
 import ProjectDescription
 
+
+// MARK: Project
+public extension TargetDependency {
+    static let core: TargetDependency = .project(target: "Core",
+                                                 path: .relativeToRoot("Projects/Core"))
+    static let feat: TargetDependency = .project(target: "Feat",
+                                                              path: .relativeToRoot("Projects/Feat"))
+    static let featDetail: TargetDependency = .project(target: "FeatDetail",
+                                                              path: .relativeToRoot("Projects/FeatDetail"))
+    static let featHome: TargetDependency = .project(target: "FeatHome",
+                                                              path: .relativeToRoot("Projects/FeatHome"))
+    static let featNickName: TargetDependency = .project(target: "FeatNickName",
+                                                              path: .relativeToRoot("Projects/FeatNickName"))
+    static let featScrap: TargetDependency = .project(target: "FeatScrap",
+                                                              path: .relativeToRoot("Projects/FeatScrap"))
+    static let featSetting: TargetDependency = .project(target: "FeatSetting",
+                                                              path: .relativeToRoot("Projects/FeatSetting"))
+    static let featSurvey: TargetDependency = .project(target: "FeatSurvey",
+                                                              path: .relativeToRoot("Projects/FeatSurvey"))
+    static let network: TargetDependency = .project(target: "Network",
+                                                              path: .relativeToRoot("Projects/Network"))
+    static let utility: TargetDependency = .project(target: "Utility",
+                                                              path: .relativeToRoot("Projects/Utility"))
+}
+
+// MARK: Package
 public extension TargetDependency {
     static let firebaseAnalytics: TargetDependency = .package(product: "FirebaseAnalytics")
     static let firebaseAuth: TargetDependency =

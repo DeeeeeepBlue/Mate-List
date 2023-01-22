@@ -16,7 +16,7 @@ let project = Project(
     targets: [
         Project.target(
             name: "Network",
-            product: .app,
+            product: .framework,
             sources: "Sources/**",
             resources: "Resources/**",
             dependencies: [

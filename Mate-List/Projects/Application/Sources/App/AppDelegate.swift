@@ -13,6 +13,11 @@ import FirebaseCore
 import FirebaseFirestore
 import RxSwift
 
+import Feat
+import Core
+import Utility
+
+
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 

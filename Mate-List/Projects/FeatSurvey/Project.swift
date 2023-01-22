@@ -15,7 +15,7 @@ let project = Project(
     targets: [
         Project.target(
             name: "FeatSurvey",
-            product: .app,
+            product: .framework,
             sources: "Sources/**",
             resources: "Resources/**",
             dependencies: [
@@ -25,7 +25,8 @@ let project = Project(
                 .rxViewController,
                 .rxCocoa,
                 .rxRelay,
-                .inject
+                .inject,
+                .core
             ]
         )
     ]

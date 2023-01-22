@@ -19,7 +19,9 @@ let project = Project(
             dependencies: [
                 .rxSwift,
                 .googleSignIn,
-                .firebaseAuth
+                .firebaseAuth,
+                .firebaseFirestore,
+                .feat
             ]
         )
     ]

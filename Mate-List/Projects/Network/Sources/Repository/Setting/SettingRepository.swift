@@ -9,6 +9,7 @@ import FirebaseAuth
 import GoogleSignIn
 import RxSwift
 
+
 class SettingRepository: SettingRepositoryProtocol {
     /* TODO: SettingVC에 있는 SignIn 로직 리팩토링 고려
     ViewController 에 로그인 view를 띄우는데 View 구현이 안된 상태
@@ -27,7 +28,8 @@ class SettingRepository: SettingRepositoryProtocol {
                 print("Firebase sign in error: \(error)")
                 return
             } else {
-                AppDelegate.userAuth.onNext(authResult)
+                //TODO: 1
+                //AppDelegate.userAuth.onNext(authResult)
             }
         }
     }
@@ -38,8 +40,9 @@ class SettingRepository: SettingRepositoryProtocol {
             try firebaseAuth.signOut()
             GIDSignIn.sharedInstance.disconnect{ error in
                 guard error == nil else { return }
-                AppDelegate.userAuth
-                    .onNext(nil)
+                //TODO: 2
+                //AppDelegate.userAuth
+                //  .onNext(nil)
             }
         } catch let signOutError as NSError {
             print("Error signing out: %@", signOutError)

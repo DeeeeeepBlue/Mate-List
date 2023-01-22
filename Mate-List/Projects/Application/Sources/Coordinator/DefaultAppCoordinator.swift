@@ -8,6 +8,8 @@
 import Foundation
 import UIKit
 
+import Feat
+
 class DefaultAppCoordinator: AppCoordinator {
 
     weak var finishDelegate: CoordinatorFinishDelegate?

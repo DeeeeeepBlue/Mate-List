@@ -1,7 +1,7 @@
 import ProjectDescription
 
 let workspace = Workspace(
-    name: "Application",
+    name: "MateList",
     projects: [
         "Projects/Application",
         "Projects/Feat",
@@ -12,7 +12,7 @@ let workspace = Workspace(
         "Projects/FeatSurvey",
         "Projects/Core",
         "Projects/Network",
-        "Projects/Util"
+        "Projects/Utility"
     ],
     generationOptions: .options(
         enableAutomaticXcodeSchemes: true,

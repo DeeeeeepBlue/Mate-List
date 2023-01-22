@@ -9,9 +9,13 @@ let project = Project(
     targets: [
         Project.target(
             name: "Core",
-            product: .app,
+            product: .framework,
             sources: "Sources/**",
-            resources: "Resources/**"
+            resources: "Resources/**",
+            dependencies: [
+                .network,
+                .utility
+            ]
         )
     ]
 )
