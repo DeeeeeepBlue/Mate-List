@@ -28,6 +28,10 @@ let project = Project(
                 .inject,
                 .core
             ]
+        ),
+        Project.testTarget(
+            name: "FeatSurvey",
+            platform: .iOS
         )
     ]
 )

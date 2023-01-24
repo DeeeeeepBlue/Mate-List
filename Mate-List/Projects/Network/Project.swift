@@ -27,6 +27,10 @@ let project = Project(
                 .firebaseDatabase,
                 .firebaseFirestore
             ]
+        ),
+        Project.testTarget(
+            name: "Network",
+            platform: .iOS
         )
     ]
 )

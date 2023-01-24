@@ -12,7 +12,7 @@ import FirebaseAuth
 import RxCocoa
 import RxSwift
 
-import Util
+import Utility
 import Core
 
 class NickNameViewController: UIViewController {

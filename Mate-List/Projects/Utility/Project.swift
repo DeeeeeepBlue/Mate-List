@@ -18,8 +18,13 @@ let project = Project(
             dependencies: [
                 .firebaseAuth,
                 .firebaseFirestore,
-                .googleSignIn
+                .googleSignIn,
+                .snapKit
             ]
+        ),
+        Project.testTarget(
+            name: "Utility",
+            platform: .iOS
         )
     ]
 )

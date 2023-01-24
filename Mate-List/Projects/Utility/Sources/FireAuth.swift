@@ -11,11 +11,12 @@ import FirebaseAuth
 import AuthenticationServices
 import GoogleSignIn
 
-struct FireAuth {
+public struct FireAuth {
+    public init() {}
     
     let signInConfig =  GIDConfiguration.init(clientID: "14102016647-37m019d8iopsi0i7utjfpqas4h4l3ebe.apps.googleusercontent.com")
     
-    func signOut(){
+    public func signOut(){
         let firebaseAuth = Auth.auth()
       do {
         try firebaseAuth.signOut()

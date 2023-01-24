@@ -45,3 +45,26 @@ extension Project {
     
     
 }
+
+//MARK: Test Target 템플릿
+
+extension Project {
+    public static func testTarget(
+        name: String,
+        platform: Platform
+    ) -> Target {
+        return Target(name: "\(name)Tests",
+           platform: platform,
+           product: .unitTests,
+           bundleId: "com.\(name)Tests",
+           infoPlist: .default,
+           sources: ["Tests/**"],
+           resources: [],
+           dependencies: [
+            .target(name: name),
+            .rxTest,
+            .rxNimble
+           ])
+    }
+    
+}

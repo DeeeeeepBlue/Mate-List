@@ -7,6 +7,8 @@
 
 import Foundation
 
+import Utility
+
 class Dummy {
     static let mingyu: User = User(
         uid: "2019010869",

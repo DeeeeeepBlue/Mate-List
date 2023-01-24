@@ -23,6 +23,10 @@ let project = Project(
                 .firebaseFirestore,
                 .feat
             ]
+        ),
+        Project.testTarget(
+            name: "Application",
+            platform: .iOS
         )
     ]
 )

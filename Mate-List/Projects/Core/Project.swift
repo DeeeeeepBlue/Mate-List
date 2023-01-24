@@ -16,6 +16,10 @@ let project = Project(
                 .network,
                 .utility
             ]
+        ),
+        Project.testTarget(
+            name: "Core",
+            platform: .iOS
         )
     ]
 )
