@@ -18,7 +18,7 @@ public enum SurveyQuestionType: CaseIterable {
          showerTime,
          lateReturnRoom
     
-    func toKrQuestion() -> String{
+    public func toKrQuestion() -> String{
         switch self {
         case .smoking:
             return "흡연을 하시나요?"

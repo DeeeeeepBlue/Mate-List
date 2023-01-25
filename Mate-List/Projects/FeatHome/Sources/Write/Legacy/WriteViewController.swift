@@ -11,6 +11,9 @@ import FirebaseAuth
 import RxSwift
 import RxCocoa
 
+import Network
+import Utility
+
 class WriteViewController: UIViewController, UITextViewDelegate {
     
     //MARK: - Properties
@@ -100,7 +103,7 @@ class WriteViewController: UIViewController, UITextViewDelegate {
     // MARK: - Custom Function
     /// 닉네임 가져오기
     func getNickName(){
-        guard let user = Auth.auth().currentUser else {return }
+        guard let user = Auth.auth().currentUser else { return }
         FireStoreService.db.collection("User").document(user.uid).getDocument { documentSnapshot, err in
             guard let document = documentSnapshot else {
                 print("ERR: \(err)")
@@ -127,7 +130,8 @@ class WriteViewController: UIViewController, UITextViewDelegate {
     
     /// 유저가 로그인 했는지 확인
     func haveUesr() {
-        guard AppDelegate.userAuth == nil else {return}
+        //TODO: [AppDelegate] Auth 고치기 5
+        //guard AppDelegate.userAuth == nil else {return}
         let alert = UIAlertController(title: "유저가 없습니다", message: "로그인을 해주세요!", preferredStyle: UIAlertController.Style.alert)
         let okAction = UIAlertAction(title: "OK", style: .default) {_ in
             self.navigationController?.popViewController(animated: true)

@@ -9,7 +9,7 @@ import Foundation
 import FirebaseCore
 import FirebaseFirestore
 
-class FireStoreService : NSObject {
-    static let db = Firestore.firestore()
+public class FireStoreService : NSObject {
+    static public let db = Firestore.firestore()
 }
 

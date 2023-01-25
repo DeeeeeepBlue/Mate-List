@@ -1,8 +1,6 @@
 import ProjectDescription
 
-let baseSettings: [String: SettingValue] = [
-    "SWIFT_OBJC_BRIDGING_HEADER": "Source/Header.h",
-]
+private let iOSTargetVersion = "14.0"
 
 //MARK: Target 템플릿
 extension Project {
@@ -15,21 +13,20 @@ extension Project {
         dependencies: [TargetDependency] = [],
         scripts: [TargetScript] = []
     ) -> Target {
-        return Target (
-            name: name,
-            platform: .iOS,
-            product: product,
-            bundleId: "com.ognam.\(name.lowercased())",
-            infoPlist: infoPlist,
-            sources: sources,
-            resources: resources,
-            scripts: scripts,
-            dependencies: dependencies,
-            settings: .settings(base: baseSettings)
-        )
+        return  Target(name: name,
+                       platform: .iOS,
+                       product: product,
+                       bundleId: "com.ognam.\(name.lowercased())",
+                       deploymentTarget: .iOS(targetVersion: iOSTargetVersion, devices: [.iphone]),
+                       infoPlist: infoPlist,
+                       sources: sources,
+                       resources: resources,
+                       headers: nil,
+                       scripts: scripts,
+                       dependencies: dependencies,
+                       settings: nil
+                )
     }
-    
-    
 }
 
 //MARK: Test Target 템플릿
@@ -43,6 +40,7 @@ extension Project {
            platform: platform,
            product: .unitTests,
            bundleId: "com.\(name)Tests",
+           deploymentTarget: .iOS(targetVersion: iOSTargetVersion, devices: [.iphone]),
            infoPlist: .default,
            sources: ["Tests/**"],
            resources: [],

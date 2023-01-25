@@ -24,7 +24,9 @@ let project = Project(
                 .rxViewController,
                 .rxCocoa,
                 .rxRelay,
-                .core
+                .core,
+                .featSurvey,
+                .featDetail
             ]
         ),
         Project.testTarget(
