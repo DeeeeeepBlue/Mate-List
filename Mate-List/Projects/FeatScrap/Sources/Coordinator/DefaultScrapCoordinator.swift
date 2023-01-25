@@ -8,15 +8,17 @@
 import Foundation
 import UIKit
 
-class DefaultScrapCoordinator: Coordinator{
+import Utility
+
+public class DefaultScrapCoordinator: Coordinator{
     
-    weak var finishDelegate: CoordinatorFinishDelegate?
-    var navigationController: UINavigationController
+    weak public var finishDelegate: CoordinatorFinishDelegate?
+    public var navigationController: UINavigationController
     var scrapViewController: ScrapViewController
-    var childCoordinators: [Coordinator] = []
-    var type: CoordinatorType = .home
+    public var childCoordinators: [Coordinator] = []
+    public var type: CoordinatorType = .home
     
-    required init(_ navigationController: UINavigationController) {
+    required public init(_ navigationController: UINavigationController) {
         // 아직 스토리보드로 작동중이라 다음 코드 사용
         self.navigationController = navigationController
         //        self.scrapViewController = ScrapViewController()
@@ -24,13 +26,13 @@ class DefaultScrapCoordinator: Coordinator{
             .instantiateViewController(withIdentifier: "scrapStoryboard") as! ScrapViewController
     }
     
-    func start() {
+    public func start() {
         self.navigationController.pushViewController(self.scrapViewController, animated: true)
     }
 }
 
 extension DefaultScrapCoordinator: CoordinatorFinishDelegate {
-    func coordinatorDidFinish(childCoordinator: Coordinator) {
+    public func coordinatorDidFinish(childCoordinator: Coordinator) {
         // 자식 뷰를 삭제하는 델리게이트 (자식 -> 부모 접근 -> 부모에서 자식 삭제)
         self.childCoordinators = self.childCoordinators
             .filter({ $0.type != childCoordinator.type })

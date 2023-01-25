@@ -7,7 +7,6 @@
 
 import Foundation
 
-protocol AppCoordinator: Coordinator {
+public protocol AppCoordinator: Coordinator {
     func showTabBarFlow()
-//    func showMainFlow()
 }

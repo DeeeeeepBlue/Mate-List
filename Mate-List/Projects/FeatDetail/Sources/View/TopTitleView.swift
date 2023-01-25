@@ -9,6 +9,8 @@ import UIKit
 
 import SnapKit
 
+import Utility
+
 class TopTitleView: BaseView {
     private(set) lazy var userLabel = self.createLabel(size: 14)
     private(set) lazy var titleLabel = self.createLabel(size: 18,family: .bold)

@@ -9,6 +9,8 @@ import UIKit
 
 import SnapKit
 
+import Utility
+
 class ScrapButton: BaseView {
     var button: UIButton = {
         let button = UIButton()

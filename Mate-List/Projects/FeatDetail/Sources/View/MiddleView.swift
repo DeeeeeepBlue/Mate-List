@@ -9,6 +9,8 @@ import UIKit
 
 import SnapKit
 
+import Utility
+
 class MiddleView: BaseView {
     
     private(set) lazy var contentTextField: UITextField = {

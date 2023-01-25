@@ -7,11 +7,20 @@
 
 import Foundation
 
-struct User {
-    let uid: String
-    let email: String
-    let name: String
-    let gender: String
-    let age: String
-    let habit: HabitCheck
+public struct User {
+    public let uid: String
+    public let email: String
+    public let name: String
+    public let gender: String
+    public let age: String
+    public let habit: HabitCheck
+    
+    public init(uid: String, email: String, name: String, gender: String, age: String, habit: HabitCheck) {
+        self.uid = uid
+        self.email = email
+        self.name = name
+        self.gender = gender
+        self.age = age
+        self.habit = habit
+    }
 }

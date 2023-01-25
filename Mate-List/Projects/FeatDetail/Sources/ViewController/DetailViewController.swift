@@ -12,7 +12,9 @@ import RxViewController
 import RxSwift
 import FirebaseAuth
 
-class DetailViewController: BaseViewController {
+import Utility
+
+public class DetailViewController: BaseViewController {
     //MARK: - Properties
     var viewModel: DetailViewModel?
     var disposeBag = DisposeBag()
@@ -23,18 +25,18 @@ class DetailViewController: BaseViewController {
     private let commentTableView = CommentTableView()
     private let scrapButton = ScrapButton()
     
-    override func viewDidLoad() {
+    override public func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     //MARK: - Setting
     
-    override func style() {
+    public override func style() {
         super.style()
     }
     
-    override func setView() {
+    public override func setView() {
         self.view.addSubview(topTitleView)
         self.view.addSubview(middleView)
         self.view.addSubview(bottomInputView)
@@ -42,7 +44,7 @@ class DetailViewController: BaseViewController {
         self.navigationItem.rightBarButtonItem = scrapButton.barButton()
     }
     
-    override func setConstraint() {
+    public override func setConstraint() {
         topTitleView.snp.makeConstraints { make in
             make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top)
             make.leading.trailing.equalToSuperview()
@@ -68,7 +70,7 @@ class DetailViewController: BaseViewController {
         }
     }
     
-    override func setBind() {
+    public override func setBind() {
         let firstLoad = rx.viewWillAppear
             .map { _ in () }
             .asObservable()

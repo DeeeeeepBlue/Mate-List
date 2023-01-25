@@ -60,7 +60,7 @@ public extension Package {
     static let rxGesture: Package = .package(url: "https://github.com/RxSwiftCommunity/RxGesture.git",
                                              .branch("main"))
     static let rxViewController: Package = .package(url: "https://github.com/devxoul/RxViewController.git", .exact("2.0.0"))
-    static let rxNimble: Package = .package(url: "https://github.com/RxSwiftCommunity/RxNimble.git", .branch("main"))
+    static let rxNimble: Package = .package(url: "https://github.com/RxSwiftCommunity/RxNimble.git", .branch("master"))
 
     static let googleSignIn: Package = .package(url: "https://github.com/google/GoogleSignIn-iOS.git", .branch("main"))
     static let inject: Package = .package(url: "https://github.com/krzysztofzablocki/Inject.git", .exact("1.2.2"))

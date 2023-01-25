@@ -7,7 +7,7 @@
 import Foundation
 import UIKit
 
-extension UIColor {
+public extension UIColor {
 
     convenience init(red: Int, green: Int, blue: Int, a: Int = 0xFF) {
 
@@ -63,7 +63,7 @@ extension UIColor {
 
 }
 
-extension UIColor {
+public extension UIColor {
 
     convenience init(red: CGFloat, green: CGFloat, blue: CGFloat, a: Int = 0xFF) {
 
@@ -119,5 +119,6 @@ extension UIColor {
     
     //MARK: 자주 쓰는 색
     class var mainGrey : UIColor { UIColor(rgb: 0xE5E5E5) }
+    class var mainblue : UIColor { UIColor(rgb: 0x4C81E9) }
 
 }

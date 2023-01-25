@@ -10,6 +10,8 @@ import UIKit
 import SnapKit
 import RxSwift
 
+import Network
+
 class CommentCell: UITableViewCell {
     //MARK: - Properties
     var disposeBag = DisposeBag()

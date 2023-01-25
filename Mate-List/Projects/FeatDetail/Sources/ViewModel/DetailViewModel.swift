@@ -9,6 +9,8 @@ import Foundation
 
 import RxSwift
 
+import Network
+
 class DetailViewModel {
     private var disposeBag = DisposeBag()
     private let detailUseCase: DefaultDetailUseCase

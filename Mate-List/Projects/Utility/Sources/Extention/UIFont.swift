@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension UIFont {
+public extension UIFont {
     enum Family: String {
         case black, bold, light, medium, regular, thin
     }

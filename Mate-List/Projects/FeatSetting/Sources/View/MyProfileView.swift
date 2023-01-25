@@ -7,6 +7,10 @@
 
 import UIKit
 
+import SnapKit
+
+import Utility
+
 final class MyProfileView: BaseView {
     
     private(set) lazy var nameTitleLabel = self.createLabel(size: 14, family: .bold)
@@ -56,9 +60,5 @@ final class MyProfileView: BaseView {
             make.height.equalTo(30)
             make.trailing.equalToSuperview().offset(-12)
         }
-    }
-    
-    override func bind() {
-        print()
     }
 }

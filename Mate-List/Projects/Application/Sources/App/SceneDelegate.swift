@@ -7,6 +7,8 @@
 
 import UIKit
 
+import Utility
+
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?

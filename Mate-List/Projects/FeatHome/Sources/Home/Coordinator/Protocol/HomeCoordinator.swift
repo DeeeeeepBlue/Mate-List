@@ -7,6 +7,12 @@
 
 import Foundation
 
-protocol HomeCoordinator: Coordinator {
+import Utility
+import Network
+
+public protocol HomeCoordinator: Coordinator {
     var homeViewController: HomeViewController { get set }
+
+    func startSurveyFlow()
+    func showDetailFlow(postData: Post?)
 }

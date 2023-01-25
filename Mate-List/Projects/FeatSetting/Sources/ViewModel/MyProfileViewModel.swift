@@ -10,36 +10,68 @@ import UIKit
 import RxSwift
 import FirebaseAuth
 
+import Network
+
 protocol MyProfileViewModelProtocol {
-    var name: Observable<String> { get }
-    var email: Observable<String> { get }
+    var name: Observable<String>? { get }
+    var email: Observable<String>? { get }
 }
 
 class MyProfileViewModel: MyProfileViewModelProtocol {
     var disposeBag = DisposeBag()
-    var name: Observable<String>
-    var email: Observable<String>
+    var myProfileUseCase: MyProfileUseCaseProtocol
+    var settingRepository: SettingRepositoryProtocol
     
+    var name: Observable<String>?
+    var email: Observable<String>?
     
-    init(myProfileUseCase: MyProfileUseCaseProtocol, repository: SettingRepositoryProtocol) {
-        let checking = BehaviorSubject<User>(value: Dummy.mingyu)
+    let checking = PublishSubject<Network.User>()
+    
+    init(usecase: MyProfileUseCaseProtocol, repository: SettingRepositoryProtocol) {
+        let checking = PublishSubject<Network.User>()
         
-        AppDelegate.userAuth
-            .map {
-                guard let data = $0 else { return Dummy.mingyu }
-                return User(uid: data.user.uid, email: data.user.email!, name: data.user.displayName!, gender: "No", age: "No", habit: HabitCheck(cleanSelect: "", smokingSelect: false, gameSelect: false, snoringSelect: false, griding_teethSelect: false, callSelect: false, eatSelect: false, curfewSelect: false, bedtimeSelect: false, mbtiSelect: ""))}
-            .bind(onNext: checking.onNext)
+        myProfileUseCase = usecase
+        settingRepository = repository
+        
+        self.bind()
+    }
+    
+    func bind() {
+        //TODO: [AppDelegate] Auth 고치기 5
+//
+//        AppDelegate.userAuth
+//            .compactMap{ $0 }
+//            .map{ User(uid: $0?.user.uid ?? "err",
+//                       email: $0?.user.email ?? "err",
+//                       name: $0?.user.displayName ?? "err",
+//                       gender: "no",
+//                       age: "no",
+//                       habit: HabitCheck(cleanSelect: "",
+//                                         smokingSelect: false,
+//                                         gameSelect: false,
+//                                         snoringSelect: false,
+//                                         griding_teethSelect: false,
+//                                         callSelect: false,
+//                                         eatSelect: false,
+//                                         curfewSelect: false,
+//                                         bedtimeSelect: false,
+//                                         mbtiSelect: "")
+//                       )
+//               }
+//            .bind(onNext: checking.onNext)
+//
         
         _ = checking
+            .compactMap{ $0 }
             .subscribe(onNext: { user in
-                repository.registUser(user: user)
+                self.settingRepository.registUser(user: user)
             })
         
         name = checking
-            .flatMap { _ in myProfileUseCase.name}
+            .flatMap { _ in self.myProfileUseCase.name}
         
         email = checking
-            .flatMap { _ in myProfileUseCase.email}
+            .flatMap { _ in self.myProfileUseCase.email}
         
         myProfileUseCase.isCurrentUser()
         myProfileUseCase.currentUserName()

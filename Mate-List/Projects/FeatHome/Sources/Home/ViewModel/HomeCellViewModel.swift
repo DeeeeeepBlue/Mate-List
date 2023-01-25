@@ -9,6 +9,8 @@
 
 import RxSwift
 
+import Network
+
 protocol HomeCellViewModelProtocol {
     var post: AnyObserver<Post> { get }
     
@@ -36,13 +38,15 @@ class HomeCellViewModel: HomeCellViewModelProtocol {
         let myHabit: Observable<HabitCheck>
         let otherHabit: Observable<HabitCheck>
         
-        myHabit = IDFirestoreUseCase
+        
+        
+        myHabit = HomeCellUseCase
             .getMyUID()
-            .flatMap{ IDFirestoreUseCase.getHabitCheck(uid: $0) }
+            .flatMap{ HomeCellUseCase.getHabitCheck(uid: $0) }
             
         otherHabit = postSubject
             .map{ $0.uid }
-            .flatMap{ IDFirestoreUseCase.getHabitCheck(uid: $0)}
+            .flatMap{ HomeCellUseCase.getHabitCheck(uid: $0)}
 
         // ???: 이상한 셀에 적합도를 넣어줌.
         matchPercent = Observable
@@ -66,7 +70,7 @@ class HomeCellViewModel: HomeCellViewModelProtocol {
         // ???: 이름이 왔다갔다하는 버그 있음
         user = postSubject
             .map{ $0.uid }
-            .flatMap{IDFirestoreUseCase.getUserName(uid: $0)}
+            .flatMap{HomeCellUseCase.getUserName(uid: $0)}
         
     }
 }

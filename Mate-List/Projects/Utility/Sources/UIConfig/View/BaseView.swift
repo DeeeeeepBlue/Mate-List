@@ -7,16 +7,16 @@
 
 import UIKit
 
-class BaseView: UIView {
-    override init(frame: CGRect) {
+open class BaseView: UIView {
+    override public init(frame: CGRect) {
         super.init(frame: frame)
         configureUI()
         bind()
     }
-    required init?(coder: NSCoder) {
+    required public init?(coder: NSCoder) {
         super.init(coder: coder)
     }
     
-    func configureUI() {}
-    func bind() {}
+    open func configureUI() {}
+    open func bind() {}
 }

@@ -7,6 +7,10 @@
 
 import UIKit
 
+import SnapKit
+
+import Utility
+
 final class QuestionButton: BaseView {
     private(set) lazy var label = self.createLabel(size: 18, family: .bold)
     
@@ -23,9 +27,5 @@ final class QuestionButton: BaseView {
         label.snp.makeConstraints { make in
             make.top.trailing.leading.bottom.equalToSuperview().inset(12)
         }
-    }
-    
-    override func bind() {
-        print()
     }
 }

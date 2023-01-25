@@ -12,7 +12,7 @@
 
 import UIKit
 
-protocol Coordinator: AnyObject {
+public protocol Coordinator: AnyObject {
     var finishDelegate: CoordinatorFinishDelegate? { get set }
     var navigationController: UINavigationController { get set }
     var childCoordinators: [Coordinator] { get set }
@@ -23,7 +23,7 @@ protocol Coordinator: AnyObject {
     func findCoordinator(type: CoordinatorType) -> Coordinator?
 }
 
-extension Coordinator {
+public extension Coordinator {
     
     func finish() {
         childCoordinators.removeAll()

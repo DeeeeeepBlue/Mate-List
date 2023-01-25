@@ -7,7 +7,7 @@
 
 import FirebaseAuth
 
-protocol SettingRepositoryProtocol {
+public protocol SettingRepositoryProtocol {
     //func googleCredential() -> AuthCredential
     //func appleCredential() -> AuthCredential
     func authSignIn(credential: AuthCredential)

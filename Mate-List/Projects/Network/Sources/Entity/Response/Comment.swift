@@ -8,9 +8,17 @@
 import Foundation
 
 public struct Comment {
-    let uid: String
-    let pid: String
-    let cid: String
-    let contents: String
-    let date : String
+    public let uid: String
+    public let pid: String
+    public let cid: String
+    public let contents: String
+    public let date : String
+        
+    public init(uid: String, pid: String, cid: String, contents: String, date: String) {
+        self.uid = uid
+        self.pid = pid
+        self.cid = cid
+        self.contents = contents
+        self.date = date
+    }
 }

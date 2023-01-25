@@ -7,6 +7,10 @@
 
 import RxSwift
 
-protocol HomeDefaultUseCaseProtocol {
+import Network
+
+public protocol HomeDefaultUseCaseProtocol {
     func posts() -> Observable<[Post]>
+    var allPosts: BehaviorSubject<[Post]> { get }
+    var items: [Post] { get }
 }

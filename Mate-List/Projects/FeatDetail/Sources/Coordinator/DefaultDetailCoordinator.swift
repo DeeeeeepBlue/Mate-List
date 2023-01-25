@@ -8,20 +8,25 @@
 import Foundation
 import UIKit
 
-class DefaultDetailCoordinator: DetailCoordinator {
-    var finishDelegate: CoordinatorFinishDelegate?
-    var navigationController: UINavigationController
-    var childCoordinators: [Coordinator] = []
-    var type: CoordinatorType = .detail
+import Utility
+import Network
+
+public class DefaultDetailCoordinator: DetailCoordinator {
     
-    required init(_ navigationController: UINavigationController) {
+    
+    public var finishDelegate: CoordinatorFinishDelegate?
+    public var navigationController: UINavigationController
+    public var childCoordinators: [Coordinator] = []
+    public var type: CoordinatorType = .detail
+    
+    required public init(_ navigationController: UINavigationController) {
         self.navigationController = navigationController
         // Usecase 주입
         
     }
-    func start() { }
     
-    func start(with postData: Post?) {
+    public func start() {}
+    public func start(with postData: Post?) {
         guard let postData = postData else { return }
         var detailViewController = DetailViewController()
         detailViewController.viewModel = DetailViewModel(detailUseCase: createUseCase(with: postData))
@@ -36,7 +41,7 @@ class DefaultDetailCoordinator: DetailCoordinator {
 }
 
 extension DefaultDetailCoordinator: CoordinatorFinishDelegate {
-    func coordinatorDidFinish(childCoordinator: Coordinator) {
+    public func coordinatorDidFinish(childCoordinator: Coordinator) {
         self.childCoordinators = self.childCoordinators.filter({$0.type != childCoordinator.type})
         childCoordinator.navigationController.popToRootViewController(animated: true)
     }

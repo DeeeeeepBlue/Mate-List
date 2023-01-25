@@ -8,16 +8,16 @@
 import Foundation
 
 public struct HabitCheck: Codable {
-    let cleanSelect : String
-    let smokingSelect : Bool
-    let gameSelect : Bool
-    let snoringSelect : Bool
-    let griding_teethSelect : Bool
-    let callSelect : Bool
-    let eatSelect : Bool
-    let curfewSelect : Bool
-    let bedtimeSelect : Bool
-    let mbtiSelect : String
+    public let cleanSelect : String
+    public let smokingSelect : Bool
+    public let gameSelect : Bool
+    public let snoringSelect : Bool
+    public let griding_teethSelect : Bool
+    public let callSelect : Bool
+    public let eatSelect : Bool
+    public let curfewSelect : Bool
+    public let bedtimeSelect : Bool
+    public let mbtiSelect : String
 
     enum CodingKeys: String,CodingKey {
         case cleanSelect
@@ -30,6 +30,19 @@ public struct HabitCheck: Codable {
         case curfewSelect
         case bedtimeSelect
         case mbtiSelect
+    }
+    
+    public init(cleanSelect: String, smokingSelect: Bool, gameSelect: Bool, snoringSelect: Bool, griding_teethSelect: Bool, callSelect: Bool, eatSelect: Bool, curfewSelect: Bool, bedtimeSelect: Bool, mbtiSelect: String) {
+        self.cleanSelect = cleanSelect
+        self.smokingSelect = smokingSelect
+        self.gameSelect = gameSelect
+        self.snoringSelect = snoringSelect
+        self.griding_teethSelect = griding_teethSelect
+        self.callSelect = callSelect
+        self.eatSelect = eatSelect
+        self.curfewSelect = curfewSelect
+        self.bedtimeSelect = bedtimeSelect
+        self.mbtiSelect = mbtiSelect
     }
 }
 

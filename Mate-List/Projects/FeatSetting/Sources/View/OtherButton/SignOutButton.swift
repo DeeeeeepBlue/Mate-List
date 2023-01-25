@@ -7,11 +7,15 @@
 
 import UIKit
 
-final class SignOutButton: BaseView {
+import SnapKit
+
+import Utility
+
+public final class SignOutButton: BaseView {
     
     private(set) lazy var label = self.createLabel(size: 18, family: .bold)
     
-    override func configureUI() {
+    override public func configureUI() {
         self.backgroundColor = .white
         self.layer.cornerRadius = 5
         self.layer.borderWidth = 1
@@ -25,9 +29,5 @@ final class SignOutButton: BaseView {
         label.snp.makeConstraints { make in
             make.top.trailing.leading.bottom.equalToSuperview().inset(12)
         }
-    }
-    
-    override func bind() {
-        print()
     }
 }

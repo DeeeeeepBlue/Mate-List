@@ -9,7 +9,25 @@ import Foundation
 
 import RxSwift
 
+import Network
+
 class HomeCellUseCase: HomeCellUseCaseProtocol {
+    
+    static func getUserName(uid: String) -> Observable<String> {
+        return IDFirestoreRepository
+            .userName(uid: uid)
+    }
+    
+    static func getHabitCheck(uid: String) -> Observable<HabitCheck> {
+        return IDFirestoreRepository
+            .habitCheck(uid: uid)
+    }
+    
+    static func getMyUID() -> Observable<String> {
+        return IDFirestoreRepository
+            .myUID()
+    }
+    
     //MARK: - 적합도 계산
     static func calculatingFit(mySurvey: HabitCheck, otherSurvey: HabitCheck) -> Int {
         var cnt = 0

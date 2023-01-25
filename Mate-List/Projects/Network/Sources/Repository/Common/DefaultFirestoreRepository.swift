@@ -9,10 +9,12 @@ import UIKit
 
 import RxSwift
 
-class DefaultFirestoreRepository : DefaultFirestore {
+public class DefaultFirestoreRepository : DefaultFirestore {
+    
+    public init() { }
     
     // MARK: - 게시글들 들고오기
-    func fetchPosts() -> Observable<[String:Any]> {
+    public func fetchPosts() -> Observable<[String:Any]> {
         return Observable.create { observer in
             FireStoreService.db.collection("Post").order(by: "date", descending: true).getDocuments { (querySnapshot, err) in
                 if let err = err {
@@ -29,7 +31,7 @@ class DefaultFirestoreRepository : DefaultFirestore {
     }
 
     // MARK: - 다른 사람들 설문조사 들고오기
-    func fetchOtherSurvey(posts: [Post]) -> Observable<[String:HabitCheck]> {
+    public func fetchOtherSurvey(posts: [Post]) -> Observable<[String:HabitCheck]> {
         return Observable.create { observer in
 
             //key is uid

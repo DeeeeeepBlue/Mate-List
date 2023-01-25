@@ -9,6 +9,8 @@ import UIKit
 import RxSwift
 import SnapKit
 
+import Utility
+
 class SurveyTableViewCell: UITableViewCell {
     
     var viewModel: SurveyCellViewModel

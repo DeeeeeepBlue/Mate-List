@@ -10,6 +10,9 @@ import Firebase
 import RxCocoa
 import RxSwift
 
+import Network
+import Utility
+
 
 class ScrapViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     //MARK: - Properties
@@ -94,62 +97,64 @@ class ScrapViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     func existScrap(docPath:String, _ escapingHandler : @escaping (Bool) -> ()){
-        var result = false
-        FireStoreService.db.collection("Post").document(docPath).getDocument { (document, error) in
-            if let document = document, document.exists {
-                let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
-                print("Document data: \(dataDescription)")
-                result = true
-                escapingHandler(result)
-            }else{
-                print("Document does not exist")
-                result = false
-                escapingHandler(result)
-            }
-        }
+        //TODO:        //TODO: [AppDelegate] Auth 고치기 11
+//        var result = false
+//        FireStoreService.db.collection("Post").document(docPath).getDocument { (document, error) in
+//            if let document = document, document.exists {
+//                let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
+//                print("Document data: \(dataDescription)")
+//                result = true
+//                escapingHandler(result)
+//            }else{
+//                print("Document does not exist")
+//                result = false
+//                escapingHandler(result)
+//            }
+//        }
     }
     
     func dataLoad() {
         posts.removeAll()
             //데이터 불러오기\
         guard Auth.auth().currentUser != nil else {return}
-        FireStoreService.db.collection("User").document(Auth.auth().currentUser!.uid).collection("Scrap").getDocuments() { [self] (querySnapshot, err) in
-                    if let err = err {
-                        print("Error getting documents: \(err)")
-                    } else {
-                        //querySnapshot!.documents : Array -> 딕셔너리 타입임 data() 함수 사용시 내용 확인 가능
-                        //ex) let value = querySnapshot!.documents[0].data()
-                        //    value["callSelect", default: 0]
-                        for document in querySnapshot!.documents {
-                           // print(document.data())
-                            let value = document.data()
-                            let pid = document.documentID
-                            let uid = value["uid"] as? String ?? "글이 없습니다."
-                            let author = value["user"] as? String ?? "글이 없습니다."
-                            let title = value["title"] as? String ?? "글이 없습니다."
-                            let contents = value["contents"] as? String ?? "글이 없습니다."
-                            let date = value["date"] as? String ?? "글이 없습니다."
-                            let isScrap = value["isScrap"] as? Bool ?? false
-                            let findMate = value["findMate"] as? Bool ?? false
-                            
-                            existScrap(docPath: document.documentID){ (result) in
-                                if result{
-                                    self.posts.append(Post(pid: pid, uid: uid, title: title, contents: contents, date: date, isScrap: isScrap, findMate: findMate ))
-                                    print("잘 넣었음")
-                                    self.reloadTableView()
-                                } else{
-                                    FireStoreService.db.collection("User").document(Auth.auth().currentUser!.uid).collection("Scrap").document(document.documentID).delete() { err in
-                                        if let err = err {
-                                            print("Error removing document: \(err)")
-                                        } else {
-                                            print("Document successfully removed!")
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
+        //TODO:        //TODO: [AppDelegate] Auth 고치기 10
+//        FireStoreService.db.collection("User").document(Auth.auth().currentUser!.uid).collection("Scrap").getDocuments() { [self] (querySnapshot, err) in
+//                    if let err = err {
+//                        print("Error getting documents: \(err)")
+//                    } else {
+//                        //querySnapshot!.documents : Array -> 딕셔너리 타입임 data() 함수 사용시 내용 확인 가능
+//                        //ex) let value = querySnapshot!.documents[0].data()
+//                        //    value["callSelect", default: 0]
+//                        for document in querySnapshot!.documents {
+//                           // print(document.data())
+//                            let value = document.data()
+//                            let pid = document.documentID
+//                            let uid = value["uid"] as? String ?? "글이 없습니다."
+//                            let author = value["user"] as? String ?? "글이 없습니다."
+//                            let title = value["title"] as? String ?? "글이 없습니다."
+//                            let contents = value["contents"] as? String ?? "글이 없습니다."
+//                            let date = value["date"] as? String ?? "글이 없습니다."
+//                            let isScrap = value["isScrap"] as? Bool ?? false
+//                            let findMate = value["findMate"] as? Bool ?? false
+//
+//                            existScrap(docPath: document.documentID){ (result) in
+//                                if result{
+//                                    self.posts.append(Post(pid: pid, uid: uid, title: title, contents: contents, date: date, isScrap: isScrap, findMate: findMate ))
+//                                    print("잘 넣었음")
+//                                    self.reloadTableView()
+//                                } else{
+//                                    FireStoreService.db.collection("User").document(Auth.auth().currentUser!.uid).collection("Scrap").document(document.documentID).delete() { err in
+//                                        if let err = err {
+//                                            print("Error removing document: \(err)")
+//                                        } else {
+//                                            print("Document successfully removed!")
+//                                        }
+//                                    }
+//                                }
+//                            }
+//                        }
+//                    }
+//                }
         }
     func reloadTableView() {
         self.scrapTableView.reloadData()
@@ -201,10 +206,6 @@ class ScrapViewController: UIViewController, UITableViewDataSource, UITableViewD
             cellDate.text = "\(self.posts[indexPath.section].date)"
             cellUser.text = "\(self.posts[indexPath.section].uid)"
             cellSameNumberLabel.text = "홈에서 확인"
-            cellSameNumberLabel 
-        }
-        
-        else {
             
         }
 

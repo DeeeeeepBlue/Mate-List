@@ -9,6 +9,8 @@ import UIKit
 
 import SnapKit
 
+import Utility
+
 class DeleteButton: BaseView {
     private(set) lazy var button: UIButton = {
         let button = UIButton()

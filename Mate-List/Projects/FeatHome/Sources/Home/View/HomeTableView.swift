@@ -26,3 +26,8 @@ final class HomeTableView: UITableView {
         self.register(HomeCell.self, forCellReuseIdentifier: HomeCell.cellIdentifier)
     }
 }
+extension HomeTableView: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 120
+    }
+}

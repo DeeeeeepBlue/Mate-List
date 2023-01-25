@@ -22,28 +22,31 @@ class MyProfileUseCase: MyProfileUseCaseProtocol {
     var isUser = BehaviorSubject<Bool>(value: false)
     
     func isCurrentUser() {
-        AppDelegate.userAuth.subscribe(onNext: { result in
-            self.isUser.onNext(result != nil)
-        })
+        //TODO: [AppDelegate] Auth 고치기 3
+//        AppDelegate.userAuth.subscribe(onNext: { result in
+//            self.isUser.onNext(result != nil)
+//        })
     }
     
     func currentUserName() {
-        AppDelegate.userAuth.subscribe(onNext: { result in
-            guard let result = result else {
-                self.name.onNext("이름 없음")
-                return
-            }
-            self.name.onNext(result.user.displayName ?? "이름 없음")
-        })
+        //TODO: [AppDelegate] Auth 고치기 6
+//        AppDelegate.userAuth.subscribe(onNext: { result in
+//            guard let result = result else {
+//                self.name.onNext("이름 없음")
+//                return
+//            }
+//            self.name.onNext(result.user.displayName ?? "이름 없음")
+//        })
     }
     
     func currentUserEmail() {
-        AppDelegate.userAuth.subscribe(onNext: { result in
-            guard let result = result else {
-                self.email.onNext("이메일 없음")
-                return
-            }
-            self.email.onNext(result.user.email ?? "이메일 없음")
-        })
+        //TODO: [AppDelegate] Auth 고치기 7
+//        AppDelegate.userAuth.subscribe(onNext: { result in
+//            guard let result = result else {
+//                self.email.onNext("이메일 없음")
+//                return
+//            }
+//            self.email.onNext(result.user.email ?? "이메일 없음")
+//        })
     }
 }

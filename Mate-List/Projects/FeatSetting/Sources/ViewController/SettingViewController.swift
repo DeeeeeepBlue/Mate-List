@@ -8,19 +8,24 @@
 import UIKit
 import AuthenticationServices
 import CryptoKit
-import FirebaseAuth
+import MessageUI
 
+import FirebaseAuth
 import SnapKit
 import RxSwift
 import RxCocoa
 import RxGesture
 import GoogleSignIn
 
+import Utility
+import Network
+
 class SettingViewController: BaseViewController {
     //MARK: - Properties
     private let disposeBag = DisposeBag()
-    private let repository = SettingRepository()
-    private let viewModel = MyProfileViewModel(myProfileUseCase: MyProfileUseCase(),repository: SettingRepository())
+    
+    var viewModel: MyProfileViewModel?
+    
     private let quitButtonViewModel = QuitButtonViewModel()
     
     private let myProfileView = MyProfileView()
@@ -106,13 +111,20 @@ class SettingViewController: BaseViewController {
     
     override func setBind() {
         
-        viewModel.name
+        viewModel?.name?
             .bind(to: myProfileView.nameLabel.rx.text)
             .disposed(by: disposeBag)
         
-        viewModel.email
+        viewModel?.email?
             .bind(to: myProfileView.emailLabel.rx.text)
             .disposed(by: disposeBag)
+        
+        questionButton.rx
+            .tapGesture()
+            .when(.recognized)
+            .bind { _ in
+                self.moveMailView()
+            }
         
         signInButtonView.authorizationButton.rx
             .controlEvent(.touchUpInside)
@@ -132,7 +144,8 @@ class SettingViewController: BaseViewController {
             .tapGesture()
             .when(.recognized)
             .bind { _ in
-                self.repository.authSignOut()
+                
+                self.viewModel?.settingRepository.authSignOut()
             }
             .disposed(by: disposeBag)
         
@@ -141,16 +154,16 @@ class SettingViewController: BaseViewController {
             .when(.recognized)
             .map{_ in }
             .bind(to: quitButtonViewModel.tapButton)
-        
-        AppDelegate.userAuth
-            .compactMap{$0 == nil}
-            .bind(to: self.signOutButton.rx.isHidden)
-            .disposed(by: disposeBag)
-        
-        AppDelegate.userAuth
-            .compactMap{$0 == nil}
-            .bind(to: self.quitButton.rx.isHidden)
-            .disposed(by: disposeBag)
+        //TODO: [AppDelegate] Auth 고치기 4
+//        AppDelegate.userAuth
+//            .compactMap{$0 == nil}
+//            .bind(to: self.signOutButton.rx.isHidden)
+//            .disposed(by: disposeBag)
+//
+//        AppDelegate.userAuth
+//            .compactMap{$0 == nil}
+//            .bind(to: self.quitButton.rx.isHidden)
+//            .disposed(by: disposeBag)
     }
 
 }
@@ -185,7 +198,7 @@ extension SettingViewController: ASAuthorizationControllerDelegate {
                                                       idToken: idTokenString,
                                                       rawNonce: nonce)
             // Sign in with Firebase.
-            repository.authSignIn(credential: credential)
+            viewModel?.settingRepository.authSignIn(credential: credential)
             
             // User is signed in to Firebase with Apple.
             // ...
@@ -282,8 +295,44 @@ extension SettingViewController {
                 
                 let credential = GoogleAuthProvider.credential(withIDToken: idToken.tokenString, accessToken: user.accessToken.tokenString)
                 
-                self.repository.authSignIn(credential: credential)
+                self.viewModel?.settingRepository.authSignIn(credential: credential)
             }
         }
+    }
+}
+
+//MARK: - 문의하기
+extension SettingViewController: MFMailComposeViewControllerDelegate {
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+            controller.dismiss(animated: true, completion: nil)
+    }
+    
+    func moveMailView() {
+        // 이메일 사용가능한지 체크하는 if문
+        if MFMailComposeViewController.canSendMail() {
+
+            let compseVC = MFMailComposeViewController()
+            compseVC.mailComposeDelegate = self
+
+            compseVC.setToRecipients(["deeeeeep0122@gmail.com"])
+            compseVC.setSubject("[메이트리스트] 문의 및 신고")
+            compseVC.setMessageBody("내용 : ", isHTML: false)
+            self.present(compseVC, animated: true, completion: nil)
+
+        }
+        else {
+            self.showSendMailErrorAlert()
+        }
+    }
+
+    /// 메일 에러 메시지
+    func showSendMailErrorAlert() {
+            let sendMailErrorAlert = UIAlertController(title: "메일을 전송 실패", message: "아이폰 이메일 설정을 확인하고 다시 시도해주세요.", preferredStyle: .alert)
+            let confirmAction = UIAlertAction(title: "확인", style: .default) {
+                (action) in
+                print("확인")
+            }
+            sendMailErrorAlert.addAction(confirmAction)
+            self.present(sendMailErrorAlert, animated: true, completion: nil)
     }
 }

@@ -10,6 +10,8 @@ import UIKit
 import SnapKit
 import RxSwift
 
+import Utility
+
 class ReportButton: BaseView {
     private(set) lazy var button: UIButton = {
         let button = UIButton()

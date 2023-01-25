@@ -8,26 +8,25 @@
 import Foundation
 import UIKit
 
-import Feat
+import Utility
 
-class DefaultAppCoordinator: AppCoordinator {
-
-    weak var finishDelegate: CoordinatorFinishDelegate?
-    var navigationController: UINavigationController
-    var childCoordinators: [Coordinator]
-    var type: CoordinatorType
+public class DefaultAppCoordinator: AppCoordinator {
+    weak public var finishDelegate: CoordinatorFinishDelegate?
+    public var navigationController: UINavigationController
+    public var childCoordinators: [Coordinator]
+    public var type: CoordinatorType
     
-    required init(_ navigationController: UINavigationController) {
+    required public init(_ navigationController: UINavigationController) {
         self.navigationController = navigationController
         self.childCoordinators = []
         self.type = CoordinatorType.home
     }
     
-    func start() {
+    public func start() {
         showTabBarFlow()
     }
     
-    func showTabBarFlow() {
+    public func showTabBarFlow() {
         let tabBarCoordinator = DefaultTabBarCoordinator(self.navigationController)
         tabBarCoordinator.finishDelegate = self
         tabBarCoordinator.start()
@@ -37,7 +36,7 @@ class DefaultAppCoordinator: AppCoordinator {
 }
 
 extension DefaultAppCoordinator: CoordinatorFinishDelegate {
-    func coordinatorDidFinish(childCoordinator: Coordinator) {
+    public func coordinatorDidFinish(childCoordinator: Coordinator) {
         // 자식 뷰를 삭제하는 델리게이트 메모리에서 해제되도록 childCoordinators에서 삭제 후 pop
         self.childCoordinators = self.childCoordinators
             .filter({ $0.type != childCoordinator.type })

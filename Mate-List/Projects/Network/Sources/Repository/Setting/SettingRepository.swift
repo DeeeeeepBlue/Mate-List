@@ -10,7 +10,10 @@ import GoogleSignIn
 import RxSwift
 
 
-class SettingRepository: SettingRepositoryProtocol {
+public class SettingRepository: SettingRepositoryProtocol {
+    
+    public init () { }
+    
     /* TODO: SettingVC에 있는 SignIn 로직 리팩토링 고려
     ViewController 에 로그인 view를 띄우는데 View 구현이 안된 상태
     func googleCredential() -> AuthCredential {
@@ -22,25 +25,25 @@ class SettingRepository: SettingRepositoryProtocol {
     }
      */
     
-    func authSignIn(credential: AuthCredential) {
+    public func authSignIn(credential: AuthCredential) {
         Auth.auth().signIn(with: credential) { (authResult, error) in
             if let error = error {
                 print("Firebase sign in error: \(error)")
                 return
             } else {
-                //TODO: 1
+                //TODO: [AppDelegate] Auth 고치기 1
                 //AppDelegate.userAuth.onNext(authResult)
             }
         }
     }
     
-    func authSignOut() {
+    public func authSignOut() {
         let firebaseAuth = Auth.auth()
         do {
             try firebaseAuth.signOut()
             GIDSignIn.sharedInstance.disconnect{ error in
                 guard error == nil else { return }
-                //TODO: 2
+                //TODO: [AppDelegate] Auth 고치기 2
                 //AppDelegate.userAuth
                 //  .onNext(nil)
             }
@@ -49,7 +52,7 @@ class SettingRepository: SettingRepositoryProtocol {
         }
     }
     
-    func registUser(user: User) {
+    public func registUser(user: User) {
         FireStoreService.db.collection("User").document(user.uid).setData([
             "user" : user.name,
             "email" : user.email,

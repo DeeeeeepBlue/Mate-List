@@ -1,23 +1,8 @@
 import ProjectDescription
 
-//MARK: Project 템플릿
-extension Project {
-    public static func framework(
-        name: String,
-        organizationName: String,
-        options: Options,
-        package: [Package],
-        target: [Target]
-    ) -> Project {
-        
-        return Project(name: name,
-                       organizationName: organizationName,
-                       options: options,
-                       packages: package,
-                       targets: target
-        )
-    }
-}
+let baseSettings: [String: SettingValue] = [
+    "SWIFT_OBJC_BRIDGING_HEADER": "Source/Header.h",
+]
 
 //MARK: Target 템플릿
 extension Project {
@@ -39,7 +24,8 @@ extension Project {
             sources: sources,
             resources: resources,
             scripts: scripts,
-            dependencies: dependencies
+            dependencies: dependencies,
+            settings: .settings(base: baseSettings)
         )
     }
     
@@ -62,8 +48,7 @@ extension Project {
            resources: [],
            dependencies: [
             .target(name: name),
-            .rxTest,
-            .rxNimble
+            .rxTest
            ])
     }
     

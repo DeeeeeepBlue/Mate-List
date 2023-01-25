@@ -9,6 +9,8 @@ import Foundation
 
 import RxSwift
 
+import Network
+
 protocol CommentCellViewModelProtocol {
     var comment: AnyObserver<Comment> { get }
     
@@ -38,7 +40,7 @@ class CommentCellViewModel: CommentCellViewModelProtocol {
         
         user = commentSubject
             .map { $0.uid }
-            .flatMap { IDFirestoreUseCase.getUserName(uid: $0)}
+            .flatMap { DefaultDetailUseCase.getUserName(uid: $0)}
         
     }
     

@@ -7,6 +7,11 @@
 
 import RxSwift
 
+import Network
+
 protocol HomeCellUseCaseProtocol{
+    static func getUserName(uid: String) -> Observable<String>
+    static func getHabitCheck(uid: String) -> Observable<HabitCheck>
+    static func getMyUID() -> Observable<String>
     static func calculatingFit(mySurvey: HabitCheck, otherSurvey: HabitCheck) -> Int
 }

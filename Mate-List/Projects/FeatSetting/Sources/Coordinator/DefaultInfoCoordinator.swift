@@ -8,30 +8,35 @@
 import Foundation
 import UIKit
 
-class DefaultInfoCoordinator: Coordinator{
+import Utility
+import Network
+
+public class DefaultInfoCoordinator: Coordinator{
     
-    weak var finishDelegate: CoordinatorFinishDelegate?
-    var navigationController: UINavigationController
-    var infoViewController: SettingViewController // TODO: Info->InfoViewController로 클래스명 변경 필요
-    var childCoordinators: [Coordinator] = []
-    var type: CoordinatorType = .home
+    weak public var finishDelegate: CoordinatorFinishDelegate?
+    public var navigationController: UINavigationController
+    var settingViewController: SettingViewController // TODO: Info->InfoViewController로 클래스명 변경 필요
+    public var childCoordinators: [Coordinator] = []
+    public var type: CoordinatorType = .home
     
-    required init(_ navigationController: UINavigationController) {
+    required public init(_ navigationController: UINavigationController) {
         self.navigationController = navigationController
-        self.infoViewController = SettingViewController()
+        self.settingViewController = SettingViewController()
+        settingViewController.viewModel = MyProfileViewModel(usecase: MyProfileUseCase(), repository: SettingRepository())
+        
         // 아직 스토리보드로 작동중이라 다음 코드 사용
 //        self.navigationController = navigationController
-        self.infoViewController = UIStoryboard(name: "Info", bundle: nil)
+        self.settingViewController = UIStoryboard(name: "Info", bundle: nil)
             .instantiateViewController(withIdentifier: "infoStoryboard") as! SettingViewController
     }
     
-    func start() {
-        self.navigationController.pushViewController(self.infoViewController, animated: true)
+    public func start() {
+        self.navigationController.pushViewController(self.settingViewController, animated: true)
     }
 }
 
 extension DefaultInfoCoordinator: CoordinatorFinishDelegate {
-    func coordinatorDidFinish(childCoordinator: Coordinator) {
+    public func coordinatorDidFinish(childCoordinator: Coordinator) {
         // 자식 뷰를 삭제하는 델리게이트 (자식 -> 부모 접근 -> 부모에서 자식 삭제)
         self.childCoordinators = self.childCoordinators
             .filter({ $0.type != childCoordinator.type })

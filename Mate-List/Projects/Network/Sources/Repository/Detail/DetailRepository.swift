@@ -9,11 +9,13 @@ import UIKit
 
 import RxSwift
 
-class DetailRepository: DetailRepositoryProtocol {
+public class DetailRepository: DetailRepositoryProtocol {
     
     var disposeBag = DisposeBag()
     
-    func fetchComments(pid: String) -> Observable<[String:Any]> {
+    public init() {}
+    
+    public func fetchComments(pid: String) -> Observable<[String:Any]> {
         return Observable.create { observer in
             FireStoreService.db.collection("Post").document(pid).collection("Comment").order(by: "date", descending: true).getDocuments { (querySnapshot, err) in
                 if let err = err {
@@ -29,7 +31,7 @@ class DetailRepository: DetailRepositoryProtocol {
         }
     }
     
-    func isScrap(uid: String, pid: String) -> Observable<Bool> {
+    public func isScrap(uid: String, pid: String) -> Observable<Bool> {
         var result: Bool = false
         return Observable.create { observer in
             FireStoreService.db.collection("User").document(uid).collection("Scrap").document(pid).getDocument { (document, error) in
@@ -50,7 +52,7 @@ class DetailRepository: DetailRepositoryProtocol {
         }
     }
     
-    func deleteScrap(uid: String, pid: String) {
+    public func deleteScrap(uid: String, pid: String) {
         FireStoreService.db.collection("User").document(uid).collection("Scrap").document(pid).delete() { err in
             if let err = err {
                 print("Error removing document: \(err)")
@@ -60,7 +62,7 @@ class DetailRepository: DetailRepositoryProtocol {
         }
     }
 
-    func registerScrap(uid:String, pid: String, post: Post) {
+    public func registerScrap(uid:String, pid: String, post: Post) {
         FireStoreService.db.collection("User").document(uid).collection("Scrap").document(pid).setData([
             "contents" : post.contents,
             "title" :  post.title,
@@ -72,7 +74,7 @@ class DetailRepository: DetailRepositoryProtocol {
         ])
     }
     
-    func deletePost(pid: String) {
+    public func deletePost(pid: String) {
         // Post 삭제
         FireStoreService.db.collection("Post").document(pid).delete() { err in
             if let err = err {
@@ -95,7 +97,7 @@ class DetailRepository: DetailRepositoryProtocol {
     }
     
     
-    func deleteComment(pid: String, cid: String) {
+    public func deleteComment(pid: String, cid: String) {
         // 댓글의 문서 id 삭제
         FireStoreService.db.collection("Post").document(pid).collection("Comment").document(cid).delete() { err in
                 if let err = err {
@@ -106,4 +108,3 @@ class DetailRepository: DetailRepositoryProtocol {
         }
     }
 }
-

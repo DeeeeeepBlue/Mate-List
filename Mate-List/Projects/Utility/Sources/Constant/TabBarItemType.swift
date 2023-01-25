@@ -5,12 +5,10 @@
 //  Created by DOYEON LEE on 2022/12/18.
 //
 
-import Foundation
-
-enum TabBarPage: String, CaseIterable {
+public enum TabBarItemType: String, CaseIterable {
     case home, scrap, info
     
-    init?(index: Int) {
+    public init?(index: Int) {
         switch index {
         case 0: self = .home
         case 1: self = .scrap
@@ -20,7 +18,7 @@ enum TabBarPage: String, CaseIterable {
     }
     
     /// TabBarPage 형을 매칭되는 Int형으로 반환
-    func toInt() -> Int {
+    public func toInt() -> Int {
         switch self {
         case .home: return 0
         case .scrap: return 1
@@ -29,7 +27,7 @@ enum TabBarPage: String, CaseIterable {
     }
     
     /// TabBarPage 형을 매칭되는 한글명으로 변환
-    func toKrName() -> String {
+    public func toKrName() -> String {
         switch self {
         case .home: return "홈"
         case .scrap: return "스크랩"
@@ -37,7 +35,7 @@ enum TabBarPage: String, CaseIterable {
         }
     }
     
-    func toIconName() -> String {
+    public func toIconName() -> String {
         switch self {
         case .home: return "house"
         case .scrap: return "star"

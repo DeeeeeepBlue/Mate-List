@@ -7,13 +7,22 @@
 
 import Foundation
 
-
 public struct Post: Codable {
-    let pid : String
-    let uid : String
-    let title: String
-    let contents: String
-    let date : String
-    let isScrap : Bool
-    let findMate: Bool
+    public let pid : String
+    public let uid : String
+    public let title: String
+    public let contents: String
+    public let date : String
+    public let isScrap : Bool
+    public let findMate: Bool
+    
+    public init(pid: String, uid: String, title: String, contents: String, date: String, isScrap: Bool, findMate: Bool) {
+        self.pid = pid
+        self.uid = uid
+        self.title = title
+        self.contents = contents
+        self.date = date
+        self.isScrap = isScrap
+        self.findMate = findMate
+    }
 }

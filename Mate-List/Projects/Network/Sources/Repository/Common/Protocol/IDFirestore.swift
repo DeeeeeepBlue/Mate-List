@@ -7,7 +7,7 @@
 
 import RxSwift
 
-protocol IDFirestore {
+public protocol IDFirestore {
     static func userName(uid: String) -> Observable<String>
     static func habitCheck(uid: String) -> Observable<HabitCheck>
     static func myUID() -> Observable<String>

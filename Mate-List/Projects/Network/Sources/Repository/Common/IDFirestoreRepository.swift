@@ -9,9 +9,12 @@ import Foundation
 import RxSwift
 import FirebaseAuth
 
-class IDFirestoreRepository: IDFirestore {
+public class IDFirestoreRepository: IDFirestore {
+    
+    public init() {}
+    
     // MARK: Check
-    func isExistUser(uid: String) -> Observable<Bool> {
+    public func isExistUser(uid: String) -> Observable<Bool> {
         return Observable.create { observer in
             FireStoreService.db.collection("User").whereField("uid", isEqualTo: uid).getDocuments { (querySnapshot, err) in
                 guard let documents = querySnapshot?.documents else { return }
@@ -23,7 +26,7 @@ class IDFirestoreRepository: IDFirestore {
         }
     }
     
-    func isBlackUser(uid: String) -> Observable<Bool> {
+    public func isBlackUser(uid: String) -> Observable<Bool> {
         return Observable.create { observer in
             FireStoreService.db.collection("BlackList").whereField(uid, isEqualTo: true).getDocuments() { (querySnapshot, err) in
                 if let err = err {
@@ -39,7 +42,7 @@ class IDFirestoreRepository: IDFirestore {
     }
     
     // MARK: Delete
-    func deleteAllPost(uid: String) {
+    public func deleteAllPost(uid: String) {
         var userPostsID: [String] = []
         FireStoreService.db.collection("Post").whereField("uid", isEqualTo: uid).getDocuments() {(querySnapshot, err) in
             if let err = err {
@@ -63,7 +66,7 @@ class IDFirestoreRepository: IDFirestore {
         }
     }
     
-    func deleteAllScrap(uid: String) {
+    public func deleteAllScrap(uid: String) {
         FireStoreService.db.collection("User").document(uid).collection("Scrap").getDocuments() {(querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
@@ -81,7 +84,7 @@ class IDFirestoreRepository: IDFirestore {
         }
     }
     
-    func deleteAllHabit(uid: String) {
+    public func deleteAllHabit(uid: String) {
         FireStoreService.db.collection("User").document(uid).collection("HabitCheck").getDocuments() {(querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
@@ -99,7 +102,7 @@ class IDFirestoreRepository: IDFirestore {
         }
     }
     
-     func deleteUser(uid: String) {
+    public func deleteUser(uid: String) {
         FireStoreService.db.collection("User").document(uid).delete() { err in
             if let err = err {
                 print("Error removing document: \(err)")
@@ -111,7 +114,7 @@ class IDFirestoreRepository: IDFirestore {
     
     // MARK: Read
     // Pid로 게시글 들고오기
-    static func fetchPost(pid: String) -> Observable<Post> {
+    static public func fetchPost(pid: String) -> Observable<Post> {
         return Observable.create { observer in
             let docRef = FireStoreService.db.collection("Post").document(pid)
             
@@ -140,7 +143,7 @@ class IDFirestoreRepository: IDFirestore {
         }
     }
     
-    static func userName(uid: String) -> Observable<String> {
+    static public func userName(uid: String) -> Observable<String> {
         return Observable.create { observer in
             let docRef = FireStoreService.db.collection("User")
             
@@ -161,7 +164,7 @@ class IDFirestoreRepository: IDFirestore {
         }
     }
     
-    static func habitCheck(uid: String) -> Observable<HabitCheck> {
+    static public func habitCheck(uid: String) -> Observable<HabitCheck> {
         return Observable.create { observer in
         
             let docRef = FireStoreService.db.collection("User").document(uid).collection("HabitCheck").document(uid)
@@ -190,7 +193,7 @@ class IDFirestoreRepository: IDFirestore {
         }
     }
     
-    static func myUID() -> Observable<String> {
+    static public func myUID() -> Observable<String> {
         return Observable.create { observer in
             if let currentUser = Auth.auth().currentUser {
                 let uid = currentUser.uid
@@ -202,8 +205,8 @@ class IDFirestoreRepository: IDFirestore {
         }
     }
     
-    //TODO: 나중에 고치기 
-    static func myUIDString() -> String {
+    //TODO: 나중에 고치기
+    static public func myUIDString() -> String {
         if let currentUser = Auth.auth().currentUser {
             let uid = currentUser.uid
             return uid
@@ -213,7 +216,7 @@ class IDFirestoreRepository: IDFirestore {
     }
     
     
-    static func reportUser(myUid: String, reportUid: String) {
+    static public func reportUser(myUid: String, reportUid: String) {
         FireStoreService.db.collection("User").document(myUid).collection("HateUser").document(reportUid).setData([
             reportUid : reportUid
         ])

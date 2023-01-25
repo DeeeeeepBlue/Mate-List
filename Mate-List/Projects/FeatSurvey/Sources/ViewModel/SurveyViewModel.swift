@@ -8,6 +8,8 @@
 import Foundation
 import RxSwift
 
+import Utility
+
 class SurveyViewModel {
     let questions: Observable<[SurveyQuestionType]> = Observable.just(SurveyQuestionType.allCases)
     

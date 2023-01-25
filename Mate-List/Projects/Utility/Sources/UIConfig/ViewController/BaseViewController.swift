@@ -7,17 +7,17 @@
 
 import UIKit
 
-class BaseViewController: UIViewController {
+open class BaseViewController: UIViewController {
     
-    init() {
+    public init() {
         super.init(nibName: nil, bundle: nil)
     }
     
-    required init?(coder: NSCoder) {
+    required public init?(coder: NSCoder) {
         super.init(coder: coder)
     }
     
-    override func viewDidLoad() {
+    open override func viewDidLoad() {
         super.viewDidLoad()
         style()
         setView()
@@ -25,11 +25,11 @@ class BaseViewController: UIViewController {
         setBind()
     }
     
-    func style() {
+    open func style() {
         view.backgroundColor = .white
     }
-    func setView() {}
-    func setConstraint() {}
-    func setBind() {}
+    open func setView() {}
+    open func setConstraint() {}
+    open func setBind() {}
 
 }

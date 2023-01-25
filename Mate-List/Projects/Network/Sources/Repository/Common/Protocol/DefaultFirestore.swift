@@ -7,7 +7,7 @@
 
 import RxSwift
 
-protocol DefaultFirestore {
+public protocol DefaultFirestore {
     func fetchPosts() -> Observable<[String:Any]>
     func fetchOtherSurvey(posts: [Post]) -> Observable<[String:HabitCheck]>
 }

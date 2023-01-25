@@ -10,6 +10,8 @@ import Foundation
 import RxSwift
 import UIKit
 
+import Network
+
 class DefaultDetailUseCase {
     //MARK: 프로퍼티
     var disposeBag = DisposeBag()
@@ -117,5 +119,10 @@ class DefaultDetailUseCase {
     
     func pid() -> String {
         return post.pid
+    }
+    
+    static func getUserName(uid: String) -> Observable<String> {
+        return IDFirestoreRepository
+            .userName(uid: uid)
     }
 }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum CoordinatorType {
+public enum CoordinatorType {
 //    case app, login, tab
 //    case home, record, mate, mypage
 //    case setting, running

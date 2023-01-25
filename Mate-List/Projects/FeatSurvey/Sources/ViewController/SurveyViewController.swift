@@ -15,7 +15,7 @@ import RxViewController
 import SnapKit
 
 
-class SurveyViewController: UIViewController {
+public class SurveyViewController: UIViewController {
 
     // UI
     private let surveyTableView = SurveyTableView()
@@ -27,7 +27,7 @@ class SurveyViewController: UIViewController {
     private let disposeBag = DisposeBag()
 
     
-    override func viewDidLoad() {
+    override public func viewDidLoad() {
         super.viewDidLoad()
         setStyle()
         setView()

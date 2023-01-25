@@ -7,15 +7,18 @@
 //
 //
 
-
 import RxSwift
 
-// MARK: - Private
+import Network
 
+// MARK: - Private
 class HomeDefaultUseCase: HomeDefaultUseCaseProtocol {
-    let disposeBag: DisposeBag = DisposeBag()
+    var disposeBag: DisposeBag = DisposeBag()
     let firestoreRepository : DefaultFirestoreRepository
 
+    var allPosts = BehaviorSubject<[Post]>(value: [])
+    var items: [Post] = []
+    
     init(firestoreRepository: DefaultFirestoreRepository) {
         self.firestoreRepository = firestoreRepository
 
@@ -31,9 +34,10 @@ class HomeDefaultUseCase: HomeDefaultUseCaseProtocol {
         var isScrap: Bool = false
         var findMate: Bool = false
         
+        itemsClear()
+        
         return Observable.create { observer in
-            let data = self.firestoreRepository.fetchPost()
-            var items: [Post] = []
+            let data = self.firestoreRepository.fetchPosts()
             data
                 .subscribe(onNext: { data in
                     pid = data["pid"] as? String ?? "noPid"
@@ -44,12 +48,16 @@ class HomeDefaultUseCase: HomeDefaultUseCaseProtocol {
                     date = data["date"] as? String ?? "noDate"
                     isScrap = data["isScrap"] as? Bool ?? false
                     findMate = data["findMate"] as? Bool ?? false
-                    
-                    items.append(Post(pid: pid, uid: uid, title: title, contents: contents, date: date, isScrap: isScrap, findMate: findMate))
-                    observer.onNext(items)
+                
+                    self.items.append(Post(pid: pid, uid: uid, title: title, contents: contents, date: date, isScrap: isScrap, findMate: findMate))
+                    observer.onNext(self.items)
                 })
                 .disposed(by: self.disposeBag)
             return Disposables.create()
         }
+    }
+    
+    func itemsClear() {
+        items = []
     }
 }

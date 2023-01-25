@@ -7,6 +7,11 @@
 
 import UIKit
 
+import SnapKit
+
+import Utility
+
+
 class HabitCheckButton: BaseView {
     
     private(set) var button: UIButton = {

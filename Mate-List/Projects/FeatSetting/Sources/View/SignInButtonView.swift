@@ -11,6 +11,8 @@ import SnapKit
 import GoogleSignIn
 import AuthenticationServices
 
+import Utility
+
 final class SignInButtonView: BaseView {
     
     private(set) lazy var googleButton: GIDSignInButton = {
@@ -44,9 +46,5 @@ final class SignInButtonView: BaseView {
             make.leading.trailing.equalToSuperview().inset(12)
             make.height.equalTo(30)
         }
-    }
-    
-    override func bind() {
-        print()
     }
 }

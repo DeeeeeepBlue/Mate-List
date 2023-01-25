@@ -7,11 +7,15 @@
 
 import UIKit
 
-final class SurveyButton: BaseView {
+import SnapKit
+
+import Utility
+
+public final class SurveyButton: BaseView {
     
     private(set) lazy var label = self.createLabel(size: 18, family: .bold)
     
-    override func configureUI() {
+    public override func configureUI() {
         self.backgroundColor = .white
         self.layer.cornerRadius = 5
         self.layer.borderWidth = 1
@@ -26,10 +30,6 @@ final class SurveyButton: BaseView {
             make.top.trailing.leading.bottom.equalToSuperview().inset(12)
         }
         
-    }
-    
-    override func bind() {
-        print()
     }
 }
 

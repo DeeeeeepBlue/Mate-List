@@ -8,6 +8,8 @@
 import RxSwift
 import FirebaseAuth
 
+import Network
+
 protocol QuitButtonViewModelProtocol {
     var tapButton: AnyObserver<Void> { get }
 }
@@ -15,6 +17,7 @@ protocol QuitButtonViewModelProtocol {
 class QuitButtonViewModel: QuitButtonViewModelProtocol {
     private let disposeBag = DisposeBag()
     private let idRepository = IDFirestoreRepository()
+    private let settingRepository = SettingRepository()
     var tapButton: AnyObserver<Void>
     
     
@@ -25,10 +28,11 @@ class QuitButtonViewModel: QuitButtonViewModelProtocol {
         
         tapButton = tapping.asObserver()
         
-        tapping
-            .flatMap{AppDelegate.userAuth}
-            .bind(onNext: userData.onNext)
-            .disposed(by: disposeBag)
+        //TODO: [AppDelegate] Auth 고치기 8
+//        tapping
+//            .flatMap{AppDelegate.userAuth}
+//            .bind(onNext: userData.onNext)
+//            .disposed(by: disposeBag)
         
         userData
             .subscribe(onNext: { data in
@@ -38,7 +42,10 @@ class QuitButtonViewModel: QuitButtonViewModelProtocol {
                 self.idRepository.deleteAllPost(uid: uid)
                 self.idRepository.deleteAllScrap(uid: uid)
                 self.idRepository.deleteUser(uid: uid)
+                
+                self.settingRepository.authSignOut()
             })
+            .disposed(by: disposeBag)
                        
         
     }

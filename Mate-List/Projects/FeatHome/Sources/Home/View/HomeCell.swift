@@ -10,6 +10,9 @@ import UIKit
 import RxSwift
 import SnapKit
 
+import Utility
+import Network
+
 class HomeCell: UITableViewCell {
     
     var viewModel: HomeCellViewModel
@@ -17,6 +20,8 @@ class HomeCell: UITableViewCell {
     
     // MARK: - Properties
     static var cellIdentifier = "thisIsHome"
+    
+    private(set) lazy var baseView: UIView = UIView()
     
     private(set) lazy var topConatiner: UIStackView = UIStackView()
     private(set) lazy var bottomContainer: UIStackView = UIStackView()
@@ -42,6 +47,13 @@ class HomeCell: UITableViewCell {
         self.viewModel = HomeCellViewModel()
         super.init(coder: aDecoder)
         self.configureUI()
+        self.bind()
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        self.disposeBag = DisposeBag()
+        
     }
 }
 //MARK: - Override
@@ -84,12 +96,14 @@ extension HomeCell {
         viewModel.user
             .bind(to: self.userLabel.rx.text)
             .disposed(by: disposeBag)
+
     }
     
     private func configureUI() {
-        self.contentView.snp.makeConstraints { make in
-            make.top.leading.trailing.equalToSuperview()
-            make.height.equalTo(120)
+        self.addSubview(baseView)
+        
+        baseView.snp.makeConstraints { make in
+            make.top.leading.trailing.bottom.equalToSuperview()
         }
         
         // AddView
@@ -97,10 +111,10 @@ extension HomeCell {
         self.topConatiner.addArrangedSubview(matchPercentView)
         self.topConatiner.addArrangedSubview(createSpacer())
         self.matchPercentView.addSubview(matchPercentLabel)
-        self.contentView.addSubview(topConatiner)
-        self.contentView.addSubview(titleLabel)
-        self.contentView.addSubview(contentLabel)
-        self.contentView.addSubview(bottomContainer)
+        self.baseView.addSubview(topConatiner)
+        self.baseView.addSubview(titleLabel)
+        self.baseView.addSubview(contentLabel)
+        self.baseView.addSubview(bottomContainer)
         self.bottomContainer.addArrangedSubview(dateLabel)
         self.bottomContainer.addArrangedSubview(createSpacer())
         self.bottomContainer.addArrangedSubview(userLabel)
@@ -153,5 +167,4 @@ extension HomeCell {
         
     }
 }
-
 

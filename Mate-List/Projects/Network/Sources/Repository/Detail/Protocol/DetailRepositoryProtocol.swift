@@ -9,7 +9,7 @@ import Foundation
 
 import RxSwift
 
-protocol DetailRepositoryProtocol {
+public protocol DetailRepositoryProtocol {
     func fetchComments(pid: String) -> Observable<[String:Any]>
     func deletePost(pid: String)
     func deleteComment(pid: String, cid: String)

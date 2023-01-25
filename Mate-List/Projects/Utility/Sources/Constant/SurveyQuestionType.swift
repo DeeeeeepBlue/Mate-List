@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum SurveyQuestionType: CaseIterable {
+public enum SurveyQuestionType: CaseIterable {
     case smoking,
          cleaning,
          game,
