@@ -1,5 +1,32 @@
 import ProjectDescription
 
+let dependencies = Dependencies(
+     swiftPackageManager: .init(
+         [
+            .remote(url: "https://github.com/firebase/firebase-ios-sdk.git", requirement: .exact("8.0.0")),
+            .remote(url: "https://github.com/ReactiveX/RxSwift.git", requirement: .branch("main")),
+            .remote(url: "https://github.com/RxSwiftCommunity/RxGesture.git", requirement: .branch("main")),
+            .remote(url: "https://github.com/devxoul/RxViewController.git", requirement: .exact("2.0.0")),
+            .remote(url: "https://github.com/RxSwiftCommunity/RxNimble.git", requirement: .branch("master")),
+            .remote(url: "https://github.com/google/GoogleSignIn-iOS.git", requirement: .branch("main")),
+            .remote(url: "https://github.com/krzysztofzablocki/Inject.git", requirement: .exact("1.2.2")),
+            .remote(url: "https://github.com/SnapKit/SnapKit.git", requirement: .upToNextMajor(from: "5.0.1"))
+         ],
+         productTypes: [
+            "Firebase": .framework,
+            "RxSwift": .framework,
+            "RxGesture": .framework,
+            "RxViewController": .framework,
+            "RxNimble": .framework,
+            "GoogleSignIn-iOS": .framework,
+            "Inject": .framework,
+            "SnapKt": .framework
+         ]
+     ),
+     platforms: [.iOS]
+ )
+
+
 // MARK: Project
 public extension TargetDependency {
     static let core: TargetDependency = .project(target: "Core",
@@ -67,24 +94,4 @@ public extension Package {
     static let snapKit: Package = .package(url: "https://github.com/SnapKit/SnapKit.git", .upToNextMajor(from: "5.0.1"))
     
     
-}
-
-// MARK: SourceFile
-public extension SourceFilesList {
-    static let sources: SourceFilesList = "Sources/**"
-    static let tests: SourceFilesList = "Tests/**"
-}
-
-// MARK: Resource
-public enum ResourceType: String {
-    case xibs = "Sources/**/*.xib"
-    case storyboards = "Resources/**/*.storyboard"
-    case assets = "Resources/**"
-}
-
-// MARK: Extension
-public extension Array where Element == FileElement {
-    static func resources(with resources: [ResourceType]) -> [FileElement] {
-        resources.map { FileElement(stringLiteral: $0.rawValue) }
-    }
 }

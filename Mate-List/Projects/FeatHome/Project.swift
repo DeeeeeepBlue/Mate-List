@@ -28,10 +28,11 @@ let project = Project(
                 .featSurvey,
                 .featDetail
             ]
-        ),
-        Project.testTarget(
-            name: "FeatHome",
-            platform: .iOS
         )
+//        ,
+//        Project.testTarget(
+//            name: "FeatHome",
+//            platform: .iOS
+//        )
     ]
 )

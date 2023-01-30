@@ -26,10 +26,11 @@ let project = Project(
                 .rxRelay,
                 .core
             ]
-        ),
-        Project.testTarget(
-            name: "FeatNickName",
-            platform: .iOS
         )
+//        ,
+//        Project.testTarget(
+//            name: "FeatNickName",
+//            platform: .iOS
+//        )
     ]
 )

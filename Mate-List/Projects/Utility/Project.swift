@@ -21,10 +21,11 @@ let project = Project(
                 .googleSignIn,
                 .snapKit
             ]
-        ),
-        Project.testTarget(
-            name: "Utility",
-            platform: .iOS
         )
+//        ,
+//        Project.testTarget(
+//            name: "Utility",
+//            platform: .iOS
+//        )
     ]
 )

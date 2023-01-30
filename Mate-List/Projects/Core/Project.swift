@@ -16,10 +16,11 @@ let project = Project(
                 .network,
                 .utility
             ]
-        ),
-        Project.testTarget(
-            name: "Core",
-            platform: .iOS
         )
+//        ,
+//        Project.testTarget(
+//            name: "Core",
+//            platform: .iOS
+//        )
     ]
 )
