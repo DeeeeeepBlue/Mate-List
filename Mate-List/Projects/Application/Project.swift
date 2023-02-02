@@ -1,33 +1,20 @@
 import ProjectDescription
 import ProjectDescriptionHelpers
 
-let project = Project(
-    name: "Application",
-    organizationName: "com.ognam",
-    options: .options(automaticSchemesOptions: .enabled()),
-    packages: [
-        .rxSwift,
-        .googleSignIn,
-        .firebase
-    ],
-    targets: [
-        Project.target(
-            name: "Application",
-            product: .app,
-            sources: "Sources/**",
-            resources: "Resources/**",
-            dependencies: [
-                .rxSwift,
-                .googleSignIn,
-                .firebaseAuth,
-                .firebaseFirestore,
-                .feat
-            ]
-        )
-//        ,
-//        Project.testTarget(
-//            name: "Application",
-//            platform: .iOS
-//        )
-    ]
-)
+private let projectName = "Application"
+private let iOSTargetVersion = "14.0"
+
+let infoPlistPath: String = "Resources/Application-Info.plist"
+
+let project = Project.app(name: projectName,
+                          platform: .iOS,
+                          iOSTargetVersion: iOSTargetVersion,
+                          infoPlist: infoPlistPath,
+                          dependencies: [
+                            .external(name: "SnapKit"),
+                            .external(name: "RxSwift"),
+                            .external(name: "GoogleSignIn"),
+                            .external(name: "FirebaseAuth"),
+                            .external(name: "FirebaseFirestore"),
+                            .feat
+                          ])

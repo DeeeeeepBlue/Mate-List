@@ -1,36 +1,23 @@
 import ProjectDescription
 import ProjectDescriptionHelpers
 
-let project = Project(
-    name: "FeatNickName",
-    organizationName: "com.ognam",
-    options: .options(automaticSchemesOptions: .enabled()),
-    packages: [
-        .snapKit,
-        .rxSwift,
-        .rxGesture,
-        .rxViewController
-    ],
-    targets: [
-        Project.target(
-            name: "FeatNickName",
-            product: .framework,
-            sources: "Sources/**",
-            resources: "Resources/**",
-            dependencies: [
-                .snapKit,
-                .rxSwift,
-                .rxGesture,
-                .rxViewController,
-                .rxCocoa,
-                .rxRelay,
-                .core
-            ]
-        )
-//        ,
-//        Project.testTarget(
-//            name: "FeatNickName",
-//            platform: .iOS
-//        )
-    ]
-)
+private let projectName = "FeatNickName"
+private let iOSTargetVersion = "14.0"
+
+let infoPlist: [String: InfoPlist.Value] = [
+    "UILaunchScreen": [:]
+]
+let project = Project.frameworkWithDemoApp(name: projectName,
+                          platform: .iOS,
+                          iOSTargetVersion: iOSTargetVersion,
+                          infoPlist: infoPlist,
+                          dependencies: [
+                            .external(name: "SnapKit"),
+                            .external(name: "RxGesture"),
+                            .external(name: "RxViewController"),
+                            .external(name: "RxSwift"),
+                            .external(name: "RxCocoa"),
+                            .external(name: "RxRelay"),
+                            .core
+                          ])
+

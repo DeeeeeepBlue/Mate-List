@@ -1,37 +1,21 @@
 import ProjectDescription
 import ProjectDescriptionHelpers
 
-let project = Project(
-    name: "Network",
-    organizationName: "com.ognam",
-    options: .options(automaticSchemesOptions: .enabled()),
-    packages: [
-        .snapKit,
-        .rxSwift,
-        .rxGesture,
-        .rxViewController,
-        .firebase,
-        .googleSignIn
-    ],
-    targets: [
-        Project.target(
-            name: "Network",
-            product: .framework,
-            sources: "Sources/**",
-            resources: "Resources/**",
-            dependencies: [
-                .rxSwift,
-                .googleSignIn,
-                .firebaseAuth,
-                .firebaseStorage,
-                .firebaseDatabase,
-                .firebaseFirestore
-            ]
-        )
-//        ,
-//        Project.testTarget(
-//            name: "Network",
-//            platform: .iOS
-//        )
-    ]
-)
+private let projectName = "Network"
+private let iOSTargetVersion = "14.0"
+
+let infoPlist: [String: InfoPlist.Value] = [
+    "UILaunchScreen": [:]
+]
+let project = Project.framework(name: projectName,
+                          platform: .iOS,
+                          iOSTargetVersion: iOSTargetVersion,
+                          dependencies: [
+                            .external(name: "GoogleSignIn"),
+                            .external(name: "RxSwift"),
+                            .external(name: "FirebaseAuth"),
+                            .external(name: "FirebaseFirestore"),
+                            .external(name: "FirebaseDatabase"),
+                            .external(name: "FirebaseStorage"),
+                          ])
+

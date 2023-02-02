@@ -282,22 +282,22 @@ extension SettingViewController: ASAuthorizationControllerDelegate {
 // MARK: - Google Sign In
 extension SettingViewController {
     func startSignInWithGoogleFlow() {
-        GIDSignIn.sharedInstance.signIn(withPresenting: self) { signInResult, error in
-            guard error == nil else { return }
-            guard let signInResult = signInResult else { return }
-
-            signInResult.user.refreshTokensIfNeeded { user, error in
-                guard error == nil else { return }
-                guard let user = user else { return }
-
-                guard let idToken = user.idToken else { return }
-                // Send ID token to backend (example below).
-                
-                let credential = GoogleAuthProvider.credential(withIDToken: idToken.tokenString, accessToken: user.accessToken.tokenString)
-                
-                self.viewModel?.settingRepository.authSignIn(credential: credential)
-            }
-        }
+//        GIDSignIn.sharedInstance.signIn(withPresenting: self) { signInResult, error in
+//            guard error == nil else { return }
+//            guard let signInResult = signInResult else { return }
+//
+//            signInResult.user.refreshTokensIfNeeded { user, error in
+//                guard error == nil else { return }
+//                guard let user = user else { return }
+//
+//                guard let idToken = user.idToken else { return }
+//                // Send ID token to backend (example below).
+//                
+//                let credential = GoogleAuthProvider.credential(withIDToken: idToken.tokenString, accessToken: user.accessToken.tokenString)
+//
+//                self.viewModel?.settingRepository.authSignIn(credential: credential)
+//            }
+//        }
     }
 }
 

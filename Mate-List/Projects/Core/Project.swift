@@ -1,26 +1,18 @@
 import ProjectDescription
 import ProjectDescriptionHelpers
 
-let project = Project(
-    name: "Core",
-    organizationName: "com.ognam",
-    options: .options(automaticSchemesOptions: .enabled()),
-    packages: [],
-    targets: [
-        Project.target(
-            name: "Core",
-            product: .framework,
-            sources: "Sources/**",
-            resources: "Resources/**",
-            dependencies: [
-                .network,
-                .utility
-            ]
-        )
-//        ,
-//        Project.testTarget(
-//            name: "Core",
-//            platform: .iOS
-//        )
-    ]
-)
+private let projectName = "Core"
+private let iOSTargetVersion = "14.0"
+
+let infoPlist: [String: InfoPlist.Value] = [
+    "UILaunchScreen": [:]
+]
+
+let project = Project.framework(
+                            name: projectName,
+                            platform: .iOS,
+                            iOSTargetVersion: iOSTargetVersion,
+                            dependencies: [
+                                .network,
+                                .utility
+                            ])
