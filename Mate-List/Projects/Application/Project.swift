@@ -10,11 +10,7 @@ let project = Project.app(name: projectName,
                           platform: .iOS,
                           iOSTargetVersion: iOSTargetVersion,
                           infoPlist: infoPlistPath,
+                          packages: [],
                           dependencies: [
-                            .external(name: "SnapKit"),
-                            .external(name: "RxSwift"),
-                            .external(name: "GoogleSignIn"),
-                            .external(name: "FirebaseAuth"),
-                            .external(name: "FirebaseFirestore"),
                             .feat
                           ])

@@ -12,7 +12,9 @@ let project = Project.framework(
                             name: projectName,
                             platform: .iOS,
                             iOSTargetVersion: iOSTargetVersion,
+                            packages: [],
                             dependencies: [
+                                .thirdparty,
                                 .network,
                                 .utility
                             ])

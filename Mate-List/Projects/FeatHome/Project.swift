@@ -9,17 +9,12 @@ let infoPlist: [String: InfoPlist.Value] = [
 ]
 
 let project = Project.frameworkWithDemoApp(name: projectName,
-                          platform: .iOS,
-                          iOSTargetVersion: iOSTargetVersion,
-                          infoPlist: infoPlist,
-                          dependencies: [
-                            .external(name: "SnapKit"),
-                            .external(name: "RxGesture"),
-                            .external(name: "RxViewController"),
-                            .external(name: "RxSwift"),
-                            .external(name: "RxCocoa"),
-                            .external(name: "RxRelay"),
-                            .core,
-                            .featSurvey,
-                            .featDetail
-                          ])
+                                           platform: .iOS,
+                                           iOSTargetVersion: iOSTargetVersion,
+                                           infoPlist: infoPlist,
+                                           packages: [],
+                                           dependencies: [
+                                            .thirdparty,
+                                            .core,
+                                            .featDetail
+                                           ])

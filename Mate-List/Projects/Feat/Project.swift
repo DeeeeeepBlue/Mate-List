@@ -9,13 +9,12 @@ let infoPlist: [String: InfoPlist.Value] = [
 ]
 
 let project = Project.framework(name: projectName,
-                          platform: .iOS,
-                          iOSTargetVersion: iOSTargetVersion,
-                          dependencies: [
-                            .featHome,
-                            .featScrap,
-                            .featDetail,
-                            .featSetting,
-                            .featNickName,
-                            .featSurvey
-                          ])
+                                platform: .iOS,
+                                iOSTargetVersion: iOSTargetVersion,
+                                packages: [],
+                                dependencies: [
+                                    .featHome,
+                                    .featScrap,
+                                    .featSetting
+                
+                                ])

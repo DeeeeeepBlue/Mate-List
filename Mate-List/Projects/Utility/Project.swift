@@ -8,11 +8,9 @@ let infoPlist: [String: InfoPlist.Value] = [
     "UILaunchScreen": [:]
 ]
 let project = Project.framework(name: projectName,
-                          platform: .iOS,
-                          iOSTargetVersion: iOSTargetVersion,
-                          dependencies: [
-                            .external(name: "FirebaseAuth"),
-                            .external(name: "FirebaseFirestore"),
-                            .external(name: "GoogleSignIn"),
-                            .external(name: "SnapKit")
-                          ])
+                                platform: .iOS,
+                                iOSTargetVersion: iOSTargetVersion,
+                                packages: [],
+                                dependencies: [
+                                    .thirdparty
+                                ])
