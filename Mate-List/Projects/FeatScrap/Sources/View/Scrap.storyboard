@@ -12,7 +12,7 @@
         <!--스크랩-->
         <scene sceneID="bzk-dU-ryx">
             <objects>
-                <viewController storyboardIdentifier="scrapStoryboard" id="c4a-26-7Rt" customClass="ScrapViewController" customModule="MateList" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="scrapStoryboard" id="c4a-26-7Rt" customClass="ScrapViewController" customModule="FeatScrap" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GRq-ZL-idU">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -21,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="48" width="414" height="814"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="mateCell" rowHeight="120" id="Iup-0v-8JF" customClass="FindMateTableViewCell" customModule="MateList" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="mateCell" rowHeight="120" id="Iup-0v-8JF" customClass="FindMateTableViewCell" customModule="FeatScrap" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="414" height="120"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Iup-0v-8JF" id="vgy-qk-1mg">
@@ -97,7 +97,6 @@
                                         <connections>
                                             <outlet property="suitableBackground" destination="UWw-et-8kP" id="tdn-5H-Rqn"/>
                                             <outlet property="suitableText" destination="Ley-yD-xkP" id="EyY-OZ-Pgu"/>
-                                            <segue destination="7UH-EW-YjG" kind="show" identifier="detailSegue" id="vX1-Q2-v8x"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -120,16 +119,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Py2-Hl-kD9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="63.768115942028992" y="815.625"/>
-        </scene>
-        <!--ContentsDetailView-->
-        <scene sceneID="nCh-B7-vee">
-            <objects>
-                <viewControllerPlaceholder storyboardName="ContentsDetailView" id="7UH-EW-YjG" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="YyK-Md-DP5"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="A5m-GU-Zje" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="721" y="749"/>
         </scene>
     </scenes>
     <resources>

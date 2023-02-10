@@ -10,7 +10,7 @@ import UIKit
 import RxSwift
 import FirebaseAuth
 
-import Network
+import Service
 
 protocol MyProfileViewModelProtocol {
     var name: Observable<String>? { get }
@@ -25,10 +25,10 @@ class MyProfileViewModel: MyProfileViewModelProtocol {
     var name: Observable<String>?
     var email: Observable<String>?
     
-    let checking = PublishSubject<Network.User>()
+    let checking = PublishSubject<Service.User>()
     
     init(usecase: MyProfileUseCaseProtocol, repository: SettingRepositoryProtocol) {
-        let checking = PublishSubject<Network.User>()
+        let checking = PublishSubject<Service.User>()
         
         myProfileUseCase = usecase
         settingRepository = repository

@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 import Utility
-import Network
+import Service
 import FeatSurvey
 import FeatDetail
 

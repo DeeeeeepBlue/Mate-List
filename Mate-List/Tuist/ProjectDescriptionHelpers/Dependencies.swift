@@ -28,8 +28,8 @@ public extension TargetDependency {
     static let thirdparty: TargetDependency = .project(target: "Thirdparty",
                                                               path: .relativeToRoot("Projects/Thirdparty"))
     
-    static let network: TargetDependency = .project(target: "Network",
-                                                              path: .relativeToRoot("Projects/Network"))
+    static let service: TargetDependency = .project(target: "Service",
+                                                              path: .relativeToRoot("Projects/Service"))
     static let utility: TargetDependency = .project(target: "Utility",
                                                               path: .relativeToRoot("Projects/Utility"))
 }
@@ -64,7 +64,7 @@ public extension TargetDependency {
 }
 
 public extension Package {
-    static let firebase: Package = .package(url: "https://github.com/firebase/firebase-ios-sdk.git", from: "8.0.0")
+    static let firebase: Package = .package(url: "https://github.com/firebase/firebase-ios-sdk.git", .branch("master"))
 
     static let rxSwift: Package = .package(url: "https://github.com/ReactiveX/RxSwift.git", .branch("main"))
     static let rxGesture: Package = .package(url: "https://github.com/RxSwiftCommunity/RxGesture.git",

@@ -8,7 +8,7 @@
 import RxSwift
 import FirebaseAuth
 
-import Network
+import Service
 
 protocol QuitButtonViewModelProtocol {
     var tapButton: AnyObserver<Void> { get }

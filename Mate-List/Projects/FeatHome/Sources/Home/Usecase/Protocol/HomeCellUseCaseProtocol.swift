@@ -7,7 +7,7 @@
 
 import RxSwift
 
-import Network
+import Service
 
 protocol HomeCellUseCaseProtocol{
     static func getUserName(uid: String) -> Observable<String>

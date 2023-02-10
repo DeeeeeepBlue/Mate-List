@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import RxSwift
 
-import Network
+import Service
 
 class CommentCell: UITableViewCell {
     //MARK: - Properties

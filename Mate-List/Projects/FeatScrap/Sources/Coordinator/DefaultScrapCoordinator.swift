@@ -21,9 +21,8 @@ public class DefaultScrapCoordinator: Coordinator{
     required public init(_ navigationController: UINavigationController) {
         // 아직 스토리보드로 작동중이라 다음 코드 사용
         self.navigationController = navigationController
-        //        self.scrapViewController = ScrapViewController()
-        self.scrapViewController = UIStoryboard(name: "Scrap", bundle: nil)
-            .instantiateViewController(withIdentifier: "scrapStoryboard") as! ScrapViewController
+        self.scrapViewController = ScrapViewController()
+       
     }
     
     public func start() {

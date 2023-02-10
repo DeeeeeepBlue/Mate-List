@@ -9,7 +9,7 @@
 
 import RxSwift
 
-import Network
+import Service
 
 protocol HomeCellViewModelProtocol {
     var post: AnyObserver<Post> { get }

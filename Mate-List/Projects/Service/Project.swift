@@ -1,7 +1,7 @@
 import ProjectDescription
 import ProjectDescriptionHelpers
 
-private let projectName = "Network"
+private let projectName = "Service"
 private let iOSTargetVersion = "14.0"
 
 let infoPlist: [String: InfoPlist.Value] = [

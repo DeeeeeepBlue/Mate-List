@@ -7,7 +7,7 @@
 
 import RxSwift
 
-import Network
+import Service
 
 public protocol HomeDefaultUseCaseProtocol {
     func posts() -> Observable<[Post]>

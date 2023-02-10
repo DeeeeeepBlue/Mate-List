@@ -9,7 +9,7 @@ import Foundation
 
 import RxSwift
 
-import Network
+import Service
 
 class DetailViewModel {
     private var disposeBag = DisposeBag()

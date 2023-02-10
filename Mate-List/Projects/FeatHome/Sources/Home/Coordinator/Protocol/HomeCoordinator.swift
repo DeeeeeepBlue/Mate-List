@@ -8,7 +8,7 @@
 import Foundation
 
 import Utility
-import Network
+import Service
 
 public protocol HomeCoordinator: Coordinator {
     var homeViewController: HomeViewController { get set }

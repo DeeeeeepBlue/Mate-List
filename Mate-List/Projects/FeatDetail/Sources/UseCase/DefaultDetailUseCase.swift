@@ -10,7 +10,7 @@ import Foundation
 import RxSwift
 import UIKit
 
-import Network
+import Service
 
 class DefaultDetailUseCase {
     //MARK: 프로퍼티

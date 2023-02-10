@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 import Utility
-import Network
+import Service
 
 public class DefaultInfoCoordinator: Coordinator{
     
@@ -26,8 +26,8 @@ public class DefaultInfoCoordinator: Coordinator{
         
         // 아직 스토리보드로 작동중이라 다음 코드 사용
 //        self.navigationController = navigationController
-        self.settingViewController = UIStoryboard(name: "Info", bundle: nil)
-            .instantiateViewController(withIdentifier: "infoStoryboard") as! SettingViewController
+//        self.settingViewController = UIStoryboard(name: "Info", bundle: nil)
+//            .instantiateViewController(withIdentifier: "infoStoryboard") as! SettingViewController
     }
     
     public func start() {

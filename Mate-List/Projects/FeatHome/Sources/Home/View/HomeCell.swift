@@ -11,7 +11,7 @@ import RxSwift
 import SnapKit
 
 import Utility
-import Network
+import Service
 
 class HomeCell: UITableViewCell {
     

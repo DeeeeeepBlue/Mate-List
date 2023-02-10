@@ -6,7 +6,7 @@
 //
 
 import Utility
-import Network
+import Service
 
 public protocol DetailCoordinator: Coordinator {
     func start(with postData: Post?)

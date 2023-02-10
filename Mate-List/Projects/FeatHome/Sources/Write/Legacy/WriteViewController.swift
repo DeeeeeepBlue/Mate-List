@@ -11,7 +11,7 @@ import FirebaseAuth
 import RxSwift
 import RxCocoa
 
-import Network
+import Service
 import Utility
 
 class WriteViewController: UIViewController, UITextViewDelegate {

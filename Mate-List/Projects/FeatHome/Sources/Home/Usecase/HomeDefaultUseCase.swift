@@ -9,7 +9,7 @@
 
 import RxSwift
 
-import Network
+import Service
 
 // MARK: - Private
 class HomeDefaultUseCase: HomeDefaultUseCaseProtocol {

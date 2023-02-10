@@ -9,7 +9,7 @@ import Foundation
 
 import RxSwift
 
-import Network
+import Service
 
 protocol CommentCellViewModelProtocol {
     var comment: AnyObserver<Comment> { get }

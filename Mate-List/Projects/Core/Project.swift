@@ -15,6 +15,6 @@ let project = Project.framework(
                             packages: [],
                             dependencies: [
                                 .thirdparty,
-                                .network,
+                                .service,
                                 .utility
                             ])

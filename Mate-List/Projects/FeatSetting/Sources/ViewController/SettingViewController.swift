@@ -18,7 +18,7 @@ import RxGesture
 import GoogleSignIn
 
 import Utility
-import Network
+import Service
 
 class SettingViewController: BaseViewController {
     //MARK: - Properties
