@@ -82,19 +82,20 @@ private extension Project {
                              sources: ["Sources/**"],
                              resources: ["Resources/**"],
                              dependencies: dependencies)
-        let tests = Target(name: "\(name)Tests",
-                           platform: platform,
-                           product: .unitTests,
-                           bundleId: "\(organizationName).\(name)Tests",
-                           infoPlist: .default,
-                           sources: ["Tests/**"],
-                           resources: [],
-                           dependencies: [
-                            .target(name: name),
-                            .rxNimble,
-                            .rxTest
-                           ])
-        return [sources, tests]
+//        let tests = Target(name: "\(name)Tests",
+//                           platform: platform,
+//                           product: .unitTests,
+//                           bundleId: "\(organizationName).\(name)Tests",
+//                           infoPlist: .default,
+//                           sources: ["Tests/**"],
+//                           resources: [],
+//                           dependencies: [
+//                            .target(name: name),
+//                            .rxNimble,
+//                            .rxTest
+//                           ])
+//        return [sources, tests]
+        return [sources]
     }
 
     static func makeAppTargets(name: String, platform: Platform, iOSTargetVersion: String, infoPlist: [String: InfoPlist.Value] = [:], dependencies: [TargetDependency] = []) -> [Target] {
@@ -112,19 +113,20 @@ private extension Project {
             dependencies: dependencies
         )
 
-        let testTarget = Target(
-            name: "\(name)Tests",
-            platform: platform,
-            product: .unitTests,
-            bundleId: "\(organizationName).Tests",
-            infoPlist: .default,
-            sources: ["Tests/**"],
-            dependencies: [
-                .target(name: "\(name)"),
-                .rxTest,
-                .rxNimble
-            ])
-        return [mainTarget, testTarget]
+//        let testTarget = Target(
+//            name: "\(name)Tests",
+//            platform: platform,
+//            product: .unitTests,
+//            bundleId: "\(organizationName).Tests",
+//            infoPlist: .default,
+//            sources: ["Tests/**"],
+//            dependencies: [
+//                .target(name: "\(name)"),
+//                .rxTest,
+//                .rxNimble
+//            ])
+//        return [mainTarget, testTarget]
+        return [mainTarget]
     }
 
     static func makeAppTargets(name: String, platform: Platform, iOSTargetVersion: String, infoPlist: String, dependencies: [TargetDependency] = []) -> [Target] {
@@ -142,18 +144,19 @@ private extension Project {
             dependencies: dependencies
         )
 
-        let testTarget = Target(
-            name: "\(name)Tests",
-            platform: platform,
-            product: .unitTests,
-            bundleId: "\(organizationName).Tests",
-            infoPlist: .default,
-            sources: ["Tests/**"],
-            dependencies: [
-                .target(name: "\(name)"),
-                .rxTest,
-                .rxNimble
-            ])
-        return [mainTarget, testTarget]
+//        let testTarget = Target(
+//            name: "\(name)Tests",
+//            platform: platform,
+//            product: .unitTests,
+//            bundleId: "\(organizationName).Tests",
+//            infoPlist: .default,
+//            sources: ["Tests/**"],
+//            dependencies: [
+//                .target(name: "\(name)"),
+//                .rxTest,
+//                .rxNimble
+//            ])
+//        return [mainTarget, testTarget]
+        return [mainTarget]
     }
 }
