@@ -35,7 +35,7 @@ public class HomeViewController: UIViewController {
     
     func style() {
         self.view.backgroundColor = .white
-        self.navigationController?.navigationBar.topItem?.title = "Mate-List"
+        self.navigationController?.navigationBar.topItem?.title = "홈"
     }
     
     func setBind() {

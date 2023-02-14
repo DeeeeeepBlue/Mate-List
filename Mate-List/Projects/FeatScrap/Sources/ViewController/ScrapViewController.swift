@@ -40,7 +40,7 @@ class ScrapViewController: UIViewController {
     
     func style() {
         self.view.backgroundColor = .white
-        self.navigationController?.navigationBar.topItem?.title = "Mate-List"
+        self.navigationController?.navigationBar.topItem?.title = "스크랩"
     }
     
     override func viewDidLoad() {

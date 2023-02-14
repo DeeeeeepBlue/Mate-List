@@ -47,8 +47,7 @@ class SettingViewController: BaseViewController {
     
     override func style() {
         super.style()
-        
-        navigationController?.title = "내 정보"
+        self.navigationController?.navigationBar.topItem?.title = "내 정보"
         
         let navigationBarAppearance = UINavigationBarAppearance()
             navigationBarAppearance.configureWithTransparentBackground()

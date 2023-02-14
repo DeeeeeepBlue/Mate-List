@@ -98,7 +98,7 @@ public class DefaultTabBarCoordinator: TabBarCoordinator {
         let tabNavigationController = UINavigationController()
         
         tabNavigationController.setNavigationBarHidden(false, animated: false)
-        tabNavigationController.navigationBar.topItem?.title = TabBarItemType(index: tabBarItem.tag)?.toKrName()
+        //tabNavigationController.title = TabBarItemType(index: tabBarItem.tag)?.toKrName()
         tabNavigationController.tabBarItem = tabBarItem
 
         return tabNavigationController
@@ -108,7 +108,6 @@ public class DefaultTabBarCoordinator: TabBarCoordinator {
         // tag 번호로 TabBarPage로 변경
         let tabBarItemTag: Int = tabNavigationController.tabBarItem.tag
         guard let tabBarItemType: TabBarItemType = TabBarItemType(index: tabBarItemTag) else { return }
-        
         // 코디네이터 생성 및 실행
         switch tabBarItemType {
         case .home:
