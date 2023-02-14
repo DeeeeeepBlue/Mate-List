@@ -14,7 +14,6 @@ let project = Project.frameworkWithDemoApp(name: projectName,
                                            packages: [],
                                            dependencies: [
                                             .thirdparty,
-                                          
                                             .core
                                            ])
 

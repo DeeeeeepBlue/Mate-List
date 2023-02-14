@@ -29,5 +29,6 @@ let project = Project.app(name: projectName,
                           infoPlist: infoPlist,
                           packages: [],
                           dependencies: [
+                            .thirdparty,
                             .feat
                           ])

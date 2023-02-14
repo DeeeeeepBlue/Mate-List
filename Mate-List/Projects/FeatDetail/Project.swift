@@ -15,7 +15,6 @@ let project = Project.frameworkWithDemoApp(
                                         infoPlist: infoPlist,
                                         packages: [],
                                         dependencies: [
-                                            .thirdparty,
-                                            
+                                            .thirdparty,       
                                             .core
                                         ])
