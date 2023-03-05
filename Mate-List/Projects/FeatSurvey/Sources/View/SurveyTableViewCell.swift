@@ -19,10 +19,12 @@ class SurveyTableViewCell: UITableViewCell {
     // MARK: - Properties
     static var cellIdentifier = "surveyTableViewCell"
     
+    // Container
     private(set) lazy var container: UIStackView = UIStackView()
     private(set) lazy var questionContainer: UIStackView = UIStackView()
     private(set) lazy var answerContainer: UIStackView = UIStackView()
     
+    // Element
     private(set) lazy var questionNumber = self.createLabel(size: 14,
                                                             weight: .semibold,
                                                             textColor: .mainblue)
@@ -59,10 +61,10 @@ extension SurveyTableViewCell {
     }
 }
 
-//MARK: - ConfigureUI
+//MARK: - Configure UI
 extension SurveyTableViewCell {
     func updateUI(question: String, questionNumber: Int) {
-        // ViewModel에 post 넘기기
+        // ViewModel -> ViewController -> Cell -> CellViewModel 식으로 컨텐츠 전달
         viewModel.question
             .onNext(question)
         
@@ -70,6 +72,7 @@ extension SurveyTableViewCell {
             .onNext(questionNumber)
     }
     
+    // Bind action and content
     private func bind() {
 
         // Bind label text
@@ -97,12 +100,13 @@ extension SurveyTableViewCell {
         
     }
     
+    // Set UI style
     private func styleUI(){
         self.questionNumber.tintColor = .blue
     }
     
     
-    
+    // Set UI layout
     private func configureUI() {
         self.contentView.snp.makeConstraints { make in
             make.top.leading.trailing.equalToSuperview()

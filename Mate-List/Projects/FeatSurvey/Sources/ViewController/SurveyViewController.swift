@@ -27,7 +27,6 @@ public class SurveyViewController: UIViewController {
     
     // Rx
     private let disposeBag = DisposeBag()
-
     
     override public func viewDidLoad() {
         super.viewDidLoad()

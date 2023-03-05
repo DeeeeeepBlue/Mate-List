@@ -10,8 +10,9 @@ import UIKit
 
 import Utility
 import Service
-//import FeatSurvey
+import FeatSurvey
 import FeatDetail
+
 
 public class DefaultHomeCoordinator: HomeCoordinator {
     
@@ -39,10 +40,10 @@ public class DefaultHomeCoordinator: HomeCoordinator {
 
     // ⚠️ 임시
     public func startSurveyFlow(){
-//        let surveyCoordinator = DefaultSurveyCoordinator(self.navigationController)
-//        surveyCoordinator.finishDelegate = self
-//        self.childCoordinators.append(surveyCoordinator)
-//        surveyCoordinator.start()
+        let surveyCoordinator = DefaultSurveyCoordinator(self.navigationController)
+        surveyCoordinator.finishDelegate = self
+        self.childCoordinators.append(surveyCoordinator)
+        surveyCoordinator.start()
     }
 
     public func showDetailFlow(postData: Post?) {
