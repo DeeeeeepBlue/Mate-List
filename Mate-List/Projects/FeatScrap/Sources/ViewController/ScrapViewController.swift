@@ -16,92 +16,59 @@ import Utility
 
 class ScrapViewController: UIViewController {
     //MARK: - Properties
-//    @IBOutlet var scrapTableView: UITableView!
-//
-//    var scrapTableViewController = UITableViewController()
-//
+    var scrapTableView = ScrapTableView()
+    var emptyView = EmptyView()
+
 //    var ref: DocumentReference? = nil
-//    var posts : [Post] = []
-//    let relay = BehaviorRelay(value: [Post]())
+    var posts : [Post] = []
+    let postRelay = BehaviorRelay(value: [Post]())
 //
     
     // MARK: - LifeCycle
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-//        posts.removeAll()
-//
-//        self.dataLoad()
-//        self.reloadTableView()
-//        self.setEmptyView()
-        style()
+        
     }
 
-    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        style()
+        setView()
+        setConstraint()
+        setBind()
+    }
     func style() {
         self.view.backgroundColor = .white
         self.navigationController?.navigationBar.topItem?.title = "스크랩"
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-//
-//        self.scrapTableView.delegate = self
-//        self.scrapTableView.dataSource = self
-//
-//        self.scrapTableViewController.tableView.delegate = self
-//        self.scrapTableViewController.tableView.dataSource = self
-//
-//
-//
-//        // 테두리 여백 만들기
-//        self.scrapTableView.frame = self.scrapTableView.frame.inset(by: UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 15))
-//
-//        customNavigationBar()
-
-        // Do any additional setup after loading the view.
+    func setView() {
+        
+    }
+    func setConstraint() {
+        
     }
     
-//    // MARK: - Custom function
-//    func setEmptyView(){
-//        lazy var emptyView : UIView = {
-//            let v = UIView()
-//            let lb = UILabel()
-//            lb.text = "Empty!"
-//            lb.textColor = .gray
-//            v.addSubview(lb)
-//            lb.snp.makeConstraints {$0.center.equalToSuperview()}
-//            v.isHidden = true
-//            return v
-//        }()
+    func setBind() {
+         
+        /// EmptyView
+        /// post 
+        // BehaviorRelay
+        postRelay.asObservable()
+            .subscribe{ event in
+                let result = event.element ?? []
+                if result.isEmpty {
+                    self.emptyView.isHidden = false
+                } else {
+                    self.emptyView.isHidden = true
+                }
+            }
+    }
+    
+
 //
 //
-//        self.view.addSubview(emptyView)
-//
-//        emptyView.snp.makeConstraints { make in
-//            make.center.equalToSuperview()
-//            make.width.equalTo(50)
-//            make.height.equalTo(50)
-//        }
-//        // BehaviorRelay
-//        relay.asObservable()
-//            .subscribe{ event in
-//                let result = event.element ?? []
-//                if result.isEmpty {
-//                    emptyView.isHidden = false
-//                } else {
-//                    emptyView.isHidden = true
-//                }
-//            }
-//
-//    }
-//
-//    func customNavigationBar(){
-//        //배경하고 그림자 없게
-//        let navigationBarAppearance = UINavigationBarAppearance()
-//            navigationBarAppearance.configureWithTransparentBackground()
-//        navigationController?.navigationBar.standardAppearance = navigationBarAppearance
-//    }
 //
 //    func existScrap(docPath:String, _ escapingHandler : @escaping (Bool) -> ()){
 //        //TODO:        //TODO: [AppDelegate] Auth 고치기 11
