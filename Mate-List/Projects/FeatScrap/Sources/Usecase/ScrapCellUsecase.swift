@@ -6,8 +6,19 @@
 //  Copyright © 2023 com.ognam. All rights reserved.
 //
 
-import Foundation
+import RxSwift
+
+import Service
 
 class ScrapCellUsecase {
+    static func getHabitCheck(uid: String) -> Observable<HabitCheck> {
+        return IDFirestoreRepository
+            .habitCheck(uid: uid)
+    }
+    
+    static func getMyUID() -> Observable<String> {
+        return IDFirestoreRepository
+            .myUID()
+    }
     
 }

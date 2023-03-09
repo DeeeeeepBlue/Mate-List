@@ -215,3 +215,12 @@ class ScrapViewController: UIViewController {
 //    }
 
 }
+#if canImport(SwiftUI) && DEBUG
+import SwiftUI
+
+struct ScrapViewControllerPreview: PreviewProvider {
+    static var previews: some View {
+        ScrapViewController().toPreview()
+    }
+}
+#endif

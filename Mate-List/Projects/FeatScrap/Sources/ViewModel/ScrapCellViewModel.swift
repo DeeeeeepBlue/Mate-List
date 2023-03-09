@@ -39,19 +39,23 @@ class ScrapCellViewModel: ScrapCellViewModelProtocol {
         
         
         
-        myHabit = ScrapCellUsecase
+        myHabit =
+            ScrapCellUsecase
             .getMyUID()
             .flatMap{ ScrapCellUsecase.getHabitCheck(uid: $0) }
             
-        otherHabit = postSubject
+        otherHabit =
+            postSubject
             .map{ $0.uid }
             .flatMap{ ScrapCellUsecase.getHabitCheck(uid: $0)}
 
         // ???: 이상한 셀에 적합도를 넣어줌.
-        matchPercent = Observable
-            .zip(myHabit, otherHabit,resultSelector: { myHabit, otherHabit in
-                return ScrapCellUsecase.calculatingFit(mySurvey: myHabit, otherSurvey: otherHabit)
-            })
+        matchPercent =
+            Observable
+            .just("")
+//            .zip(myHabit, otherHabit,resultSelector: { myHabit, otherHabit in
+//                return ScrapCellUsecase.calculatingFit(mySurvey: myHabit, otherSurvey: otherHabit)
+//            })
             .map{"\($0)%"}
             .debug()
             
@@ -69,7 +73,7 @@ class ScrapCellViewModel: ScrapCellViewModelProtocol {
         // ???: 이름이 왔다갔다하는 버그 있음
         user = postSubject
             .map{ $0.uid }
-            .flatMap{ScrapCellUsecase.getUserName(uid: $0)}
+//            .flatMap{ScrapCellUsecase.getUserName(uid: $0)}
         
     }
 }
