@@ -14,12 +14,11 @@ public class DefaultScrapCoordinator: Coordinator{
     
     weak public var finishDelegate: CoordinatorFinishDelegate?
     public var navigationController: UINavigationController
-    var scrapViewController: ScrapViewController
     public var childCoordinators: [Coordinator] = []
-    public var type: CoordinatorType = .home
+    public var type: CoordinatorType = .scrap
+    var scrapViewController: ScrapViewController
     
     required public init(_ navigationController: UINavigationController) {
-        // 아직 스토리보드로 작동중이라 다음 코드 사용
         self.navigationController = navigationController
         self.scrapViewController = ScrapViewController()
        

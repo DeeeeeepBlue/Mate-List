@@ -17,6 +17,13 @@ import Utility
 class ScrapViewController: UIViewController {
     //MARK: - Properties
     var scrapTableView = ScrapTableView()
+//    var emptyView: UIView = {
+//        let view = UIView()
+//        view.backgroundColor = .red
+//        return view
+//
+//    }()
+    
     var emptyView = EmptyView()
 
 //    var ref: DocumentReference? = nil
@@ -25,11 +32,6 @@ class ScrapViewController: UIViewController {
 //
     
     // MARK: - LifeCycle
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,16 +40,24 @@ class ScrapViewController: UIViewController {
         setConstraint()
         setBind()
     }
+    
     func style() {
         self.view.backgroundColor = .white
         self.navigationController?.navigationBar.topItem?.title = "스크랩"
     }
     
     func setView() {
-        
+        //self.view.addSubview(scrapTableView)
+        self.view.addSubview(emptyView)
     }
+    
     func setConstraint() {
-        
+        emptyView.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
+            make.leading.equalTo(view.safeAreaLayoutGuide.snp.leading)
+            make.trailing.equalTo(view.safeAreaLayoutGuide.snp.trailing)
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
+        }
     }
     
     func setBind() {

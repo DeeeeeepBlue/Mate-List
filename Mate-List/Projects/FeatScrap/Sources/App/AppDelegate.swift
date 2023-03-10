@@ -36,6 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         AppDelegate.fireAuth.signOut()
         
+        print("app")
         return true
     }
 

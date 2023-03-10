@@ -10,35 +10,28 @@ import UIKit
 
 import SnapKit
 
-class EmptyView: UIView {
+import Utility
+
+class EmptyView: BaseView {
     
-    lazy var emptyView : UIView = {
+     var emptyView : UIView = {
         let v = UIView()
         let lb = UILabel()
+         
+         v.addSubview(lb)
+         
         lb.text = "Empty!"
         lb.textColor = .gray
-        v.addSubview(lb)
         lb.snp.makeConstraints {$0.center.equalToSuperview()}
-        v.isHidden = true
+    
+        v.isHidden = false
+        
         return v
     }()
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        
-    }
-    
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        setView()
-        constraintsView()
-    }
-    
-    func setView() {
+  
+    override func configureUI() {
         self.addSubview(emptyView)
-    }
-
-    func constraintsView() {
+        
         emptyView.snp.makeConstraints { make in
             make.center.equalToSuperview()
             make.width.equalTo(50)
