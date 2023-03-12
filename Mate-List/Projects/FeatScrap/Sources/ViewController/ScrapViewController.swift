@@ -9,6 +9,7 @@ import UIKit
 import Firebase
 import RxCocoa
 import RxSwift
+import RxViewController
 
 import Service
 import Utility
@@ -16,20 +17,14 @@ import Utility
 
 class ScrapViewController: UIViewController {
     //MARK: - Properties
+    // Init
     var scrapTableView = ScrapTableView()
-//    var emptyView: UIView = {
-//        let view = UIView()
-//        view.backgroundColor = .red
-//        return view
-//
-//    }()
-    
     var emptyView = EmptyView()
+    var disposeBag = DisposeBag()
+    
+    // Optional
+    var viewModel: ScrapViewModel?
 
-//    var ref: DocumentReference? = nil
-    var posts : [Post] = []
-    let postRelay = BehaviorRelay(value: [Post]())
-//
     
     // MARK: - LifeCycle
 
@@ -39,6 +34,7 @@ class ScrapViewController: UIViewController {
         setView()
         setConstraint()
         setBind()
+
     }
     
     func style() {
@@ -47,7 +43,7 @@ class ScrapViewController: UIViewController {
     }
     
     func setView() {
-        //self.view.addSubview(scrapTableView)
+        self.view.addSubview(scrapTableView)
         self.view.addSubview(emptyView)
     }
     
@@ -61,12 +57,26 @@ class ScrapViewController: UIViewController {
     }
     
     func setBind() {
+        /// 설명 : 뷰 로드시 이벤트 전달
+        let firstLoad = rx.viewWillAppear
+            .map { _ in () }
+            .asObservable()
+        
+        /// 설명 : input, output 초기화
+        let input = ScrapViewModel.Input(
+            appear: firstLoad,
+            cellTapEvent: scrapTableView.rx.itemSelected.asObservable()
+        )
+        
+        let output = self.viewModel?.transform(from: input, disposeBag: disposeBag)
+        
+        /// 설명 : 테이블 뷰 Binding
+        //TODO: 테이블 뷰 넣기
+        
          
-        /// EmptyView
-        /// post 
-        // BehaviorRelay
-        postRelay.asObservable()
-            .subscribe{ event in
+        /// 설명 : postRelay에 넘겨준 event에 값이 비어있으면 EmptyView를 보이게 한다.
+        output?.allPosts.asObservable()
+            .subscribe { event in
                 let result = event.element ?? []
                 if result.isEmpty {
                     self.emptyView.isHidden = false
@@ -74,6 +84,7 @@ class ScrapViewController: UIViewController {
                     self.emptyView.isHidden = true
                 }
             }
+
     }
     
 
@@ -140,11 +151,6 @@ class ScrapViewController: UIViewController {
 ////                    }
 ////                }
 //        }
-//    func reloadTableView() {
-//        self.scrapTableView.reloadData()
-//        // 🛠 Rx
-//        self.relay.accept(self.posts)
-//    }
 //
 //    // MARK: - Table view data source
 //
