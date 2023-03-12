@@ -23,4 +23,7 @@ class ScrapUsecase {
             return Disposables.create()
         }
     }
+    
+    // TODO: User에 있는 Scrap Post 가져와서 Post DB에 for문 돌력서 있는지 확인하고 없으면 User에서 지우기
+
 }
