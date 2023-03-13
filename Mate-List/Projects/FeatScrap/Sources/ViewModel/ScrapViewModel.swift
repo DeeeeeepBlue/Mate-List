@@ -36,7 +36,10 @@ class ScrapViewModel {
     
     // Function: Make Input, Output
     func configureinput(_ input: Input) {
+        
+        
         input.appear
+            .flatMap(scrapUsecase.getUID)
             .flatMap(scrapUsecase.fetchScrapPost)
             .subscribe(onNext: self.scrapUsecase.scrapPosts.onNext)
             .disposed(by: disposeBag)
@@ -44,6 +47,7 @@ class ScrapViewModel {
         input.cellTapEvent
             .subscribe(onNext: { indexPath in
                 let post = self.scrapUsecase.posts[indexPath.row]
+                // TODO: Coordinator 연결 (화면전환
                 //self.coordinator?.showDetailFlow(postData: post)
             })
             .disposed(by: disposeBag)

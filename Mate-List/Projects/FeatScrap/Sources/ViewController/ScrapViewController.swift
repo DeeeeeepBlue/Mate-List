@@ -73,7 +73,6 @@ class ScrapViewController: UIViewController {
         let output = self.viewModel?.transform(from: input, disposeBag: disposeBag)
         
         /// 설명 : 테이블 뷰 Binding
-        //TODO: 테이블 뷰 넣기
         output?.allPosts
             .bind(to: scrapTableView.rx.items(cellIdentifier: ScrapCell.cellIdentifier, cellType: ScrapCell.self)) {
                 _, post, cell in

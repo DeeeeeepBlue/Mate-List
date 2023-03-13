@@ -10,8 +10,11 @@ import Firebase
 import RxSwift
 
 public class ScrapRepository {
+    
+    public init () { }
+    
     /// Post 데이터 베이스에서 post 가져오기
-    func existScrap(docPath: String) -> Observable<Bool> {
+    public func existScrap(docPath: String) -> Observable<Bool> {
         return Observable.create { observer in
             FireStoreService.db.collection("Post").document(docPath).getDocument { (document, error) in
                 if let document = document, document.exists {
@@ -28,7 +31,7 @@ public class ScrapRepository {
     }
     
     /// User가 Scrap한 포스터들 가져오기
-    func fetchScrapPosts(uid: String) -> Observable<[Post]> {
+    public func fetchScrapPosts(uid: String) -> Observable<[Post]> {
         return Observable.create { observer in
             FireStoreService.db.collection("User").document(uid).collection("Scrap").getDocuments() { (querySnapshot, err) in
                 if let err = err {
@@ -60,7 +63,7 @@ public class ScrapRepository {
    }
     
     /// Scrap Post 삭제하기
-    func deleteScrapPost(uid: String, pid: String) {
+    public func deleteScrapPost(uid: String, pid: String) {
         FireStoreService.db.collection("User").document(uid).collection("Scrap").document(pid).delete() { err in
             if let err = err {
                 print("Error removing document: \(err)")
